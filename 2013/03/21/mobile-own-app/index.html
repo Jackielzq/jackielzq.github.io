@@ -1,0 +1,786 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="APP,移动,站长," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jackie的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="PC时代的兴盛带动了一大批个人草根站长的崛起，到现在移动互联网迅猛发展的形势下，“与时俱进”势不可挡。经过这么多年的发展，现在很容易就可以自建一个个人网站，这得归功于无私奉献的Wordpress等平台。而在移动端，快速制作一个属于自己的APP对于非开发者的站长来说，平台也显得格外重要。最近从一些文章得知，目前国内外已经有部分移动端APP生成器了，不管是自身需要还是好奇心驱使，相信许多人已经跃跃欲试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动时代的站长-你有自己的专属APP吗？">
+<meta property="og:url" content="http://jackie.ms/2013/03/21/mobile-own-app/index.html">
+<meta property="og:site_name" content="Jackie的博客">
+<meta property="og:description" content="PC时代的兴盛带动了一大批个人草根站长的崛起，到现在移动互联网迅猛发展的形势下，“与时俱进”势不可挡。经过这么多年的发展，现在很容易就可以自建一个个人网站，这得归功于无私奉献的Wordpress等平台。而在移动端，快速制作一个属于自己的APP对于非开发者的站长来说，平台也显得格外重要。最近从一些文章得知，目前国内外已经有部分移动端APP生成器了，不管是自身需要还是好奇心驱使，相信许多人已经跃跃欲试">
+<meta property="og:updated_time" content="2016-09-21T07:45:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动时代的站长-你有自己的专属APP吗？">
+<meta name="twitter:description" content="PC时代的兴盛带动了一大批个人草根站长的崛起，到现在移动互联网迅猛发展的形势下，“与时俱进”势不可挡。经过这么多年的发展，现在很容易就可以自建一个个人网站，这得归功于无私奉献的Wordpress等平台。而在移动端，快速制作一个属于自己的APP对于非开发者的站长来说，平台也显得格外重要。最近从一些文章得知，目前国内外已经有部分移动端APP生成器了，不管是自身需要还是好奇心驱使，相信许多人已经跃跃欲试">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Jackie'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jackie.ms/2013/03/21/mobile-own-app/"/>
+
+
+
+
+
+  <title> 移动时代的站长-你有自己的专属APP吗？ | Jackie的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-28253637-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jackie的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">学习|交流|分享</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-study">
+          <a href="/study" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            学习
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jackie.ms/2013/03/21/mobile-own-app/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jackie Luo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jackie的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jackie的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                移动时代的站长-你有自己的专属APP吗？
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-03-21T01:26:30+08:00">
+                2013-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2013/03/21/mobile-own-app/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/03/21/mobile-own-app/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>PC时代的兴盛带动了一大批个人草根站长的崛起，到现在移动互联网迅猛发展的形势下，“与时俱进”势不可挡。经过这么多年的发展，现在很容易就可以自建一个个人网站，这得归功于无私奉献的Wordpress等平台。而在移动端，快速制作一个属于自己的APP对于非开发者的站长来说，平台也显得格外重要。最近从一些文章得知，目前国内外已经有部分移动端APP生成器了，不管是自身需要还是好奇心驱使，相信许多人已经跃跃欲试了。下面我简单总结了几个工具供大家参考：</p>
+<p><strong>1，<a href="http://uppsite.com/" target="_blank" rel="external">UPPsite</a></strong></p>
+<p>UppSite这款应用的功能是将让网络Web网站变成本地移动应用，以便手机也能浏览该网站。你只需要输入URL地址然后进行应用的个性化设置，UppSite就能根据你的设置生成相应的移动应用。目前支持iOS和Android设备，未来还将支持Windows Phone设备。目前也同时在研发Wordpress VIP项目，相信在不久以后便能与wordpress漂亮地衔接。不过目前Uppsite应用支持的网站程序不多，只支持WordPress，Blogger网站，并在不久就会支持Tumblr网站。（这家是以色列的公司，虽然他们国家不是很稳定，但是相比于和谐的我们，这个产品的设计和制作也足够让我们国内的开发者敲响警钟了）</p>
+<a id="more"></a>
+<p><strong>2.<a href="http://www.appmakr.com/" target="_blank" rel="external">APPMakr</a></strong></p>
+<p>AppMakr是一个可以让你在几分钟之内创建应用程序的一种服务，无需编码能力。使用该工具，你可以创建iPhone和Android(貌似目前只支持iphone平台)应用。还有一些可供选择的功能，包括将网站连接到你的应用程序、HTML5功能、推送通知和广告支持。通过AppMaker账户，你可以创建无限数量的应用程序。</p>
+<!--more-->
+<p><strong>3.<a href="http://theappifier.com/" target="_blank" rel="external">Appifier</a></strong></p>
+<p>Appifier 是一个新服务，之前处于 Beta 阶段，它能够把 Wordpress 网站变成移动应用。值得注意的是，这里不是把网站变成移动网站，它是真正的移动应用，可以有推送通知、离线接入、分享到社交网络等功能。它有本地应用的外观、感觉和速度。所以通过Wordpress建站的朋友们用这个工具会比较方便一些。而且经我个人测试，通过它生成的APP感觉比其他的外观要更精致（一直觉得外观虽然不是最重要的，但是也是非常重要的一环，就如同找工作时用的简历，虽然能力是第一位，但是很多人第一印象就给被打上了“失败者”的标签，仅仅是因为表面功夫做的不够好。）乔布斯给APP的UI定下了一个非常高的标准，以至于90%的设计师都如履薄冰。但对于用户来说，只能用一个“爽”字形容。</p>
+<p><strong>4.<a href="http://my-apps.com/" target="_blank" rel="external">my-app</a></strong></p>
+<p>My-Apps 声称只需要 5 个步骤就能做出一个跨多平台的 App，包括 iOS、Android、黑莓以及 HTML 5 等平台，而且你不需要任何特殊技能，就像我们用 Wordpress 做一个博客一样。是一个从无到有的设计过程，界面流程设计都很给力，已经获得俄罗斯 Financial Group Life 的 150 万美元投资。我试验过做一个APP出来，确实挺赞，十分推荐。这里偷个懒不贴图了，有兴趣的朋友自己去尝试一下，登录界面有“涂鸦跳跃”的感觉。</p>
+<p><strong>5.<a href="http://siteapp.baidu.com" target="_blank" rel="external">site APP</a></strong></p>
+<p>这个是百度推出的产品，在浏览器输入法等领域感受到了威胁以后，很明显其在移动端的关注要明显增加了。这一款产品也是在无声无息中出现在我们视野当中，其APP生成流程比之前几个略为复杂一些。首先要通过添加代码到网站头部或者上传文件到网站根目录下进行验证。在之后的设计过程中有点粗糙，主要是通过截取你网站中的内容进行整合，创新的部分比较少，最后还需要配置移动域名，果然还是没有国外的那么轻松。我的网站至今没有备案，所以也没机会投百度的广告了，这个以后再说吧，不是重点。</p>
+<p><strong>6.appBook应用制作精灵</strong></p>
+<p>总的来说，这个应用不适合习惯偷懒的站长们。因为它不是一个在线生成APP的平台，而是一个软件，由国内一家公司研发的，界面与Axure非常相似。所有的框架，图片，交互设计，都得由自己完成，它的好处就是你可以更好的把握自主创作权。如果你有很好的设计功底，不妨一试。</p>
+<p><strong>7.掌门王</strong></p>
+<p>这家深圳的公司获得了腾讯的支持，但是貌似主要是对企业客户开放的。列举在这里主要是充个数，没有试用过，不予置评，有兴趣的朋友可以尝试一下。</p>
+<p><em><strong>小结</strong></em></p>
+<p>以上前四个平台都还漏掉一个步骤，这里说明一下：他们都支持生成APP之后提交到apple store或者Google Play，前提是你得花几十刀先注册开发者身份，然后才能下载APP到你手机端。不管怎么样，如果真想做点东西出来玩玩，这些钱还是不贵的。</p>
+<p>好的工具只用一种就行，这些工具都是触类旁通的，关键看哪个比较适合你。开始的时候不妨多做尝试，可以切身体验一下他们的不同，相信在最后你会做出正确的选择的。</p>
+<p>如果你有不同的发现，也欢迎提供给我，流程更简洁、可以直接下载APP无需提交或者免费提交等的平台最好了，先就此谢过~</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>听说长的好看的人，看完都会扫下面的二维码！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Jackie Luo WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/APP/" rel="tag"># APP</a>
+          
+            <a href="/tags/移动/" rel="tag"># 移动</a>
+          
+            <a href="/tags/站长/" rel="tag"># 站长</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/03/21/what-we-know-supposed-to-be-wrong/" rel="next" title="我们所知道的不一定是对的">
+                <i class="fa fa-chevron-left"></i> 我们所知道的不一定是对的
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/03/21/good-bye-msn/" rel="prev" title="QQ:再见MSN">
+                QQ:再见MSN <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2013/03/21/mobile-own-app/"
+           data-title="移动时代的站长-你有自己的专属APP吗？" data-url="http://jackie.ms/2013/03/21/mobile-own-app/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Jackie Luo" />
+          <p class="site-author-name" itemprop="name">Jackie Luo</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">116</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">197</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/jackielzq" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jackieluo" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-apple"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://placeless.net/" title="徐爷的文艺站" target="_blank">徐爷的文艺站</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jackie Luo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jackiems"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

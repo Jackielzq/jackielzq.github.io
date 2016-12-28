@@ -1,0 +1,804 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="debug,firebug,调试网站," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jackie的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="相信许多做网站开发的都有接触到或者用到Firebug这个工具，因为它确实给调试程序或代码带来了极大的便利。跟网站有关的html、javascript以及css都能调试并直接预览结果，相比你改完-保存-上传-刷新这种步骤要节省好多时间，而且更加的直观。下面我来简单介绍一下这个工具以及通过在实际应用情况下让大家感受一下他的强大。
+1、Firebug的安装：
+firebug是firefox浏览器中的一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Firebug调试网站">
+<meta property="og:url" content="http://jackie.ms/2013/04/01/debug-website-by-firebug/index.html">
+<meta property="og:site_name" content="Jackie的博客">
+<meta property="og:description" content="相信许多做网站开发的都有接触到或者用到Firebug这个工具，因为它确实给调试程序或代码带来了极大的便利。跟网站有关的html、javascript以及css都能调试并直接预览结果，相比你改完-保存-上传-刷新这种步骤要节省好多时间，而且更加的直观。下面我来简单介绍一下这个工具以及通过在实际应用情况下让大家感受一下他的强大。
+1、Firebug的安装：
+firebug是firefox浏览器中的一个">
+<meta property="og:image" content="http://jackie.ms/wp-content/uploads/2013/04/firebug11.jpg">
+<meta property="og:image" content="http://jackie.ms/wp-content/uploads/2013/03/firebug2.jpg">
+<meta property="og:image" content="http://jackie.ms/wp-content/uploads/2013/03/firebug3.jpg">
+<meta property="og:image" content="http://jackie.ms/wp-content/uploads/2013/03/firebug4.jpg">
+<meta property="og:image" content="http://jackie.ms/wp-content/uploads/2013/03/firebug51.jpg">
+<meta property="og:image" content="http://jackie.ms/wp-content/uploads/2013/03/firebug6.jpg">
+<meta property="og:image" content="http://jackie.ms/wp-content/uploads/2013/03/firebug7.jpg">
+<meta property="og:updated_time" content="2016-09-21T07:45:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用Firebug调试网站">
+<meta name="twitter:description" content="相信许多做网站开发的都有接触到或者用到Firebug这个工具，因为它确实给调试程序或代码带来了极大的便利。跟网站有关的html、javascript以及css都能调试并直接预览结果，相比你改完-保存-上传-刷新这种步骤要节省好多时间，而且更加的直观。下面我来简单介绍一下这个工具以及通过在实际应用情况下让大家感受一下他的强大。
+1、Firebug的安装：
+firebug是firefox浏览器中的一个">
+<meta name="twitter:image" content="http://jackie.ms/wp-content/uploads/2013/04/firebug11.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Jackie'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jackie.ms/2013/04/01/debug-website-by-firebug/"/>
+
+
+
+
+
+  <title> 用Firebug调试网站 | Jackie的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-28253637-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jackie的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">学习|交流|分享</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-study">
+          <a href="/study" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            学习
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jackie.ms/2013/04/01/debug-website-by-firebug/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jackie Luo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jackie的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jackie的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                用Firebug调试网站
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-04-01T00:13:57+08:00">
+                2013-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2013/04/01/debug-website-by-firebug/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/04/01/debug-website-by-firebug/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>相信许多做网站开发的都有接触到或者用到Firebug这个工具，因为它确实给调试程序或代码带来了极大的便利。跟网站有关的html、javascript以及css都能调试并直接预览结果，相比你改完-保存-上传-刷新这种步骤要节省好多时间，而且更加的直观。下面我来简单介绍一下这个工具以及通过在实际应用情况下让大家感受一下他的强大。</p>
+<p><strong>1、Firebug的安装</strong>：</p>
+<p>firebug是firefox浏览器中的一个插件，类似于chrome中的开发者工具，但个人觉得firebug要好用许多，也许是习惯了吧。言归正传，首先在工具栏中找到工具—附加组件，然后在打开界面的搜索框中输入firebug，点击“直接安装”就好了，非常方便</p>
+<a id="more"></a>
+<p><a href="http://jackie.ms/wp-content/uploads/2013/04/firebug11.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/04/firebug11.jpg" alt="firebug11"></a></p>
+<p>&nbsp;</p>
+<p><strong>2、界面</strong></p>
+<p>它的主要功能区如下图：主要分为控制台、CSS、脚本、DOM、网络和cookie，启动这个界面有两个方法，一是在火狐浏览器右上角点击那个灰色的小虫子图标，他将变成彩色，这时候说明它启动了，；二是直接在页面上点击右键，选择“使用firebug查看元素”。下面我们来看一下它的具体功能：</p>
+<p><a href="http://jackie.ms/wp-content/uploads/2013/03/firebug2.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/03/firebug2.jpg" alt="firebug2"></a></p>
+<p>（1）、控制台</p>
+<p>点击控制台选项，会到下面这个图的界面，如果没有开启，点击提示框中的按钮直接开启就好</p>
+<p><a href="http://jackie.ms/wp-content/uploads/2013/03/firebug3.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/03/firebug3.jpg" alt="firebug3"></a></p>
+<p>上图中我以document.location.href为例，在最下方输入框直接敲入这部分代码—回车，就可以直接得到这段代码在当前页面上操作的结果，就像我这次的，我请求的是当前页面的URL，返回的是”<a href="http://jackie.ms/">http://jackie.ms/</a>“ 。当然你输入其他的javascript的操作函数也都是适用的，firebug比较方便的一点是当你输入第一个字母的时候它会自动显示已这个字母开头的所有函数，所以就算你忘了方法名称，在这里也可以很方便的找到，当然，前提是你得认识这个方法。</p>
+<p>（2）HTML</p>
+<p>这部分是最常用的，因为我们调试的最多的就是这部分代码。那为什么说这个方便呢，因为它即调即用。下面我们用例子来演示一下：</p>
+<p><a href="http://jackie.ms/wp-content/uploads/2013/03/firebug4.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/03/firebug4.jpg" alt="firebug4"></a></p>
+<p>右击我想修改的部分（图中为”Jackie”）选择”用firebug查看元素”,下面HTML部分会自动跳转到这个标签的源代码</p>
+<p><a href="http://jackie.ms/wp-content/uploads/2013/03/firebug51.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/03/firebug51.jpg" alt="firebug5"></a></p>
+<p>点击编辑，会进入到这个a标签内所有代码的编辑界面</p>
+<p><a href="http://jackie.ms/wp-content/uploads/2013/03/firebug6.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/03/firebug6.jpg" alt="firebug6"></a></p>
+<p>这时候可以随意修改里面的代码，修改完成后再次点击”编辑”就完成修改了，此时你再点击这个按钮，他就会在这个原来的页面执行新代码请求，起到立竿见影的效果。我之前博客有篇文章介绍<a href="http://www.jackieluo.info/blog/ticket-killer-firebug.html" target="_blank" rel="external">用firebug抢火车票</a>就是这么实现的，通过提交自己修改过的请求来提前订票。</p>
+<p>（3）、CSS</p>
+<p>如果你要修改自己的主题的话，肯定是要懂一点CSS的，比如它的代码格式。比如我要给我的主题换个颜色，换个字体、大小，修改行距等等，都可以用它来简单实现。我用自己亲身经历的例子给大家示范一下，这个主题默认情况下是没有首行缩进的，所以刚发布出来文章也会比较得难看，让人有点分不清段落的感觉，这个时候在文章段落部分右键单击，并切换到CSS窗口，就可以看到你当前选择的元素的CSS代码了，比如我的：</p>
+<p><a href="http://jackie.ms/wp-content/uploads/2013/03/firebug7.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/03/firebug7.jpg" alt="firebug7"></a></p>
+<p>其中article.post p, article.page p 大括号后面的部分就是这个段落的样式代码，比如上图中的字体大小：1.1倍正常字体，行距：1.5倍，完全没有首行缩进的部分，但是这个时候我们可以自己添加了，在后面用相同的格式加上”text-indent: 2em;”页面中的首行缩进马上就出来了，正如我现在文章中的样子。（如果不知道怎么写也没关系，知道你的目的是什么，然后再借助搜索引擎，很快就有结果）至于颜色什么的就更明显了，可以看到上图中代表颜色的#DD3333,这个就代表了一种颜色，分为三段，每段由两位十六进制数，分别代表红绿蓝三原色的值，值越大则颜色越深。觉得好玩的话自己可以试试，给自己主题换个自己喜欢的颜色。</p>
+<p>当然，还有一个<strong>很重要的步骤</strong>，就是上面只是你自己的调试过程，当成功以后，你还得需要找到相对应的网站源文件比如style.css（总样式表）找到之前调试的位置将代码替换掉来达到你想要的目的。firebug中会有提示你所修改元素的css文件所在地以及行数，实现”一步成功“的效果。</p>
+<p>（4）、其他</p>
+<p>剩下的脚本、DOM、网络、cookie都是查看型的，用来查看结果的。但是它也会比通过其他途径来看方便许多，而且会更加得详细。有兴趣的朋友可以自己看看摸索一下，在这里不多做介绍。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>听说长的好看的人，看完都会扫下面的二维码！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Jackie Luo WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/debug/" rel="tag"># debug</a>
+          
+            <a href="/tags/firebug/" rel="tag"># firebug</a>
+          
+            <a href="/tags/调试网站/" rel="tag"># 调试网站</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/03/31/cloud-drive/" rel="next" title="别让自己的文件白白丢失—云盘的存储与同步">
+                <i class="fa fa-chevron-left"></i> 别让自己的文件白白丢失—云盘的存储与同步
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/04/02/about-laoluo-rom-about-me/" rel="prev" title="有关老罗ROM发布会的一点感想">
+                有关老罗ROM发布会的一点感想 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2013/04/01/debug-website-by-firebug/"
+           data-title="用Firebug调试网站" data-url="http://jackie.ms/2013/04/01/debug-website-by-firebug/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Jackie Luo" />
+          <p class="site-author-name" itemprop="name">Jackie Luo</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">116</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">197</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/jackielzq" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jackieluo" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-apple"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://placeless.net/" title="徐爷的文艺站" target="_blank">徐爷的文艺站</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jackie Luo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jackiems"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

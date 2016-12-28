@@ -1,0 +1,820 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Google analytics,GA,Custom variable,自定义变量," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jackie的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="在GA的使用过程中，大部分情况下我们都只会使用标准的GATC，补充一些自然搜索引擎的识别，在后台加上各种过滤器来呈现不同的内容。这些内容固然重要，但是如果要进一步细分人群或者标签化一类人属性的话，光靠这些代码还是不够的。这个时候我们要用到GA的另一个强大的功能——自定义变量。
+GA分为普通版和收费版，收费版是15W/Y的收费，相比Omniture要便宜太多。而收费版和免费版的区别就只有两个：1、数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Analytics中的自定义变量">
+<meta property="og:url" content="http://jackie.ms/2013/04/09/google-analytics-custom-variable/index.html">
+<meta property="og:site_name" content="Jackie的博客">
+<meta property="og:description" content="在GA的使用过程中，大部分情况下我们都只会使用标准的GATC，补充一些自然搜索引擎的识别，在后台加上各种过滤器来呈现不同的内容。这些内容固然重要，但是如果要进一步细分人群或者标签化一类人属性的话，光靠这些代码还是不够的。这个时候我们要用到GA的另一个强大的功能——自定义变量。
+GA分为普通版和收费版，收费版是15W/Y的收费，相比Omniture要便宜太多。而收费版和免费版的区别就只有两个：1、数">
+<meta property="og:updated_time" content="2016-09-21T07:45:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google Analytics中的自定义变量">
+<meta name="twitter:description" content="在GA的使用过程中，大部分情况下我们都只会使用标准的GATC，补充一些自然搜索引擎的识别，在后台加上各种过滤器来呈现不同的内容。这些内容固然重要，但是如果要进一步细分人群或者标签化一类人属性的话，光靠这些代码还是不够的。这个时候我们要用到GA的另一个强大的功能——自定义变量。
+GA分为普通版和收费版，收费版是15W/Y的收费，相比Omniture要便宜太多。而收费版和免费版的区别就只有两个：1、数">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Jackie'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jackie.ms/2013/04/09/google-analytics-custom-variable/"/>
+
+
+
+
+
+  <title> Google Analytics中的自定义变量 | Jackie的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-28253637-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jackie的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">学习|交流|分享</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-study">
+          <a href="/study" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            学习
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jackie.ms/2013/04/09/google-analytics-custom-variable/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jackie Luo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jackie的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jackie的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Google Analytics中的自定义变量
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-04-09T00:36:30+08:00">
+                2013-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网站分析/" itemprop="url" rel="index">
+                    <span itemprop="name">网站分析</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2013/04/09/google-analytics-custom-variable/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/04/09/google-analytics-custom-variable/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在GA的使用过程中，大部分情况下我们都只会使用标准的GATC，补充一些自然搜索引擎的识别，在后台加上各种过滤器来呈现不同的内容。这些内容固然重要，但是如果要进一步细分人群或者标签化一类人属性的话，光靠这些代码还是不够的。这个时候我们要用到GA的另一个强大的功能——自定义变量。</p>
+<p>GA分为普通版和收费版，收费版是15W/Y的收费，相比Omniture要便宜太多。而收费版和免费版的区别就只有两个：1、数据是否抽样，2、自定义变量的个数（免费版5个，收费版50个）。从这里我们就可以看出自定义变量的重要性，Google在这点上从来不含糊。那么GA中的自定义变量都能做什么呢？下面来简单说说：</p>
+<a id="more"></a>
+<h3 id="一、级别"><a href="#一、级别" class="headerlink" title="一、级别"></a>一、级别</h3><p>自定义变量分为三种级别：<strong>访客级（Visitor）</strong>、<strong>会话级（Session）</strong>、<strong>页面级（Page）</strong></p>
+<p><strong>访客级：</strong>是最高的级别，也就是说一个访客（正确的说是一个独立的浏览器）在你网站上的所有行为都会与这个变量绑定。不论你有多少次访问，都可以被记录到。（前提是不删除cookie）</p>
+<p><strong>会话级：</strong>也就是访次（Visits）级别，就是贯穿你一次访问的各种行为都会与之相对应起来。</p>
+<p><strong>页面级：</strong>简单的来说只会随你下一个_utm.gif请求进行记录，待到下一个请求时这个变量已经失效。</p>
+<h3 id="二、用途"><a href="#二、用途" class="headerlink" title="二、用途"></a>二、用途</h3><p>自定义变量的好处在于，他可以用来代表你网站中任意指定的维度，并不局限于GA本身所收集的来源、媒介、关键词、地域、浏览器信息等等。比如用户本身的属性，<strong>性别？年龄？身高？学历？是否会员？会员等级？是否登陆？</strong>事实上，这些都是可以做到的。</p>
+<p>以前你只知道一群人在网站上干了什么，或者一个来源的人在网站上干了什么，但是现在你可以知道哪一类人在你网站上干了什么，哪一类是你最应该关注的，他们关注的是什么，针对这一类人对症下药，提升你网站的价值。因为根据”二八定律“，80%的网站收入来源于20%的那部分访客。从战略意义上来说，关注那20%的用户的意义远大于剩余的80%。毕业之前我面试了一家网游公司，他最后给我的题目是：“如果你发现一个大手笔的RMB玩家作弊，引起公愤，你会怎么处理？”这个问题就正好说的是这个道理，因为这个游戏主要是靠这样的玩家养活的，丢了他们就会少了许多收入，然而如果不处分的话对其他玩家没有交代影响游戏的声誉。最后我的回答是对这个玩家作弊的来的物品道具清空并罚款，不删号，在公告栏公示处理结果以儆效尤。这个结果当时面试官比较满意，这是一个真实的案例，最后他们大概也是这么处理的。</p>
+<p>对于收集这类信息，如果你使用的是免费版，那么你首先就要考虑的是变量个数的局限性，因为你只有5个，如何合理的安排使用是很重要的。所以你要选择对你来说最重要的信息，Google推荐的做法是在这之前制定一个变量矩阵，做出合理的规划。</p>
+<h3 id="三、代码格式"><a href="#三、代码格式" class="headerlink" title="三、代码格式"></a>三、代码格式</h3><p>设置自定义变量的代码从来都不是独自出现的，他通常都会出现在_trackPageView或者_trackEvent事件的前面。这是因为他这个语句不会发送utm.gif请求，前面说过了，这个图片请求后面添加了各种参数是用来给GA服务器传输数据的，没有请求服务器也就不会记录到数据。跟它一样命运的还有_setAccount,_setDomainName,_setCookiePath等等二线队员。</p>
+<p>一条正确的设定自定义变量的语句通常是如下格式的：</p>
+<p>__gaq.push([‘<em>setCustomVar’,<strong>1</strong>,’<strong>Gender</strong>‘,’<strong>Male</strong>‘,<strong>1</strong>]);</em></p>
+<p>其中第一个参数指的是变量的位置或者编号，一共有5个变量，它的范围就是1-5</p>
+<p>第二个参数是变量名，示例中我用的是’Gender’，也就是性别</p>
+<p>第三个参数就好理解了，’Male’也就是Gender的值。</p>
+<p>第四个参数也是数字”1“,但这个1和之前的就完全不同了，它指的是这个自定义变量的级别（1为访客级，2为会话级，3为页面级）</p>
+<p>这一个语句也是Javascript的一部分，可以直接加在&lt;script&gt;&lt;/script&gt;这一对标签中间，也可以加在页面的交互事件上，比如说我点击一个性别选择框，当点击到“男”时，通过onclick事件触发这一条代码，但是一定要记得，后面一定要跟上相应的_trackPageView或者_trackEvent语句确保请求触发。</p>
+<h3 id="四、注意事项"><a href="#四、注意事项" class="headerlink" title="四、注意事项"></a>四、注意事项</h3><p>GA的帮助中心给了我们几条建议，我再后面做出了相应的补充：</p>
+<p>1、Do not use duplicate key names across slots.（不要在各个级别变量之间重复使用变量名）。</p>
+<p>2、Call the <code>_setCustomVar()</code> function when it can be set prior to a pageview or event GIF request.（一定要保证在自定义变量语句后面有能触发gif请求的页面或事件请求）</p>
+<p>3、Use a slot matrix to track large numbers of custom variables.（前面提到过，使用一个自定义变量矩阵规划你变量的使用）</p>
+<p>如果你使用不同级别的同一变量（同一位置），那么要考虑到不同级别变量的优先级，<strong>访客级&gt;会话级&gt;页面级</strong>，<strong><span style="text-decoration: underline;"><span style="color: #000000; text-decoration: underline;">优先级高的变量会重写掉优先级低的变量，导致优先级低的变量数据丢失。</span></span></strong></p>
+<p>4、Consider using Event Tracking for certain applications, rather than custom variables.（在可以使用Event tracking的情况下，最好不要使用自定义变量）</p>
+<p>如果只是做计数用途的话，Event tracking 要更加可靠和准确，而且不会有冲突的问题。</p>
+<p>5、Don’t use session-level variables to track behavior you can track with page-level variables.(能用页面级别的自定义变量做到的事情就不要使用会话级别)</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>听说长的好看的人，看完都会扫下面的二维码！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Jackie Luo WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Google-analytics/" rel="tag"># Google analytics</a>
+          
+            <a href="/tags/GA/" rel="tag"># GA</a>
+          
+            <a href="/tags/Custom-variable/" rel="tag"># Custom variable</a>
+          
+            <a href="/tags/自定义变量/" rel="tag"># 自定义变量</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/04/07/encode-url-with-excel-macro/" rel="next" title="用EXCEL实现URL encode转码">
+                <i class="fa fa-chevron-left"></i> 用EXCEL实现URL encode转码
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/04/12/wordpress-change-font-ifeature/" rel="prev" title="Wordpress修改字体-ifeature主题">
+                Wordpress修改字体-ifeature主题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2013/04/09/google-analytics-custom-variable/"
+           data-title="Google Analytics中的自定义变量" data-url="http://jackie.ms/2013/04/09/google-analytics-custom-variable/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Jackie Luo" />
+          <p class="site-author-name" itemprop="name">Jackie Luo</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">116</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">197</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/jackielzq" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jackieluo" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-apple"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://placeless.net/" title="徐爷的文艺站" target="_blank">徐爷的文艺站</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、级别"><span class="nav-number">1.</span> <span class="nav-text">一、级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、用途"><span class="nav-number">2.</span> <span class="nav-text">二、用途</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、代码格式"><span class="nav-number">3.</span> <span class="nav-text">三、代码格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、注意事项"><span class="nav-number">4.</span> <span class="nav-text">四、注意事项</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jackie Luo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jackiems"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

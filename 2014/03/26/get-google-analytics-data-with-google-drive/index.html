@@ -1,0 +1,800 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Google analytics,Excellent Analytics,Google Drive," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jackie的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="要获取Google Analytics数据，一般有以下几种方法：
+一、直接在面板上选定需要的数据，点击导出 这种是最Low的，通常只适合偶然性的查看数据。
+二、设定自定义报告，调整相应日期一键导出或定时发送 对于定期获取固定的基础数据较为方便，但若涉及到高级细分或者多维度多指标的导出，它就力不从心了。
+三、Excel插件，Excellent Analytics, 通过Excel直接调用GA的数据A">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用Google Drive快速获取Google Analytics数据">
+<meta property="og:url" content="http://jackie.ms/2014/03/26/get-google-analytics-data-with-google-drive/index.html">
+<meta property="og:site_name" content="Jackie的博客">
+<meta property="og:description" content="要获取Google Analytics数据，一般有以下几种方法：
+一、直接在面板上选定需要的数据，点击导出 这种是最Low的，通常只适合偶然性的查看数据。
+二、设定自定义报告，调整相应日期一键导出或定时发送 对于定期获取固定的基础数据较为方便，但若涉及到高级细分或者多维度多指标的导出，它就力不从心了。
+三、Excel插件，Excellent Analytics, 通过Excel直接调用GA的数据A">
+<meta property="og:image" content="http://jackie.ms/wp-content/uploads/2014/03/5B511217-182F-48A1-9C0E-51E572467E4A.jpg">
+<meta property="og:image" content="http://jackie.ms/wp-content/uploads/2014/03/113F1D9E-8925-4B49-9594-E018318FE5A7.jpg">
+<meta property="og:image" content="http://jackie.ms/wp-content/uploads/2014/03/query-754x1024.jpg">
+<meta property="og:image" content="http://jackie.ms/wp-content/uploads/2014/03/173E899F-12F8-4B16-8C86-46F28E199CCC-936x1024.jpg">
+<meta property="og:image" content="http://jackie.ms/wp-content/uploads/2014/03/3-751x1024.jpg">
+<meta property="og:updated_time" content="2016-09-21T07:45:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用Google Drive快速获取Google Analytics数据">
+<meta name="twitter:description" content="要获取Google Analytics数据，一般有以下几种方法：
+一、直接在面板上选定需要的数据，点击导出 这种是最Low的，通常只适合偶然性的查看数据。
+二、设定自定义报告，调整相应日期一键导出或定时发送 对于定期获取固定的基础数据较为方便，但若涉及到高级细分或者多维度多指标的导出，它就力不从心了。
+三、Excel插件，Excellent Analytics, 通过Excel直接调用GA的数据A">
+<meta name="twitter:image" content="http://jackie.ms/wp-content/uploads/2014/03/5B511217-182F-48A1-9C0E-51E572467E4A.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Jackie'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jackie.ms/2014/03/26/get-google-analytics-data-with-google-drive/"/>
+
+
+
+
+
+  <title> 利用Google Drive快速获取Google Analytics数据 | Jackie的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-28253637-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jackie的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">学习|交流|分享</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-study">
+          <a href="/study" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            学习
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jackie.ms/2014/03/26/get-google-analytics-data-with-google-drive/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jackie Luo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jackie的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jackie的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                利用Google Drive快速获取Google Analytics数据
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-03-26T03:33:04+08:00">
+                2014-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网站分析/" itemprop="url" rel="index">
+                    <span itemprop="name">网站分析</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/03/26/get-google-analytics-data-with-google-drive/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/03/26/get-google-analytics-data-with-google-drive/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>要获取Google Analytics数据，一般有以下几种方法：</p>
+<p>一、直接在面板上选定需要的数据，点击导出 这种是最Low的，通常只适合偶然性的查看数据。</p>
+<p>二、设定自定义报告，调整相应日期一键导出或定时发送 对于定期获取固定的基础数据较为方便，但若涉及到高级细分或者多维度多指标的导出，它就力不从心了。</p>
+<p>三、Excel插件，<a href="http://www.outfox.com/excellentanalytics/" target="_blank" rel="external">Excellent Analytics</a>, 通过Excel直接调用GA的数据API，将数据展示在Excel表中。</p>
+<p>  <a href="http://jackie.ms/wp-content/uploads/2014/03/5B511217-182F-48A1-9C0E-51E572467E4A.jpg"><img src="http://jackie.ms/wp-content/uploads/2014/03/5B511217-182F-48A1-9C0E-51E572467E4A.jpg" alt="Excellent analytics" title="Excellent Analytics操作界面"></a></p>
+<p>  你要做的只是选择你所需要的账号、配置文件，设定好时间范围、维度、指标以及细分情况，然后就可以一键导出了，特别方便。更加方便的是，如果你要做的是周期性的报告比如周报月报，一旦模板确定，那么你需要的常规数据也就都差不多了。这时候通过EXCEL公式可以将你所需要的图表与这些源数据链接起来(借助数据透视表或者VLOOKUP)。这种情况下如果你第一周报告搞定了，那么后面几周基本上点几下鼠标，一样的报告几分钟就搞定了，事半功倍！</p>
+<p>###<br>  四、Google Drive中的Spread Sheet</p>
+<p>  为什么要用到这个呢?刚才的Excellent analytics已经相当强大够用了。没错，虽然如此，但是它仍然有一定的局限性：</p>
+<p>  1，只能在Windows平台下使用</p>
+<p>  2、部分用户安装的时候默认被禁止加载</p>
+<p>  3、每个数据请求都需单独更新日期</p>
+<p>  其中最头疼的还是它目前还不支持Mac端，那么Mac用户就只有去找Google自己的亲儿子——<strong>Spread Sheet</strong>。</p>
+<p>  下面来介绍一下它的用法(比Excellent Analytics还要便捷可靠)：</p>
+<p>  1.打开<a href="https://drive.google.com/" target="_blank" rel="external">Google Drive</a>,新建一个Spread sheet</p>
+<p>  <a href="http://jackie.ms/wp-content/uploads/2014/03/113F1D9E-8925-4B49-9594-E018318FE5A7.jpg"><img src="http://jackie.ms/wp-content/uploads/2014/03/113F1D9E-8925-4B49-9594-E018318FE5A7.jpg" alt="113F1D9E-8925-4B49-9594-E018318FE5A7" title="Google drive"></a></p>
+<p>  1. 找到Add-on(插件)选项，选择Get-Add on</p>
+<p>  接下来会出现他已支持的各种插件，我们选择Analytics Canvas或者Google Analytics都可以，两者都是与Excellent Analytics功能相似的插件，只是界面风格稍有不同，我们根据自己喜好选择一种就行，下面我以Analytics Canvas为例演示一下：</p>
+<p>  <a href="http://jackie.ms/wp-content/uploads/2014/03/query.jpg"><img src="http://jackie.ms/wp-content/uploads/2014/03/query-754x1024.jpg" alt="query"></a></p>
+<p>  上图中，我直接选定了配置文件，时间，维度及各个我所需要的指标，也可以选择是否使用你之前配置好的高级细分，或者在这里使用过滤器等等，点击SAVE AND RUN,插件结果：</p>
+<p>  <a href="http://jackie.ms/wp-content/uploads/2014/03/173E899F-12F8-4B16-8C86-46F28E199CCC.jpg"><img src="http://jackie.ms/wp-content/uploads/2014/03/173E899F-12F8-4B16-8C86-46F28E199CCC-936x1024.jpg" alt="173E899F-12F8-4B16-8C86-46F28E199CCC"></a></p>
+<p>  我所需要的数据就显示在了我所指定的位置，同样的方法，我们可以建立多个数据请求，再统一编辑，一键更新所有请求的数据</p>
+<p>  <a href="http://jackie.ms/wp-content/uploads/2014/03/3.jpg"><img src="http://jackie.ms/wp-content/uploads/2014/03/3-751x1024.jpg" alt="3"></a></p>
+<p>  非常方便，这是Excellent Analytics做不到的地方，当请求量多时，一键更新会免去你很多的烦恼。更爽的是，你再Google Drive上操作，它都是会实时帮你保存的，所以你不用担心Office突然挂掉甚至停电，也不用担心电脑忘带U盘找不到，更不用担心与同事间发送的麻烦，因为它是存在云端的，你可以选择分享给你的朋友，邀请他们与你一同编辑或使用这个表。而且在这里，Windows和OS X是一家。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>听说长的好看的人，看完都会扫下面的二维码！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Jackie Luo WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Google-analytics/" rel="tag"># Google analytics</a>
+          
+            <a href="/tags/Excellent-Analytics/" rel="tag"># Excellent Analytics</a>
+          
+            <a href="/tags/Google-Drive/" rel="tag"># Google Drive</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/03/21/some-software-for-mac/" rel="next" title="Mac端使用Homebrew Cask 快速安装软件">
+                <i class="fa fa-chevron-left"></i> Mac端使用Homebrew Cask 快速安装软件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/04/14/information-explode-entertain-to-death/" rel="prev" title="信息爆炸、娱乐至死">
+                信息爆炸、娱乐至死 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/03/26/get-google-analytics-data-with-google-drive/"
+           data-title="利用Google Drive快速获取Google Analytics数据" data-url="http://jackie.ms/2014/03/26/get-google-analytics-data-with-google-drive/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Jackie Luo" />
+          <p class="site-author-name" itemprop="name">Jackie Luo</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">116</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">197</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/jackielzq" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jackieluo" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-apple"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://placeless.net/" title="徐爷的文艺站" target="_blank">徐爷的文艺站</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jackie Luo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jackiems"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,782 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Google analytics,去除参数,站内搜索,设置,默认首页," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jackie的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Google Analytics(以下简称GA)是目前最为主流的网站分析工具，这几年来网站分析被越来越看重，从而实用它的人也越来越多。但是就目前而言，有许多站长仍然只是停留在“统计”的阶段，类似于百度统计或者腾讯分析的功能（这里没有黑百度的意思，百度统计近年来越做越好，功能也比以前更加强大了；腾讯分析的话，界面比较漂亮，看着开心就好），真正能把这个工具用得比较好的还是少数。在遇到某些问题的时候(流">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Analytics中低调而又实用的设置">
+<meta property="og:url" content="http://jackie.ms/2013/09/09/google-analytics-low-key-setting/index.html">
+<meta property="og:site_name" content="Jackie的博客">
+<meta property="og:description" content="Google Analytics(以下简称GA)是目前最为主流的网站分析工具，这几年来网站分析被越来越看重，从而实用它的人也越来越多。但是就目前而言，有许多站长仍然只是停留在“统计”的阶段，类似于百度统计或者腾讯分析的功能（这里没有黑百度的意思，百度统计近年来越做越好，功能也比以前更加强大了；腾讯分析的话，界面比较漂亮，看着开心就好），真正能把这个工具用得比较好的还是少数。在遇到某些问题的时候(流">
+<meta property="og:image" content="http://jackie.ms/wp-content/uploads/2013/09/111.jpg">
+<meta property="og:image" content="http://jackie.ms/wp-content/uploads/2013/09/222.jpg">
+<meta property="og:updated_time" content="2016-09-21T07:45:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google Analytics中低调而又实用的设置">
+<meta name="twitter:description" content="Google Analytics(以下简称GA)是目前最为主流的网站分析工具，这几年来网站分析被越来越看重，从而实用它的人也越来越多。但是就目前而言，有许多站长仍然只是停留在“统计”的阶段，类似于百度统计或者腾讯分析的功能（这里没有黑百度的意思，百度统计近年来越做越好，功能也比以前更加强大了；腾讯分析的话，界面比较漂亮，看着开心就好），真正能把这个工具用得比较好的还是少数。在遇到某些问题的时候(流">
+<meta name="twitter:image" content="http://jackie.ms/wp-content/uploads/2013/09/111.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Jackie'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jackie.ms/2013/09/09/google-analytics-low-key-setting/"/>
+
+
+
+
+
+  <title> Google Analytics中低调而又实用的设置 | Jackie的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-28253637-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jackie的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">学习|交流|分享</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-study">
+          <a href="/study" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            学习
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jackie.ms/2013/09/09/google-analytics-low-key-setting/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jackie Luo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jackie的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jackie的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Google Analytics中低调而又实用的设置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2013-09-09T22:52:26+08:00">
+                2013-09-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网站分析/" itemprop="url" rel="index">
+                    <span itemprop="name">网站分析</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2013/09/09/google-analytics-low-key-setting/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/09/09/google-analytics-low-key-setting/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Google Analytics(以下简称GA)是目前最为主流的网站分析工具，这几年来网站分析被越来越看重，从而实用它的人也越来越多。但是就目前而言，有许多站长仍然只是停留在“统计”的阶段，类似于百度统计或者腾讯分析的功能（这里没有黑百度的意思，百度统计近年来越做越好，功能也比以前更加强大了；腾讯分析的话，界面比较漂亮，看着开心就好），真正能把这个工具用得比较好的还是少数。在遇到某些问题的时候(流量数据以外)不知道如何下手解决，甚至不知道是前端代码加的有问题还是后台设置的问题。这里介绍几个小的设置，如果你没有用过或者很少用，那么相信对你会有帮助。它们不是必须的，但是可以让你的界面看起来更干净，数据看起来更加直观。</p>
+<a id="more"></a>
+<p><a href="http://jackie.ms/wp-content/uploads/2013/09/111.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/09/111.jpg" alt="ga-setting" title="GA设置"></a></p>
+<p>上图中是GA Profile - View Setting （中文版没怎么用过，请自行对应）的设置界面，看标题描述也知道，它的设定可以改变你看到的东西，但具体是什么呢，我们逐个来看。</p>
+<p>1、Default Page(默认首页)</p>
+<p>这是决定你网站显示在GA报表里的默认首页，为什么会有这个设置呢？因为在某些时候，你的首页不止一个URL，比如www.abc.com/, www.abc.com/index.php……一般情况下不会有这么2的事情发生，但是实际情况下是有的，这种情况发生以后再报表里会看到这样三个首页，在看页面报表的时候会显得比较难看，如果你想它干净一点的话，就把你实际上首页的URI填上去（比如上面的例子，index.php）没有这种情况的话留空就行。强迫症伤不起</p>
+<p>2、Exclude URL Query Parameter(去除URL参数)</p>
+<p>这个通常使用的会比较多，因为经常会有这样的情况：1、网站内部导航点击回首页带参数，如www.abc.com/?nav=button1 ；2、外链或者广告链接中的参数，而且参数GA不会自动给你去除，除了他默认能识别的部分，这样一来你的报表中很可能回这样：/index.php?abc=1  , /index.php?def=2……这样也会出现各种首页或者其他页面，那么在其他地方计算或者导出数据的时候还得做其他额外的设置才能得到最终的结果，就必须把这种abc, def无聊的参数去掉，这个操作也比较简单，在第二个标示位置填入相应的参数名，中间用半角逗号隔开就行，参数再多野不怕，就像这样”abc,mz,test,p,word”。（这里小心一点别看中文版的说明，翻译过来的时候中间间隔是“。”句号，所以你的过滤效果也不会生效的）为了在后面能轻松一点，前期的工作一定要想办法做足。</p>
+<p>3、Site Search Setting(站内搜索设置)</p>
+<p>通常来说除了部分活动网站以外，绝大多数网站都会有站内搜索的功能，可以说它是一个正常网站所应该必备的功能，因为网站内容太多，导航又作得不好，那么搜索就会是用户找到想要信息的直接途径。但是默认情况下这个功能也是关闭的，需要自己进行设置：</p>
+<p>[caption id=”attachment_264” align=”aligncenter” width=”594”]<a href="http://jackie.ms/wp-content/uploads/2013/09/222.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/09/222.jpg" alt="Site Search Setting"></a> Site Search Setting[/caption]</p>
+<p>选中以后会出现上图的界面，同上面去除参数一样，这里要填入你搜索结果时这个词的内容所在参数，拿我的网站距离，我搜索“网站分析”，确定，那么接下来我的页面URL将为<a href="http://jackie.ms/s=%E7%BD%91%E7%AB%99%E5%88%86%E6%9E%90">http://jackie.ms/s=%E7%BD%91%E7%AB%99%E5%88%86%E6%9E%90</a></p>
+<p>而这个s就是我要填的参数，设置好以后就能够看到所有来到我网页的用户到底搜了些什么东西了。站内搜索能直接反应出用户来到网站的意图，而且是一个有明确目的并还有一定忍耐力的人（能忍受你不堪的导航），所以这种用户要好好把握，拿出你的站内搜索词报告好好看看吧，兴许下一个机会在这里，一个更加完善的导航也在这里……</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>听说长的好看的人，看完都会扫下面的二维码！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Jackie Luo WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Google-analytics/" rel="tag"># Google analytics</a>
+          
+            <a href="/tags/去除参数/" rel="tag"># 去除参数</a>
+          
+            <a href="/tags/站内搜索/" rel="tag"># 站内搜索</a>
+          
+            <a href="/tags/设置/" rel="tag"># 设置</a>
+          
+            <a href="/tags/默认首页/" rel="tag"># 默认首页</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/08/25/think-of-myself/" rel="next" title="一个什么样的人">
+                <i class="fa fa-chevron-left"></i> 一个什么样的人
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/09/18/what-we-are-from-each-other/" rel="prev" title="我们眼中的“他”和他们眼中的“我”">
+                我们眼中的“他”和他们眼中的“我” <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2013/09/09/google-analytics-low-key-setting/"
+           data-title="Google Analytics中低调而又实用的设置" data-url="http://jackie.ms/2013/09/09/google-analytics-low-key-setting/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Jackie Luo" />
+          <p class="site-author-name" itemprop="name">Jackie Luo</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">116</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">197</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/jackielzq" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jackieluo" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-apple"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://placeless.net/" title="徐爷的文艺站" target="_blank">徐爷的文艺站</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jackie Luo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jackiems"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

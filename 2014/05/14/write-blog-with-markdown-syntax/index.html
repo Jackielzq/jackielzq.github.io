@@ -1,0 +1,835 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="wordpress,markdown,mou,stackedit,sublimetext,马克飞象," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Jackie的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="什么？你不知道Markdown语法，那你真是Out了！它是目前机器写作最高大上的方式，允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML)文档，因其简洁的语法加上强大的展现方式流行于程序员的圈子，而且正在猛烈地向外扩散，想知道它具体能做什么，请戳【Wiki百科介绍】，【语法介绍】，只能说程序员不可怕，文艺的程序员才可怕，比如史蒂夫.乔布斯。
+关于语法的介绍我这里不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wordpress中用Markdown语法写博客">
+<meta property="og:url" content="http://jackie.ms/2014/05/14/write-blog-with-markdown-syntax/index.html">
+<meta property="og:site_name" content="Jackie的博客">
+<meta property="og:description" content="什么？你不知道Markdown语法，那你真是Out了！它是目前机器写作最高大上的方式，允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML)文档，因其简洁的语法加上强大的展现方式流行于程序员的圈子，而且正在猛烈地向外扩散，想知道它具体能做什么，请戳【Wiki百科介绍】，【语法介绍】，只能说程序员不可怕，文艺的程序员才可怕，比如史蒂夫.乔布斯。
+关于语法的介绍我这里不">
+<meta property="og:image" content="https://www.dropbox.com/s/riiaexbl0j475qk/markdown1.png?dl=1">
+<meta property="og:image" content="https://www.dropbox.com/s/0qbfsk3gydq9er2/markdown2.png?dl=1">
+<meta property="og:image" content="https://www.dropbox.com/s/1cnaonzff03zr3f/markdown3.png?dl=1">
+<meta property="og:updated_time" content="2016-09-21T07:45:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wordpress中用Markdown语法写博客">
+<meta name="twitter:description" content="什么？你不知道Markdown语法，那你真是Out了！它是目前机器写作最高大上的方式，允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML)文档，因其简洁的语法加上强大的展现方式流行于程序员的圈子，而且正在猛烈地向外扩散，想知道它具体能做什么，请戳【Wiki百科介绍】，【语法介绍】，只能说程序员不可怕，文艺的程序员才可怕，比如史蒂夫.乔布斯。
+关于语法的介绍我这里不">
+<meta name="twitter:image" content="https://www.dropbox.com/s/riiaexbl0j475qk/markdown1.png?dl=1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Jackie'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://jackie.ms/2014/05/14/write-blog-with-markdown-syntax/"/>
+
+
+
+
+
+  <title> Wordpress中用Markdown语法写博客 | Jackie的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-28253637-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Jackie的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">学习|交流|分享</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-study">
+          <a href="/study" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            学习
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://jackie.ms/2014/05/14/write-blog-with-markdown-syntax/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Jackie Luo">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Jackie的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Jackie的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Wordpress中用Markdown语法写博客
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-05-14T13:09:01+08:00">
+                2014-05-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/wordpress/" itemprop="url" rel="index">
+                    <span itemprop="name">wordpress</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/05/14/write-blog-with-markdown-syntax/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/05/14/write-blog-with-markdown-syntax/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>什么？你不知道Markdown语法，那你真是Out了！它是目前机器写作最高大上的方式，允许人们“使用易读易写的纯文本格式编写文档，然后转换成有效的<a href="http://zh.wikipedia.org/wiki/XHTML" title="XHTML" target="_blank" rel="external">XHTML</a>(或者<a href="http://zh.wikipedia.org/wiki/HTML" title="HTML" target="_blank" rel="external">HTML</a>)文档，因其简洁的语法加上强大的展现方式流行于程序员的圈子，而且正在猛烈地向外扩散，想知道它具体能做什么，请戳<a href="http://zh.wikipedia.org/wiki/Markdown" target="_blank" rel="external">【Wiki百科介绍】</a>，<a href="http://markdown.tw/" target="_blank" rel="external">【语法介绍】</a>，只能说程序员不可怕，文艺的程序员才可怕，比如史蒂夫.乔布斯。</p>
+<p>关于语法的介绍我这里不多写，Google一下遍地都是，在这里我要说的是怎么在wordpress中使用wordpress语法便捷地写出更“漂亮”的文章(当然，这里的漂亮指的是外表)。很多人第一时间应该都会想到，既然有这个需求那么wordpress应该会有相应的插件了把？是的，已经有很多支持Markdown语法写作的wordpress插件了，一搜也有一大把。</p>
+<p><img src="https://www.dropbox.com/s/riiaexbl0j475qk/markdown1.png?dl=1" alt=""></p>
+<p>上面的几个插件我都一一试过了，别看几个评价都是5星，但是我的结果是：没有一个好用。可能是我的要求比较严苛，他们暂时还达不到我的要求，如果你持有怀疑态度的话，可以一试，如果觉得还凑合的话可以用用。据我所知还有一部分高手正在开发更好的插件，我们暂且等一段时间看看。</p>
+<p>那么既然不用插件我们用什么工具方便一点呢？这里我推荐一个“曲线救国”的方式，使用下面两个工具：</p>
+<ul>
+<li><p><a href="http://stackedit.io" target="_blank" rel="external">Stackedit.io</a></p>
+</li>
+<li><p><a href="http://maxiang.info" target="_blank" rel="external">马克飞象</a></p>
+</li>
+</ul>
+<p>他们的界面如下：<br><img src="https://www.dropbox.com/s/0qbfsk3gydq9er2/markdown2.png?dl=1" alt=""></p>
+<p>&nbsp;</p>
+<p><img src="https://www.dropbox.com/s/1cnaonzff03zr3f/markdown3.png?dl=1" alt=""></p>
+<p>&nbsp;</p>
+<p>这两个都是在线Markdown编辑器，其中两者各有优劣：</p>
+<h4 id="Stackedit"><a href="#Stackedit" class="headerlink" title="Stackedit:"></a>Stackedit:</h4><ul>
+<li><span style="color: #ff0000;"><strong><code>支持多格式导出(PDF,MD,HTML)</code></strong></span></li>
+<li>一键分享或存储到Dropbox或者Google Drive</li>
+</ul>
+<h4 id="马克飞象"><a href="#马克飞象" class="headerlink" title="马克飞象"></a>马克飞象</h4><ul>
+<li>对中文有更好的体验</li>
+<li>多主题选择(我数了一下，目前支持24种主题，而<code>Stackedit</code>为3种，都不好看)</li>
+<li>一键同步到<code>Evernote</code>(对了，Evernote就是只大象) 但是请注意你使用的是<code>Evernote国际版</code>还是<code>印象笔记</code>，两者是不一样的</li>
+<li><span style="color: #ff0000;"><strong><code>即时查看和复制HTML代码</code></strong></span><br>他们的主要区别就是上面标红的部分，所以如果你只是正常写博客，推荐使用马克飞象，在它的界面中写好以后直接转成HTML代码，然后在发布文章的时候选择【文本】格式即可。而且你可以同时一键同步到你的Evernote账户下，作为一个快速备份，一举两得。</li>
+</ul>
+<p>但是如果你想要直接产出文件发给他人，那么Stackedit就相当方便了，根据需求选择。</p>
+<p>也有人提到过用本地工具SublimeText或者Mac下的Mou，我很不推荐，但是也欢迎你尝试，我对这两者的看法是：</p>
+<h4 id="SublimeText"><a href="#SublimeText" class="headerlink" title="SublimeText"></a>SublimeText</h4><p>非常好用的代码编辑器，但是Markdown需要安装插件，且不能实时显示效果，每做一个修改都要按几个键才能预览到效果，</p>
+<h4 id="Mou"><a href="#Mou" class="headerlink" title="Mou"></a>Mou</h4><p>语法比较落后，经常显示错误的效果，开始用的话你会怀疑是否你的语法写错了。但是这个时候请相信自己，这么简单的语法还能写错？<br>它对于我的功能其实就是一个<code>本地文件保存器</code>，因为时不时需要在本地保存.md文件，比如我的<a href="http://jackieluo.github.io/" target="_blank" rel="external"><code>Github页面</code></a>,每一篇文章都是在后台deploy一个md文件到github上。</p>
+<p>可能遇到的问题：</p>
+<p><strong>1. 上面推荐的两个好用的工具都是在线的，如果你在没网的情况下怎么办呢？</strong></p>
+<p>这个问题其实比较灵活，一是你可以把上面两个网页直接下载下来，这样你就有了一个本地时时编辑器，二是用SublimeText编辑，虽然步骤多了一点，但是至少还是能使用的，对吧？</p>
+<p><strong>2. 如果我要在文章中贴图片怎么办呢？</strong></p>
+<p>详见我上篇文章<a href="http://jackie.ms/share/tools-share/link-to-dropbox-files-outside.html">外部引用Dropbox文件</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>听说长的好看的人，看完都会扫下面的二维码！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Jackie Luo WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/wordpress/" rel="tag"># wordpress</a>
+          
+            <a href="/tags/markdown/" rel="tag"># markdown</a>
+          
+            <a href="/tags/mou/" rel="tag"># mou</a>
+          
+            <a href="/tags/stackedit/" rel="tag"># stackedit</a>
+          
+            <a href="/tags/sublimetext/" rel="tag"># sublimetext</a>
+          
+            <a href="/tags/马克飞象/" rel="tag"># 马克飞象</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/05/14/link-to-dropbox-files-outside/" rel="next" title="Wordpress外部引用Dropbox文件">
+                <i class="fa fa-chevron-left"></i> Wordpress外部引用Dropbox文件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/06/06/good-movie-the-terror-live/" rel="prev" title="好电影《恐怖直播》">
+                好电影《恐怖直播》 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/05/14/write-blog-with-markdown-syntax/"
+           data-title="Wordpress中用Markdown语法写博客" data-url="http://jackie.ms/2014/05/14/write-blog-with-markdown-syntax/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="Jackie Luo" />
+          <p class="site-author-name" itemprop="name">Jackie Luo</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">116</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">197</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/jackielzq" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/jackieluo" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-apple"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://placeless.net/" title="徐爷的文艺站" target="_blank">徐爷的文艺站</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Stackedit"><span class="nav-number">1.</span> <span class="nav-text">Stackedit:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#马克飞象"><span class="nav-number">2.</span> <span class="nav-text">马克飞象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SublimeText"><span class="nav-number">3.</span> <span class="nav-text">SublimeText</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mou"><span class="nav-number">4.</span> <span class="nav-text">Mou</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jackie Luo</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"jackiems"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
