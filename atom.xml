@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackie.ms/"/>
-  <updated>2017-03-16T10:21:46.000Z</updated>
+  <updated>2017-03-16T16:45:52.000Z</updated>
   <id>http://jackie.ms/</id>
   
   <author>
@@ -16,9 +16,70 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>【分享】命令行下载youtube视频</title>
+    <link href="http://jackie.ms/2017/03/17/%E3%80%90%E5%88%86%E4%BA%AB%E3%80%91%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E8%BD%BDyoutube%E8%A7%86%E9%A2%91/"/>
+    <id>http://jackie.ms/2017/03/17/【分享】命令行下载youtube视频/</id>
+    <published>2017-03-16T16:46:37.000Z</published>
+    <updated>2017-03-16T16:45:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>打开youtube网站对于许多人来说已经是很头疼的事情了，何况是下载。因此要做到下载其视频，我们要分两步：</p>
+<ul>
+<li>翻墙</li>
+<li>下载视频</li>
+</ul>
+<h3 id="翻墙"><a href="#翻墙" class="headerlink" title="翻墙"></a>翻墙</h3><p>许多人可能接触过红杏、出锅这一类的浏览器插件，安装在浏览器中一键控制是否翻墙，并且可控制黑名单白名单，但是这都局限于浏览器访问网页的情况。想全局翻墙或者通过命令行来翻墙，还是得通过别的办法，这里我推荐<strong>proxychain</strong></p>
+<p>github网址：<a href="https://github.com/rofl0r/proxychains-ng" target="_blank" rel="external">https://github.com/rofl0r/proxychains-ng</a></p>
+<a id="more"></a>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>打开终端，输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install proxychains-ng</div></pre></td></tr></table></figure>
+<p>若没有安装brew，请移至<a href="http://jackie.ms/2017/03/16/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%89%88%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/">这一篇文章</a>参考</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/proxychains.conf</div></pre></td></tr></table></figure>
+<p>将<code>socks4 127.0.0.1 9095</code>改为<code>socks5  127.0.0.1 1080  //1080改为你自己的端口</code></p>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>在你所需要输入的命令前加上proxychains4，即可，比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">proxychains4 curl http://facebook.com</div></pre></td></tr></table></figure>
+<h3 id="下载youtube视频"><a href="#下载youtube视频" class="headerlink" title="下载youtube视频"></a>下载youtube视频</h3><p>通过这个工具，可以在命令行直接下载youtube视频</p>
+<p>项目地址：<a href="https://github.com/rg3/youtube-dl/blob/master/README.md#readme" target="_blank" rel="external">https://github.com/rg3/youtube-dl/blob/master/README.md#readme</a></p>
+<h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><p>Unix系统下（Mac本身就是Unix）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl</div><div class="line">sudo chmod a+rx /usr/local/bin/youtube-dl</div></pre></td></tr></table></figure>
+<p>如果装了pip：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -H pip install --upgrade youtube-dl</div></pre></td></tr></table></figure>
+<p>或者装了brew：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install youtube-dl</div></pre></td></tr></table></figure>
+<p>安装过程比较傻瓜，照着敲上去，回车就好了</p>
+<h4 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h4><p>比如我们现在有一段youtube视频<a href="https://www.youtube.com/watch?v=jTOqSKkZl7Q,我们要下载的话直接在终端输入：" target="_blank" rel="external">https://www.youtube.com/watch?v=jTOqSKkZl7Q,我们要下载的话直接在终端输入：</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">youtube-dl https://www.youtube.com/watch?v=jTOqSKkZl7Q</div></pre></td></tr></table></figure>
+<p>当然在国内越过长城，你需要配合上面的proxychains4</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">proxychains4 youtube-dl https://www.youtube.com/watch?v=jTOqSKkZl7Q</div></pre></td></tr></table></figure>
+<p>然后就坐等效果吧</p>
+<p><img src="http://p1.bpimg.com/567571/43b6d23e2b1a2726.jpg" alt=""></p>
+<p>视频是随便选了一个，没有针对性，真的粉丝…</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;打开youtube网站对于许多人来说已经是很头疼的事情了，何况是下载。因此要做到下载其视频，我们要分两步：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;翻墙&lt;/li&gt;
+&lt;li&gt;下载视频&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;翻墙&quot;&gt;&lt;a href=&quot;#翻墙&quot; class=&quot;headerlink&quot; title=&quot;翻墙&quot;&gt;&lt;/a&gt;翻墙&lt;/h3&gt;&lt;p&gt;许多人可能接触过红杏、出锅这一类的浏览器插件，安装在浏览器中一键控制是否翻墙，并且可控制黑名单白名单，但是这都局限于浏览器访问网页的情况。想全局翻墙或者通过命令行来翻墙，还是得通过别的办法，这里我推荐&lt;strong&gt;proxychain&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;github网址：&lt;a href=&quot;https://github.com/rofl0r/proxychains-ng&quot;&gt;https://github.com/rofl0r/proxychains-ng&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="分享" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="命令行" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+    
+    
+      <category term="分享,命令行,youtube,翻墙,下载" scheme="http://jackie.ms/tags/%E5%88%86%E4%BA%AB-%E5%91%BD%E4%BB%A4%E8%A1%8C-youtube-%E7%BF%BB%E5%A2%99-%E4%B8%8B%E8%BD%BD/"/>
+    
+  </entry>
+  
+  <entry>
     <title>命令行下的网易云音乐Musicbox</title>
-    <link href="http://jackie.ms/2017/03/16/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%89%88%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
-    <id>http://jackie.ms/2017/03/16/命令行版网易云音乐/</id>
+    <link href="http://jackie.ms/2017/03/16/%E3%80%90%E5%88%86%E4%BA%AB%E3%80%91%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%89%88%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
+    <id>http://jackie.ms/2017/03/16/【分享】命令行版网易云音乐/</id>
     <published>2017-03-16T06:46:37.000Z</published>
     <updated>2017-03-16T10:21:46.000Z</updated>
     
@@ -559,7 +620,7 @@
     <link href="http://jackie.ms/2016/12/23/2016%E6%8C%87%E5%BC%B9%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
     <id>http://jackie.ms/2016/12/23/2016指弹学习记录/</id>
     <published>2016-12-23T10:00:25.000Z</published>
-    <updated>2016-12-28T06:40:19.000Z</updated>
+    <updated>2017-03-16T16:12:22.000Z</updated>
     
     <content type="html"><![CDATA[<p>总结下来，吉他指弹入门及进阶靠自学确实很不容易，于是乎报了两期班，师从国内知名指弹大师曹思义—的学生(他本人的演出过多，而且他本人的课价钱我的钱包不同意),但是他的学生也已是相当NB了，足矣秒杀我见过的95%教吉他的老师。总之近大半年这些课上下来，受益匪浅，物超所值（二十个周末的课程）。顺便给他打个硬广：沐音堂(可搜索微信公众号)，在上海的朋友可以直接去现场上课，绝对的福利，1对1教学 300/课时，一期十节课。</p>
 <p>学习的成果：</p>
@@ -633,7 +694,7 @@
 </li>
 <li><p><code>壹贰叁肆</code></p>
 <ul>
-<li>作者：GIN</li>
+<li>作者：曹思义</li>
 <li>难度：⭐️⭐️</li>
 <li>好听指数：⭐️⭐️⭐️⭐️</li>
 <li>调弦：CGDGAD</li>
@@ -1552,99 +1613,6 @@
       <category term="黄牛" scheme="http://jackie.ms/tags/%E9%BB%84%E7%89%9B/"/>
     
       <category term="门票" scheme="http://jackie.ms/tags/%E9%97%A8%E7%A5%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>整理了一下Chrome的书签</title>
-    <link href="http://jackie.ms/2016/09/28/%E6%95%B4%E7%90%86%E4%BA%86%E4%B8%80%E4%B8%8BChrome%E4%B9%A6%E7%AD%BE/"/>
-    <id>http://jackie.ms/2016/09/28/整理了一下Chrome书签/</id>
-    <published>2016-09-28T08:36:25.000Z</published>
-    <updated>2016-10-06T07:11:16.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天整理了一下Chrome书签，发现近几年竟然存下了数十个分类、数百个书签，着实还有点震惊。虽然已经远离广告行业，但是还是能看得出我当年还是挺用功学习的。但一个个理下来，现在对我来说比较有收藏意义的已经少之又少。花了近一个小时温习、重新归类以后，目前只剩下10来个分类，数十个标签而已。有时候整理东西，丢弃东西，确实能给人带来一些愉悦感，如同搬家时丢东西一样，感觉整个人都轻松了许多。整理下来书签栏干净而又有条理，顺便温习了一下自己以前关注多的文章或内容，不亦乐乎？</p>
-<a id="more"></a>
-<p>目前分类：</p>
-<ul>
-<li><strong>学习&amp;资料</strong><ul>
-<li>有意思的网站     <code>一些发现的比较有意思的创业项目</code></li>
-<li>设计相关     <code>关于UI、交互设计的优秀作品或者网站</code></li>
-<li>技术学习   <code>主要是Python相关网站和资料</code></li>
-<li>网络课程   <code>有趣的网络课程，比如PPT制作、做菜、音乐等</code> </li>
-<li>APP开发&amp;上线相关 <code>了解APP开发上线的一些知识补充</code></li>
-<li>Hexo <code>本网站用的主题，一些设置或者应用拓展说明</code></li>
-<li>Mac <code>提高Mac使用效率，一些应用或者技巧收集</code></li>
-<li>数据可视化 <code>关注数据可视化领域的产品更新</code></li>
-<li>产品  <code>关于做产品经理的一些好文或经验分享</code></li>
-<li>股票 <code>关于量化交易的一些信息收集，但是还没有用上</code></li>
-<li>网站分析资料 <code>前三年工作所关注的内容，未清理，情怀</code></li>
-</ul>
-</li>
-<li><strong>关注订阅</strong>  <code>一些知名的博客或媒体</code> </li>
-<li><strong>在线工具</strong>  <code>在某些方面曾经帮我提高效率的小工具</code></li>
-<li><strong>常用平台</strong>  <code>近几个月用的比较多的在线平台</code></li>
-<li><strong>Adchina</strong>  <code>之前公司的系统地址，还保留着</code></li>
-<li><strong>当前工作</strong>  <code>目前公司内部的网站或者系统</code></li>
-</ul>
-<p>其中<code>常用平台</code> 这里的一些给大家分享一下，因为目前我用的Mac，APP Store上很多软件又非常贵，于是乎我收集了一些在线的应用，无须安装软件又能高效解决问题。作为我最常用的几个（职责：PM），不管你是做产品经理、还是项目经理、或者是策划，相信都会对你有帮助，推荐给大家：</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>描述</th>
-<th>推荐指数 </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://modao.cc/" target="_blank" rel="external">墨刀</a></td>
-<td>移动APP原型设计，PM必备，功能强大也非常易用</td>
-<td>⭐️⭐️⭐️⭐️⭐️</td>
-</tr>
-<tr>
-<td><a href="http://naotu.baidu.com/" target="_blank" rel="external">百度脑图</a></td>
-<td>脑图在线制作、保存、导出，操作便捷</td>
-<td>⭐️⭐️⭐️⭐️⭐️</td>
-</tr>
-<tr>
-<td><a href="processon.com">Processon</a></td>
-<td>在线流程图制作，还下什么Visio，就是导出结果会略丑</td>
-<td>⭐️⭐️⭐️⭐️⭐️</td>
-</tr>
-<tr>
-<td><a href="https://app.geeseteam.com/" target="_blank" rel="external">雁阵</a></td>
-<td>在线甘特图，项目计划/进度管理，要啥project，要啥EXCEL</td>
-<td>⭐️⭐️⭐️⭐️⭐️</td>
-</tr>
-<tr>
-<td><a href="http://www.mikecrm.com/" target="_blank" rel="external">麦克CRM</a></td>
-<td>在线信息表单，设计表单发布，收集数据</td>
-<td>⭐️⭐️⭐️⭐️</td>
-</tr>
-<tr>
-<td><a href="https://worktile.com" target="_blank" rel="external">Worktile</a></td>
-<td>在线协作、任务分配管理平台，相比于Teambition和tower等系列，这个使用起来体验最佳</td>
-<td>⭐️⭐️⭐️⭐️ </td>
-</tr>
-</tbody>
-</table>
-<p>希望这些能对你有帮助，如若有其他好的产品或者平台，也希望能推荐给我，在此谢过！</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;今天整理了一下Chrome书签，发现近几年竟然存下了数十个分类、数百个书签，着实还有点震惊。虽然已经远离广告行业，但是还是能看得出我当年还是挺用功学习的。但一个个理下来，现在对我来说比较有收藏意义的已经少之又少。花了近一个小时温习、重新归类以后，目前只剩下10来个分类，数十个标签而已。有时候整理东西，丢弃东西，确实能给人带来一些愉悦感，如同搬家时丢东西一样，感觉整个人都轻松了许多。整理下来书签栏干净而又有条理，顺便温习了一下自己以前关注多的文章或内容，不亦乐乎？&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="分享" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="工具" scheme="http://jackie.ms/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="Chrome" scheme="http://jackie.ms/tags/Chrome/"/>
-    
-      <category term="书签" scheme="http://jackie.ms/tags/%E4%B9%A6%E7%AD%BE/"/>
     
   </entry>
   
