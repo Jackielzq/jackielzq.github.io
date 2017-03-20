@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jackie.ms/"/>
-  <updated>2017-03-16T16:45:52.000Z</updated>
+  <updated>2017-03-20T08:14:42.000Z</updated>
   <id>http://jackie.ms/</id>
   
   <author>
@@ -14,6 +14,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【分享】用python打造自己的微信机器人</title>
+    <link href="http://jackie.ms/2017/03/20/%E3%80%90%E5%88%86%E4%BA%AB%E3%80%91%E7%94%A8python%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/"/>
+    <id>http://jackie.ms/2017/03/20/【分享】用python打造自己的微信机器人/</id>
+    <published>2017-03-20T06:46:37.000Z</published>
+    <updated>2017-03-20T08:14:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>由于我没事喜欢去github上找找好玩有趣的东西，这次又淘到一个有意思的应用，通过python调用微信接口来把自己的微信号转变成一个可以自动回复的机器人。</p>
+<p>原文地址：<a href="http://itchat.readthedocs.io/zh/latest/" target="_blank" rel="external">http://itchat.readthedocs.io/zh/latest/</a></p>
+<p>实践起来可能还需要有一些调整：</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>命令行安装（预装pip,没有装的请参考，python3）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$pip3 install itchat</div></pre></td></tr></table></figure>
+<p>接下来我们绕过原文文档的内容，直奔主题</p>
+<a id="more"></a>
+<p>先创建一个文件夹，文件夹里需包含3个文件：</p>
+<ul>
+<li>wechat.py (主程序)</li>
+<li>tuling.py (图灵机器人模块调用)</li>
+<li>tuling.json (图灵账号配置API Key)</li>
+</ul>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h4 id="wechat-py"><a href="#wechat-py" class="headerlink" title="wechat.py"></a>wechat.py</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">#coding=utf8</div><div class="line">import itchat</div><div class="line"># tuling plugin can be get here:</div><div class="line"># https://github.com/littlecodersh/EasierLife/tree/master/Plugins/Tuling</div><div class="line">from tuling import get_response</div><div class="line"></div><div class="line">@itchat.msg_register(&apos;Text&apos;)</div><div class="line">def text_reply(msg):</div><div class="line">    if u&apos;作者&apos; in msg[&apos;Text&apos;] or u&apos;主人&apos; in msg[&apos;Text&apos;]:</div><div class="line">        return u&apos;你可以在这里了解他：https://github.com/littlecodersh&apos;</div><div class="line">    elif u&apos;源代码&apos; in msg[&apos;Text&apos;] or u&apos;获取文件&apos; in msg[&apos;Text&apos;]:</div><div class="line">        itchat.send(&apos;@fil@main.py&apos;, msg[&apos;FromUserName&apos;])</div><div class="line">        return u&apos;这就是现在机器人后台的代码，是不是很简单呢？&apos;</div><div class="line">    elif u&apos;获取图片&apos; in msg[&apos;Text&apos;]:</div><div class="line">        itchat.send(&apos;@img@applaud.gif&apos;, msg[&apos;FromUserName&apos;]) # there should be a picture</div><div class="line">    else:</div><div class="line">        return get_response(msg[&apos;Text&apos;]) or u&apos;收到：&apos; + msg[&apos;Text&apos;]</div><div class="line"></div><div class="line">@itchat.msg_register([&apos;Picture&apos;, &apos;Recording&apos;, &apos;Attachment&apos;, &apos;Video&apos;])</div><div class="line">def atta_reply(msg):</div><div class="line">    return (&#123; &apos;Picture&apos;: u&apos;图片&apos;, &apos;Recording&apos;: u&apos;录音&apos;,</div><div class="line">        &apos;Attachment&apos;: u&apos;附件&apos;, &apos;Video&apos;: u&apos;视频&apos;, &#125;.get(msg[&apos;Type&apos;]) +</div><div class="line">        u&apos;已下载到本地&apos;) # download function is: msg[&apos;Text&apos;](msg[&apos;FileName&apos;])</div><div class="line"></div><div class="line">@itchat.msg_register([&apos;Map&apos;, &apos;Card&apos;, &apos;Note&apos;, &apos;Sharing&apos;])</div><div class="line">def mm_reply(msg):</div><div class="line">    if msg[&apos;Type&apos;] == &apos;Map&apos;:</div><div class="line">        return u&apos;收到位置分享&apos;</div><div class="line">    elif msg[&apos;Type&apos;] == &apos;Sharing&apos;:</div><div class="line">        return u&apos;收到分享&apos; + msg[&apos;Text&apos;]</div><div class="line">    elif msg[&apos;Type&apos;] == &apos;Note&apos;:</div><div class="line">        return u&apos;收到：&apos; + msg[&apos;Text&apos;]</div><div class="line">    elif msg[&apos;Type&apos;] == &apos;Card&apos;:</div><div class="line">        return u&apos;收到好友信息：&apos; + msg[&apos;Text&apos;][&apos;Alias&apos;]</div><div class="line"></div><div class="line">@itchat.msg_register(&apos;Text&apos;, isGroupChat = True)</div><div class="line">def group_reply(msg):</div><div class="line">    if msg[&apos;isAt&apos;]:</div><div class="line">        return u&apos;@%s\u2005%s&apos; % (msg[&apos;ActualNickName&apos;],</div><div class="line">            get_response(msg[&apos;Text&apos;]) or u&apos;收到：&apos; + msg[&apos;Text&apos;])</div><div class="line"></div><div class="line">@itchat.msg_register(&apos;Friends&apos;)</div><div class="line">def add_friend(msg):</div><div class="line">    itchat.add_friend(**msg[&apos;Text&apos;])</div><div class="line">    itchat.send_msg(u&apos;项目主页：github.com/littlecodersh/ItChat\n&apos;</div><div class="line">        + u&apos;源代码  ：回复源代码\n&apos; + u&apos;图片获取：回复获取图片\n&apos;</div><div class="line">        + u&apos;欢迎Star我的项目关注更新！&apos;, msg[&apos;RecommendInfo&apos;][&apos;UserName&apos;])</div><div class="line"></div><div class="line">itchat.auto_login(True, enableCmdQR=True)</div><div class="line">itchat.run()</div></pre></td></tr></table></figure>
+<h4 id="Tuling-py"><a href="#Tuling-py" class="headerlink" title="Tuling.py"></a>Tuling.py</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">#coding=utf8</div><div class="line">import sys, os</div><div class="line">import requests, json</div><div class="line"></div><div class="line">try:</div><div class="line">    with open(&apos;tuling.json&apos;) as f: key = json.loads(f.read())[&apos;key&apos;]</div><div class="line">except:</div><div class="line">    key = &apos;&apos; # if key is &apos;&apos;, get_response will return None</div><div class="line">    # raise Exception(&apos;There is something wrong with the format of you plugin/config/tuling.json&apos;)</div><div class="line"></div><div class="line">def get_response(msg, storageClass = None, userName = None, userid = &apos;ItChat&apos;):</div><div class="line">    url = &apos;http://www.tuling123.com/openapi/api&apos;</div><div class="line">    payloads = &#123;</div><div class="line">        &apos;key&apos;: key,</div><div class="line">        &apos;info&apos;: msg,</div><div class="line">        &apos;userid&apos;: userid,</div><div class="line">    &#125;</div><div class="line">    try:</div><div class="line">        r = requests.post(url, data = json.dumps(payloads)).json()</div><div class="line">    except:</div><div class="line">        return</div><div class="line">    if not r[&apos;code&apos;] in (100000, 200000, 302000, 308000, 313000, 314000): return</div><div class="line">    if r[&apos;code&apos;] == 100000: # 文本类</div><div class="line">        return &apos;\n&apos;.join([r[&apos;text&apos;].replace(&apos;&lt;br&gt;&apos;,&apos;\n&apos;)])</div><div class="line">    elif r[&apos;code&apos;] == 200000: # 链接类</div><div class="line">        return &apos;\n&apos;.join([r[&apos;text&apos;].replace(&apos;&lt;br&gt;&apos;,&apos;\n&apos;), r[&apos;url&apos;]])</div><div class="line">    elif r[&apos;code&apos;] == 302000: # 新闻类</div><div class="line">        l = [r[&apos;text&apos;].replace(&apos;&lt;br&gt;&apos;,&apos;\n&apos;)]</div><div class="line">        for n in r[&apos;list&apos;]: l.append(&apos;%s - %s&apos;%(n[&apos;article&apos;], n[&apos;detailurl&apos;]))</div><div class="line">        return &apos;\n&apos;.join(l)</div><div class="line">    elif r[&apos;code&apos;] == 308000: # 菜谱类</div><div class="line">        l = [r[&apos;text&apos;].replace(&apos;&lt;br&gt;&apos;,&apos;\n&apos;)]</div><div class="line">        for n in r[&apos;list&apos;]: l.append(&apos;%s - %s&apos;%(n[&apos;name&apos;], n[&apos;detailurl&apos;]))</div><div class="line">        return &apos;\n&apos;.join(l)</div><div class="line">    elif r[&apos;code&apos;] == 313000: # 儿歌类</div><div class="line">        return &apos;\n&apos;.join([r[&apos;text&apos;].replace(&apos;&lt;br&gt;&apos;,&apos;\n&apos;)])</div><div class="line">    elif r[&apos;code&apos;] == 314000: # 诗词类</div><div class="line">        return &apos;\n&apos;.join([r[&apos;text&apos;].replace(&apos;&lt;br&gt;&apos;,&apos;\n&apos;)])</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    try:</div><div class="line">        ipt = raw_input</div><div class="line">        ipt = lambda: raw_input(&apos;&gt;&apos;).decode(sys.stdin.encoding)</div><div class="line">    except:</div><div class="line">        ipt = lambda: input(&apos;&gt;&apos;)</div><div class="line">    while True:</div><div class="line">        a = ipt()</div><div class="line">        print(get_response(a, &apos;ItChat&apos;))</div></pre></td></tr></table></figure>
+<h4 id="Tuling-json"><a href="#Tuling-json" class="headerlink" title="Tuling.json"></a>Tuling.json</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    &quot;key&quot;: &quot;d7f31775f8d048fdxxxxxxxxxx&quot;  #替换成自己的API Key</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="图灵API-Key"><a href="#图灵API-Key" class="headerlink" title="图灵API Key"></a>图灵API Key</h4><ol>
+<li><p>到<a href="http://www.tuling123.com/" target="_blank" rel="external">http://www.tuling123.com/</a>注册账号</p>
+</li>
+<li><p>创建机器人</p>
+</li>
+<li><p>首页-机器人看板  获取API Key，替换掉Tuling.json文件中的key值</p>
+<p><img src="http://p1.bpimg.com/567571/7fd1eef4d156b181.jpg" alt=""></p>
+</li>
+</ol>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p>接下来，直接运行wechat.py文件，扫描弹出的二维码授权登录，即可。</p>
+<p>找几个微信好友调戏起来吧！</p>
+<p><img src="http://p1.bqimg.com/567571/f4fdcaa45ad8c52f.jpg" alt=""></p>
+<p><img src="http://p1.bpimg.com/567571/e0ce2f467f949745.jpg" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h3&gt;&lt;p&gt;由于我没事喜欢去github上找找好玩有趣的东西，这次又淘到一个有意思的应用，通过python调用微信接口来把自己的微信号转变成一个可以自动回复的机器人。&lt;/p&gt;
+&lt;p&gt;原文地址：&lt;a href=&quot;http://itchat.readthedocs.io/zh/latest/&quot;&gt;http://itchat.readthedocs.io/zh/latest/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;实践起来可能还需要有一些调整：&lt;/p&gt;
+&lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;p&gt;命令行安装（预装pip,没有装的请参考，python3）：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$pip3 install itchat&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;接下来我们绕过原文文档的内容，直奔主题&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="分享" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="分享,python,微信,机器人" scheme="http://jackie.ms/tags/%E5%88%86%E4%BA%AB-python-%E5%BE%AE%E4%BF%A1-%E6%9C%BA%E5%99%A8%E4%BA%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>【分享】命令行下载youtube视频</title>
@@ -77,11 +133,11 @@
   </entry>
   
   <entry>
-    <title>命令行下的网易云音乐Musicbox</title>
+    <title>【分享】命令行下的网易云音乐Musicbox</title>
     <link href="http://jackie.ms/2017/03/16/%E3%80%90%E5%88%86%E4%BA%AB%E3%80%91%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%89%88%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
     <id>http://jackie.ms/2017/03/16/【分享】命令行版网易云音乐/</id>
     <published>2017-03-16T06:46:37.000Z</published>
-    <updated>2017-03-16T10:21:46.000Z</updated>
+    <updated>2017-03-20T08:13:40.000Z</updated>
     
     <content type="html"><![CDATA[<p>不用下载安装云音乐客户端，也能尽享高品质音乐，这就是github的魅力。感谢<a href="https://github.com/darknessomi" target="_blank" rel="external">darknessomi</a>提供的酷炫命令行版解决方案。</p>
 <p>来看下命令行下的界面吧：</p>
@@ -1569,50 +1625,6 @@
       <category term="暴雨" scheme="http://jackie.ms/tags/%E6%9A%B4%E9%9B%A8/"/>
     
       <category term="上海" scheme="http://jackie.ms/tags/%E4%B8%8A%E6%B5%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>财商欠费 - 失败的“黄牛”</title>
-    <link href="http://jackie.ms/2016/10/01/%E5%A4%B1%E8%B4%A5%E7%9A%84%E2%80%9C%E9%BB%84%E7%89%9B%E2%80%9D/"/>
-    <id>http://jackie.ms/2016/10/01/失败的“黄牛”/</id>
-    <published>2016-10-01T15:52:25.000Z</published>
-    <updated>2016-12-21T08:21:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>一直都想看一场五月天的演唱会，毕竟除了周杰伦以外，我唱的最多的就是他们的歌了。年华易逝，这个年轻的摇滚乐团以不再年轻了，97年成立，到现在已经是一个将近20年的团队了，年纪比目前的互联网巨头还要大。而他们的成员也是要奔四的人了，说一句悲伤一点的话真是“唱一场少一场”。</p>
-<p>说来也奇怪，貌似音乐是有一种让人年轻的力量，时隔20年，他们的长相还真是看不出来多大变化，教我吉他的某一个老师也是，看穿着看外表跟我差不多大，结果比我大了一轮，应该不是我显老……</p>
-<p>两个月前开始抢票，如我所预想的一样：几秒之内售罄。随后就是漫天扩散的黄牛票，各种加价炒作。而就在大家以为无票可抢，不买黄牛票就看不了的情况下，几个票务公司半个月前突然又放出了大量的票（当然，数量不显示，不知具体有多少）。好家伙，得赶紧下手买票啊！吸取上次失败的教训，这次手一定要快，要狠，要准。选好价位以后，下单-支付，一气呵成，就那么简单买到了票，感觉还有点小激动。<br><a id="more"></a><br>买好了一看，哎，貌似买的是10月4号的，4号如果要出去玩怎么办？反正不怕卖不出去，再买两张7号的把，凭着我多年游戏高APM的积累，迅速又拿下了两张7号的。心想：机智如我。再接下来又想：这不是千载难逢的好机会吗？上次周杰伦演唱会内场票1500的炒到的1W一张，五月天这种人气天团，只翻一倍卖也赚了，赶紧下手赚一波外快！一咬牙，cuacuacua，又买了几张1755内场票。没想到被黄牛坑了多年，今天自己也可以当一回黄牛赚他一笔。</p>
-<p>当我开始转票时，突然就有一种被套路的感觉。看看大麦上，一直在放，感觉上面的票子完全卖不完。既然官方包邮原价都卖不完，那么我还想加价卖看样子是不可能的了。哎，准备工作不到位，太冲动，看样子得降价卖了。于是乎注册了咸鱼、加了豆瓣小组、进了百度贴吧，再次懵逼，发现大家都在转让票，基本没有看到求票的信息，而且转让价格已经不是原价了，是大打折扣了已经。这时候意识到不是亏钱的问题了，而是亏钱的同时还存在着竞争关系，如果你价钱不够低，那么很可能就直接卖不出去了，心情一下子紧张了起来。</p>
-<p>通过各种手段，终于票慢慢出去了，实在不行自己去看也好，请朋友去看也好，吃了这个亏也就认了，但是得总结总结经验，这个钱才算亏的值得：</p>
-<p>脑洞开大一点，整件事情就是主办方、票务方及其内部的黄牛导的一场“戏”：开始平台故意不放票，造成了“5秒售罄”这状况；接着内部黄牛你方唱罢我登场，负责接第二棒，把他们手里的票高价倒卖一段时间；当第二棒黄牛在各个渠道导票赚得盆满钵满且市场热度已经降下时，把他们手里剩下最后的票再通过票务方放出。这样第一波原价卖少量的票，第二波黄牛票赚一大笔，第三波再清理库存，好一个“组合拳”！貌似和咱们的房市还有点像呢（ZF手上握着土地不出让，供给紧张房价必然上涨，然而和演唱会不同的是，它没有这种时效性，不会过期，因此永远在第二阶段疯狂捞金，永远不会有第三波的库存清理活动，因此一线城市房价要降，10年内好像都没有一个合适的理由。毕竟资源方就是既得利者，谁愿意割自己的肉兼济天下？）</p>
-<p>几点教训：</p>
-<ol>
-<li>天下没有好赚的钱（这个我对老家的亲戚们说过，莫信所谓的变相传销，高利率民间借贷）</li>
-<li>如果不能掌握上游资源，那么不要把自己想的过于聪明，就像股市一样，觉得牛市傻子都能赚钱，进去以后才发现，自己成了傻子。</li>
-<li>做决定前多思考一下，比如抢票之前先看看论坛贴吧豆瓣小组咸鱼，就会知道市场已是怎样的行情了；再比如周杰伦开的是一场<code>梅赛德斯奔驰中心</code>(1.8万人)，五月天是三场连开<code>上海体育馆</code>(6万人)，稀有程度是1/10。</li>
-<li>吃一堑长一智，既然事情已经发生，想着怎么把损失降到最低就好，不要影响自己的心情。五月天的演唱会还是要去嗨，每天还是要尽量让自己开心。</li>
-</ol>
-<p>各位晚安，国庆假期快乐!</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一直都想看一场五月天的演唱会，毕竟除了周杰伦以外，我唱的最多的就是他们的歌了。年华易逝，这个年轻的摇滚乐团以不再年轻了，97年成立，到现在已经是一个将近20年的团队了，年纪比目前的互联网巨头还要大。而他们的成员也是要奔四的人了，说一句悲伤一点的话真是“唱一场少一场”。&lt;/p&gt;
-&lt;p&gt;说来也奇怪，貌似音乐是有一种让人年轻的力量，时隔20年，他们的长相还真是看不出来多大变化，教我吉他的某一个老师也是，看穿着看外表跟我差不多大，结果比我大了一轮，应该不是我显老……&lt;/p&gt;
-&lt;p&gt;两个月前开始抢票，如我所预想的一样：几秒之内售罄。随后就是漫天扩散的黄牛票，各种加价炒作。而就在大家以为无票可抢，不买黄牛票就看不了的情况下，几个票务公司半个月前突然又放出了大量的票（当然，数量不显示，不知具体有多少）。好家伙，得赶紧下手买票啊！吸取上次失败的教训，这次手一定要快，要狠，要准。选好价位以后，下单-支付，一气呵成，就那么简单买到了票，感觉还有点小激动。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="纪录" scheme="http://jackie.ms/categories/%E7%BA%AA%E5%BD%95/"/>
-    
-    
-      <category term="演唱会" scheme="http://jackie.ms/tags/%E6%BC%94%E5%94%B1%E4%BC%9A/"/>
-    
-      <category term="五月天" scheme="http://jackie.ms/tags/%E4%BA%94%E6%9C%88%E5%A4%A9/"/>
-    
-      <category term="黄牛" scheme="http://jackie.ms/tags/%E9%BB%84%E7%89%9B/"/>
-    
-      <category term="门票" scheme="http://jackie.ms/tags/%E9%97%A8%E7%A5%A8/"/>
     
   </entry>
   
