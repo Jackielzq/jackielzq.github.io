@@ -89,7 +89,7 @@
 <meta name="description" content="GA强大的功能使得我们可以做到许多它原本不提供的事情，比如接下来要讲的滚屏事件监测。相信许多站长或者网站各部门都想知道，别人来到我页面到底看到什么程度了？我的页面设计为几屏比较好？有多少人看完了我的文章？有多少人看了评论？这对于网站内容或者结构的优化都会有一定的参考作用。下面我向大家介绍一个实现这个功能的方法。 使用工具：Google Analytics&amp;amp;Google Tag manage">
 <meta property="og:type" content="article">
 <meta property="og:title" content="巧用Google Analytics和Tag manager监测滚屏深度">
-<meta property="og:url" content="http://jackie.ms/2013/03/24/scroll-depth-google-analytics-tag-manager/index.html">
+<meta property="og:url" content="http://jackielzq.github.io/2013/03/24/scroll-depth-google-analytics-tag-manager/index.html">
 <meta property="og:site_name" content="Jackie的博客">
 <meta property="og:description" content="GA强大的功能使得我们可以做到许多它原本不提供的事情，比如接下来要讲的滚屏事件监测。相信许多站长或者网站各部门都想知道，别人来到我页面到底看到什么程度了？我的页面设计为几屏比较好？有多少人看完了我的文章？有多少人看了评论？这对于网站内容或者结构的优化都会有一定的参考作用。下面我向大家介绍一个实现这个功能的方法。 使用工具：Google Analytics&amp;amp;Google Tag manage">
 <meta property="og:image" content="http://jackie.ms/wp-content/uploads/2013/03/1-300x240.jpg">
@@ -127,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="http://jackie.ms/2013/03/24/scroll-depth-google-analytics-tag-manager/"/>
+  <link rel="canonical" href="http://jackielzq.github.io/2013/03/24/scroll-depth-google-analytics-tag-manager/"/>
 
 
 
@@ -285,7 +285,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jackie.ms/2013/03/24/scroll-depth-google-analytics-tag-manager/">
+  <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/03/24/scroll-depth-google-analytics-tag-manager/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jackie Luo">
@@ -395,7 +395,7 @@
         <p>GA强大的功能使得我们可以做到许多它原本不提供的事情，比如接下来要讲的滚屏事件监测。相信许多站长或者网站各部门都想知道，别人来到我页面到底看到什么程度了？我的页面设计为几屏比较好？有多少人看完了我的文章？有多少人看了评论？这对于网站内容或者结构的优化都会有一定的参考作用。下面我向大家介绍一个实现这个功能的方法。 使用工具：<strong>Google Analytics</strong>&amp;<strong>Google Tag manager</strong> 主要的操作在于Tag manager（以后简称GTM）中代码和规则的设置（使用GTM的好处在于，只要在页面上加一套代码，后台都由你自己操作，最大程度得减少公司或部门之间的沟通成本）。 一、在GTM容器中添加代码 本次一共会用到三段代码</p>
 <ul>
 <li><span style="line-height: 13px;">GATC  (Google Analytics tracking code)</span></li>
-<li><a href="http://jackie.ms/wp-content/themes/ifeature/jquery.scrolldepth.js">jquery.scrolldepth.js</a></li>
+<li><a href="http://jackie.ms/wp-content/themes/ifeature/jquery.scrolldepth.js" target="_blank" rel="external">jquery.scrolldepth.js</a></li>
 <li>函数调用代码</li>
 </ul>
 <p><a id="more"></a> 1、GATC直接从GA后台到处即可，但必须是异步代码（现在应该都是异步的了）。 2、第二段jquery是从<a href="http://robflaherty.github.com/jquery-scrolldepth/" target="_blank" rel="external">http://robflaherty.github.com/jquery-scrolldepth/</a> 找到的代码，感谢这位作者的贡献。对于我们只懂代码皮毛的人来说，这真是莫大的帮助。不过在实际操作中遇到过各种问题，并不像其提到的结果一般。上面链接的代码是我现在使用的，我对它做了部分修改，直到能实现开始说的效果。懂代码或者有兴趣朋友可以仔细看一看，代码不长。 3、第三段代码是在页面中调用上面这段js的代码的，它的触发条件有下面这几个：</p>
@@ -404,16 +404,16 @@
 <li>必须在第二段代码调用以后</li>
 <li>jquery版本1.7+ 我是怎么实现这些触发规则的呢？这就要用到代码管理器-GTM了，来看一下具体设置吧：</li>
 </ol>
-<p><a href="http://jackie.ms/wp-content/uploads/2013/03/1.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/03/1-300x240.jpg" alt="GTM设置" title="GTM设置"></a></p>
+<p><a href="http://jackie.ms/wp-content/uploads/2013/03/1.jpg" target="_blank" rel="external"><img src="http://jackie.ms/wp-content/uploads/2013/03/1-300x240.jpg" alt="GTM设置" title="GTM设置"></a></p>
 <p>跟踪代码的3部分就是刚才所提到的，下面我们仔细的看一下“</p>
 <p><strong>一、</strong> GATC：</p>
 <p><pre><script type="text/javascript">// &lt;![CDATA[<br>;<br>var _gaq = _gaq || [];<br>_gaq.push([‘_setAccount’, ‘UA-XXXX-X’]);<br>_gaq.push([‘_trackPageview’]);</p>
 <p>(function() {<br>var ga = document.createElement(‘script’); ga.type = ‘text/javascript’; ga.async = true;<br>ga.src = (‘https:’ == document.location.protocol ? ‘<a href="https://ssl">https://ssl</a>‘ : ‘<a href="http://www">http://www</a>‘) + ‘.google-analytics.com/ga.js’;<br>var s = document.getElementsByTagName(‘script’)[0]; s.parentNode.insertBefore(ga, s);<br>})();</p>
 <p><strong>dataLayer.push({‘event’:’scroll1’});</strong><br>// ]]&gt;</script>;</pre><br>与正常的GATC不同的是，我在最后加了一句dataLayer.push({‘event’:’scroll1’}); 它的作用是给event这个变量赋值，具体作用下面会讲到</p>
-<p><strong>二、</strong> 第二段<a href="http://jackie.ms/wp-content/themes/ifeature/jquery.scrolldepth.js">jquery.scrolldepth.js</a>有点长，大家可以自行点开来看，这里不细讲（关键是我也不太懂），需要说明的是我在里面加了两条代码： 1、最前面加入<span style="text-decoration: underline;"><script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">// &lt;![CDATA[<br></span> 在测试中我发现我本身主题自带的1.8.2版本并不支持，所以在这段代码之前我重新调用了1.7.1的版本。 2、<span style="text-decoration: underline;">dataLayer.push({‘event’:’scroll2’})</span>;和GATC的的那句作用一样，给event赋值 <strong>三、</strong> 第三段很简单，直接贴出来：</p>
+<p><strong>二、</strong> 第二段<a href="http://jackie.ms/wp-content/themes/ifeature/jquery.scrolldepth.js" target="_blank" rel="external">jquery.scrolldepth.js</a>有点长，大家可以自行点开来看，这里不细讲（关键是我也不太懂），需要说明的是我在里面加了两条代码： 1、最前面加入<span style="text-decoration: underline;"><script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">// &lt;![CDATA[<br></span> 在测试中我发现我本身主题自带的1.8.2版本并不支持，所以在这段代码之前我重新调用了1.7.1的版本。 2、<span style="text-decoration: underline;">dataLayer.push({‘event’:’scroll2’})</span>;和GATC的的那句作用一样，给event赋值 <strong>三、</strong> 第三段很简单，直接贴出来：</p>
 <p><pre><script><br>$.scrollDepth({<br>testing: true,<br>elements: [‘#comment’]<br>});<br>// ]]&gt;</script></span></p>
 <p>它的作用是调用这个函数，elements:[‘#comment’]是在我之前的基础上添加了一个类的监测，我的评论框的id（css中的id选择器的值）是comment，用处是当滚动条滑到评论框时触发相应代码。   说完了代码接下来说规则，前面我们说到这几段代码是有相互依存关系的，也就是得按顺序来触发，所以在第一段GATC中我给event赋值为scroll1，作为第二段代码触发的条件，同样第二段代码中我给它赋值为scroll2，作为第三段代码触发的条件，这样一来就能按照我预先设置的顺序触发代码了。这里举一个例子，内容见下图：</p>
-<p><a href="http://jackie.ms/wp-content/uploads/2013/03/2.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/03/2-300x130.jpg" alt="2"></a>   这样一来我们就完成了整个代码的实施过程，接下来看看成果吧： <a href="http://jackie.ms/wp-content/uploads/2013/03/3.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/03/3.jpg" alt="3"></a>   滚屏的比例和各种元素（这里是评论框）被查看的比例都一目了然（数据为参考，不用当真）。 做网站分析的朋友，看到这里有没有跃跃欲试的冲动呢，心动不如行动，Just do it！有问题可以给我留言，不过建议先google一下，养成一个好习惯，能自己解决的先自己解决，这样进步会快一点，我自身的体验，希望对你有帮助！</p>
+<p><a href="http://jackie.ms/wp-content/uploads/2013/03/2.jpg" target="_blank" rel="external"><img src="http://jackie.ms/wp-content/uploads/2013/03/2-300x130.jpg" alt="2"></a>   这样一来我们就完成了整个代码的实施过程，接下来看看成果吧： <a href="http://jackie.ms/wp-content/uploads/2013/03/3.jpg" target="_blank" rel="external"><img src="http://jackie.ms/wp-content/uploads/2013/03/3.jpg" alt="3"></a>   滚屏的比例和各种元素（这里是评论框）被查看的比例都一目了然（数据为参考，不用当真）。 做网站分析的朋友，看到这里有没有跃跃欲试的冲动呢，心动不如行动，Just do it！有问题可以给我留言，不过建议先google一下，养成一个好习惯，能自己解决的先自己解决，这样进步会快一点，我自身的体验，希望对你有帮助！</p>
 
       
     </div>
@@ -501,7 +501,7 @@
         <div class="ds-share flat" data-thread-key="2013/03/24/scroll-depth-google-analytics-tag-manager/"
      data-title="巧用Google Analytics和Tag manager监测滚屏深度"
      data-content=""
-     data-url="http://jackie.ms/2013/03/24/scroll-depth-google-analytics-tag-manager/">
+     data-url="http://jackielzq.github.io/2013/03/24/scroll-depth-google-analytics-tag-manager/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -529,7 +529,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2013/03/24/scroll-depth-google-analytics-tag-manager/"
-           data-title="巧用Google Analytics和Tag manager监测滚屏深度" data-url="http://jackie.ms/2013/03/24/scroll-depth-google-analytics-tag-manager/">
+           data-title="巧用Google Analytics和Tag manager监测滚屏深度" data-url="http://jackielzq.github.io/2013/03/24/scroll-depth-google-analytics-tag-manager/">
       </div>
     
   </div>

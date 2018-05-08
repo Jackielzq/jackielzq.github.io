@@ -89,7 +89,7 @@
 <meta name="description" content="现在对这个ifeature真是又爱又恨，喜欢它的简洁和朴素，但是同时也有好多我想要修改的地方改起来不是那么的方便。比如说字体，之前默认的是font-family: Arial,Helvetica,sans-serif ,显示出来的效果很丑，我狠不满意，因为他的中文字体就默认成了宋体。看久了一度让我产生了换主题的想法，因为我对外观这些细节还是自认为有强迫症的，这两天下班回来就在鼓捣这东西，现在终于完">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Wordpress修改字体-ifeature主题">
-<meta property="og:url" content="http://jackie.ms/2013/04/12/wordpress-change-font-ifeature/index.html">
+<meta property="og:url" content="http://jackielzq.github.io/2013/04/12/wordpress-change-font-ifeature/index.html">
 <meta property="og:site_name" content="Jackie的博客">
 <meta property="og:description" content="现在对这个ifeature真是又爱又恨，喜欢它的简洁和朴素，但是同时也有好多我想要修改的地方改起来不是那么的方便。比如说字体，之前默认的是font-family: Arial,Helvetica,sans-serif ,显示出来的效果很丑，我狠不满意，因为他的中文字体就默认成了宋体。看久了一度让我产生了换主题的想法，因为我对外观这些细节还是自认为有强迫症的，这两天下班回来就在鼓捣这东西，现在终于完">
 <meta property="og:image" content="http://jackie.ms/wp-content/uploads/2013/04/1.jpg">
@@ -126,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="http://jackie.ms/2013/04/12/wordpress-change-font-ifeature/"/>
+  <link rel="canonical" href="http://jackielzq.github.io/2013/04/12/wordpress-change-font-ifeature/"/>
 
 
 
@@ -284,7 +284,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jackie.ms/2013/04/12/wordpress-change-font-ifeature/">
+  <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/04/12/wordpress-change-font-ifeature/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jackie Luo">
@@ -392,10 +392,10 @@
 
       
         <p>现在对这个ifeature真是又爱又恨，喜欢它的简洁和朴素，但是同时也有好多我想要修改的地方改起来不是那么的方便。比如说字体，之前默认的是font-family: Arial,Helvetica,sans-serif ,显示出来的效果很丑，我狠不满意，因为他的中文字体就默认成了宋体。看久了一度让我产生了换主题的想法，因为我对外观这些细节还是自认为有强迫症的，这两天下班回来就在鼓捣这东西，现在终于完成了，看时间还早，就把这个“心路历程”写下来吧。</p>
-<p>之前有提到过<a href="http://jackie.ms/tools/debug-website-by-firebug.html">用Firebug调试网站 </a>，所以我一直觉得改这些CSS不会有太多难度，不就找到固定的连接然后改成自己要的效果么。这次的字体让我开了眼界，打开firebug，右键一看：</p>
+<p>之前有提到过<a href="http://jackie.ms/tools/debug-website-by-firebug.html" target="_blank" rel="external">用Firebug调试网站 </a>，所以我一直觉得改这些CSS不会有太多难度，不就找到固定的连接然后改成自己要的效果么。这次的字体让我开了眼界，打开firebug，右键一看：</p>
 <a id="more"></a>
-<p><a href="http://jackie.ms/wp-content/uploads/2013/04/1.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/04/1.jpg" alt="1"></a>一般都是直接带有链接的，这次直接来个#6 ，让我看了迷糊，一直在想这东西在哪改，从来没看到过。因为在firebug预览过微软雅黑的效果，明显是一个天上一个地下的感觉，所以我觉得非改不可。然而firebug只能预览修改后的效果而不能真正帮你修改，就像你闻了两口菜却又吃不着的感觉，这不能忍。于是我马上跑到了wordpress后台，所有文件翻了个遍，就是没有搜索出带关键词“font-family”的文件。于是乎我跑到了网站目录这个主题下，一个一个的css文件“地毯式搜索”，终于在我最后关头找到了一个带有字体格式设置的css文件，一时间感觉胜利在望，马上把字体信息更换上去。回到网页F5刷新，期待奇迹的出现。结果发现，字体没有丝毫变化。</p>
-<p>一瞬间感觉自己白忙一场，而且目的没达到，两个晚上加起来2,3个小时的折腾啊。脑子空白了一段时间，然后百无聊赖看了下网站源码，顿时发现：<a href="http://jackie.ms/wp-content/uploads/2013/04/2.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/04/2.jpg" alt="2"></a>这不就是我要找的那段css么？竟然没有放到CSS文件里通过链接调用，而是直接内嵌到head里，敢不敢不这么专业啊！但是接下来又出现一个问题，我能找到这段代码是wp-head() 这个函数生成的，但是完全不知道在哪里改。百度了半天没有结果，但是感觉胜利就在眼前，不能放弃。就在我正准备明天再来的时候突然又想到个点子，可以在这段css后面再重写一段新的将它覆盖掉，只替换字体部分。一时间我都被我自己感动了，于是按着我的想法加了一段，再次走一下不知道走过几次的“保存-F5刷新”这个流程。这次不抱太大希望了，可能习惯了这几次的“挫败”斗志确实没有这么高昂了。</p>
+<p><a href="http://jackie.ms/wp-content/uploads/2013/04/1.jpg" target="_blank" rel="external"><img src="http://jackie.ms/wp-content/uploads/2013/04/1.jpg" alt="1"></a>一般都是直接带有链接的，这次直接来个#6 ，让我看了迷糊，一直在想这东西在哪改，从来没看到过。因为在firebug预览过微软雅黑的效果，明显是一个天上一个地下的感觉，所以我觉得非改不可。然而firebug只能预览修改后的效果而不能真正帮你修改，就像你闻了两口菜却又吃不着的感觉，这不能忍。于是我马上跑到了wordpress后台，所有文件翻了个遍，就是没有搜索出带关键词“font-family”的文件。于是乎我跑到了网站目录这个主题下，一个一个的css文件“地毯式搜索”，终于在我最后关头找到了一个带有字体格式设置的css文件，一时间感觉胜利在望，马上把字体信息更换上去。回到网页F5刷新，期待奇迹的出现。结果发现，字体没有丝毫变化。</p>
+<p>一瞬间感觉自己白忙一场，而且目的没达到，两个晚上加起来2,3个小时的折腾啊。脑子空白了一段时间，然后百无聊赖看了下网站源码，顿时发现：<a href="http://jackie.ms/wp-content/uploads/2013/04/2.jpg" target="_blank" rel="external"><img src="http://jackie.ms/wp-content/uploads/2013/04/2.jpg" alt="2"></a>这不就是我要找的那段css么？竟然没有放到CSS文件里通过链接调用，而是直接内嵌到head里，敢不敢不这么专业啊！但是接下来又出现一个问题，我能找到这段代码是wp-head() 这个函数生成的，但是完全不知道在哪里改。百度了半天没有结果，但是感觉胜利就在眼前，不能放弃。就在我正准备明天再来的时候突然又想到个点子，可以在这段css后面再重写一段新的将它覆盖掉，只替换字体部分。一时间我都被我自己感动了，于是按着我的想法加了一段，再次走一下不知道走过几次的“保存-F5刷新”这个流程。这次不抱太大希望了，可能习惯了这几次的“挫败”斗志确实没有这么高昂了。</p>
 <p>柳暗花明又一村的感觉确实很带感，这一次终于成功了！看到因为字体改变网站整体形象有了明显提升，感觉这两天没白忙活。总结两点吧：1、开始没有想到去砍源码，思维定势得去看firebug找链接，走了好多弯路，所以一开始应该尽可能得考虑到各种可能性，节约时间。2、犹豫不太懂php，在最后一条路断掉以后，得及时找替代方案，正如我这次的，在后面重写一段。虽然看起来有那么点奇怪，但重要的是达到效果了。剩下的代码清扫以后再慢慢搞定。</p>
 <p>如果有谁知道wp-head() 怎么修改里面内容的话，请不吝赐教，先谢过了！毕竟不能在这块太浪费时间，最重要的还是得充点电，再更新内容，盗用一下<a href="http://www.cloga.info" target="_blank" rel="external">龙哥</a>经典的签名“多喝水，才有尿”。</p>
 
@@ -485,7 +485,7 @@
         <div class="ds-share flat" data-thread-key="2013/04/12/wordpress-change-font-ifeature/"
      data-title="Wordpress修改字体-ifeature主题"
      data-content=""
-     data-url="http://jackie.ms/2013/04/12/wordpress-change-font-ifeature/">
+     data-url="http://jackielzq.github.io/2013/04/12/wordpress-change-font-ifeature/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -513,7 +513,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2013/04/12/wordpress-change-font-ifeature/"
-           data-title="Wordpress修改字体-ifeature主题" data-url="http://jackie.ms/2013/04/12/wordpress-change-font-ifeature/">
+           data-title="Wordpress修改字体-ifeature主题" data-url="http://jackielzq.github.io/2013/04/12/wordpress-change-font-ifeature/">
       </div>
     
   </div>

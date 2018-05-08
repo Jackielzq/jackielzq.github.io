@@ -90,7 +90,7 @@
 那么问题就来了：如果我需要在界面上显示中文(比如标记的关键词)，该怎么做呢？GA默认是不会识别参数中的中文的，如果直接添加标记的话后果会比较严重，会导致你GA后台满目疮痍，显示出一堆的乱码，运气好的时候还能费点劲分辨出来，运气不好的话就没办法看报告了。这个时候我们就需">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用EXCEL实现URL encode转码">
-<meta property="og:url" content="http://jackie.ms/2013/04/07/encode-url-with-excel-macro/index.html">
+<meta property="og:url" content="http://jackielzq.github.io/2013/04/07/encode-url-with-excel-macro/index.html">
 <meta property="og:site_name" content="Jackie的博客">
 <meta property="og:description" content="在做广告推广时，如果该网站添加的是GA监测，那么不论是硬广还是SEM，通常都会在广告链接上加入utm参数已标记该次访问用户的来源。
 那么问题就来了：如果我需要在界面上显示中文(比如标记的关键词)，该怎么做呢？GA默认是不会识别参数中的中文的，如果直接添加标记的话后果会比较严重，会导致你GA后台满目疮痍，显示出一堆的乱码，运气好的时候还能费点劲分辨出来，运气不好的话就没办法看报告了。这个时候我们就需">
@@ -132,7 +132,7 @@
 
 
 
-  <link rel="canonical" href="http://jackie.ms/2013/04/07/encode-url-with-excel-macro/"/>
+  <link rel="canonical" href="http://jackielzq.github.io/2013/04/07/encode-url-with-excel-macro/"/>
 
 
 
@@ -290,7 +290,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jackie.ms/2013/04/07/encode-url-with-excel-macro/">
+  <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/04/07/encode-url-with-excel-macro/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jackie Luo">
@@ -402,13 +402,13 @@
 <a id="more"></a>
 <p>操作其实很简单，几步可以搞定：</p>
 <p>一、新建一个EXCEL文件，<strong>另存为-保存类型-Excel 启用宏的工作簿</strong></p>
-<p><a href="http://jackie.ms/wp-content/uploads/2013/04/lingcunwei1.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/04/lingcunwei1.jpg" alt="lingcunwei"></a></p>
+<p><a href="http://jackie.ms/wp-content/uploads/2013/04/lingcunwei1.jpg" target="_blank" rel="external"><img src="http://jackie.ms/wp-content/uploads/2013/04/lingcunwei1.jpg" alt="lingcunwei"></a></p>
 <p>二、找到“<strong>开发工具</strong>”选项卡，选择<strong>Visual Basic</strong>（如果没有该选项卡，则在<strong>开始-选项-自定义功能区</strong>，将&lt;<strong>开发工具</strong>&gt;勾上就好）</p>
-<p><a href="http://jackie.ms/wp-content/uploads/2013/04/shezhidaohang.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/04/shezhidaohang.jpg" alt="shezhidaohang"></a></p>
+<p><a href="http://jackie.ms/wp-content/uploads/2013/04/shezhidaohang.jpg" target="_blank" rel="external"><img src="http://jackie.ms/wp-content/uploads/2013/04/shezhidaohang.jpg" alt="shezhidaohang"></a></p>
 <p>三、回到界面，选择Visual Basic</p>
-<p><a href="http://jackie.ms/wp-content/uploads/2013/04/visualbasic.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/04/visualbasic.jpg" alt="visualbasic"></a></p>
+<p><a href="http://jackie.ms/wp-content/uploads/2013/04/visualbasic.jpg" target="_blank" rel="external"><img src="http://jackie.ms/wp-content/uploads/2013/04/visualbasic.jpg" alt="visualbasic"></a></p>
 <p>四、在Visual Basic界面中，选择<strong>插入-模块</strong></p>
-<p><a href="http://jackie.ms/wp-content/uploads/2013/04/tianjiamokuai.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/04/tianjiamokuai.jpg" alt="tianjiamokuai"></a></p>
+<p><a href="http://jackie.ms/wp-content/uploads/2013/04/tianjiamokuai.jpg" target="_blank" rel="external"><img src="http://jackie.ms/wp-content/uploads/2013/04/tianjiamokuai.jpg" alt="tianjiamokuai"></a></p>
 <p>&nbsp;</p>
 <p>五、在输入框内输入以下代码：</p>
 <p><pre><br>Public Function UrlEncode(ByRef szString As String) As String<br>       Dim szChar   As String<br>       Dim szTemp   As String<br>       Dim szCode   As String<br>       Dim szHex    As String<br>       Dim szBin    As String<br>       Dim iCount1  As Integer<br>       Dim iCount2  As Integer<br>       Dim iStrLen1 As Integer<br>       Dim iStrLen2 As Integer<br>       Dim lResult  As Long<br>       Dim lAscVal  As Long<br>       szString = Trim$(szString)<br>       iStrLen1 = Len(szString)<br>       For iCount1 = 1 To iStrLen1<br>           szChar = Mid$(szString, iCount1, 1)<br>           lAscVal = AscW(szChar)<br>           If lAscVal &gt;= &amp;H0 And lAscVal &lt;= &amp;HFF Then<br>              If (lAscVal &gt;= &amp;H30 And lAscVal &lt;= &amp;H39) Or <em><br>                 (lAscVal &gt;= &amp;H41 And lAscVal &lt;= &amp;H5A) Or </em><br>                 (lAscVal &gt;= &amp;H61 And lAscVal &lt;= &amp;H7A) Then<br>                 szCode = szCode &amp; szChar<br>              Else</pre></p>
@@ -471,7 +471,7 @@ Next iCount1
 UrlEncode = szCode
 </code></pre><p>End Function<br><br>粘贴代码以后直接CTRL+S保存即可。</p>
 <p>四、回到Excel界面，在任意单元格输入公式=URLencode(‘你选择的单元格地址’) ，就可以直接输出转码后的结果了，</p>
-<p><a href="http://jackie.ms/wp-content/uploads/2013/04/jieguo.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/04/jieguo.jpg" alt="jieguo"></a></p>
+<p><a href="http://jackie.ms/wp-content/uploads/2013/04/jieguo.jpg" target="_blank" rel="external"><img src="http://jackie.ms/wp-content/uploads/2013/04/jieguo.jpg" alt="jieguo"></a></p>
 <p>赶快试试吧！</p>
 
       
@@ -560,7 +560,7 @@ UrlEncode = szCode
         <div class="ds-share flat" data-thread-key="2013/04/07/encode-url-with-excel-macro/"
      data-title="用EXCEL实现URL encode转码"
      data-content=""
-     data-url="http://jackie.ms/2013/04/07/encode-url-with-excel-macro/">
+     data-url="http://jackielzq.github.io/2013/04/07/encode-url-with-excel-macro/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -588,7 +588,7 @@ UrlEncode = szCode
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2013/04/07/encode-url-with-excel-macro/"
-           data-title="用EXCEL实现URL encode转码" data-url="http://jackie.ms/2013/04/07/encode-url-with-excel-macro/">
+           data-title="用EXCEL实现URL encode转码" data-url="http://jackielzq.github.io/2013/04/07/encode-url-with-excel-macro/">
       </div>
     
   </div>

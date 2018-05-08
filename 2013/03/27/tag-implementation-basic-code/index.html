@@ -90,7 +90,7 @@
 在说添加代码之前我们先来看下网站的本身的结构。现在所有浏览器都有“查看页面源码”功能，单击鼠标右键就看">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网站分析的基础知识（四）监测代码的部署—Basic code">
-<meta property="og:url" content="http://jackie.ms/2013/03/27/tag-implementation-basic-code/index.html">
+<meta property="og:url" content="http://jackielzq.github.io/2013/03/27/tag-implementation-basic-code/index.html">
 <meta property="og:site_name" content="Jackie的博客">
 <meta property="og:description" content="说完了原理和基础理论，接下来要开始实干了。我们知道GA能收集数据并产生各种复杂的报表，首先都需要GATC的支持，也就是监测代码（题目中说的Basic code）。通常情况下直接粘贴GA后台中所展示的那段代码到网页源代码里就行了，特殊的定制化需求在我们这里先不讲。从一般再到特殊，我们按这个顺序来。
 在说添加代码之前我们先来看下网站的本身的结构。现在所有浏览器都有“查看页面源码”功能，单击鼠标右键就看">
@@ -126,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="http://jackie.ms/2013/03/27/tag-implementation-basic-code/"/>
+  <link rel="canonical" href="http://jackielzq.github.io/2013/03/27/tag-implementation-basic-code/"/>
 
 
 
@@ -284,7 +284,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jackie.ms/2013/03/27/tag-implementation-basic-code/">
+  <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/03/27/tag-implementation-basic-code/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jackie Luo">
@@ -407,7 +407,7 @@
 <p>&lt;/html&gt;</p>
 <p>我们可以看到每一种标签都是成对出现的，前面那个称为开标签，标志着这段内容的开始，而带斜杠“/”的称谓闭标签，标志着内容的结束。html包含着所有的代码，算是“总管”吧；head则签如其名，头部，一般放置需要外部调用的css或javascript文件，还有网站内容的声明；body则是页面内容的主体，基本上绝大多数页面上显示的内容都包含在他里面；footer就和word中的页脚一样，一般是修饰或补充性的内容，比如我页面下方的“cyberchimps”那张图片。（在这里它代表网站主题的制作者，顺便在这里对他们表示感谢！他们给我们提供了优质的主题，在网站上留一些位置给他们是对他们劳动起码尊重）。</p>
 <p>言归正传，我们的那段GATC一般都会放在页面模版的头部，准确一点就是&lt;/head&gt;标签的前面，因为它是异步加载的，在下载的时候不会影响其他内容的展现（一般代码的加载方式有两种，一种是同步加载，一种是异步加载。二者之间的区别是同步加载是必须“排队”，只有当排在你前面的代码加载完了才轮到你；而异步加载则没有这个限制，和其他代码没有先后顺序，可以同时进行。因此同步加载也称谓瀑布模型，异步加载称为并发模型）。当然，也不是一定要放在这个位置，放在其他地方也是可以的，这里只说“最佳”（数据会相对准确一些）。</p>
-<p>那么部署完这段GATC后就可以了吗？这就要看你自己的要求了。如果你只想看网站每个页面来了多少人，看了多少遍，停留了多长时间，那这段代码绝对够用了。但是难道你不想知道别人来你网站上点了哪些内容，有哪些互动情况或者是其他有趣的事情？这个时候你就得针对特殊的位置来做监测了，请看下节——<a href="http://jackie.ms/basicknowledege/tag-implementation-action.html">网站分析的基础知识（五）监测代码的部署—互动行为监测。</a></p>
+<p>那么部署完这段GATC后就可以了吗？这就要看你自己的要求了。如果你只想看网站每个页面来了多少人，看了多少遍，停留了多长时间，那这段代码绝对够用了。但是难道你不想知道别人来你网站上点了哪些内容，有哪些互动情况或者是其他有趣的事情？这个时候你就得针对特殊的位置来做监测了，请看下节——<a href="http://jackie.ms/basicknowledege/tag-implementation-action.html" target="_blank" rel="external">网站分析的基础知识（五）监测代码的部署—互动行为监测。</a></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 
@@ -499,7 +499,7 @@
         <div class="ds-share flat" data-thread-key="2013/03/27/tag-implementation-basic-code/"
      data-title="网站分析的基础知识（四）监测代码的部署—Basic code"
      data-content=""
-     data-url="http://jackie.ms/2013/03/27/tag-implementation-basic-code/">
+     data-url="http://jackielzq.github.io/2013/03/27/tag-implementation-basic-code/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -527,7 +527,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2013/03/27/tag-implementation-basic-code/"
-           data-title="网站分析的基础知识（四）监测代码的部署—Basic code" data-url="http://jackie.ms/2013/03/27/tag-implementation-basic-code/">
+           data-title="网站分析的基础知识（四）监测代码的部署—Basic code" data-url="http://jackielzq.github.io/2013/03/27/tag-implementation-basic-code/">
       </div>
     
   </div>

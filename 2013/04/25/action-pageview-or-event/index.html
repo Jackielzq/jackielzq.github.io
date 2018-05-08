@@ -89,7 +89,7 @@
 <meta name="description" content="在最开始接触到GA的时候，我们会知道GATC中最后一句调用函数_gaq.push([‘_trackPageview’]);是用来记录一次页面监测的，而同时GA也告诉你，对于页面上的按钮或者交互，可以使用trackEvent来进行事件监测，与页面数据隔开，以免造成页面数据的虚高。但是在实际应用中，往往不是纸上谈兵这么简单。而更是应该因地制宜，采用更加适合的方式来部署以及处理数据。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Google Analytics—trackPageview与trackEvent">
-<meta property="og:url" content="http://jackie.ms/2013/04/25/action-pageview-or-event/index.html">
+<meta property="og:url" content="http://jackielzq.github.io/2013/04/25/action-pageview-or-event/index.html">
 <meta property="og:site_name" content="Jackie的博客">
 <meta property="og:description" content="在最开始接触到GA的时候，我们会知道GATC中最后一句调用函数_gaq.push([‘_trackPageview’]);是用来记录一次页面监测的，而同时GA也告诉你，对于页面上的按钮或者交互，可以使用trackEvent来进行事件监测，与页面数据隔开，以免造成页面数据的虚高。但是在实际应用中，往往不是纸上谈兵这么简单。而更是应该因地制宜，采用更加适合的方式来部署以及处理数据。">
 <meta property="og:updated_time" content="2016-09-21T07:45:39.000Z">
@@ -123,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://jackie.ms/2013/04/25/action-pageview-or-event/"/>
+  <link rel="canonical" href="http://jackielzq.github.io/2013/04/25/action-pageview-or-event/"/>
 
 
 
@@ -281,7 +281,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jackie.ms/2013/04/25/action-pageview-or-event/">
+  <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/04/25/action-pageview-or-event/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jackie Luo">
@@ -391,9 +391,9 @@
         <p>在最开始接触到GA的时候，我们会知道GATC中最后一句调用函数_gaq.push([‘_trackPageview’]);是用来记录一次页面监测的，而同时GA也告诉你，对于页面上的按钮或者交互，可以使用trackEvent来进行事件监测，与页面数据隔开，以免造成页面数据的虚高。但是在实际应用中，往往不是纸上谈兵这么简单。而更是应该因地制宜，采用更加适合的方式来部署以及处理数据。</p>
 <a id="more"></a>
 <p>1、互动事件</p>
-<p>通常情况下我们习惯添加trackEvent进行事件监测，然而自动从GA推出“访问者流“以后，我们可以比较清楚地看到各个页面之间的访问者的流向。这时我们会想到用虚拟页面监测（即在事件触发时触发页面监测代码，因为不是一个真实的页面，所以叫”虚拟页面”），即在事件触发时调用_trackPageview方法。比如这个<a href="http://jackie.ms">例子</a> ,点击这个链接以后就会触发虚拟页面请求。这样的好处是可以更加清楚得看到各个环节之间的流量走向，而不会因为添加事件监测而导致数据脱节。所以对于比较重要的互动行为，虚拟页面这个方式可以让把网站的整体情况看得更清晰。而对于一些不重要的行为，只是good to have，没有也无所谓的东西，加事件监测就好了。</p>
+<p>通常情况下我们习惯添加trackEvent进行事件监测，然而自动从GA推出“访问者流“以后，我们可以比较清楚地看到各个页面之间的访问者的流向。这时我们会想到用虚拟页面监测（即在事件触发时触发页面监测代码，因为不是一个真实的页面，所以叫”虚拟页面”），即在事件触发时调用_trackPageview方法。比如这个<a href="http://jackie.ms" target="_blank" rel="external">例子</a> ,点击这个链接以后就会触发虚拟页面请求。这样的好处是可以更加清楚得看到各个环节之间的流量走向，而不会因为添加事件监测而导致数据脱节。所以对于比较重要的互动行为，虚拟页面这个方式可以让把网站的整体情况看得更清晰。而对于一些不重要的行为，只是good to have，没有也无所谓的东西，加事件监测就好了。</p>
 <p>2、Flash</p>
-<p>Flash算是GA里面比较有意思的东西了，因为它和html有许多不一样。首先，Flash网站主题是一个大swf的文件，里面包含所有的页面区块和交互。那么首先摆在我们面前的就是URL的唯一性问题，因为很多Flash站点会把所有页面都做到一个Flash文件里，这样的话不管你在站内如何互动，GA都默认只会记一次的trackPageview，这样的话就看不到真实的页面浏览数据了。这个时候你就需要添加虚拟页面监测，当展示不同区域时触发相应的代码。这里还要提到一种特殊情况，一些Flash站点不同区块或者页面的URL是根据锚点来设定的，举个例子<a href="http://jackie.ms#3">http://jackie.ms#3</a> 这样跳到我首页的第三屏，这样的话需要给GATC做一个特殊化的修改：将_gaq.push([‘_trackPageview’])改为_gaq.push([‘_trackPageview’,<strong>location.pathname + location.hash</strong>]),在这里，location.hash就是你当前页面锚点的值。</p>
+<p>Flash算是GA里面比较有意思的东西了，因为它和html有许多不一样。首先，Flash网站主题是一个大swf的文件，里面包含所有的页面区块和交互。那么首先摆在我们面前的就是URL的唯一性问题，因为很多Flash站点会把所有页面都做到一个Flash文件里，这样的话不管你在站内如何互动，GA都默认只会记一次的trackPageview，这样的话就看不到真实的页面浏览数据了。这个时候你就需要添加虚拟页面监测，当展示不同区域时触发相应的代码。这里还要提到一种特殊情况，一些Flash站点不同区块或者页面的URL是根据锚点来设定的，举个例子<a href="http://jackie.ms#3" target="_blank" rel="external">http://jackie.ms#3</a> 这样跳到我首页的第三屏，这样的话需要给GATC做一个特殊化的修改：将_gaq.push([‘_trackPageview’])改为_gaq.push([‘_trackPageview’,<strong>location.pathname + location.hash</strong>]),在这里，location.hash就是你当前页面锚点的值。</p>
 <p>3、数据的影响</p>
 <p>用trackPageview看整个网站表现的时候会比trackEvent更加清晰，所以大部分情况下我是偏向于trackPageview的，但是这同时也会出来一个问题，网站整体的页面浏览会虚高。那么怎么解决这个问题呢，首先我觉得可以分情况来看，如果Page/Visits或者Pageview不是一个衡量整体表现的KPI，那么虚高一点也无所谓，对比一下各个时间段或者来源的趋势就可以。但是如果你的网站是以内容页为主，而没有其他具体的转化行为，那就尽量避免影响真实数据的体现。如果真的坚持用它也可以，你需要单独配置一个配置文件，将你的虚拟页面流量过滤掉，以此来看Pageview数据（稍微麻烦一点，但不失为一个办法，前提是你的虚拟页面最好有单独或统一的标记，比如说/virtual/……不然过滤起来难度太大）。</p>
 <p>我的感觉是不用拘泥于固定的想法，稳中求变、勇于尝试，可以发现更多不一样的东西。但是有一点是可以肯定的，在布码之前一定要尽可能得想的全面一些，考虑到后面可能要用的数据或者方法，前期准备越充足，后面做起来越简单，不然你会有收拾不尽的烂摊子。</p>
@@ -488,7 +488,7 @@
         <div class="ds-share flat" data-thread-key="2013/04/25/action-pageview-or-event/"
      data-title="Google Analytics—trackPageview与trackEvent"
      data-content=""
-     data-url="http://jackie.ms/2013/04/25/action-pageview-or-event/">
+     data-url="http://jackielzq.github.io/2013/04/25/action-pageview-or-event/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -516,7 +516,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2013/04/25/action-pageview-or-event/"
-           data-title="Google Analytics—trackPageview与trackEvent" data-url="http://jackie.ms/2013/04/25/action-pageview-or-event/">
+           data-title="Google Analytics—trackPageview与trackEvent" data-url="http://jackielzq.github.io/2013/04/25/action-pageview-or-event/">
       </div>
     
   </div>

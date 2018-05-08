@@ -89,7 +89,7 @@
 <meta name="description" content="在Google Analytics情况下，很多时候数据量一大，之前和之后的数据对不上，或者两个分隔时间段的数据加和不等于整个时间段，那么就要注意了，因为你的数据被抽样了。对此我的理解是：1、免费的就别想占用太多资源了，凑合用吧；2、GA是叫谷歌分析，那么分析就不用对数字要求那么地精确，看一个准确的趋势即可；3、数据大了计算起来会比较慢，这样一来再补影响数据准确性的前提下可以提高加载速度。那么GA到">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Google Analytics的抽样机制">
-<meta property="og:url" content="http://jackie.ms/2013/05/09/google-analytics-sample/index.html">
+<meta property="og:url" content="http://jackielzq.github.io/2013/05/09/google-analytics-sample/index.html">
 <meta property="og:site_name" content="Jackie的博客">
 <meta property="og:description" content="在Google Analytics情况下，很多时候数据量一大，之前和之后的数据对不上，或者两个分隔时间段的数据加和不等于整个时间段，那么就要注意了，因为你的数据被抽样了。对此我的理解是：1、免费的就别想占用太多资源了，凑合用吧；2、GA是叫谷歌分析，那么分析就不用对数字要求那么地精确，看一个准确的趋势即可；3、数据大了计算起来会比较慢，这样一来再补影响数据准确性的前提下可以提高加载速度。那么GA到">
 <meta property="og:image" content="http://jackie.ms/wp-content/uploads/2013/05/GA1.jpg">
@@ -126,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="http://jackie.ms/2013/05/09/google-analytics-sample/"/>
+  <link rel="canonical" href="http://jackielzq.github.io/2013/05/09/google-analytics-sample/"/>
 
 
 
@@ -284,7 +284,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jackie.ms/2013/05/09/google-analytics-sample/">
+  <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/05/09/google-analytics-sample/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jackie Luo">
@@ -394,9 +394,9 @@
         <p>在Google Analytics情况下，很多时候数据量一大，之前和之后的数据对不上，或者两个分隔时间段的数据加和不等于整个时间段，那么就要注意了，因为你的数据被抽样了。对此我的理解是：1、免费的就别想占用太多资源了，凑合用吧；2、GA是叫谷歌分析，那么分析就不用对数字要求那么地精确，看一个准确的趋势即可；3、数据大了计算起来会比较慢，这样一来再补影响数据准确性的前提下可以提高加载速度。那么GA到底是怎么样一个抽样机制呢？我们来看一下。</p>
 <a id="more"></a>
 <h3 id="访次的抽样"><a href="#访次的抽样" class="headerlink" title="访次的抽样"></a><strong>访次的抽样</strong></h3><p>首先，当你所要看的报表请求包含50万visits数据的时候，GA就会对相应的结果进行抽样。区别你的数据是否抽样很简单，在报表界面的右上方会出现一个小方块，旁边还有清晰的字写明此次抽样的比例和具体的visits数，如下图：</p>
-<p>[caption id=”attachment_212” align=”aligncenter” width=”400”]<a href="http://jackie.ms/wp-content/uploads/2013/05/GA1.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/05/GA1.jpg" alt="GA1" title="Google Analytics 抽样1"></a> Google Analytics 抽样1[/caption]</p>
+<p>[caption id=”attachment_212” align=”aligncenter” width=”400”]<a href="http://jackie.ms/wp-content/uploads/2013/05/GA1.jpg" target="_blank" rel="external"><img src="http://jackie.ms/wp-content/uploads/2013/05/GA1.jpg" alt="GA1" title="Google Analytics 抽样1"></a> Google Analytics 抽样1[/caption]</p>
 <p>点击右方的小方块则可以调整当前报表的采样率，如下图：</p>
-<p>[caption id=”attachment_213” align=”aligncenter” width=”400”]<a href="http://jackie.ms/wp-content/uploads/2013/05/GA2.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/05/GA2.jpg" alt="Google Analytics 抽样1"></a> Google Analytics 抽样2[/caption]</p>
+<p>[caption id=”attachment_213” align=”aligncenter” width=”400”]<a href="http://jackie.ms/wp-content/uploads/2013/05/GA2.jpg" target="_blank" rel="external"><img src="http://jackie.ms/wp-content/uploads/2013/05/GA2.jpg" alt="Google Analytics 抽样1"></a> Google Analytics 抽样2[/caption]</p>
 <p>点击滑动中间的小滑块可以让取样数据在1000-50W之间变化，默认情况下是25万。如果你选择的是一个时间段内的数据，那么他抽样时会根据每天的visits比例进行抽样，确保在时间维度上能保持高度的一致性。</p>
 <p>需要注意的是，对于访次（visits）的抽样是发生在媒体资源（Property）下而不是配置文件（Profile）下的，GA会以天位单位处理这些为抽样的数据以便生成相应的为抽样的报告。对于标准报告（直接点击面板得到的，例如流量来源等）来说，一般是不会抽样的，但是对于而外的请求比如高级细分、自定义报告、次级维度来说，GA就会先判定当前的数据是否可以直接生成报表，如果数据量过大，那么再返回抽样后的数据报表。</p>
 <h3 id="维度的汇总-标准"><a href="#维度的汇总-标准" class="headerlink" title="维度的汇总-标准"></a><strong>维度的汇总-标准</strong></h3><p>当一天内一个表格中的数据超过 75,000 行时，GA就会对数据进行汇总。换言之，如果指定表格中的值超过 75,000 个，GA会采用前面的 N 个值，并为剩下的值创建标记为“(other)”的汇总条目。</p>
@@ -501,7 +501,7 @@
         <div class="ds-share flat" data-thread-key="2013/05/09/google-analytics-sample/"
      data-title="Google Analytics的抽样机制"
      data-content=""
-     data-url="http://jackie.ms/2013/05/09/google-analytics-sample/">
+     data-url="http://jackielzq.github.io/2013/05/09/google-analytics-sample/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -529,7 +529,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2013/05/09/google-analytics-sample/"
-           data-title="Google Analytics的抽样机制" data-url="http://jackie.ms/2013/05/09/google-analytics-sample/">
+           data-title="Google Analytics的抽样机制" data-url="http://jackielzq.github.io/2013/05/09/google-analytics-sample/">
       </div>
     
   </div>

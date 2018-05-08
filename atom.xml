@@ -4,9 +4,9 @@
   <subtitle>学习|交流|分享</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://jackie.ms/"/>
+  <link href="http://jackielzq.github.io/"/>
   <updated>2017-07-25T02:14:18.000Z</updated>
-  <id>http://jackie.ms/</id>
+  <id>http://jackielzq.github.io/</id>
   
   <author>
     <name>Jackie Luo</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>广州印象</title>
-    <link href="http://jackie.ms/2017/07/24/%E5%B9%BF%E5%B7%9E%E5%8D%B0%E8%B1%A1/"/>
-    <id>http://jackie.ms/2017/07/24/广州印象/</id>
+    <link href="http://jackielzq.github.io/2017/07/24/%E5%B9%BF%E5%B7%9E%E5%8D%B0%E8%B1%A1/"/>
+    <id>http://jackielzq.github.io/2017/07/24/广州印象/</id>
     <published>2017-07-24T06:46:37.000Z</published>
     <updated>2017-07-25T02:14:18.000Z</updated>
     
@@ -41,17 +41,17 @@
     
     </summary>
     
-      <category term="纪录" scheme="http://jackie.ms/categories/%E7%BA%AA%E5%BD%95/"/>
+      <category term="纪录" scheme="http://jackielzq.github.io/categories/%E7%BA%AA%E5%BD%95/"/>
     
     
-      <category term="印象,广州" scheme="http://jackie.ms/tags/%E5%8D%B0%E8%B1%A1-%E5%B9%BF%E5%B7%9E/"/>
+      <category term="印象,广州" scheme="http://jackielzq.github.io/tags/%E5%8D%B0%E8%B1%A1-%E5%B9%BF%E5%B7%9E/"/>
     
   </entry>
   
   <entry>
     <title>又一次动迁</title>
-    <link href="http://jackie.ms/2017/04/30/%E5%8F%88%E4%B8%80%E6%AC%A1%E5%8A%A8%E8%BF%81/"/>
-    <id>http://jackie.ms/2017/04/30/又一次动迁/</id>
+    <link href="http://jackielzq.github.io/2017/04/30/%E5%8F%88%E4%B8%80%E6%AC%A1%E5%8A%A8%E8%BF%81/"/>
+    <id>http://jackielzq.github.io/2017/04/30/又一次动迁/</id>
     <published>2017-04-30T06:46:37.000Z</published>
     <updated>2017-04-30T09:17:23.000Z</updated>
     
@@ -70,17 +70,17 @@
     
     </summary>
     
-      <category term="纪录" scheme="http://jackie.ms/categories/%E7%BA%AA%E5%BD%95/"/>
+      <category term="纪录" scheme="http://jackielzq.github.io/categories/%E7%BA%AA%E5%BD%95/"/>
     
     
-      <category term="南迁,广州" scheme="http://jackie.ms/tags/%E5%8D%97%E8%BF%81-%E5%B9%BF%E5%B7%9E/"/>
+      <category term="南迁,广州" scheme="http://jackielzq.github.io/tags/%E5%8D%97%E8%BF%81-%E5%B9%BF%E5%B7%9E/"/>
     
   </entry>
   
   <entry>
     <title>【分享】用python打造自己的微信机器人</title>
-    <link href="http://jackie.ms/2017/03/20/%E3%80%90%E5%88%86%E4%BA%AB%E3%80%91%E7%94%A8python%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/"/>
-    <id>http://jackie.ms/2017/03/20/【分享】用python打造自己的微信机器人/</id>
+    <link href="http://jackielzq.github.io/2017/03/20/%E3%80%90%E5%88%86%E4%BA%AB%E3%80%91%E7%94%A8python%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/"/>
+    <id>http://jackielzq.github.io/2017/03/20/【分享】用python打造自己的微信机器人/</id>
     <published>2017-03-20T06:46:37.000Z</published>
     <updated>2017-03-20T08:14:42.000Z</updated>
     
@@ -126,17 +126,17 @@
     
     </summary>
     
-      <category term="分享" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="分享" scheme="http://jackielzq.github.io/categories/%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="分享,python,微信,机器人" scheme="http://jackie.ms/tags/%E5%88%86%E4%BA%AB-python-%E5%BE%AE%E4%BF%A1-%E6%9C%BA%E5%99%A8%E4%BA%BA/"/>
+      <category term="分享,python,微信,机器人" scheme="http://jackielzq.github.io/tags/%E5%88%86%E4%BA%AB-python-%E5%BE%AE%E4%BF%A1-%E6%9C%BA%E5%99%A8%E4%BA%BA/"/>
     
   </entry>
   
   <entry>
     <title>【分享】命令行下载youtube视频</title>
-    <link href="http://jackie.ms/2017/03/17/%E3%80%90%E5%88%86%E4%BA%AB%E3%80%91%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E8%BD%BDyoutube%E8%A7%86%E9%A2%91/"/>
-    <id>http://jackie.ms/2017/03/17/【分享】命令行下载youtube视频/</id>
+    <link href="http://jackielzq.github.io/2017/03/17/%E3%80%90%E5%88%86%E4%BA%AB%E3%80%91%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E8%BD%BDyoutube%E8%A7%86%E9%A2%91/"/>
+    <id>http://jackielzq.github.io/2017/03/17/【分享】命令行下载youtube视频/</id>
     <published>2017-03-16T16:46:37.000Z</published>
     <updated>2017-03-16T16:45:52.000Z</updated>
     
@@ -150,7 +150,7 @@
 <a id="more"></a>
 <h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>打开终端，输入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install proxychains-ng</div></pre></td></tr></table></figure>
-<p>若没有安装brew，请移至<a href="http://jackie.ms/2017/03/16/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%89%88%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/">这一篇文章</a>参考</p>
+<p>若没有安装brew，请移至<a href="http://jackie.ms/2017/03/16/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%89%88%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/" target="_blank" rel="external">这一篇文章</a>参考</p>
 <h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/proxychains.conf</div></pre></td></tr></table></figure>
 <p>将<code>socks4 127.0.0.1 9095</code>改为<code>socks5  127.0.0.1 1080  //1080改为你自己的端口</code></p>
 <h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>在你所需要输入的命令前加上proxychains4，即可，比如</p>
@@ -185,19 +185,19 @@
     
     </summary>
     
-      <category term="分享" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="分享" scheme="http://jackielzq.github.io/categories/%E5%88%86%E4%BA%AB/"/>
     
-      <category term="命令行" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+      <category term="命令行" scheme="http://jackielzq.github.io/categories/%E5%88%86%E4%BA%AB/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
     
     
-      <category term="分享,命令行,youtube,翻墙,下载" scheme="http://jackie.ms/tags/%E5%88%86%E4%BA%AB-%E5%91%BD%E4%BB%A4%E8%A1%8C-youtube-%E7%BF%BB%E5%A2%99-%E4%B8%8B%E8%BD%BD/"/>
+      <category term="分享,命令行,youtube,翻墙,下载" scheme="http://jackielzq.github.io/tags/%E5%88%86%E4%BA%AB-%E5%91%BD%E4%BB%A4%E8%A1%8C-youtube-%E7%BF%BB%E5%A2%99-%E4%B8%8B%E8%BD%BD/"/>
     
   </entry>
   
   <entry>
     <title>【分享】命令行下的网易云音乐Musicbox</title>
-    <link href="http://jackie.ms/2017/03/16/%E3%80%90%E5%88%86%E4%BA%AB%E3%80%91%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%89%88%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
-    <id>http://jackie.ms/2017/03/16/【分享】命令行版网易云音乐/</id>
+    <link href="http://jackielzq.github.io/2017/03/16/%E3%80%90%E5%88%86%E4%BA%AB%E3%80%91%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%89%88%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
+    <id>http://jackielzq.github.io/2017/03/16/【分享】命令行版网易云音乐/</id>
     <published>2017-03-16T06:46:37.000Z</published>
     <updated>2017-03-20T08:13:40.000Z</updated>
     
@@ -302,19 +302,19 @@
     
     </summary>
     
-      <category term="分享" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="分享" scheme="http://jackielzq.github.io/categories/%E5%88%86%E4%BA%AB/"/>
     
-      <category term="命令行" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+      <category term="命令行" scheme="http://jackielzq.github.io/categories/%E5%88%86%E4%BA%AB/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
     
     
-      <category term="分享,命令行,网易云音乐" scheme="http://jackie.ms/tags/%E5%88%86%E4%BA%AB-%E5%91%BD%E4%BB%A4%E8%A1%8C-%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
+      <category term="分享,命令行,网易云音乐" scheme="http://jackielzq.github.io/tags/%E5%88%86%E4%BA%AB-%E5%91%BD%E4%BB%A4%E8%A1%8C-%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90/"/>
     
   </entry>
   
   <entry>
     <title>闲聊中的人情味</title>
-    <link href="http://jackie.ms/2017/03/10/%E9%97%B2%E8%81%8A%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
-    <id>http://jackie.ms/2017/03/10/闲聊的作用/</id>
+    <link href="http://jackielzq.github.io/2017/03/10/%E9%97%B2%E8%81%8A%E7%9A%84%E4%BD%9C%E7%94%A8/"/>
+    <id>http://jackielzq.github.io/2017/03/10/闲聊的作用/</id>
     <published>2017-03-10T06:46:37.000Z</published>
     <updated>2017-03-10T06:38:04.000Z</updated>
     
@@ -350,22 +350,22 @@
     
     </summary>
     
-      <category term="纪录" scheme="http://jackie.ms/categories/%E7%BA%AA%E5%BD%95/"/>
+      <category term="纪录" scheme="http://jackielzq.github.io/categories/%E7%BA%AA%E5%BD%95/"/>
     
     
-      <category term="闲聊" scheme="http://jackie.ms/tags/%E9%97%B2%E8%81%8A/"/>
+      <category term="闲聊" scheme="http://jackielzq.github.io/tags/%E9%97%B2%E8%81%8A/"/>
     
   </entry>
   
   <entry>
     <title>多图博客福音-七牛图床</title>
-    <link href="http://jackie.ms/2017/02/07/%E2%80%9C%E4%B8%83%E7%89%9B%E5%9B%BE%E5%BA%8A%E2%80%9D/"/>
-    <id>http://jackie.ms/2017/02/07/“七牛图床”/</id>
+    <link href="http://jackielzq.github.io/2017/02/07/%E2%80%9C%E4%B8%83%E7%89%9B%E5%9B%BE%E5%BA%8A%E2%80%9D/"/>
+    <id>http://jackielzq.github.io/2017/02/07/“七牛图床”/</id>
     <published>2017-02-07T06:46:37.000Z</published>
     <updated>2017-02-07T07:18:33.000Z</updated>
     
     <content type="html"><![CDATA[<p>像我们这种把网址挂在github上本来就已经是hard浏览模式：访问速度比国内网址慢了好多.虽然依托hexo的纯静态处理，已经把访问速度提升到了极致，但是服务器在国外，很多时候访问仍然不是那么顺畅。但是在我经历了国内备案，香港服务器间歇性崩盘之后，发现<code>github pages</code>确实是最有良心的，也不好再去奢求更多了，毕竟稳定&gt;快速。</p>
-<p>又一次安利完，说一下这次主要的网站图片问题。我的上一篇<a href="http://jackie.ms/2017/02/03/2016%E6%80%BB%E7%BB%93/">《2016总结》</a>，里面的图有50来张，尽管我都压缩过，原照许多在<code>3-5M</code>，都被压缩到<code>1M</code>以内。但尽管如此，50多张图片加起来也有<code>20-30M</code>，对于本来就很慢的github服务器来说，无疑又是一记毁灭性的重拳。因此把图片存在本地确实是非常不明智之举，这时候图床的出现真的是茫茫大海中的一盏明灯。</p>
+<p>又一次安利完，说一下这次主要的网站图片问题。我的上一篇<a href="http://jackie.ms/2017/02/03/2016%E6%80%BB%E7%BB%93/" target="_blank" rel="external">《2016总结》</a>，里面的图有50来张，尽管我都压缩过，原照许多在<code>3-5M</code>，都被压缩到<code>1M</code>以内。但尽管如此，50多张图片加起来也有<code>20-30M</code>，对于本来就很慢的github服务器来说，无疑又是一记毁灭性的重拳。因此把图片存在本地确实是非常不明智之举，这时候图床的出现真的是茫茫大海中的一盏明灯。</p>
 <a id="more"></a>
 <p>我用的是<a href="http://yotuku.cn/#/" target="_blank" rel="external">极简图床</a>，页面和操作交互都是我喜欢的极简风格。之间的差别我不细讲，举个例子，打开我上面提到的文章页，时间<code>1/30</code>吧，比例我随便说的，但是实际上比例确实有这么夸张。我一个炫图的文章页打开3分钟了还是一片空白，确实是说不过去。感谢<a href="http://www.qiniu.com/" target="_blank" rel="external">七牛</a>为我们提供了这么好的服务。</p>
 <p>极简图床免费版一个小时内只能上传<code>50</code>张图片，很有限，但是通过七牛账号个人认证后就会取消该限制并获得<code>10G</code>的存储空间，所以尽量还是不要使用阉割版，很难受，<a href="http://yotuku.cn/help/faq.html?src=settings_head" target="_blank" rel="external">使用教程传送门</a>。</p>
@@ -380,17 +380,17 @@
     
     </summary>
     
-      <category term="分享" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="分享" scheme="http://jackielzq.github.io/categories/%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="图床,七牛" scheme="http://jackie.ms/tags/%E5%9B%BE%E5%BA%8A-%E4%B8%83%E7%89%9B/"/>
+      <category term="图床,七牛" scheme="http://jackielzq.github.io/tags/%E5%9B%BE%E5%BA%8A-%E4%B8%83%E7%89%9B/"/>
     
   </entry>
   
   <entry>
     <title>老家的数字生活</title>
-    <link href="http://jackie.ms/2017/02/07/%E8%80%81%E5%AE%B6%E7%9A%84%E6%95%B0%E5%AD%97%E7%94%9F%E6%B4%BB/"/>
-    <id>http://jackie.ms/2017/02/07/老家的数字生活/</id>
+    <link href="http://jackielzq.github.io/2017/02/07/%E8%80%81%E5%AE%B6%E7%9A%84%E6%95%B0%E5%AD%97%E7%94%9F%E6%B4%BB/"/>
+    <id>http://jackielzq.github.io/2017/02/07/老家的数字生活/</id>
     <published>2017-02-07T06:46:37.000Z</published>
     <updated>2017-02-08T16:29:13.000Z</updated>
     
@@ -419,17 +419,17 @@
     
     </summary>
     
-      <category term="观点" scheme="http://jackie.ms/categories/%E8%A7%82%E7%82%B9/"/>
+      <category term="观点" scheme="http://jackielzq.github.io/categories/%E8%A7%82%E7%82%B9/"/>
     
     
-      <category term="老家,现场,数字生活,互联网" scheme="http://jackie.ms/tags/%E8%80%81%E5%AE%B6-%E7%8E%B0%E5%9C%BA-%E6%95%B0%E5%AD%97%E7%94%9F%E6%B4%BB-%E4%BA%92%E8%81%94%E7%BD%91/"/>
+      <category term="老家,现场,数字生活,互联网" scheme="http://jackielzq.github.io/tags/%E8%80%81%E5%AE%B6-%E7%8E%B0%E5%9C%BA-%E6%95%B0%E5%AD%97%E7%94%9F%E6%B4%BB-%E4%BA%92%E8%81%94%E7%BD%91/"/>
     
   </entry>
   
   <entry>
     <title>生活需要仪式感</title>
-    <link href="http://jackie.ms/2017/02/07/%E7%94%9F%E6%B4%BB%E9%9C%80%E8%A6%81%E4%BB%AA%E5%BC%8F%E6%84%9F/"/>
-    <id>http://jackie.ms/2017/02/07/生活需要仪式感/</id>
+    <link href="http://jackielzq.github.io/2017/02/07/%E7%94%9F%E6%B4%BB%E9%9C%80%E8%A6%81%E4%BB%AA%E5%BC%8F%E6%84%9F/"/>
+    <id>http://jackielzq.github.io/2017/02/07/生活需要仪式感/</id>
     <published>2017-02-06T16:46:46.000Z</published>
     <updated>2017-02-06T16:46:17.000Z</updated>
     
@@ -472,17 +472,17 @@
     
     </summary>
     
-      <category term="纪录" scheme="http://jackie.ms/categories/%E7%BA%AA%E5%BD%95/"/>
+      <category term="纪录" scheme="http://jackielzq.github.io/categories/%E7%BA%AA%E5%BD%95/"/>
     
     
-      <category term="仪式感,生活" scheme="http://jackie.ms/tags/%E4%BB%AA%E5%BC%8F%E6%84%9F-%E7%94%9F%E6%B4%BB/"/>
+      <category term="仪式感,生活" scheme="http://jackielzq.github.io/tags/%E4%BB%AA%E5%BC%8F%E6%84%9F-%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
   <entry>
     <title>2016总结</title>
-    <link href="http://jackie.ms/2017/02/03/2016%E6%80%BB%E7%BB%93/"/>
-    <id>http://jackie.ms/2017/02/03/2016总结/</id>
+    <link href="http://jackielzq.github.io/2017/02/03/2016%E6%80%BB%E7%BB%93/"/>
+    <id>http://jackielzq.github.io/2017/02/03/2016总结/</id>
     <published>2017-02-03T03:46:46.000Z</published>
     <updated>2017-02-03T08:25:15.000Z</updated>
     
@@ -618,17 +618,17 @@
     
     </summary>
     
-      <category term="纪录" scheme="http://jackie.ms/categories/%E7%BA%AA%E5%BD%95/"/>
+      <category term="纪录" scheme="http://jackielzq.github.io/categories/%E7%BA%AA%E5%BD%95/"/>
     
     
-      <category term="2016,总结" scheme="http://jackie.ms/tags/2016-%E6%80%BB%E7%BB%93/"/>
+      <category term="2016,总结" scheme="http://jackielzq.github.io/tags/2016-%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
   <entry>
     <title>Python与数据</title>
-    <link href="http://jackie.ms/2016/12/30/Python%E4%B8%8E%E6%95%B0%E6%8D%AE/"/>
-    <id>http://jackie.ms/2016/12/30/Python与数据/</id>
+    <link href="http://jackielzq.github.io/2016/12/30/Python%E4%B8%8E%E6%95%B0%E6%8D%AE/"/>
+    <id>http://jackielzq.github.io/2016/12/30/Python与数据/</id>
     <published>2016-12-30T05:45:08.000Z</published>
     <updated>2016-12-30T06:59:17.000Z</updated>
     
@@ -679,17 +679,17 @@
     
     </summary>
     
-      <category term="纪录" scheme="http://jackie.ms/categories/%E7%BA%AA%E5%BD%95/"/>
+      <category term="纪录" scheme="http://jackielzq.github.io/categories/%E7%BA%AA%E5%BD%95/"/>
     
     
-      <category term="python,数据" scheme="http://jackie.ms/tags/python-%E6%95%B0%E6%8D%AE/"/>
+      <category term="python,数据" scheme="http://jackielzq.github.io/tags/python-%E6%95%B0%E6%8D%AE/"/>
     
   </entry>
   
   <entry>
     <title>关于微信小程序</title>
-    <link href="http://jackie.ms/2016/12/29/%E5%85%B3%E4%BA%8E%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
-    <id>http://jackie.ms/2016/12/29/关于微信小程序/</id>
+    <link href="http://jackielzq.github.io/2016/12/29/%E5%85%B3%E4%BA%8E%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    <id>http://jackielzq.github.io/2016/12/29/关于微信小程序/</id>
     <published>2016-12-29T03:25:43.000Z</published>
     <updated>2016-12-29T06:23:12.000Z</updated>
     
@@ -726,17 +726,17 @@
     
     </summary>
     
-      <category term="纪录" scheme="http://jackie.ms/categories/%E7%BA%AA%E5%BD%95/"/>
+      <category term="纪录" scheme="http://jackielzq.github.io/categories/%E7%BA%AA%E5%BD%95/"/>
     
     
-      <category term="微信,小程序" scheme="http://jackie.ms/tags/%E5%BE%AE%E4%BF%A1-%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="微信,小程序" scheme="http://jackielzq.github.io/tags/%E5%BE%AE%E4%BF%A1-%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
   <entry>
     <title>2016指弹学习记录</title>
-    <link href="http://jackie.ms/2016/12/23/2016%E6%8C%87%E5%BC%B9%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
-    <id>http://jackie.ms/2016/12/23/2016指弹学习记录/</id>
+    <link href="http://jackielzq.github.io/2016/12/23/2016%E6%8C%87%E5%BC%B9%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    <id>http://jackielzq.github.io/2016/12/23/2016指弹学习记录/</id>
     <published>2016-12-23T10:00:25.000Z</published>
     <updated>2017-03-16T16:12:22.000Z</updated>
     
@@ -831,17 +831,17 @@
     
     </summary>
     
-      <category term="纪录" scheme="http://jackie.ms/categories/%E7%BA%AA%E5%BD%95/"/>
+      <category term="纪录" scheme="http://jackielzq.github.io/categories/%E7%BA%AA%E5%BD%95/"/>
     
     
-      <category term="吉他,指弹,记录" scheme="http://jackie.ms/tags/%E5%90%89%E4%BB%96-%E6%8C%87%E5%BC%B9-%E8%AE%B0%E5%BD%95/"/>
+      <category term="吉他,指弹,记录" scheme="http://jackielzq.github.io/tags/%E5%90%89%E4%BB%96-%E6%8C%87%E5%BC%B9-%E8%AE%B0%E5%BD%95/"/>
     
   </entry>
   
   <entry>
     <title>福利-微信小程序UI标准</title>
-    <link href="http://jackie.ms/2016/11/07/%E7%A6%8F%E5%88%A9-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A0%87%E5%87%86/"/>
-    <id>http://jackie.ms/2016/11/07/福利-微信小程序UI标准/</id>
+    <link href="http://jackielzq.github.io/2016/11/07/%E7%A6%8F%E5%88%A9-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8FUI%E6%A0%87%E5%87%86/"/>
+    <id>http://jackielzq.github.io/2016/11/07/福利-微信小程序UI标准/</id>
     <published>2016-11-07T09:21:25.000Z</published>
     <updated>2016-11-07T09:43:59.000Z</updated>
     
@@ -891,25 +891,25 @@
     
     </summary>
     
-      <category term="分享" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="分享" scheme="http://jackielzq.github.io/categories/%E5%88%86%E4%BA%AB/"/>
     
-      <category term="产品" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/%E4%BA%A7%E5%93%81/"/>
+      <category term="产品" scheme="http://jackielzq.github.io/categories/%E5%88%86%E4%BA%AB/%E4%BA%A7%E5%93%81/"/>
     
     
-      <category term="微信" scheme="http://jackie.ms/tags/%E5%BE%AE%E4%BF%A1/"/>
+      <category term="微信" scheme="http://jackielzq.github.io/tags/%E5%BE%AE%E4%BF%A1/"/>
     
-      <category term="小程序" scheme="http://jackie.ms/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="小程序" scheme="http://jackielzq.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
-      <category term="UI" scheme="http://jackie.ms/tags/UI/"/>
+      <category term="UI" scheme="http://jackielzq.github.io/tags/UI/"/>
     
-      <category term="标准" scheme="http://jackie.ms/tags/%E6%A0%87%E5%87%86/"/>
+      <category term="标准" scheme="http://jackielzq.github.io/tags/%E6%A0%87%E5%87%86/"/>
     
   </entry>
   
   <entry>
     <title>实用命令行笔记四 - 环境</title>
-    <link href="http://jackie.ms/2016/11/05/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%9B%9B%20-%20%20%E7%8E%AF%E5%A2%83/"/>
-    <id>http://jackie.ms/2016/11/05/命令行四 -  环境/</id>
+    <link href="http://jackielzq.github.io/2016/11/05/%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%9B%9B%20-%20%20%E7%8E%AF%E5%A2%83/"/>
+    <id>http://jackielzq.github.io/2016/11/05/命令行四 -  环境/</id>
     <published>2016-11-05T06:21:25.000Z</published>
     <updated>2016-11-07T08:38:54.000Z</updated>
     
@@ -1019,27 +1019,27 @@
     
     </summary>
     
-      <category term="分享" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="分享" scheme="http://jackielzq.github.io/categories/%E5%88%86%E4%BA%AB/"/>
     
-      <category term="命令行" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+      <category term="命令行" scheme="http://jackielzq.github.io/categories/%E5%88%86%E4%BA%AB/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
     
     
-      <category term="效率" scheme="http://jackie.ms/tags/%E6%95%88%E7%8E%87/"/>
+      <category term="效率" scheme="http://jackielzq.github.io/tags/%E6%95%88%E7%8E%87/"/>
     
-      <category term="命令行" scheme="http://jackie.ms/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+      <category term="命令行" scheme="http://jackielzq.github.io/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
     
-      <category term="unix" scheme="http://jackie.ms/tags/unix/"/>
+      <category term="unix" scheme="http://jackielzq.github.io/tags/unix/"/>
     
-      <category term="MacOS X" scheme="http://jackie.ms/tags/MacOS-X/"/>
+      <category term="MacOS X" scheme="http://jackielzq.github.io/tags/MacOS-X/"/>
     
-      <category term="环境" scheme="http://jackie.ms/tags/%E7%8E%AF%E5%A2%83/"/>
+      <category term="环境" scheme="http://jackielzq.github.io/tags/%E7%8E%AF%E5%A2%83/"/>
     
   </entry>
   
   <entry>
     <title>实用命令行笔记三 - 输入输出</title>
-    <link href="http://jackie.ms/2016/11/04/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%89%20-%20%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/"/>
-    <id>http://jackie.ms/2016/11/04/命令行三 -  输入输出/</id>
+    <link href="http://jackielzq.github.io/2016/11/04/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%89%20-%20%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/"/>
+    <id>http://jackielzq.github.io/2016/11/04/命令行三 -  输入输出/</id>
     <published>2016-11-04T06:21:25.000Z</published>
     <updated>2016-11-07T02:11:46.000Z</updated>
     
@@ -1155,27 +1155,27 @@
     
     </summary>
     
-      <category term="分享" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="分享" scheme="http://jackielzq.github.io/categories/%E5%88%86%E4%BA%AB/"/>
     
-      <category term="命令行" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+      <category term="命令行" scheme="http://jackielzq.github.io/categories/%E5%88%86%E4%BA%AB/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
     
     
-      <category term="效率" scheme="http://jackie.ms/tags/%E6%95%88%E7%8E%87/"/>
+      <category term="效率" scheme="http://jackielzq.github.io/tags/%E6%95%88%E7%8E%87/"/>
     
-      <category term="命令行" scheme="http://jackie.ms/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+      <category term="命令行" scheme="http://jackielzq.github.io/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
     
-      <category term="unix" scheme="http://jackie.ms/tags/unix/"/>
+      <category term="unix" scheme="http://jackielzq.github.io/tags/unix/"/>
     
-      <category term="MacOS X" scheme="http://jackie.ms/tags/MacOS-X/"/>
+      <category term="MacOS X" scheme="http://jackielzq.github.io/tags/MacOS-X/"/>
     
-      <category term="输入输出" scheme="http://jackie.ms/tags/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/"/>
+      <category term="输入输出" scheme="http://jackielzq.github.io/tags/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/"/>
     
   </entry>
   
   <entry>
     <title>实用命令行笔记二 - 文件操作</title>
-    <link href="http://jackie.ms/2016/11/03/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%8C%20-%20%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/"/>
-    <id>http://jackie.ms/2016/11/03/命令行二 - 文件操作/</id>
+    <link href="http://jackielzq.github.io/2016/11/03/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BA%8C%20-%20%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/"/>
+    <id>http://jackielzq.github.io/2016/11/03/命令行二 - 文件操作/</id>
     <published>2016-11-03T13:21:25.000Z</published>
     <updated>2016-11-07T02:13:02.000Z</updated>
     
@@ -1255,25 +1255,25 @@
     
     </summary>
     
-      <category term="分享" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="分享" scheme="http://jackielzq.github.io/categories/%E5%88%86%E4%BA%AB/"/>
     
-      <category term="命令行" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+      <category term="命令行" scheme="http://jackielzq.github.io/categories/%E5%88%86%E4%BA%AB/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
     
     
-      <category term="效率" scheme="http://jackie.ms/tags/%E6%95%88%E7%8E%87/"/>
+      <category term="效率" scheme="http://jackielzq.github.io/tags/%E6%95%88%E7%8E%87/"/>
     
-      <category term="命令行" scheme="http://jackie.ms/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+      <category term="命令行" scheme="http://jackielzq.github.io/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
     
-      <category term="unix" scheme="http://jackie.ms/tags/unix/"/>
+      <category term="unix" scheme="http://jackielzq.github.io/tags/unix/"/>
     
-      <category term="MacOS X" scheme="http://jackie.ms/tags/MacOS-X/"/>
+      <category term="MacOS X" scheme="http://jackielzq.github.io/tags/MacOS-X/"/>
     
   </entry>
   
   <entry>
     <title>实用命令行笔记一 - 文件目录及相关操作</title>
-    <link href="http://jackie.ms/2016/11/03/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%80%20-%20%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C/"/>
-    <id>http://jackie.ms/2016/11/03/命令行一 - 目录操作/</id>
+    <link href="http://jackielzq.github.io/2016/11/03/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%80%20-%20%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C/"/>
+    <id>http://jackielzq.github.io/2016/11/03/命令行一 - 目录操作/</id>
     <published>2016-11-03T09:21:25.000Z</published>
     <updated>2016-11-07T02:14:18.000Z</updated>
     
@@ -1547,25 +1547,25 @@
     
     </summary>
     
-      <category term="分享" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/"/>
+      <category term="分享" scheme="http://jackielzq.github.io/categories/%E5%88%86%E4%BA%AB/"/>
     
-      <category term="命令行" scheme="http://jackie.ms/categories/%E5%88%86%E4%BA%AB/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+      <category term="命令行" scheme="http://jackielzq.github.io/categories/%E5%88%86%E4%BA%AB/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
     
     
-      <category term="效率" scheme="http://jackie.ms/tags/%E6%95%88%E7%8E%87/"/>
+      <category term="效率" scheme="http://jackielzq.github.io/tags/%E6%95%88%E7%8E%87/"/>
     
-      <category term="命令行" scheme="http://jackie.ms/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
+      <category term="命令行" scheme="http://jackielzq.github.io/tags/%E5%91%BD%E4%BB%A4%E8%A1%8C/"/>
     
-      <category term="unix" scheme="http://jackie.ms/tags/unix/"/>
+      <category term="unix" scheme="http://jackielzq.github.io/tags/unix/"/>
     
-      <category term="MacOS X" scheme="http://jackie.ms/tags/MacOS-X/"/>
+      <category term="MacOS X" scheme="http://jackielzq.github.io/tags/MacOS-X/"/>
     
   </entry>
   
   <entry>
     <title>提升效率的思维</title>
-    <link href="http://jackie.ms/2016/10/31/%E6%95%88%E7%8E%87/"/>
-    <id>http://jackie.ms/2016/10/31/效率/</id>
+    <link href="http://jackielzq.github.io/2016/10/31/%E6%95%88%E7%8E%87/"/>
+    <id>http://jackielzq.github.io/2016/10/31/效率/</id>
     <published>2016-10-31T09:21:25.000Z</published>
     <updated>2016-12-21T08:22:14.000Z</updated>
     
@@ -1589,17 +1589,17 @@
     
     </summary>
     
-      <category term="纪录" scheme="http://jackie.ms/categories/%E7%BA%AA%E5%BD%95/"/>
+      <category term="纪录" scheme="http://jackielzq.github.io/categories/%E7%BA%AA%E5%BD%95/"/>
     
     
-      <category term="效率" scheme="http://jackie.ms/tags/%E6%95%88%E7%8E%87/"/>
+      <category term="效率" scheme="http://jackielzq.github.io/tags/%E6%95%88%E7%8E%87/"/>
     
   </entry>
   
   <entry>
     <title>令人反感的“蓝瘦香菇”</title>
-    <link href="http://jackie.ms/2016/10/19/%E4%BB%A4%E4%BA%BA%E5%8F%8D%E6%84%9F%E7%9A%84%E8%93%9D%E7%98%A6%E9%A6%99%E8%8F%87/"/>
-    <id>http://jackie.ms/2016/10/19/令人反感的蓝瘦香菇/</id>
+    <link href="http://jackielzq.github.io/2016/10/19/%E4%BB%A4%E4%BA%BA%E5%8F%8D%E6%84%9F%E7%9A%84%E8%93%9D%E7%98%A6%E9%A6%99%E8%8F%87/"/>
+    <id>http://jackielzq.github.io/2016/10/19/令人反感的蓝瘦香菇/</id>
     <published>2016-10-18T16:21:25.000Z</published>
     <updated>2016-12-21T08:22:18.000Z</updated>
     
@@ -1616,12 +1616,12 @@
     
     </summary>
     
-      <category term="纪录" scheme="http://jackie.ms/categories/%E7%BA%AA%E5%BD%95/"/>
+      <category term="纪录" scheme="http://jackielzq.github.io/categories/%E7%BA%AA%E5%BD%95/"/>
     
     
-      <category term="蓝瘦香菇" scheme="http://jackie.ms/tags/%E8%93%9D%E7%98%A6%E9%A6%99%E8%8F%87/"/>
+      <category term="蓝瘦香菇" scheme="http://jackielzq.github.io/tags/%E8%93%9D%E7%98%A6%E9%A6%99%E8%8F%87/"/>
     
-      <category term="恶俗" scheme="http://jackie.ms/tags/%E6%81%B6%E4%BF%97/"/>
+      <category term="恶俗" scheme="http://jackielzq.github.io/tags/%E6%81%B6%E4%BF%97/"/>
     
   </entry>
   

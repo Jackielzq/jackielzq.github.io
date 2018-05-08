@@ -89,7 +89,7 @@
 <meta name="description" content="做过广告活动网站分析的朋友应该很有体会，虚假流量，也就是我们常说的作弊流量，是分析过程中的一块毒瘤。如果其所占整体流量比率较大的话，可能会得出完全不正确的分析结果，因为他代表的就是趋势。但是还好，也许因为占的比例到了一定的数量，他们的小辫子也变得更容易抓住。总结我这么长时间以来遇到的情况给大家作为一个参考，希望对大家会有所帮助。这个总结会包括两个部分：广告和网站，这两个阶段分别都有不同的衡量标准，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何快速识别虚假流量">
-<meta property="og:url" content="http://jackie.ms/2013/08/24/how-to-recognize-fraud-traffic/index.html">
+<meta property="og:url" content="http://jackielzq.github.io/2013/08/24/how-to-recognize-fraud-traffic/index.html">
 <meta property="og:site_name" content="Jackie的博客">
 <meta property="og:description" content="做过广告活动网站分析的朋友应该很有体会，虚假流量，也就是我们常说的作弊流量，是分析过程中的一块毒瘤。如果其所占整体流量比率较大的话，可能会得出完全不正确的分析结果，因为他代表的就是趋势。但是还好，也许因为占的比例到了一定的数量，他们的小辫子也变得更容易抓住。总结我这么长时间以来遇到的情况给大家作为一个参考，希望对大家会有所帮助。这个总结会包括两个部分：广告和网站，这两个阶段分别都有不同的衡量标准，">
 <meta property="og:image" content="http://jackie.ms/wp-content/uploads/2013/08/ad1.jpg">
@@ -125,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="http://jackie.ms/2013/08/24/how-to-recognize-fraud-traffic/"/>
+  <link rel="canonical" href="http://jackielzq.github.io/2013/08/24/how-to-recognize-fraud-traffic/"/>
 
 
 
@@ -283,7 +283,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://jackie.ms/2013/08/24/how-to-recognize-fraud-traffic/">
+  <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/08/24/how-to-recognize-fraud-traffic/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Jackie Luo">
@@ -394,10 +394,10 @@
 <h3 id="广告部分："><a href="#广告部分：" class="headerlink" title="广告部分："></a><strong>广告部分：</strong></h3><p><strong>原理</strong>：</p>
 <p>衡量广告表现主要是这几个基本参数：Impression（曝光，也就是广告的展示次数）,Click（点击次数）,CTR（点击率，点击/曝光），但是有一点代码基础的都知道，Impression和click作弊起来是非常简单的，因为它的原理很简单：曝光代码一般来说就是一个1x1像素点图片请求，每被请求一次数量便+1，因此可以被放在任何页面刷，甚至可以写个循环无限刷，想刷100W次那就不会是101W;点击代码也是一个url请求，举一个doubleclick点击代码的例子：</p>
 <a id="more"></a>
-<p><span style="color: #ff0000;"><a href="http://ad-apac.doubleclick.net/clk;25685425;95242356;v" target="_blank" rel="external">http://ad-apac.doubleclick.net/clk;25685425;95242356;v</a></span>?<a href="http://jackie.ms">http://jackie.ms</a></p>
+<p><span style="color: #ff0000;"><a href="http://ad-apac.doubleclick.net/clk;25685425;95242356;v" target="_blank" rel="external">http://ad-apac.doubleclick.net/clk;25685425;95242356;v</a></span>?<a href="http://jackie.ms" target="_blank" rel="external">http://jackie.ms</a></p>
 <p>从开始到第一个问号为止，这一部分是跳转到doubleclick服务器计数，然后通过301跳转到我的网站。所以同样是url请求，刷起来根本没有难度，但是同时要注意到，广告监测系统虽然没有直接的流量过滤鉴别功能，但是你可以通过它统计到的各维度数据来推出你要的结果。下面介绍一下广告监测系统能监测到什么东西吧：</p>
 <p>首先我们看一下当你点击一个链接，实际上发生了什么：</p>
-<p><a href="http://jackie.ms/wp-content/uploads/2013/08/ad1.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/08/ad1.jpg" alt="ad1"></a></p>
+<p><a href="http://jackie.ms/wp-content/uploads/2013/08/ad1.jpg" target="_blank" rel="external"><img src="http://jackie.ms/wp-content/uploads/2013/08/ad1.jpg" alt="ad1"></a></p>
 <p>这是我输入<a href="http://jackie.ms以后该url请求的头（header），上面传递了有关你的系统、浏览器、cookie等信息，这一部分都是可以收集到的，在这之外还有你的IP也会被记录，这些东西都可以被记录并呈现在报表当中作为一个参考的维度。在下面鉴别时会用到。" target="_blank" rel="external">http://jackie.ms以后该url请求的头（header），上面传递了有关你的系统、浏览器、cookie等信息，这一部分都是可以收集到的，在这之外还有你的IP也会被记录，这些东西都可以被记录并呈现在报表当中作为一个参考的维度。在下面鉴别时会用到。</a></p>
 <h4 id="鉴别："><a href="#鉴别：" class="headerlink" title=" 鉴别："></a><strong> 鉴别：</strong></h4><p>广告端的鉴别可以做的其实很有限，做法也比较单一。首先，不要先入为主地认为它是虚假流量，而是根据已经拿到的数据发现问题然后再查找原因。下面列举一些常见的例子：</p>
 <p>&nbsp;</p>
@@ -514,7 +514,7 @@
         <div class="ds-share flat" data-thread-key="2013/08/24/how-to-recognize-fraud-traffic/"
      data-title="如何快速识别虚假流量"
      data-content=""
-     data-url="http://jackie.ms/2013/08/24/how-to-recognize-fraud-traffic/">
+     data-url="http://jackielzq.github.io/2013/08/24/how-to-recognize-fraud-traffic/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -542,7 +542,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2013/08/24/how-to-recognize-fraud-traffic/"
-           data-title="如何快速识别虚假流量" data-url="http://jackie.ms/2013/08/24/how-to-recognize-fraud-traffic/">
+           data-title="如何快速识别虚假流量" data-url="http://jackielzq.github.io/2013/08/24/how-to-recognize-fraud-traffic/">
       </div>
     
   </div>
