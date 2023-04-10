@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jackielzq.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"সার্চ করা হচ্ছে...","empty":"আমরা উক্ত অনুসন্ধানের জন্য কোন ফলাফল খুঁজে পাইনি: ${query}","hits_time":"${hits} টি ফলাফল ${time} মিলিসেকেন্ড এ পাওয়া গেছে","hits":"${hits} টি ফলাফল পাওয়া গেছে"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="在GA中经常会看到这几个时间：Avg Time on site 与 Avg Time on page，分别出现在不同的报表中。Time on site是针对于visit来说的，也就是该访问的停留时间,而Time on page是基于页面来说的，它是一个针对单个页面的指标，两者是不同的两个概念。 Time on site:GA计算时间是根据__utm.gif这个1x1像素图片请求来的，每一个请求都会">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Analytics中的两个时间——Time on site与Time on page">
+<meta property="og:url" content="http://jackielzq.github.io/2013/05/10/google-analyticstime-on-site-and-time-on-page/index.html">
+<meta property="og:site_name" content="Jackie的博客">
+<meta property="og:description" content="在GA中经常会看到这几个时间：Avg Time on site 与 Avg Time on page，分别出现在不同的报表中。Time on site是针对于visit来说的，也就是该访问的停留时间,而Time on page是基于页面来说的，它是一个针对单个页面的指标，两者是不同的两个概念。 Time on site:GA计算时间是根据__utm.gif这个1x1像素图片请求来的，每一个请求都会">
+<meta property="og:locale">
+<meta property="article:published_time" content="2013-05-09T17:32:27.000Z">
+<meta property="article:modified_time" content="2016-09-21T07:45:39.000Z">
+<meta property="article:author" content="Jackie Luo">
+<meta property="article:tag" content="Google analytics">
+<meta property="article:tag" content="GA">
+<meta property="article:tag" content="time on page">
+<meta property="article:tag" content="time on site">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://jackielzq.github.io/2013/05/10/google-analyticstime-on-site-and-time-on-page/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://jackielzq.github.io/2013/05/10/google-analyticstime-on-site-and-time-on-page/","path":"2013/05/10/google-analyticstime-on-site-and-time-on-page/","title":"Google Analytics中的两个时间——Time on site与Time on page"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Google Analytics中的两个时间——Time on site与Time on page | Jackie的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="নেভিগেশন বারের দৃশ্যমানতা টগল করুন" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jackie的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习|交流|分享</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="সার্চ" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          সূচীপত্র
+        </li>
+        <li class="sidebar-nav-overview">
+          সারাংশ
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Time-on-site"><span class="nav-number">1.</span> <span class="nav-text">Time on site:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Time-on-page%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">Time on page：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">*补充：</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jackie Luo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">130</span>
+          <span class="site-state-item-name">পোস্ট এর তালিকা</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">ক্যাটাগরি এর তালিকা</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">210</span>
+        <span class="site-state-item-name">ট্যাগ এর তালিকা</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/05/10/google-analyticstime-on-site-and-time-on-page/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jackie Luo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Google Analytics中的两个时间——Time on site与Time on page | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Google Analytics中的两个时间——Time on site与Time on page
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">প্রকাশিত হয়েছে</span>
+
+      <time title="তৈরি করা হয়েছেঃ 2013-05-10 01:32:27" itemprop="dateCreated datePublished" datetime="2013-05-10T01:32:27+08:00">2013-05-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">সম্পাদিত হয়েছে</span>
+      <time title="পরিমার্জন করা হয়েছেঃ 2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">শ্রেনী</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%AB%99%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">网站分析</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>在GA中经常会看到这几个时间：Avg Time on site 与 Avg Time on page，分别出现在不同的报表中。Time on site是针对于visit来说的，也就是该访问的停留时间,而Time on page是基于页面来说的，它是一个针对单个页面的指标，两者是不同的两个概念。</p>
+<h3 id="Time-on-site"><a href="#Time-on-site" class="headerlink" title="Time on site:"></a>Time on site:</h3><p>GA计算时间是根据__utm.gif这个1x1像素图片请求来的，每一个请求都会有一个时间戳，如果你一个访问期间内浏览了数个页面，也就会产生数个图片请求，那么你的Time on site就是<strong>最后一个请求与第一个请求的时间差。</strong>这是对于单个访问的计算，对于数个访次的话，我们看的是平均停留时间Avg. Time on site,它的计算公式为</p>
+<span id="more"></span>
+
+<p>**Avg. Time on site=Total time on site/Total Visits **</p>
+<p>也就是所有访次访问时间的加总除以总的访问数。</p>
+<h3 id="Time-on-page："><a href="#Time-on-page：" class="headerlink" title="Time on page："></a>Time on page：</h3><p>对于单个页面，Time on page的计算原理是与Time on site相同的。也就是<strong>当前页面最后一个请求与该页面的第一个请求的时间差。</strong>但是Avg. Time on page就不同了，这也是为什么单拿出来说的原因：</p>
+<p><strong>Avg. Time on page=Total Time on page/(<span style="color: #ff0000;">Pageviews- exit </span>)</strong></p>
+<p>这里用该页面总时间除以该页面的浏览次数与推出次数的差值。也就是说这些时间归属于所有没有以这个页面为退出页的浏览所有。那么这样就会出现一个情况，如果大部分人都来到这个页面以后没有任何互动行为就走掉了，也就是Exit，而剩下的那几个人看了好久或者挂机了好久再从这页点击链接到别的页面，这样就会造成该页面的Avg Time on Page特别高，而Time on site 特别低，让你半天摸不着头脑。</p>
+<p>但是，知道了它的这个算法以后，还是比较好理解的。这两个时间还是比较受Bounce或者Exit的影响，因为首先，对Bounce或者Exit，这次的访问或者页面浏览的时间是计为0的，因为它没有两个请求的时间差。其次，Time on site的分母为所有visits，如果Bounce rate较高，那么平均下来每一个访问的停留时间则会非常短，有时甚至接近于0。而相反，Avg Time on page的分母是减去了Exit的值，这意味着他的分母就会变得非常小，而这样算出来的时间则是在这个页面有互动行为的那一小撮人的平均时间。打一个比方便于理解吧，Time on site就是3个人买了3个玉米棒子，100个人吃，而Time on page是3个人买了3个玉米棒子，3个人吃，这样平均下来第一种情况可能每个人就吃几颗玉米粒，而第二种情况每个人可以吃一整个玉米棒子。所以这两个不能单纯的拿来比较的。</p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>对于Time on site与Bounce rate，有时不能同时来看，因为Bounce rate明显下降的话，Time on site一般来说肯定是会明显上升的。这也许是来源变好了或者Landing page优化有了明显的效果。但是如果要看网站结构内容优化的话，就得更加细化的来看，这时候我们可以建一个高级细分，把没有Bounce 掉的那部分人单独拿出来看，他们是对网站内容有兴趣的，而他们的访问路径、流失点则也会显得更加重要。</p>
+<p>对于Time on page与Exit，这两者结合就可以比较清晰地看出单个页面的表现。首先要确定你这个页面的属性，如果是某个流程的最后一步页面，那么Exit rate最高那是最好的，同时时间也是越短越好。但如果是转换的中间环节，那么这个页面就有问题了，如果是Exit rate高而且同时Time on page高，那么很大可能是你页面上的转化路径设计很有问题，很多人找不到下一步该点打，剩下的很多人花了好长时间才找到，点击进入了下一步。但如果是文章页的话，就不一定了，也许他来看这篇文章只是想看这方面的内容解决一个问题，也许他是快速地浏览你网站的各种内容找寻对自己有价值的。那么有两种可能，一种是他看完这篇文章，心满意足的走了；另一种则是觉得这文章没意思，走了。这两种情况都是Exit，但是你分不清他的情绪是怎么样的。这种情况可以使用一些调研工具来论证你的推断。</p>
+<h3 id="补充："><a href="#补充：" class="headerlink" title="*补充："></a>*补充：</h3><p>上面所说的__utm.gif请求可以是以下几种情况下发出的：</p>
+<p>1、_trackPageview 页面或虚拟页面浏览</p>
+<p>2、_trackEvent        事件监测</p>
+<p>3、_trackTrans        电商的监测</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Google-analytics/" rel="tag"># Google analytics</a>
+              <a href="/tags/GA/" rel="tag"># GA</a>
+              <a href="/tags/time-on-page/" rel="tag"># time on page</a>
+              <a href="/tags/time-on-site/" rel="tag"># time on site</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2013/05/09/google-analytics-sample/" rel="prev" title="Google Analytics的抽样机制">
+                  <i class="fa fa-chevron-left"></i> Google Analytics的抽样机制
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2013/05/13/sina-weibo-content-filt/" rel="next" title="关于新浪微博内容过滤的一点想法">
+                  关于新浪微博内容过滤的一点想法 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jackie Luo</span>
+</div>
+  <div class="powered-by"><a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> এর সাহায্যে চলছে
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="উপরে ফিরে যান">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

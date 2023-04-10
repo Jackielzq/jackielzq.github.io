@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jackielzq.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"সার্চ করা হচ্ছে...","empty":"আমরা উক্ত অনুসন্ধানের জন্য কোন ফলাফল খুঁজে পাইনি: ${query}","hits_time":"${hits} টি ফলাফল ${time} মিলিসেকেন্ড এ পাওয়া গেছে","hits":"${hits} টি ফলাফল পাওয়া গেছে"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="在Mac端安装软件，用到Home brew Cask这个神器，像程序员一般装软件，高端大气，安装常用软件只需要敲一行代码就搞定了，不用担心各种乱七八糟的下载网站给你带来的不爽。 安装步骤： 一、安装Xcode，在AppStore里直接搜索安装即可 二、安装Homebrew - 打开控制台(Terminal)，在命令行里输入 ruby -e &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac端使用Homebrew Cask 快速安装软件">
+<meta property="og:url" content="http://jackielzq.github.io/2014/03/21/some-software-for-mac/index.html">
+<meta property="og:site_name" content="Jackie的博客">
+<meta property="og:description" content="在Mac端安装软件，用到Home brew Cask这个神器，像程序员一般装软件，高端大气，安装常用软件只需要敲一行代码就搞定了，不用担心各种乱七八糟的下载网站给你带来的不爽。 安装步骤： 一、安装Xcode，在AppStore里直接搜索安装即可 二、安装Homebrew - 打开控制台(Terminal)，在命令行里输入 ruby -e &quot;$(curl -fsSL https:&#x2F;&#x2F;raw.git">
+<meta property="og:locale">
+<meta property="og:image" content="http://jackie.ms/wp-content/uploads/2014/03/B127FD96-1F31-45E1-B1FB-3465E84BDA08.jpg">
+<meta property="article:published_time" content="2014-03-20T18:26:50.000Z">
+<meta property="article:modified_time" content="2016-09-21T07:45:39.000Z">
+<meta property="article:author" content="Jackie Luo">
+<meta property="article:tag" content="cask">
+<meta property="article:tag" content="homebrew">
+<meta property="article:tag" content="mac">
+<meta property="article:tag" content="软件">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jackie.ms/wp-content/uploads/2014/03/B127FD96-1F31-45E1-B1FB-3465E84BDA08.jpg">
+
+
+<link rel="canonical" href="http://jackielzq.github.io/2014/03/21/some-software-for-mac/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://jackielzq.github.io/2014/03/21/some-software-for-mac/","path":"2014/03/21/some-software-for-mac/","title":"Mac端使用Homebrew Cask 快速安装软件"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Mac端使用Homebrew Cask 快速安装软件 | Jackie的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="নেভিগেশন বারের দৃশ্যমানতা টগল করুন" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jackie的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习|交流|分享</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="সার্চ" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          সূচীপত্র
+        </li>
+        <li class="sidebar-nav-overview">
+          সারাংশ
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jackie Luo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">130</span>
+          <span class="site-state-item-name">পোস্ট এর তালিকা</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">ক্যাটাগরি এর তালিকা</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">210</span>
+        <span class="site-state-item-name">ট্যাগ এর তালিকা</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/03/21/some-software-for-mac/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jackie Luo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Mac端使用Homebrew Cask 快速安装软件 | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Mac端使用Homebrew Cask 快速安装软件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">প্রকাশিত হয়েছে</span>
+
+      <time title="তৈরি করা হয়েছেঃ 2014-03-21 02:26:50" itemprop="dateCreated datePublished" datetime="2014-03-21T02:26:50+08:00">2014-03-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">সম্পাদিত হয়েছে</span>
+      <time title="পরিমার্জন করা হয়েছেঃ 2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">শ্রেনী</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/mac/" itemprop="url" rel="index"><span itemprop="name">mac</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>在Mac端安装软件，用到Home brew Cask这个神器，像程序员一般装软件，高端大气，安装常用软件只需要敲一行代码就搞定了，不用担心各种乱七八糟的下载网站给你带来的不爽。 安装步骤： 一、安装Xcode，在AppStore里直接搜索安装即可 二、安装Homebrew - 打开控制台(Terminal)，在命令行里输入</p>
+<pre>ruby -e "$(curl -fsSL <a target="_blank">https://raw.github.com/mxcl/homebrew/go</a>)"</pre>
+
+<p>敲回车，坐等十几秒就OK了</p>
+<span id="more"></span> 三、安装Homebrew Cask，继续在Terminal里输入
+
+<pre>brew tap phinze/homebrew-cask && brew install brew-cask</pre>
+
+<p>OK,安装成功，然后就可以轻松下载各种软件了,但是如果你不确定这个软件是否存在的话，可以先搜一下，像这样：</p>
+<p>  <a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2014/03/B127FD96-1F31-45E1-B1FB-3465E84BDA08.jpg"><img src="http://jackie.ms/wp-content/uploads/2014/03/B127FD96-1F31-45E1-B1FB-3465E84BDA08.jpg" alt="homebrew"></a></p>
+<p>如果搜到了结果，那么接下来再输入一行命令就可以直接安装了：</p>
+<pre>brew cask install xunlei</pre>
+
+<p>下面列举几个比较常用的软件：</p>
+<p><strong>- Chrome，Google浏览器</strong></p>
+<pre>brew cask install chrome</pre>
+
+<p><strong>- 迅雷</strong>，这个自然不用多说，大家都懂的</p>
+<pre>brew cask install xunlei</pre>
+
+<p><strong>- QQ</strong>，默认安装的是mac版，很贴心</p>
+<pre>brew cask install qq</pre>
+
+<p><strong>-虾米</strong>，音乐不可少，之前的版本bug比较多，但是最近更新了，很好用</p>
+<pre>brew cask install xiami</pre>
+
+<p><strong>-Alfred</strong>，关于这个神器，详见知乎这个帖子<a target="_blank" rel="noopener" href="http://www.zhihu.com/question/20656680">借助 Alfred 2.0 的 Workflows 功能可以做哪些好玩的事情？</a></p>
+<pre>brew cask install alfred</pre>
+
+<p><strong>-Dropbox 云盘</strong>，简洁好用，比国内的各种网盘给的空间要小，但是体验很好，很干净！</p>
+<pre>brew cask install dropbox</pre>
+
+<p><strong>-Movist</strong> Mac上没有暴风等播放视频的软件，但是电源也得看啊，Movist绝对是首选！</p>
+<pre>brew cask install movist-fork</pre>
+
+<p><strong>-Wunderlist</strong> 任务记事本，简单高效，界面相当漂亮</p>
+<pre>brew cask install wunderlist</pre>
+
+<p><strong>-Evernote</strong> 记录笔记，收集资料，比浏览器的书签要靠谱</p>
+<pre>brew cask install evernote</pre>
+
+<p><strong>-Transmit</strong> FTP工具，类似于Windows上的FlashXP</p>
+<pre>brew cask install transmit</pre>
+
+<p><strong>-Unarchiver</strong> 文件解压工具，默认系统是不自带解压工具的</p>
+<pre>brew cask install the-unarchiver</pre>
+
+<p>**-Mou  **Markdown 文字编辑器，普通青年瞬间变文艺青年，<a target="_blank" rel="noopener" href="http://wowubuntu.com/markdown/">详情请戳这里</a></p>
+<pre>brew cask install mou</pre>
+
+<p><strong>-Sublimetext</strong> 最好用的代码编辑器</p>
+<pre>brew cask install sublime-text</pre>
+
+<p><strong>-ColorSchemer</strong> 提色器，迅速提取你所需要的颜色RGB值，做PPT的话，精准</p>
+<pre>brew cask install colorschemer-studio
+
+</pre>
+
+<p>另外还有Brewcask不支持的应用，在这里一并介绍了：</p>
+<p><strong>-搜狐视频</strong> <strong>-爱奇艺</strong> <strong>-微信Mac版</strong> <strong>-MemoryDiag</strong> 查看机器内存使用情况 <strong>-Cleanapp</strong> 卸载软件工具 确实比Windows方便很多把，谁用谁知道</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/cask/" rel="tag"># cask</a>
+              <a href="/tags/homebrew/" rel="tag"># homebrew</a>
+              <a href="/tags/mac/" rel="tag"># mac</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag"># 软件</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2014/03/06/about-video-ads/" rel="prev" title="视频网站的贴片广告">
+                  <i class="fa fa-chevron-left"></i> 视频网站的贴片广告
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2014/03/26/get-google-analytics-data-with-google-drive/" rel="next" title="利用Google Drive快速获取Google Analytics数据">
+                  利用Google Drive快速获取Google Analytics数据 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jackie Luo</span>
+</div>
+  <div class="powered-by"><a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> এর সাহায্যে চলছে
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="উপরে ফিরে যান">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

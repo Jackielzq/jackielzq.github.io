@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jackielzq.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"সার্চ করা হচ্ছে...","empty":"আমরা উক্ত অনুসন্ধানের জন্য কোন ফলাফল খুঁজে পাইনি: ${query}","hits_time":"${hits} টি ফলাফল ${time} মিলিসেকেন্ড এ পাওয়া গেছে","hits":"${hits} টি ফলাফল পাওয়া গেছে"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="我们接着上节的内容来说，页面的基本代码部署完以后，接下来就是对网站的各个部分进行补充监测了（因为GA默认情况下是不提供其他互动行为的监测的），那么我们怎么通过实施代码来收集我们需要的数据呢？下面我们通过剖析html代码来慢慢揭开她神秘的面纱。 目前所有的计算机或互联网应用都是通过代码堆积起来的，网站页面也一样。做网站分析的话通过了解他们的规则可以知道什么数据可以有，什么不能有，什么做起来简单，什么">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网站分析的基础知识（五）监测代码的部署—互动行为监测">
+<meta property="og:url" content="http://jackielzq.github.io/2013/03/27/tag-implementation-action/index.html">
+<meta property="og:site_name" content="Jackie的博客">
+<meta property="og:description" content="我们接着上节的内容来说，页面的基本代码部署完以后，接下来就是对网站的各个部分进行补充监测了（因为GA默认情况下是不提供其他互动行为的监测的），那么我们怎么通过实施代码来收集我们需要的数据呢？下面我们通过剖析html代码来慢慢揭开她神秘的面纱。 目前所有的计算机或互联网应用都是通过代码堆积起来的，网站页面也一样。做网站分析的话通过了解他们的规则可以知道什么数据可以有，什么不能有，什么做起来简单，什么">
+<meta property="og:locale">
+<meta property="article:published_time" content="2013-03-26T16:55:21.000Z">
+<meta property="article:modified_time" content="2016-09-21T07:45:39.000Z">
+<meta property="article:author" content="Jackie Luo">
+<meta property="article:tag" content="Google analytics">
+<meta property="article:tag" content="网站分析">
+<meta property="article:tag" content="互动行为">
+<meta property="article:tag" content="监测代码">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://jackielzq.github.io/2013/03/27/tag-implementation-action/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://jackielzq.github.io/2013/03/27/tag-implementation-action/","path":"2013/03/27/tag-implementation-action/","title":"网站分析的基础知识（五）监测代码的部署—互动行为监测"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>网站分析的基础知识（五）监测代码的部署—互动行为监测 | Jackie的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="নেভিগেশন বারের দৃশ্যমানতা টগল করুন" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jackie的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习|交流|分享</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="সার্চ" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          সূচীপত্র
+        </li>
+        <li class="sidebar-nav-overview">
+          সারাংশ
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jackie Luo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">130</span>
+          <span class="site-state-item-name">পোস্ট এর তালিকা</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">ক্যাটাগরি এর তালিকা</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">210</span>
+        <span class="site-state-item-name">ট্যাগ এর তালিকা</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/03/27/tag-implementation-action/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jackie Luo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="网站分析的基础知识（五）监测代码的部署—互动行为监测 | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          网站分析的基础知识（五）监测代码的部署—互动行为监测
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">প্রকাশিত হয়েছে</span>
+
+      <time title="তৈরি করা হয়েছেঃ 2013-03-27 00:55:21" itemprop="dateCreated datePublished" datetime="2013-03-27T00:55:21+08:00">2013-03-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">সম্পাদিত হয়েছে</span>
+      <time title="পরিমার্জন করা হয়েছেঃ 2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">শ্রেনী</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%AB%99%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">网站分析</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>我们接着上节的内容来说，页面的基本代码部署完以后，接下来就是对网站的各个部分进行补充监测了（因为GA默认情况下是不提供其他互动行为的监测的），那么我们怎么通过实施代码来收集我们需要的数据呢？下面我们通过剖析html代码来慢慢揭开她神秘的面纱。</p>
+<p>目前所有的计算机或互联网应用都是通过代码堆积起来的，网站页面也一样。做网站分析的话通过了解他们的规则可以知道什么数据可以有，什么不能有，什么做起来简单，什么做起来难。毕竟很多时候和前端工程师直接交流是最行之有效的方式，而你需要懂一些基本的常识，不然难免被鄙视还容易被忽悠成为他们偷懒的借口。就像你和老外讲话一样，他跟你讲“son of bitch”你还以为他在夸你“沙滩之子”。编程语言也是一门语言，不需要掌握太多，就跟你学英语知道个你好谢谢再见什么的可以简单交流就行了。说了这么多题外话，其实就是我这么久以来的感受，做这个是需要懂点技术，不需要你能开发什么东西出来，知道一些原理会让好多事情事半功倍。可能一开始觉得它像本天书，但实际上一旦你开始学了，你会发现它也没想象中的那么难。这里推荐个网站<strong>w3school</strong>。</p>
+<p>回到正题上来，这次说的是添加页面互动元素的监测。那么我们先来看一下页面上到底有哪些主要的互动元素：</p>
+<span id="more"></span>
+
+<p><strong>1、链接</strong></p>
+<p>链接一般是包含在A标签中的，比如下面这个例子：</p>
+<p><a target="_blank" rel="noopener" href="http://jackie.ms/">Jackie网站分析</a></p>
+<p>&lt;a href=”<a target="_blank" rel="noopener" href="http://jackie.ms&quot;/">http://jackie.ms&quot;</a>  target=”_blank”  onclick=”_gaq.push([‘_trackPageview’,’/test’])”&gt;Jackie网站分析&lt;/a&gt;</p>
+<p>第一行是网页中显示的样子，第二行是它的源代码。我们分开来看：</p>
+<table>
+<tbody>
+<tr>
+<td>主体</td>
+<td>一对a标签&lt;a&gt;&lt;/a&gt;</td>
+</tr>
+<tr>
+<td>href</td>
+<td>点击链接指向的地址</td>
+</tr>
+<tr>
+<td>target=“_blank”</td>
+<td>以新标签的方式打开（不加则从该页面直接跳转）</td>
+</tr>
+<tr>
+<td>onclick="_gaq.push(['_trackPageview','/test'])"</td>
+<td>点击时调用的函数，这里为trackPageview</td>
+</tr>
+</tbody>
+</table>
+当点击这个链接时就会相应的触发一个trackPageview请求，这不是真正意义上的页面浏览，所以我们称之为“虚拟页面”。
+
+<p>除了onclick事件以外，&lt;a&gt;还支持onfocus, onblur, ondblclick, onmousedown, onmouseup, onmouseover, onmousemove, onmouseout, onkeypress, onkeydown, onkeyup这些事件，满足你在不同情况下的需求，在这里不一一介绍了，英文过关的话自己先意会一下。</p>
+<p><strong>2、表单</strong></p>
+<form>Name:
+<input type="text" name="firstname" />源码：&lt;form&gt;
+Name:
+&lt;input type="text" name="firstname"  onchange="_gaq.push(['_trackEvent','form','change','name'])"/&gt;
+&lt;br /&gt;
+&lt;/form&gt;同样的方法，在标签内通过特定的事件触发代码，比如上面这一条，当你在表单里填写东西以后，它的内容改变了，那么就会触发一个事件请求，发送到GA的服务器端记录下来。同样的，下面各种形式的表单按钮，都是可以通过事件监测的。方法触类旁通，时间有限这里不细讲,每一个标签的写法和他们支持的函数及代表的意义都可以在上面的网站查到，我也记不了几个，当我需要时我会里面找到答案。</form><form><input type="radio" name="sex" value="male" /> Male
+<input type="radio" name="sex" value="female" /> Female</form><form>I like apple<input type="checkbox" name="car" />
+I like banana<input type="checkbox" name="bike" /></form><form action="html_form_action.asp" method="get" name="input">Username:
+<input type="text" name="user" />
+<input type="submit" value="Submit" /></form>以上只是给大家解释了基本的方法，给大家开启一下思路。一千个人有一千个哈姆雷特，不同的人有不同的需求，也适合不同的方法，关键是通过这个基本的方法自己去发散得到自己想要的效果。基本知识内容就先写到这里为止，从开始有这个想法坚持的这几天感觉比较充实，同时也给自己做了下梳理和总结，希望对初学者会有一定的帮助。google、百度、360也在一周以内就收录了我这个站，倍感欣慰。写这些基础的时候我时常会停顿下来，总觉得在自己的角度上看可能有一些东西新手会不方便理解，所以尽量都用“接地气”而俗一点的例子来说明，希望给大家提提神，别睡着。如果有写的不明白的地方请给我留言，文采不好请见谅，语文老师跟我不熟。
+
+<p>接下来我会写两部分的东西，一部分是关于GA操作界面的使用方法，另一部分就如同前两天写的滚屏监测这种尝试性的例子，如果你有什么关于GA监测的有趣的想法的话，欢迎一起探讨。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Google-analytics/" rel="tag"># Google analytics</a>
+              <a href="/tags/%E7%BD%91%E7%AB%99%E5%88%86%E6%9E%90/" rel="tag"># 网站分析</a>
+              <a href="/tags/%E4%BA%92%E5%8A%A8%E8%A1%8C%E4%B8%BA/" rel="tag"># 互动行为</a>
+              <a href="/tags/%E7%9B%91%E6%B5%8B%E4%BB%A3%E7%A0%81/" rel="tag"># 监测代码</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2013/03/27/tag-implementation-basic-code/" rel="prev" title="网站分析的基础知识（四）监测代码的部署—Basic code">
+                  <i class="fa fa-chevron-left"></i> 网站分析的基础知识（四）监测代码的部署—Basic code
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2013/03/31/cloud-drive/" rel="next" title="别让自己的文件白白丢失—云盘的存储与同步">
+                  别让自己的文件白白丢失—云盘的存储与同步 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jackie Luo</span>
+</div>
+  <div class="powered-by"><a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> এর সাহায্যে চলছে
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="উপরে ফিরে যান">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

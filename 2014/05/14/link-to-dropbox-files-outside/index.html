@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jackielzq.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"সার্চ করা হচ্ছে...","empty":"আমরা উক্ত অনুসন্ধানের জন্য কোন ফলাফল খুঁজে পাইনি: ${query}","hits_time":"${hits} টি ফলাফল ${time} মিলিসেকেন্ড এ পাওয়া গেছে","hits":"${hits} টি ফলাফল পাওয়া গেছে"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Dropbox除了可以在云端存储同步文件之外，还可以在网页中以链接的形式调用其中的图片或文件，对于服务器不太给力或者空间有限的站长来说，无疑是一个很大的福利，即节省空间又减少了请求加快了请求速度，更不用担心网站搬家以后可能出现的图片链接丢失情况，那是一件很头疼的事情。但是有了Dropbox，一切都方便多了。 这里举一个例子示范一下,Dropbox安装好以后会送你3张示例图片：  &amp;nbsp; &amp;n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wordpress外部引用Dropbox文件">
+<meta property="og:url" content="http://jackielzq.github.io/2014/05/14/link-to-dropbox-files-outside/index.html">
+<meta property="og:site_name" content="Jackie的博客">
+<meta property="og:description" content="Dropbox除了可以在云端存储同步文件之外，还可以在网页中以链接的形式调用其中的图片或文件，对于服务器不太给力或者空间有限的站长来说，无疑是一个很大的福利，即节省空间又减少了请求加快了请求速度，更不用担心网站搬家以后可能出现的图片链接丢失情况，那是一件很头疼的事情。但是有了Dropbox，一切都方便多了。 这里举一个例子示范一下,Dropbox安装好以后会送你3张示例图片：  &amp;nbsp; &amp;n">
+<meta property="og:locale">
+<meta property="og:image" content="http://jackie.ms/wp-content/uploads/2014/05/dropbox1-1024x611.jpg">
+<meta property="og:image" content="http://jackie.ms/wp-content/uploads/2014/05/dropbox2-568x1024.jpg">
+<meta property="og:image" content="https://www.dropbox.com/s/k91ua1x27uykzld/Pensive%20Parakeet.jpg?dl=1">
+<meta property="og:image" content="http://jackie.ms/wp-content/uploads/2014/05/dropbox3-1024x924.jpg">
+<meta property="article:published_time" content="2014-05-14T03:47:51.000Z">
+<meta property="article:modified_time" content="2016-10-06T07:12:43.000Z">
+<meta property="article:author" content="Jackie Luo">
+<meta property="article:tag" content="dropbox">
+<meta property="article:tag" content="wordpress">
+<meta property="article:tag" content="图片">
+<meta property="article:tag" content="外部引用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jackie.ms/wp-content/uploads/2014/05/dropbox1-1024x611.jpg">
+
+
+<link rel="canonical" href="http://jackielzq.github.io/2014/05/14/link-to-dropbox-files-outside/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://jackielzq.github.io/2014/05/14/link-to-dropbox-files-outside/","path":"2014/05/14/link-to-dropbox-files-outside/","title":"Wordpress外部引用Dropbox文件"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Wordpress外部引用Dropbox文件 | Jackie的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="নেভিগেশন বারের দৃশ্যমানতা টগল করুন" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jackie的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习|交流|分享</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="সার্চ" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          সূচীপত্র
+        </li>
+        <li class="sidebar-nav-overview">
+          সারাংশ
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jackie Luo</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">130</span>
+          <span class="site-state-item-name">পোস্ট এর তালিকা</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">ক্যাটাগরি এর তালিকা</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">210</span>
+        <span class="site-state-item-name">ট্যাগ এর তালিকা</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/05/14/link-to-dropbox-files-outside/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jackie Luo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Wordpress外部引用Dropbox文件 | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Wordpress外部引用Dropbox文件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">প্রকাশিত হয়েছে</span>
+
+      <time title="তৈরি করা হয়েছেঃ 2014-05-14 11:47:51" itemprop="dateCreated datePublished" datetime="2014-05-14T11:47:51+08:00">2014-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">সম্পাদিত হয়েছে</span>
+      <time title="পরিমার্জন করা হয়েছেঃ 2016-10-06 15:12:43" itemprop="dateModified" datetime="2016-10-06T15:12:43+08:00">2016-10-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">শ্রেনী</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Dropbox除了可以在云端存储同步文件之外，还可以在网页中以链接的形式调用其中的图片或文件，对于服务器不太给力或者空间有限的站长来说，无疑是一个很大的福利，即节省空间又减少了请求加快了请求速度，更不用担心网站搬家以后可能出现的图片链接丢失情况，那是一件很头疼的事情。但是有了Dropbox，一切都方便多了。</p>
+<p>这里举一个例子示范一下,Dropbox安装好以后会送你3张示例图片：</p>
+<p><a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2014/05/dropbox1.jpg"><img src="http://jackie.ms/wp-content/uploads/2014/05/dropbox1-1024x611.jpg" alt="dropbox1"></a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>如果我要使用其中的第一张图片，只需要右键单击：</p>
+<p><a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2014/05/dropbox2.jpg"><img src="http://jackie.ms/wp-content/uploads/2014/05/dropbox2-568x1024.jpg" alt="dropbox2"></a></p>
+<p>系统会自动生成一个图片链接，比如我<span style="color: #ff0000;"><strong><span style="color: #ff0000;"><a target="_blank" rel="noopener" href="https://www.dropbox.com/s/osixyj1wu3r6vn9/Boston%20City%20Flow.jpg">这个</a></span></strong><span style="color: #000000;">,点击以后就可以看到Dropbox下的这张图片了。但是我们要的还不够，我们需要在网页里引用，也就是按</span></span></p>
+<pre>![](https://www.dropbox.com/s/osixyj1wu3r6vn9/Boston%20City%20Flow.jpg)</pre>
+<p>的形式,但是这里有一个细节需要注意，如果你只是把上面的链接直接贴上去的话图片是不会显示的，需要在链接后面加上<code>?dl=1</code>,最后生成的链接应该是这样:</p>
+<pre>![](https://www.dropbox.com/s/osixyj1wu3r6vn9/Boston%20City%20Flow.jpg?dl=1)</pre>
+<p>我们换一张图看一下效果：</p>
+<pre>![](https://www.dropbox.com/s/k91ua1x27uykzld/Pensive%20Parakeet.jpg?dl=1)</pre>
+<p><img src="https://www.dropbox.com/s/k91ua1x27uykzld/Pensive%20Parakeet.jpg?dl=1"></p>
+<p>当然，在Wordpress后台你还是可以更改大小、对齐方式，添加标题、描述、和代替文本，或者自定义一个CSS,如果你有使用的话那么恭喜你，你有一个很好的SEO习惯：</p>
+<p><a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2014/05/dropbox3.jpg"><img src="http://jackie.ms/wp-content/uploads/2014/05/dropbox3-1024x924.jpg" alt="dropbox3"></a></p>
+<p>&nbsp;</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/dropbox/" rel="tag"># dropbox</a>
+              <a href="/tags/wordpress/" rel="tag"># wordpress</a>
+              <a href="/tags/%E5%9B%BE%E7%89%87/" rel="tag"># 图片</a>
+              <a href="/tags/%E5%A4%96%E9%83%A8%E5%BC%95%E7%94%A8/" rel="tag"># 外部引用</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2014/05/13/shake-your-mouse/" rel="prev" title="晃动你的鼠标">
+                  <i class="fa fa-chevron-left"></i> 晃动你的鼠标
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2014/05/14/write-blog-with-markdown-syntax/" rel="next" title="Wordpress中用Markdown语法写博客">
+                  Wordpress中用Markdown语法写博客 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jackie Luo</span>
+</div>
+  <div class="powered-by"><a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> এর সাহায্যে চলছে
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="উপরে ফিরে যান">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
