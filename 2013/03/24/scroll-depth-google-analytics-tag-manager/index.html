@@ -21,7 +21,7 @@
 
     <meta name="description" content="GA强大的功能使得我们可以做到许多它原本不提供的事情，比如接下来要讲的滚屏事件监测。相信许多站长或者网站各部门都想知道，别人来到我页面到底看到什么程度了？我的页面设计为几屏比较好？有多少人看完了我的文章？有多少人看了评论？这对于网站内容或者结构的优化都会有一定的参考作用。下面我向大家介绍一个实现这个功能的方法。 使用工具：Google Analytics&amp;Google Tag manage">
 <meta property="og:type" content="article">
-<meta property="og:title" content="巧用Google Analytics和Tag manager监测滚屏深度">
+<meta property="og:title" content="巧用Google Analytics和Tag Manager监测滚屏深度">
 <meta property="og:url" content="http://jackielzq.github.io/2013/03/24/scroll-depth-google-analytics-tag-manager/index.html">
 <meta property="og:site_name" content="Jackie的博客">
 <meta property="og:description" content="GA强大的功能使得我们可以做到许多它原本不提供的事情，比如接下来要讲的滚屏事件监测。相信许多站长或者网站各部门都想知道，别人来到我页面到底看到什么程度了？我的页面设计为几屏比较好？有多少人看完了我的文章？有多少人看了评论？这对于网站内容或者结构的优化都会有一定的参考作用。下面我向大家介绍一个实现这个功能的方法。 使用工具：Google Analytics&amp;Google Tag manage">
@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://jackie.ms/wp-content/uploads/2013/03/1-300x240.jpg">
 <meta property="article:published_time" content="2013-03-24T10:31:10.000Z">
 <meta property="article:modified_time" content="2016-09-21T07:45:39.000Z">
-<meta property="article:author" content="Jackie Luo">
+<meta property="article:author" content="Jackielzq">
 <meta property="article:tag" content="Google analytics">
 <meta property="article:tag" content="Tag manager">
 <meta property="article:tag" content="滚屏监测">
@@ -41,10 +41,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://jackielzq.github.io/2013/03/24/scroll-depth-google-analytics-tag-manager/","path":"2013/03/24/scroll-depth-google-analytics-tag-manager/","title":"巧用Google Analytics和Tag manager监测滚屏深度"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://jackielzq.github.io/2013/03/24/scroll-depth-google-analytics-tag-manager/","path":"2013/03/24/scroll-depth-google-analytics-tag-manager/","title":"巧用Google Analytics和Tag Manager监测滚屏深度"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>巧用Google Analytics和Tag manager监测滚屏深度 | Jackie的博客</title>
+<title>巧用Google Analytics和Tag Manager监测滚屏深度 | Jackie的博客</title>
   
 
 
@@ -92,7 +92,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-study"><a href="/study/" rel="section"><i class="fa fa-book fa-fw"></i>study</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-study"><a href="/study/" rel="section"><i class="fa fa-book fa-fw"></i>学习</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
   </ul>
 </nav>
 
@@ -122,36 +122,35 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Jackie Luo</p>
+  <p class="site-author-name" itemprop="name">Jackielzq</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">130</span>
+          <span class="site-state-item-count">137</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+          <a href="/categories/">
         <span class="site-state-item-count">11</span>
-        <span class="site-state-item-name">分类</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">210</span>
-        <span class="site-state-item-name">标签</span>
+          <a href="/tags/">
+        <span class="site-state-item-count">216</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
   <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="mailto:jackielzq@qq.com" title="E-Mail → mailto:jackielzq@qq.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+        <a href="https://weibo.com/jackielzq" title="微博 → https:&#x2F;&#x2F;weibo.com&#x2F;jackielzq" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>微博</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/jackielzq" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;jackielzq" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="skype:yourname?call|chat" title="zhihu → skype:yourname?call|chat" rel="noopener me" target="_blank"><i class="fab fa-skype fa-fw"></i>zhihu</a>
+        <a href="https://www.zhihu.com/people/jackielzq" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;jackielzq" rel="noopener me" target="_blank"><i class="fab fa-zhihu fa-fw"></i>知乎</a>
       </span>
   </div>
 
@@ -195,7 +194,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jackie Luo">
+      <meta itemprop="name" content="Jackielzq">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -204,12 +203,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="巧用Google Analytics和Tag manager监测滚屏深度 | Jackie的博客">
+      <meta itemprop="name" content="巧用Google Analytics和Tag Manager监测滚屏深度 | Jackie的博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          巧用Google Analytics和Tag manager监测滚屏深度
+          巧用Google Analytics和Tag Manager监测滚屏深度
         </h1>
 
         <div class="post-meta-container">
@@ -305,7 +304,7 @@ elements: ['#comment']
   </button>
   <div class="post-reward">
       <div>
-        <img src="/images/wechatpay.jpg" alt="Jackie Luo 微信">
+        <img src="/images/wechatpay.jpg" alt="Jackielzq 微信">
         <span>微信</span>
       </div>
 
@@ -373,7 +372,7 @@ elements: ['#comment']
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Jackie Luo</span>
+  <span class="author" itemprop="copyrightHolder">Jackielzq</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
   </div>
