@@ -123,7 +123,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">159</span>
+          <span class="site-state-item-count">161</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -134,7 +134,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">232</span>
+        <span class="site-state-item-count">234</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -174,6 +174,217 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/universal-analytics-send-data-in-regular/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jackielzq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2014/06/08/universal-analytics-send-data-in-regular/" class="post-title-link" itemprop="url">Universal Analytics监测细节的完善(七)——定时发送数据</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-06-08 22:46:31" itemprop="dateCreated datePublished" datetime="2014-06-08T22:46:31+08:00">2014-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Universal-Analytics/" itemprop="url" rel="index"><span itemprop="name">Universal Analytics</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>685</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>除了及时发现服务器端或者数据的异常之外，更多的情况下我们会需要定期知道一些特定的数据。作为网站分析人员，很可能会收到其他各个部门人员的需求，“给我导个XX数把”，“我们部门需要知道一下XXXX的数据”，这个时候千万别愣头愣脑的来一个需求满足一个，应该首先明确一下，需要这些数字的目的是什么？这个需求是一次性的还是长期的？网站分析更多的时间应该侧重在分析这块，而不是帮忙跑数据。所以如果是一次性的需求，那么友情赞助一下，没有问题；如果是长期的，写清楚需求，哪些维度，哪些指标，时间间隔，是否细分等等；如果他也答不上来要这些数字干吗，那还是算了把……</p>
+<p>稍微有点跑题，我们回到刚才的问题上来，如果是一个长期的、定期的数据需求，只要明确了上面所要求的点，我们是可以一劳永逸地实现这个功能的，只需用到UA的定时发送数据功能。</p>
+<p>在UA的Reporting界面中，我们可以看到几大类的数据报告，<code>Audience(用户)</code>,<code>Aquisition(流量获取)</code>, <code>Behavior(行为)</code>,<code>Conversion(转化)</code>这几个主要大类涵盖了100多份报告，可以从一个完整的角度诠释你网站运营的整体状况，大部分报告界面上方都有一个Email按钮，点击该按钮就能将你当前视图中的数据以Email的形式定期地发送到你指定的邮箱中。</p>
+<p><img src="https://www.dropbox.com/s/j0lsjss0g4a2inj/ua5.png?dl=1"></p>
+<p>但是注意，这觉不仅限于默认提供的100多个报表，因为多个维度的交叉会使得报告的可能性成几何倍数增长。所以若要满足相应需求，需要用到<code>自定义报告</code>。</p>
+<p>在界面顶部导航中选取<code>Customization</code>,点击<code>New Custom Report</code>，即可新建自定义报告</p>
+<p><img src="https://www.dropbox.com/s/a087vwo5vm1e2pl/ua6.png?dl=1"></p>
+<p>选定相应的维度和指标，点击保存即可。</p>
+<p>但是有一点需要注意，维度和指标之间是有对应的关系的，而不是你想怎么选就怎么选。在了解各个维度和指标的意义及使用场景的前提下，注意可能的上下级和对应关系，因为如果他们之间出现了逻辑错误的话，自定义报告会是一片空白，这个时候请回去仔细查看你的设置，如果不是很清楚的话，可以多尝试几次，相信最后一定会有结果的。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/universal-analytics-data-alert/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jackielzq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2014/06/08/universal-analytics-data-alert/" class="post-title-link" itemprop="url">Universal Analytics监测细节的完善(六)——数据警报</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-06-08 22:42:51" itemprop="dateCreated datePublished" datetime="2014-06-08T22:42:51+08:00">2014-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Universal-Analytics/" itemprop="url" rel="index"><span itemprop="name">Universal Analytics</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>426</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>上一篇介绍了后端状况的监控设置，这一次我们需要通过设置对数据的异常情况得到比较及时的反馈。</p>
+<p>一般广告公司或互联网公司运营部门，都是整天和数据打交道的。而其中一项很重要的职责是对于访问数据中的异常得到非常及时的反馈并找到针对性的措施解决相应的问题。而在广告公司更不幸运的是，有时候你一个人会管理几个甚至十几个网站的GA账户，而未必能每天都对着GA账户一个一个地去看，那么怎么才能比较高效地在这么多账户中及时地发现问题呢？这就需要用到GA的<code>Alert</code>预警功能。</p>
+<p>打开UA后台，找到<code>Admin-View-Custom Alert</code><br><img src="https://www.dropbox.com/s/1hkrnxhq6ou125i/ua4.png?dl=1"><br>如图按提示填写相应的内容，选定相应的维度和指标，当指标符合某类特定条件时(<code>绝对值大于或小于特定值</code>,<code>变化的比率大于或小于特定值</code>)，则向你发送邮件预警，提醒你数据有比较明显变化，是该看看后台了。(希望我能收到某天100 session的警告)</p>
+<p>为了让用户更加方便地使用这个功能，Google非常人性化地加上了重复关联(图中的Apply)的功能，即如果你需要监控一系列站点的同一类数据，那么你只需设置一次，然后关联到其他的账户中，如果出现问题发送预警，GA会在邮件中以列表的形式呈现出来，非常方便。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1328,228 +1539,8 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/how-to-use-universal-analytics-for-full-tracking/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jackielzq">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2014/06/08/how-to-use-universal-analytics-for-full-tracking/" class="post-title-link" itemprop="url">如何用Universal Analytics对网站实施完整监测</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2014-06-08 22:08:59" itemprop="dateCreated datePublished" datetime="2014-06-08T22:08:59+08:00">2014-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Universal-Analytics/" itemprop="url" rel="index"><span itemprop="name">Universal Analytics</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>320</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>由于Universal Analytics(以下简称UA)在网站分析领域已是大势所趋，必将完全取代目前的Google Analytics，所以接下来我要整理的主要是基于UA的配置与各种常见问题解决方案，希望帮助初学者快速入门并与有经验人士探讨更多可能。<br>因为本网站是基于<a target="_blank" rel="noopener" href="http://wordpress.org/">Wordpress</a>平台搭建的,所以下面所说的例子会结合我自己的网站以及Wordpress的结构特点进行部署。大家请记住，几乎所有的CMS系统原理都是差不多的，所以不管你是Wordpress,还是Disqus，Jekyll,Hexo等等，一种通了则其他的也用类似的方法实现即可，不必对此钻牛角尖，毕竟最重要的是实现的思路方法。</p>
-<h3 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h3><ol>
-<li> <a href="/webanalytics/universalanalytics/universal-anal%E2%80%A6ccount-setting.html">Universal Analytics账号配置</a></li>
-<li> <a href="/webanalytics/universalanalytics/universal-anal%E2%80%A6-and-implement.html">Universal Analytics代码生成与部署</a></li>
-<li> 测试代码，验证数据</li>
-</ol>
-<h3 id="完善细节"><a href="#完善细节" class="headerlink" title="完善细节"></a>完善细节</h3><ol>
-<li> <a href="/webanalytics/universalanalytics/universal-anal%E2%80%A6set-the-target.html">明确转化，设置目标</a></li>
-<li> <a href="/webanalytics/universalanalytics/universal-anal%E2%80%A6uery-parameter.html">去除多余URL参数</a></li>
-<li> <a href="/webanalytics/universalanalytics/universal-anal%E2%80%A6-search-engine.html">识别新增搜索引擎关键词</a></li>
-<li> <a href="/webanalytics/universalanalytics/universal-anal%E2%80%A6ck-site-search.html%20%E2%80%8E">监测站内搜索(In site Search)</a></li>
-<li> <a href="/webanalytics/universalanalytics/universal-anal%E2%80%A6ck-jiankongbao.html">监控网站服务器是否正常</a></li>
-<li> <a href="/webanalytics/universalanalytics/universal-analytics-data-alert.html">数据警报(网站数据异常提醒)</a></li>
-<li> <a href="/webanalytics/universalanalytics/universal-anal%E2%80%A6ata-in-regular.html%20%E2%80%8E">定时发送数据</a></li>
-</ol>
-<h3 id="高级部署"><a href="#高级部署" class="headerlink" title="高级部署"></a>高级部署</h3><p>未完待续……</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/06/good-movie-the-terror-live/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jackielzq">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2014/06/06/good-movie-the-terror-live/" class="post-title-link" itemprop="url">好电影《恐怖直播》</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2014-06-06 15:37:48" itemprop="dateCreated datePublished" datetime="2014-06-06T15:37:48+08:00">2014-06-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BA%AA%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">纪录</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>昨天看了一部非常好的电影《恐怖直播》，在看之前有些犹豫，因为毕竟是韩国的片子，也许是受韩剧的影响，我一直以为他们也仅仅是喜欢骗骗少女的尖叫或者眼泪而已。之前看过的《我的野蛮女友》、《非常主播》这一类的片子还是挺有意思的，但是在心底我可能还是觉得他们的电影很low，拍不出震撼人心的大片的。但是看完这部，我对韩国电影的印象已经彻底改变。</p>
-<p>片中每个人物的性格都特别鲜明，而男主角的演技也是堪称一绝，和我之前印象中韩剧主演没事长个嘴夸张地说不出话来有着极大的差别。里面所有人物都在为自己的利益斗争，“恐怖分子”为冤死父亲讨回公道采取极端手法谋求关注；主播为恢复原职隐瞒恐怖袭击线索，只为抢独家；主管为升职提升收视率不惜以人质性命作代价；国家安全部长官立场坚定不予妥协最后被爆头惨死……最后的结局也出人意料，因为男主角从最开始的“意外收获”，到后来的“参与其中”，再到后来的被同事曝光受贿黑史变得“无法逃脱”，再到被告知成为整个事件的替罪羊，到最后替恐怖分子按下了炸弹按钮以获得最后的解脱，短短几个小时内，让他从一个落寞的主播变成了炸毁整座大楼的“恐怖分子”。把利益至上与人情冷漠刻画地非常的真实，也把ZF在这件事情处理上产生的问题显露无疑。</p>
-<p>虽然这一个半小时的剧情都是在一个演播室里发生的，但是效果完全不逊于其他商业大片。他说的不是一个特别的故事，而更像是说的是发生在身边的事实。在我们周围也总会听过或看过各种不公，各种利益争斗，有许多人“报官无门”，不能从合法途径维护自身的利益，因而采取一些极端的措施。而ZF为了维持自己的威信，就算牺牲一些人的性命作为代价也不能对“恐怖分子”妥协，不管他的要求是否合理，因为从你引爆第一颗炸弹开始，你自身的性质就不一样了，从“维权者”变成了“恐怖分子”。影片从头至尾让男主角在这条道路上重走了一遍，所以最后的结局看起来也是必然，因为经过这一切公众视线已经完全被转移，从“维权，要求总理道歉”到“恐怖分子炸弹袭击”、“主播收受贿赂，为获奖抢妻子新闻”。而我们可以想象第二天全国铺天盖地的新闻是一些什么内容，不出意外的话官媒应该是强烈谴责这种暴徒行为，ZF安慰伤者，当局当机立断态度强硬，成功击毙犯罪嫌疑人。娱乐媒体可能更多的去挖掘男主播黑史，而造成这一切的原因，不管是法制问题还是腐败问题，都显得不是那么的重要……而这些是更应该让我们去思考的。</p>
-<p>这部电影被“合情合理”地列为了禁片，相信没人会感到意外，甚至连审片的朋友估计都会觉得惋惜，但是还是强烈推荐大家一看。顺便查了一下这个影片的获奖情况：</p>
-<p><a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2014/06/movie1.jpg"><img src="http://jackie.ms/wp-content/uploads/2014/06/movie1.jpg" alt="movie1"></a></p>
-<p>这个导演确实是个人才，这部影片是他导演编剧的第二部作品，竟然有如此的高度，大赞一记。看到有网友评论说，有生之年不知道能不能看到中国拍出这样的片子，想想确实有些惋惜，要说题材的话，中国应该不会少于任何国家吧……</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/11/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/11/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -1573,14 +1564,14 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">174k</span>
+    <span title="站点总字数">175k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">10:33</span>
+    <span title="站点阅读时长">10:37</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
