@@ -123,7 +123,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">166</span>
+          <span class="site-state-item-count">167</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -134,7 +134,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">236</span>
+        <span class="site-state-item-count">237</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -174,6 +174,109 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/05/13/shake-your-mouse/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jackielzq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2014/05/13/shake-your-mouse/" class="post-title-link" itemprop="url">晃动你的鼠标</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-05-13 19:20:12" itemprop="dateCreated datePublished" datetime="2014-05-13T19:20:12+08:00">2014-05-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>发现一个晃晃鼠标就变神经病的网站</p>
+<p>貌似全用js实现的，挺有意思，和我页面右边的<a href="javascript:(function("> High一下</a> {&lt;br /&gt;&lt;br /&gt;<br>    function c() {&lt;br /&gt;&lt;br /&gt;<br>        var e = document.createElement(&quot;link&quot;);&lt;br /&gt;&lt;br /&gt;<br>        e.setAttribute(&quot;type&quot;, &quot;text/css&quot;);&lt;br /&gt;&lt;br /&gt;<br>        e.setAttribute(&quot;rel&quot;, &quot;stylesheet&quot;);&lt;br /&gt;&lt;br /&gt;<br>        e.setAttribute(&quot;href&quot;, f);&lt;br /&gt;&lt;br /&gt;<br>        e.setAttribute(&quot;class&quot;, l);&lt;br /&gt;&lt;br /&gt;<br>        document.body.appendChild(e)&lt;br /&gt;&lt;br /&gt;<br>    }&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;    function h() {&lt;br /&gt;&lt;br /&gt;<br>        var e = document.getElementsByClassName(l);&lt;br /&gt;&lt;br /&gt;<br>        for (var t = 0; t &lt; e.length; t++) {             document.body.removeChild(e[t])         }     }       function p() {         var e = document.createElement(&quot;div&quot;);         e.setAttribute(&quot;class&quot;, a);         document.body.appendChild(e);         setTimeout(function() {             document.body.removeChild(e)         }, 100)     }       function d(e) {         return {             height : e.offsetHeight,             width : e.offsetWidth         }     }       function v(i) {         var s = d(i);         return s.height &gt; e &amp;&amp; s.height &lt; n &amp;&amp; s.width &gt; t &amp;&amp; s.width &lt; r     }       function m(e) {         var t = e;         var n = 0;         while (!!t) {             n += t.offsetTop;             t = t.offsetParent         }         return n     }       function g() {         var e = document.documentElement;         if (!!window.innerWidth) {             return window.innerHeight         } else if (e &amp;&amp; !isNaN(e.clientHeight)) {             return e.clientHeight         }         return 0     }       function y() {         if (window.pageYOffset) {             return window.pageYOffset         }         return Math.max(document.documentElement.scrollTop, document.body.scrollTop)     }       function E(e) {         var t = m(e);         return t &gt;= w &amp;&amp; t &lt;= b + w&lt;br /&gt;&lt;br /&gt;<br>    }&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;    function S() {&lt;br /&gt;&lt;br /&gt;<br>        var e = document.createElement(&quot;audio&quot;);&lt;br /&gt;&lt;br /&gt;<br>        e.setAttribute(&quot;class&quot;, l);&lt;br /&gt;&lt;br /&gt;<br>        e.src = i;&lt;br /&gt;&lt;br /&gt;<br>        e.loop = false;&lt;br /&gt;&lt;br /&gt;<br>        e.addEventListener(&quot;canplay&quot;, function() {&lt;br /&gt;&lt;br /&gt;<br>            setTimeout(function() {&lt;br /&gt;&lt;br /&gt;<br>                x(k)&lt;br /&gt;&lt;br /&gt;<br>            }, 500);&lt;br /&gt;&lt;br /&gt;<br>            setTimeout(function() {&lt;br /&gt;&lt;br /&gt;<br>                N();&lt;br /&gt;&lt;br /&gt;<br>                p();&lt;br /&gt;&lt;br /&gt;<br>                for (var e = 0; e &lt; O.length; e++) {&lt;br /&gt;&lt;br /&gt;<br>                    T(O[e])&lt;br /&gt;&lt;br /&gt;<br>                }&lt;br /&gt;&lt;br /&gt;<br>            }, 15500)&lt;br /&gt;&lt;br /&gt;<br>        }, true);&lt;br /&gt;&lt;br /&gt;<br>        e.addEventListener(&quot;ended&quot;, function() {&lt;br /&gt;&lt;br /&gt;<br>            N();&lt;br /&gt;&lt;br /&gt;<br>            h()&lt;br /&gt;&lt;br /&gt;<br>        }, true);&lt;br /&gt;&lt;br /&gt;<br>        e.innerHTML = &quot;&lt;br /&gt;<br>&lt;p&gt;If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;&quot;;&lt;br /&gt;&lt;br /&gt;<br>        document.body.appendChild(e);&lt;br /&gt;&lt;br /&gt;<br>        e.play()&lt;br /&gt;&lt;br /&gt;<br>    }&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;    function x(e) {&lt;br /&gt;&lt;br /&gt;<br>        e.className += &quot; &quot; + s + &quot; &quot; + o&lt;br /&gt;&lt;br /&gt;<br>    }&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;    function T(e) {&lt;br /&gt;&lt;br /&gt;<br>        e.className += &quot; &quot; + s + &quot; &quot; + u[Math.floor(Math.random() * u.length)]&lt;br /&gt;&lt;br /&gt;<br>    }&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;    function N() {&lt;br /&gt;&lt;br /&gt;<br>        var e = document.getElementsByClassName(s);&lt;br /&gt;&lt;br /&gt;<br>        var t = new RegExp(&quot;\b&quot; + s + &quot;\b&quot;);&lt;br /&gt;&lt;br /&gt;<br>        for (var n = 0; n &lt; e.length; ) {&lt;br /&gt;&lt;br /&gt;<br>            e[n].className = e[n].className.replace(t, &quot;&quot;)&lt;br /&gt;&lt;br /&gt;<br>        }&lt;br /&gt;&lt;br /&gt;<br>    }&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;    var e = 30;&lt;br /&gt;&lt;br /&gt;<br>    var t = 30;&lt;br /&gt;&lt;br /&gt;<br>    var n = 350;&lt;br /&gt;&lt;br /&gt;<br>    var r = 350;&lt;br /&gt;&lt;br /&gt;<br>    var i = &quot;//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3&quot;;&lt;br /&gt;&lt;br /&gt;<br>    var s = &quot;mw-harlem_shake_me&quot;;&lt;br /&gt;&lt;br /&gt;<br>    var o = &quot;im_first&quot;;&lt;br /&gt;&lt;br /&gt;<br>    var u = [&quot;im_drunk&quot;, &quot;im_baked&quot;, &quot;im_trippin&quot;, &quot;im_blown&quot;];&lt;br /&gt;&lt;br /&gt;<br>    var a = &quot;mw-strobe_light&quot;;&lt;br /&gt;&lt;br /&gt;<br>    var f = &quot;//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css&quot;;&lt;br /&gt;&lt;br /&gt;<br>    var l = &quot;mw_added_css&quot;;&lt;br /&gt;&lt;br /&gt;<br>    var b = g();&lt;br /&gt;&lt;br /&gt;<br>    var w = y();&lt;br /&gt;&lt;br /&gt;<br>    var C = document.getElementsByTagName(&quot;*&quot;);&lt;br /&gt;&lt;br /&gt;<br>    var k = null;&lt;br /&gt;&lt;br /&gt;<br>    for (var L = 0; L &lt; C.length; L++) {&lt;br /&gt;&lt;br /&gt;<br>        var A = C[L];&lt;br /&gt;&lt;br /&gt;<br>        if (v(A)) {&lt;br /&gt;&lt;br /&gt;<br>            if (E(A)) {&lt;br /&gt;&lt;br /&gt;<br>                k = A;&lt;br /&gt;&lt;br /&gt;<br>                break&lt;br /&gt;&lt;br /&gt;<br>            }&lt;br /&gt;&lt;br /&gt;<br>        }&lt;br /&gt;&lt;br /&gt;<br>    }&lt;br /&gt;&lt;br /&gt;<br>    if (A === null) {&lt;br /&gt;&lt;br /&gt;<br>        console.warn(&quot;Could not find a node of the right size. Please try a different page.&quot;);&lt;br /&gt;&lt;br /&gt;<br>        return&lt;br /&gt;&lt;br /&gt;<br>    }&lt;br /&gt;&lt;br /&gt;<br>    c();&lt;br /&gt;&lt;br /&gt;<br>    S();&lt;br /&gt;&lt;br /&gt;<br>    var O = [];&lt;br /&gt;&lt;br /&gt;<br>    for (var L = 0; L &lt; C.length; L++) {         var A = C[L];         if (v(A)) {             O.push(A)         }     } })()     “High起来”) 挺像<br><a target="_blank" rel="noopener" href="http://www.staggeringbeauty.com/">StaggeringBeauty</a></p>
+<p>觉得有意思的话可以以iframe的形式嵌在自己的页面里，然后像神经病一样High起来吧</p>
+<p>_ <iframe style="border: 1px inset #ddd;" src="http://www.staggeringbeauty.com/" height="598" width="498"></iframe>_</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1162,114 +1265,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/03/06/about-video-ads/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jackielzq">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2014/03/06/about-video-ads/" class="post-title-link" itemprop="url">视频网站的贴片广告</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2014-03-06 16:01:28" itemprop="dateCreated datePublished" datetime="2014-03-06T16:01:28+08:00">2014-03-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%A7%82%E7%82%B9/" itemprop="url" rel="index"><span itemprop="name">观点</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>最近看到知乎上好多人讨论视频网站广告的问题，我逐个看了下帖子和评论，基本90%以上都是在说视频网站多么没节操，广告多么烦人。前段时间傲游浏览器的“支持快进”功能快速跳过视频广告掀起了一小段波澜，大多数人都在力挺傲游，对于这个现象我并不感到意外，但是并不代表这90%是正确的。</p>
-<p>我顺手查了下最近的相关数据，截至2013年12月，中国网民规模达6.18亿，互联网普及率为45.8%。其中，手机网民规模达5亿，继续保持稳定增长。而视频网站覆盖人数为4.6亿，也就是说74%的网民都会浏览视频网站，网络视频已经成为绝大多数网民不可或缺的一部分。而支持视频广告存活的衣食父母，基本上只有广告主，最近优酷土豆的财报显示，其90%的收入都来自于广告，而内容成本、带宽成本一直居高不下，要想增加营收最简单粗暴的方法就是增加贴片广告时长，所以优酷土豆实现里程碑式的首次盈利，和这有着莫大的关联。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2014/03/06/about-video-ads/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1302,7 +1297,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">10:47</span>
+    <span title="站点阅读时长">10:49</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
