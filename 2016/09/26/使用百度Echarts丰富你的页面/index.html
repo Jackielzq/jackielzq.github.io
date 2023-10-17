@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jackielzq.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="百度Echarts和百度脑图是我觉得百度为数不多做的很好的产品，尤其是Echarts，为前端开发提供了不少的便利。目前3.0版比之前丰富了不少，除了办公或者商业上常见的一些图形如柱形图、条形图、散点图、蜘蛛图、漏斗图、地图、K线图等，加入了许多供科学研究的如桑基图、平行坐标图、热力图等，着实令人大开眼界。对于好的产品，我们还是需要大力支持一下。当然使用它、宣传它也是支持的一种方式。 目前的博客用的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用百度Echarts丰富你的页面">
+<meta property="og:url" content="http://jackielzq.github.io/2016/09/26/%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6Echarts%E4%B8%B0%E5%AF%8C%E4%BD%A0%E7%9A%84%E9%A1%B5%E9%9D%A2/index.html">
+<meta property="og:site_name" content="Jackie的博客">
+<meta property="og:description" content="百度Echarts和百度脑图是我觉得百度为数不多做的很好的产品，尤其是Echarts，为前端开发提供了不少的便利。目前3.0版比之前丰富了不少，除了办公或者商业上常见的一些图形如柱形图、条形图、散点图、蜘蛛图、漏斗图、地图、K线图等，加入了许多供科学研究的如桑基图、平行坐标图、热力图等，着实令人大开眼界。对于好的产品，我们还是需要大力支持一下。当然使用它、宣传它也是支持的一种方式。 目前的博客用的">
+<meta property="og:locale">
+<meta property="article:published_time" content="2016-09-26T03:01:49.000Z">
+<meta property="article:modified_time" content="2016-10-06T07:09:59.000Z">
+<meta property="article:author" content="Jackielzq">
+<meta property="article:tag" content="Echarts">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://jackielzq.github.io/2016/09/26/%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6Echarts%E4%B8%B0%E5%AF%8C%E4%BD%A0%E7%9A%84%E9%A1%B5%E9%9D%A2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://jackielzq.github.io/2016/09/26/%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6Echarts%E4%B8%B0%E5%AF%8C%E4%BD%A0%E7%9A%84%E9%A1%B5%E9%9D%A2/","path":"2016/09/26/使用百度Echarts丰富你的页面/","title":"使用百度Echarts丰富你的页面"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>使用百度Echarts丰富你的页面 | Jackie的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jackie的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习|交流|分享</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-study"><a href="/study/" rel="section"><i class="fa fa-book fa-fw"></i>学习</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Echarts"><span class="nav-number">1.</span> <span class="nav-text">如何使用Echarts</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">遇到的问题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%AF%A1%E5%BC%82%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">诡异的问题</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jackielzq"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Jackielzq</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">170</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">240</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/jackielzq" title="微博 → https:&#x2F;&#x2F;weibo.com&#x2F;jackielzq" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>微博</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/jackielzq" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;jackielzq" rel="noopener me" target="_blank"><i class="fab fa-zhihu fa-fw"></i>知乎</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://placeless.net/" title="http:&#x2F;&#x2F;placeless.net&#x2F;" rel="noopener" target="_blank">徐爷的文艺网站</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://cloga.info/" title="http:&#x2F;&#x2F;cloga.info" rel="noopener" target="_blank">龙爷财务自由之路</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2016/09/26/%E4%BD%BF%E7%94%A8%E7%99%BE%E5%BA%A6Echarts%E4%B8%B0%E5%AF%8C%E4%BD%A0%E7%9A%84%E9%A1%B5%E9%9D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jackielzq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="使用百度Echarts丰富你的页面 | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用百度Echarts丰富你的页面
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-09-26 11:01:49" itemprop="dateCreated datePublished" datetime="2016-09-26T11:01:49+08:00">2016-09-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2016-10-06 15:09:59" itemprop="dateModified" datetime="2016-10-06T15:09:59+08:00">2016-10-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">分享</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a target="_blank" rel="noopener" href="http://echarts.baidu.com/">百度Echarts</a>和<a target="_blank" rel="noopener" href="http://naotu.baidu.com/">百度脑图</a>是我觉得百度为数不多做的很好的产品，尤其是Echarts，为前端开发提供了不少的便利。目前3.0版比之前丰富了不少，除了办公或者商业上常见的一些图形如柱形图、条形图、散点图、蜘蛛图、漏斗图、地图、K线图等，加入了许多供科学研究的如桑基图、平行坐标图、热力图等，着实令人大开眼界。对于好的产品，我们还是需要大力支持一下。当然使用它、宣传它也是支持的一种方式。</p>
+<p>目前的博客用的Hexo，所有文章页面都是基于Markdown语法，加上Echarts真的是如虎添翼，网上关于Hexo和Echarts相关介绍不多，也许是部分朋友并不知道Echarts的强大与便利，所以我以此文在这里与大家分享一下。</p>
+<span id="more"></span>
+
+<h6 id="如何使用Echarts"><a href="#如何使用Echarts" class="headerlink" title="如何使用Echarts"></a>如何使用Echarts</h6><p>步骤其实很简单，有点前端html或者javascript基础的人比较好理解，但是不懂也没关系。工具的进阶除了功能越来越强大之外，还有一个应该就是用起来越来越方便。这里一共以下几步：</p>
+<p>1、在文章模板里引入Echarts模块</p>
+<ul>
+<li>Hexo的话，找到如下路径：<code>/themes/主题/layout/_partials/head.ejs</code>或者新版Hexo的<code>/themes/主题/layout/_partials/head.swig</code>，</li>
+<li>如果Wordpress，则到后台<code>yourdomain.com/wp-admin</code>找到路径<code>【主题】-【编辑】-【head.php】</code></li>
+<li>其他平台同理</li>
+</ul>
+<p>在空白处加上如下代码:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#123;# Import Baidu Echarts #&#125; 写好注释是一个很好的习惯</span></span><br><span class="line">&lt;script src=<span class="string">&quot;http://echarts.baidu.com/dist/echarts.common.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>2、写页面,插入图表</p>
+<p>在你需要加入图表的位置写上图表对应的代码，代码一共分为几块，以下介绍一个完整的例子：  </p>
+<div id="echarts1" style="width:81%;height:400px;margin:0 auto"></div> 
+
+<script type="text/javascript">
+
+var myChart=echarts.init(document.getElementById("echarts1")),
+
+option={
+
+tooltip:{
+  trigger:"axis",   //这是什么意思
+  axisPointer:{type:"shadow"}},  
+
+legend:{
+  data:["利润","支出","收入"]},
+  
+grid:{
+  left:"3%",
+  right:"4%",
+  bottom:"3%",
+  containLabel:!0},
+
+xAxis:[{type:"value"}],
+
+yAxis:[
+    { type:"category",
+      axisTick:{show:!1},
+      data:["周一","周二","周三","周四","周五","周六","周日"]}],
+
+series:[
+    
+    { name:"利润",
+      type:"bar",
+      itemStyle:{normal:{label:{show:!0,position:"inside"}}},
+       data:[200,170,240,244,200,220,210]},
+
+    { name:"收入",
+      type:"bar",
+      stack:"总量",
+      itemStyle:{normal:{label:{show:!0}}},
+      data:[320,302,341,374,390,450,420]},
+
+    { name:"支出",
+      type:"bar",
+      stack:"总量",
+      itemStyle:{normal:{label:{show:!0,position:"left"}}},
+      data:[-120,-132,-101,-134,-190,-230,-210]}]
+
+};
+
+  
+myChart.setOption(option),
+window.onresize=myChart.resize;</script >
+
+
+
+
+<div id="echarts3007" style="width:81%;height:1px;margin:0 auto"></div> 
+
+<script type="text/javascript">
+
+var myChart2=echarts.init(document.getElementById("echarts3007")),
+
+
+option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+        data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+    },
+
+    grid:{left:"3%", right:"4%",bottom:"3%",containLabel:!0},
+
+    series: [
+        {
+            name:'访问来源',
+            type:'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+                {value:335, name:'直接访问'},
+                {value:310, name:'邮件营销'},
+                {value:234, name:'联盟广告'},
+                {value:135, name:'视频广告'},
+                {value:1548, name:'搜索引擎'}
+            ]
+        }
+    ]
+};
+
+myChart2.setOption(option),
+window.onresize=myChart.resize;</script>
+
+
+
+<p>上面的图很好地表示了企业收入支出及利润随时间变化的趋势，也是Echarts上一个标准的图形，它的代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;echarts1&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:81%;height:400px;margin:0 auto&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> myChart=echarts.<span class="title function_">init</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;echarts1&quot;</span>)),</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">option=&#123;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="attr">tooltip</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">	 	<span class="attr">trigger</span>:<span class="string">&quot;axis&quot;</span>,   <span class="comment">//这是什么意思</span></span></span><br><span class="line"><span class="language-javascript"> 		<span class="attr">axisPointer</span>:&#123;<span class="attr">type</span>:<span class="string">&quot;shadow&quot;</span>&#125;&#125;,  </span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="attr">legend</span>:&#123;</span></span><br><span class="line"><span class="language-javascript">	 	<span class="attr">data</span>:[<span class="string">&quot;利润&quot;</span>,<span class="string">&quot;支出&quot;</span>,<span class="string">&quot;收入&quot;</span>]&#125;,</span></span><br><span class="line"><span class="language-javascript"> </span></span><br><span class="line"><span class="language-javascript"><span class="attr">grid</span>:&#123;</span></span><br><span class="line"><span class="language-javascript"> 		<span class="attr">left</span>:<span class="string">&quot;3%&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">		<span class="attr">right</span>:<span class="string">&quot;4%&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">		<span class="attr">bottom</span>:<span class="string">&quot;3%&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">		<span class="attr">containLabel</span>:!<span class="number">0</span>&#125;,</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="attr">xAxis</span>:[&#123;<span class="attr">type</span>:<span class="string">&quot;value&quot;</span>&#125;],</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="attr">yAxis</span>:[</span></span><br><span class="line"><span class="language-javascript">   	&#123; <span class="attr">type</span>:<span class="string">&quot;category&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">    	<span class="attr">axisTick</span>:&#123;<span class="attr">show</span>:!<span class="number">1</span>&#125;,</span></span><br><span class="line"><span class="language-javascript">     	<span class="attr">data</span>:[<span class="string">&quot;周一&quot;</span>,<span class="string">&quot;周二&quot;</span>,<span class="string">&quot;周三&quot;</span>,<span class="string">&quot;周四&quot;</span>,<span class="string">&quot;周五&quot;</span>,<span class="string">&quot;周六&quot;</span>,<span class="string">&quot;周日&quot;</span>]&#125;],</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="attr">series</span>:[</span></span><br><span class="line"><span class="language-javascript">   </span></span><br><span class="line"><span class="language-javascript">   &#123; <span class="attr">name</span>:<span class="string">&quot;利润&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">     	  <span class="attr">type</span>:<span class="string">&quot;bar&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">     	  <span class="attr">itemStyle</span>:&#123;<span class="attr">normal</span>:&#123;<span class="attr">label</span>:&#123;<span class="attr">show</span>:!<span class="number">0</span>,<span class="attr">position</span>:<span class="string">&quot;inside&quot;</span>&#125;&#125;&#125;,</span></span><br><span class="line"><span class="language-javascript">         <span class="attr">data</span>:[<span class="number">200</span>,<span class="number">170</span>,<span class="number">240</span>,<span class="number">244</span>,<span class="number">200</span>,<span class="number">220</span>,<span class="number">210</span>]&#125;,</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">  	&#123; <span class="attr">name</span>:<span class="string">&quot;收入&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">         <span class="attr">type</span>:<span class="string">&quot;bar&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">         <span class="attr">stack</span>:<span class="string">&quot;总量&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">         <span class="attr">itemStyle</span>:&#123;<span class="attr">normal</span>:&#123;<span class="attr">label</span>:&#123;<span class="attr">show</span>:!<span class="number">0</span>&#125;&#125;&#125;,</span></span><br><span class="line"><span class="language-javascript">         <span class="attr">data</span>:[<span class="number">320</span>,<span class="number">302</span>,<span class="number">341</span>,<span class="number">374</span>,<span class="number">390</span>,<span class="number">450</span>,<span class="number">420</span>]&#125;,</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">   &#123; <span class="attr">name</span>:<span class="string">&quot;支出&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">     <span class="attr">type</span>:<span class="string">&quot;bar&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">     <span class="attr">stack</span>:<span class="string">&quot;总量&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">     <span class="attr">itemStyle</span>:&#123;<span class="attr">normal</span>:&#123;<span class="attr">label</span>:&#123;<span class="attr">show</span>:!<span class="number">0</span>,<span class="attr">position</span>:<span class="string">&quot;left&quot;</span>&#125;&#125;&#125;,</span></span><br><span class="line"><span class="language-javascript">     <span class="attr">data</span>:[-<span class="number">120</span>,-<span class="number">132</span>,-<span class="number">101</span>,-<span class="number">134</span>,-<span class="number">190</span>,-<span class="number">230</span>,-<span class="number">210</span>]&#125;]</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">&#125;;</span></span><br><span class="line"><span class="language-javascript"> </span></span><br><span class="line"><span class="language-javascript">myChart.<span class="title function_">setOption</span>(option),</span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">window</span>.<span class="property">onresize</span>=myChart.<span class="property">resize</span>;&lt;/script &gt;</span></span><br><span class="line"><span class="language-javascript"></span></span><br></pre></td></tr></table></figure>
+
+<p>对于没有代码基础的人其实也不难理解，我们将其我们分块来逐项了解：</p>
+<p>1、定义展示区域样式  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;echarts1&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width:81%;height:400px;margin:0 auto&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这一块只是定义了一个展示区域，划定界限，同时定义了显示内容:宽高多少，这个块显示内容的id[echarts1]，这个ID是自己定义的，可以随便写，但是最好自己写了能方便记住，简而言之，是你给这块内容起的“小名”，比如你可以叫“狗蛋”“张麻子”等等。  </p>
+<p>2、定义好了区域，我们要开始画图了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> myChart2=echarts.<span class="title function_">init</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;echarts1&quot;</span>)),</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>前后两行只是格式块，不用理会，我们看第二行，定义了一个图表，名字叫myChart2，至于后面的引用函数无须究其根源，只要知道通过echarts我们初始化了一个图，这个图的id和前面对应，叫<code>echarts3007</code>。</p>
+<p>3、 定义好了图表，得把图表的参数写进来  </p>
+<p>比如图表类型、X坐标轴代表啥、Y坐标值代表啥，每种图形的颜色色值是多少、以及展示的数据。<br>这完全不用担心，因为所有的格式参数Echarts团队都已经给你定义好了，你只需要复制粘贴、然后把对应坐标轴上的内容修修改改即可。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">option = &#123;</span><br><span class="line">   <span class="attr">tooltip</span>: &#123;</span><br><span class="line">       <span class="attr">trigger</span>: <span class="string">&#x27;item&#x27;</span>,</span><br><span class="line">       <span class="attr">formatter</span>: <span class="string">&quot;&#123;a&#125; &lt;br/&gt;&#123;b&#125;: &#123;c&#125; (&#123;d&#125;%)&quot;</span></span><br><span class="line">   &#125;,</span><br><span class="line">   <span class="attr">legend</span>: &#123;</span><br><span class="line">       <span class="attr">orient</span>: <span class="string">&#x27;vertical&#x27;</span>,</span><br><span class="line">       <span class="attr">x</span>: <span class="string">&#x27;left&#x27;</span>,</span><br><span class="line">       <span class="attr">data</span>:[<span class="string">&#x27;直接访问&#x27;</span>,<span class="string">&#x27;邮件营销&#x27;</span>,<span class="string">&#x27;联盟广告&#x27;</span>,<span class="string">&#x27;视频广告&#x27;</span>,<span class="string">&#x27;搜索引擎&#x27;</span>]</span><br><span class="line">   &#125;,</span><br><span class="line"></span><br><span class="line">   <span class="attr">grid</span>:&#123;<span class="attr">left</span>:<span class="string">&quot;3%&quot;</span>, <span class="attr">right</span>:<span class="string">&quot;4%&quot;</span>,<span class="attr">bottom</span>:<span class="string">&quot;3%&quot;</span>,<span class="attr">containLabel</span>:!<span class="number">0</span>&#125;,</span><br><span class="line"></span><br><span class="line">   <span class="attr">series</span>: [</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="attr">name</span>:<span class="string">&#x27;访问来源&#x27;</span>,</span><br><span class="line">           <span class="attr">type</span>:<span class="string">&#x27;pie&#x27;</span>,</span><br><span class="line">           <span class="attr">radius</span>: [<span class="string">&#x27;50%&#x27;</span>, <span class="string">&#x27;70%&#x27;</span>],</span><br><span class="line">           <span class="attr">avoidLabelOverlap</span>: <span class="literal">false</span>,</span><br><span class="line">           <span class="attr">label</span>: &#123;</span><br><span class="line">               <span class="attr">normal</span>: &#123;</span><br><span class="line">                   <span class="attr">show</span>: <span class="literal">false</span>,</span><br><span class="line">                   <span class="attr">position</span>: <span class="string">&#x27;center&#x27;</span></span><br><span class="line">               &#125;,</span><br><span class="line">               <span class="attr">emphasis</span>: &#123;</span><br><span class="line">                   <span class="attr">show</span>: <span class="literal">true</span>,</span><br><span class="line">                   <span class="attr">textStyle</span>: &#123;</span><br><span class="line">                       <span class="attr">fontSize</span>: <span class="string">&#x27;30&#x27;</span>,</span><br><span class="line">                       <span class="attr">fontWeight</span>: <span class="string">&#x27;bold&#x27;</span></span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;,</span><br><span class="line">           <span class="attr">labelLine</span>: &#123;</span><br><span class="line">               <span class="attr">normal</span>: &#123;</span><br><span class="line">                   <span class="attr">show</span>: <span class="literal">false</span></span><br><span class="line">               &#125;</span><br><span class="line">           &#125;,</span><br><span class="line">           <span class="attr">data</span>:[</span><br><span class="line">               &#123;<span class="attr">value</span>:<span class="number">335</span>, <span class="attr">name</span>:<span class="string">&#x27;直接访问&#x27;</span>&#125;,</span><br><span class="line">               &#123;<span class="attr">value</span>:<span class="number">310</span>, <span class="attr">name</span>:<span class="string">&#x27;邮件营销&#x27;</span>&#125;,</span><br><span class="line">               &#123;<span class="attr">value</span>:<span class="number">234</span>, <span class="attr">name</span>:<span class="string">&#x27;联盟广告&#x27;</span>&#125;,</span><br><span class="line">               &#123;<span class="attr">value</span>:<span class="number">135</span>, <span class="attr">name</span>:<span class="string">&#x27;视频广告&#x27;</span>&#125;,</span><br><span class="line">               &#123;<span class="attr">value</span>:<span class="number">1548</span>, <span class="attr">name</span>:<span class="string">&#x27;搜索引擎&#x27;</span>&#125;</span><br><span class="line">           ]</span><br><span class="line">       &#125;</span><br><span class="line">   ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>对应下方的图表，我相信应该不难理解。</p>
+<p>4、最后一步，生成图表，按【启动】按钮  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">myChart.<span class="title function_">setOption</span>(option),</span><br><span class="line"><span class="variable language_">window</span>.<span class="property">onresize</span>=myChart.<span class="property">resize</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这里和英语的<code>固定搭配</code>一样，不用想为什么这么写，只需要照着写就对了。<br>经此四步，将该网页上线，就可以看到具体效果了，很简单吧！当然，如果你想要用到更多好玩酷炫的图形，就到**<a target="_blank" rel="noopener" href="http://echarts.baidu.com/examples.html">官方文档</a>**里看看吧!</p>
+<h6 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h6><p>我在其中遇到的问题，就是有很多图表的参数拷贝下来是不能正常显示的，但是加上这段以后就正常了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">grid</span>:&#123;<span class="attr">left</span>:<span class="string">&quot;3%&quot;</span>, <span class="attr">right</span>:<span class="string">&quot;4%&quot;</span>,<span class="attr">bottom</span>:<span class="string">&quot;3%&quot;</span>,<span class="attr">containLabel</span>:!<span class="number">0</span>&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>如果你你也遇到了这个问题，不妨这样一试，兴许问题立马解决。</p>
+<h6 id="诡异的问题"><a href="#诡异的问题" class="headerlink" title="诡异的问题"></a>诡异的问题</h6><p>在我测试过程中遇到了很诡异的情况：某个时间点以后，单独放一个图片完整代码，怎么也显示不出来，当我放了两张图的代码时，才能正常显示，但在Mou中预览我是可以正常显示该图表的。如上面的例子示例，第二张图我把显示区域设置成1像素值，所以才显得跟没有一样。目前先用这种笨办法掩盖掉，没有找到原因，如果有朋友同样遇到了这样的问题，还请赐教，谢谢！</p>
+<p>酷炫的互动图形，通过Echarts，你也可以简单拥有！由于需要的行数多导致我机器有点卡，这里就先不放了，后续文章给大家展示一些漂亮的用例！</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="Jackielzq 微信">
+        <span>微信</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechatopen.jpg">
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Echarts/" rel="tag"># Echarts</a>
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/09/23/%E6%8C%87%E5%BC%B9%E5%90%89%E4%BB%96-%E5%8F%AA%E5%BC%B9%E5%90%89%E4%BB%96/" rel="prev" title="指弹吉他，只弹吉他">
+                  <i class="fa fa-chevron-left"></i> 指弹吉他，只弹吉他
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/09/27/%E6%88%BF%E4%BB%B7-%E4%BA%BA%E5%BF%83/" rel="next" title="房价，人心">
+                  房价，人心 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2013 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jackielzq</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">NaNm</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">NaN:aN</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

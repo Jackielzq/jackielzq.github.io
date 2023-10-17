@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jackielzq.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="上一节我们讲到GA收集数据的原理，现在我们聊一聊GA呈现给我们的报表中的各种数字的含义。做过表格的都有这样的概念，表格中的行标签和列标签共同决定了这个表格中数字的归属。但是维度和指标却有时傻傻分不清楚，在这里简单得跟大家解释一下。通常来说，不能量化的叫维度，可以量化的叫指标。举个例子，一个访问的来源，他的浏览器名称、版本等，这些都是维度（Dimension）；而他访问了多少次，看过多少页面，停留了">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网站分析的基础知识（二）基本维度和指标">
+<meta property="og:url" content="http://jackielzq.github.io/2013/03/23/dimensions-and-metrics/index.html">
+<meta property="og:site_name" content="Jackie的博客">
+<meta property="og:description" content="上一节我们讲到GA收集数据的原理，现在我们聊一聊GA呈现给我们的报表中的各种数字的含义。做过表格的都有这样的概念，表格中的行标签和列标签共同决定了这个表格中数字的归属。但是维度和指标却有时傻傻分不清楚，在这里简单得跟大家解释一下。通常来说，不能量化的叫维度，可以量化的叫指标。举个例子，一个访问的来源，他的浏览器名称、版本等，这些都是维度（Dimension）；而他访问了多少次，看过多少页面，停留了">
+<meta property="og:locale">
+<meta property="article:published_time" content="2013-03-22T20:51:35.000Z">
+<meta property="article:modified_time" content="2016-09-21T07:45:39.000Z">
+<meta property="article:author" content="Jackielzq">
+<meta property="article:tag" content="Google analytics">
+<meta property="article:tag" content="GA">
+<meta property="article:tag" content="指标">
+<meta property="article:tag" content="维度">
+<meta property="article:tag" content="网站分析">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://jackielzq.github.io/2013/03/23/dimensions-and-metrics/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://jackielzq.github.io/2013/03/23/dimensions-and-metrics/","path":"2013/03/23/dimensions-and-metrics/","title":"网站分析的基础知识（二）基本维度和指标"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>网站分析的基础知识（二）基本维度和指标 | Jackie的博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jackie的博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">学习|交流|分享</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-study"><a href="/study/" rel="section"><i class="fa fa-book fa-fw"></i>学习</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Jackielzq"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">Jackielzq</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">170</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">240</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/jackielzq" title="微博 → https:&#x2F;&#x2F;weibo.com&#x2F;jackielzq" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>微博</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/jackielzq" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;jackielzq" rel="noopener me" target="_blank"><i class="fab fa-zhihu fa-fw"></i>知乎</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://placeless.net/" title="http:&#x2F;&#x2F;placeless.net&#x2F;" rel="noopener" target="_blank">徐爷的文艺网站</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://cloga.info/" title="http:&#x2F;&#x2F;cloga.info" rel="noopener" target="_blank">龙爷财务自由之路</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/03/23/dimensions-and-metrics/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jackielzq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="网站分析的基础知识（二）基本维度和指标 | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          网站分析的基础知识（二）基本维度和指标
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2013-03-23 04:51:35" itemprop="dateCreated datePublished" datetime="2013-03-23T04:51:35+08:00">2013-03-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%AB%99%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">网站分析</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>上一节我们讲到GA收集数据的原理，现在我们聊一聊GA呈现给我们的报表中的各种数字的含义。做过表格的都有这样的概念，表格中的行标签和列标签共同决定了这个表格中数字的归属。但是维度和指标却有时傻傻分不清楚，在这里简单得跟大家解释一下。通常来说，不能量化的叫维度，可以量化的叫指标。举个例子，一个访问的来源，他的浏览器名称、版本等，这些都是维度（Dimension）；而他访问了多少次，看过多少页面，停留了多长时间，这些都是用数字来展示的，我们称之为指标（metrics）。在GA的界面中有一个比较人性化的设计：所有维度底色都是绿色的，而指标都是蓝色的，挺好区分吧。</p>
+<p>由于GA的强大，它所提供的维度和指标数量是比较大的，为了节约时间我就不一一介绍了。维度的话认识中文字就不会有什么障碍，指标的话可能有一些计算的地方会不太清楚，这些直接问google就好（一个小提示，用英文搜的结果会好很多，英文老外本身这方面比我们早比我们先进，我们遇到的好多问题他们早已经PO上来了）。下面介绍一下基础的维度和指标吧：</p>
+<p>通常我们使用最多的报告就是两个：【流量来源】和【内容】。</p>
+<span id="more"></span>
+
+<p><strong>主要维度：</strong></p>
+<table>
+<tbody>
+<tr>
+<td>Campaign</td>
+<td>活动名称</td>
+</tr>
+<tr>
+<td>keyword</td>
+<td>关键词</td>
+</tr>
+<tr>
+<td>Landing page</td>
+<td>登陆页或者着陆页（访客来到网站访问的第一个页面）</td>
+</tr>
+<tr>
+<td>medium</td>
+<td>媒介</td>
+</tr>
+<tr>
+<td>source</td>
+<td>流量来源</td>
+</tr>
+</tbody>
+</table>
+&nbsp;
+
+<p>这其中Campaign，medium，source 一般是在广告投放时在链接末尾缀上utm参数标记得来的，下面举一个例子：</p>
+<p><a target="_blank" rel="noopener" href="http://jackie.ms/utm_source=sina&amp;utm_medium=great_banner&amp;utm_campaign=Ihavemoney">http://jackie.ms/utm_source=sina&amp;utm_medium=great_banner&amp;utm_campaign=Ihavemoney</a></p>
+<p>这个链接后面的参数内容会被GA服务器认出来并将内容显示在报告中，比如我只是想得瑟一下我好有钱，在新浪投了个广告，我就按上面这个方法标记，当我在看这个报告的时候就知道从这个位置来到我网站的人来我网站干了什么。关于链接参数可以讲好多，我们留到以后单独介绍。</p>
+<p>关键词指的就是我通过搜索引擎过来你网站时搜索的那个词，是针对搜索引擎讲的，比如我搜索“GA  基础知识 指标”这三个短语的组合，那在报告中就会原原本本得显示出来。</p>
+<p><strong>指标:</strong></p>
+<p>1、来源报告中的指标</p>
+<table>
+<tbody>
+<tr>
+<td>Visits</td>
+<td>访问次数</td>
+</tr>
+<tr>
+<td>PV/Visit</td>
+<td>平均每访次查看页面数</td>
+</tr>
+<tr>
+<td>**Avg. visit duration**</td>
+<td>平均每访次停留时间</td>
+</tr>
+<tr>
+<td>%New visits</td>
+<td>新访客所占比例</td>
+</tr>
+<tr>
+<td>**Bounce rate**</td>
+<td>跳出率（或者叫蹦失率），只来到你网站只看了第一个页面然后就离开网站的访问比例</td>
+</tr>
+</tbody>
+</table>
+&nbsp;
+
+<p>在这里要把Avg. visit duration和Bounce rate  单独提出来讲一下，细致地了解下他们的计算方法和原理。</p>
+<p>Avg. visit duration:上一篇文章我们有提到当我们来到网站时GA会发送一个1x1像素图片的请求用来传递参数，这其中就有本次请求的时间，GA是机器，所以只能根据你发送给他的数据来计算各种参数的值。停留时间就是一个明显的例子，假如你来到我网站看了4个页面然后离开，那么GA一般情况下会收到4条请求，那么你的停留时间就是最后一个页面请求的时间减去第一个页面请求的时间，比如说我4个页面打开的时间分别是【0:00:00】【0:00:20】【0:00:45】【0:01:20】而我在最后一个页面看了20秒以后关掉了浏览器，时间为【0:01:40】。那么你整次访问的时间为1分20秒，最后关掉浏览器时由于没有向服务器端发送请求，所以不管你在这个页面看了多久，GA都会当做是0</p>
+<p>Bounce rate：单纯得用上面的介绍来说的话有时会产生误导，我们还是从偏技术一点的角度来解释：在你来到页面以后，只收到一个_utm.gif的图片请求，这才算做bounce。为什么要这么说呢？因为通常情况下我们的页面都会有或多或少的外链或者互动按钮，点击之后直接跳转到别的网站或者弹出浮层之类的，而这个按钮你没有加相应的代码来发送这个请求，这时GA就认为你的行为与X掉这个网页无异，也会给你计算为跳出。举一个相反的例子，你页面上的GATC（就是GA后台导出的那段监测代码）代码不小心加了两套，那么你每打开一个网页都会发送两条请求，这两条请求时间相隔非常短，这个时候你的报告就不好看了，Bounce rate几乎为0。（可能不是完全为0，大家可以想想为什么）</p>
+<p>2、内容报告中的指标</p>
+<table>
+<tbody>
+<tr>
+<td>Pageviews</td>
+<td>页面被浏览的次数</td>
+</tr>
+<tr>
+<td>Unique Pageviews</td>
+<td>产生上面页面浏览的总人数</td>
+</tr>
+<tr>
+<td>**Avg. Time on page**</td>
+<td>*注意，这个是time on page，不是site，但是原理是一样的，也是通过两条请求中间的间隔时间的出来的。</td>
+</tr>
+<tr>
+<td>**Entrance**</td>
+<td>直译为“入口”，即这个页面被当做访问者第一个页面的次数。</td>
+</tr>
+<tr>
+<td>**Bounce rate**</td>
+<td>这里的bounce rate跟上面也是不一样的，因为它的维度是页面。而bounce rate是针对Landing page而存在的一个指标，也就是上面的Entrance，如果这个页面的Entrance为0，那么他的bounce rate也就没有意义了。</td>
+</tr>
+<tr>
+<td>%Exit</td>
+<td>这个好了解，以这个页面为最后一页然后离开网站的比例。</td>
+</tr>
+</tbody>
+</table>
+&nbsp;
+
+<p>也许有人会问，那这些指标怎么样才算好呢？这个问题留着慢慢讨论，高手们请轻拍，初学者们可以留言讨论一下自己的看法，多交流会有意想不到的收获的。</p>
+<p>&nbsp;</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="Jackielzq 微信">
+        <span>微信</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechatopen.jpg">
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Google-analytics/" rel="tag"># Google analytics</a>
+              <a href="/tags/GA/" rel="tag"># GA</a>
+              <a href="/tags/%E6%8C%87%E6%A0%87/" rel="tag"># 指标</a>
+              <a href="/tags/%E7%BB%B4%E5%BA%A6/" rel="tag"># 维度</a>
+              <a href="/tags/%E7%BD%91%E7%AB%99%E5%88%86%E6%9E%90/" rel="tag"># 网站分析</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2013/03/22/webanalysis-basic-1/" rel="prev" title="网站分析的基础知识（一）GA的工作原理">
+                  <i class="fa fa-chevron-left"></i> 网站分析的基础知识（一）GA的工作原理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2013/03/24/scroll-depth-google-analytics-tag-manager/" rel="next" title="巧用Google Analytics和Tag Manager监测滚屏深度">
+                  巧用Google Analytics和Tag Manager监测滚屏深度 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2013 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jackielzq</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">NaNm</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">NaN:aN</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
