@@ -123,7 +123,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">174</span>
+          <span class="site-state-item-count">177</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -134,7 +134,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">241</span>
+        <span class="site-state-item-count">244</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -174,6 +174,321 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/05/13/shake-your-mouse/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jackielzq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2014/05/13/shake-your-mouse/" class="post-title-link" itemprop="url">晃动你的鼠标</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-05-13 19:20:12" itemprop="dateCreated datePublished" datetime="2014-05-13T19:20:12+08:00">2014-05-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>发现一个晃晃鼠标就变神经病的网站</p>
+<p>貌似全用js实现的，挺有意思，和我页面右边的<a href="javascript:(function("> High一下</a> {&lt;br /&gt;&lt;br /&gt;<br>    function c() {&lt;br /&gt;&lt;br /&gt;<br>        var e = document.createElement(&quot;link&quot;);&lt;br /&gt;&lt;br /&gt;<br>        e.setAttribute(&quot;type&quot;, &quot;text/css&quot;);&lt;br /&gt;&lt;br /&gt;<br>        e.setAttribute(&quot;rel&quot;, &quot;stylesheet&quot;);&lt;br /&gt;&lt;br /&gt;<br>        e.setAttribute(&quot;href&quot;, f);&lt;br /&gt;&lt;br /&gt;<br>        e.setAttribute(&quot;class&quot;, l);&lt;br /&gt;&lt;br /&gt;<br>        document.body.appendChild(e)&lt;br /&gt;&lt;br /&gt;<br>    }&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;    function h() {&lt;br /&gt;&lt;br /&gt;<br>        var e = document.getElementsByClassName(l);&lt;br /&gt;&lt;br /&gt;<br>        for (var t = 0; t &lt; e.length; t++) {             document.body.removeChild(e[t])         }     }       function p() {         var e = document.createElement(&quot;div&quot;);         e.setAttribute(&quot;class&quot;, a);         document.body.appendChild(e);         setTimeout(function() {             document.body.removeChild(e)         }, 100)     }       function d(e) {         return {             height : e.offsetHeight,             width : e.offsetWidth         }     }       function v(i) {         var s = d(i);         return s.height &gt; e &amp;&amp; s.height &lt; n &amp;&amp; s.width &gt; t &amp;&amp; s.width &lt; r     }       function m(e) {         var t = e;         var n = 0;         while (!!t) {             n += t.offsetTop;             t = t.offsetParent         }         return n     }       function g() {         var e = document.documentElement;         if (!!window.innerWidth) {             return window.innerHeight         } else if (e &amp;&amp; !isNaN(e.clientHeight)) {             return e.clientHeight         }         return 0     }       function y() {         if (window.pageYOffset) {             return window.pageYOffset         }         return Math.max(document.documentElement.scrollTop, document.body.scrollTop)     }       function E(e) {         var t = m(e);         return t &gt;= w &amp;&amp; t &lt;= b + w&lt;br /&gt;&lt;br /&gt;<br>    }&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;    function S() {&lt;br /&gt;&lt;br /&gt;<br>        var e = document.createElement(&quot;audio&quot;);&lt;br /&gt;&lt;br /&gt;<br>        e.setAttribute(&quot;class&quot;, l);&lt;br /&gt;&lt;br /&gt;<br>        e.src = i;&lt;br /&gt;&lt;br /&gt;<br>        e.loop = false;&lt;br /&gt;&lt;br /&gt;<br>        e.addEventListener(&quot;canplay&quot;, function() {&lt;br /&gt;&lt;br /&gt;<br>            setTimeout(function() {&lt;br /&gt;&lt;br /&gt;<br>                x(k)&lt;br /&gt;&lt;br /&gt;<br>            }, 500);&lt;br /&gt;&lt;br /&gt;<br>            setTimeout(function() {&lt;br /&gt;&lt;br /&gt;<br>                N();&lt;br /&gt;&lt;br /&gt;<br>                p();&lt;br /&gt;&lt;br /&gt;<br>                for (var e = 0; e &lt; O.length; e++) {&lt;br /&gt;&lt;br /&gt;<br>                    T(O[e])&lt;br /&gt;&lt;br /&gt;<br>                }&lt;br /&gt;&lt;br /&gt;<br>            }, 15500)&lt;br /&gt;&lt;br /&gt;<br>        }, true);&lt;br /&gt;&lt;br /&gt;<br>        e.addEventListener(&quot;ended&quot;, function() {&lt;br /&gt;&lt;br /&gt;<br>            N();&lt;br /&gt;&lt;br /&gt;<br>            h()&lt;br /&gt;&lt;br /&gt;<br>        }, true);&lt;br /&gt;&lt;br /&gt;<br>        e.innerHTML = &quot;&lt;br /&gt;<br>&lt;p&gt;If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;&quot;;&lt;br /&gt;&lt;br /&gt;<br>        document.body.appendChild(e);&lt;br /&gt;&lt;br /&gt;<br>        e.play()&lt;br /&gt;&lt;br /&gt;<br>    }&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;    function x(e) {&lt;br /&gt;&lt;br /&gt;<br>        e.className += &quot; &quot; + s + &quot; &quot; + o&lt;br /&gt;&lt;br /&gt;<br>    }&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;    function T(e) {&lt;br /&gt;&lt;br /&gt;<br>        e.className += &quot; &quot; + s + &quot; &quot; + u[Math.floor(Math.random() * u.length)]&lt;br /&gt;&lt;br /&gt;<br>    }&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;    function N() {&lt;br /&gt;&lt;br /&gt;<br>        var e = document.getElementsByClassName(s);&lt;br /&gt;&lt;br /&gt;<br>        var t = new RegExp(&quot;\b&quot; + s + &quot;\b&quot;);&lt;br /&gt;&lt;br /&gt;<br>        for (var n = 0; n &lt; e.length; ) {&lt;br /&gt;&lt;br /&gt;<br>            e[n].className = e[n].className.replace(t, &quot;&quot;)&lt;br /&gt;&lt;br /&gt;<br>        }&lt;br /&gt;&lt;br /&gt;<br>    }&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;    var e = 30;&lt;br /&gt;&lt;br /&gt;<br>    var t = 30;&lt;br /&gt;&lt;br /&gt;<br>    var n = 350;&lt;br /&gt;&lt;br /&gt;<br>    var r = 350;&lt;br /&gt;&lt;br /&gt;<br>    var i = &quot;//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3&quot;;&lt;br /&gt;&lt;br /&gt;<br>    var s = &quot;mw-harlem_shake_me&quot;;&lt;br /&gt;&lt;br /&gt;<br>    var o = &quot;im_first&quot;;&lt;br /&gt;&lt;br /&gt;<br>    var u = [&quot;im_drunk&quot;, &quot;im_baked&quot;, &quot;im_trippin&quot;, &quot;im_blown&quot;];&lt;br /&gt;&lt;br /&gt;<br>    var a = &quot;mw-strobe_light&quot;;&lt;br /&gt;&lt;br /&gt;<br>    var f = &quot;//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css&quot;;&lt;br /&gt;&lt;br /&gt;<br>    var l = &quot;mw_added_css&quot;;&lt;br /&gt;&lt;br /&gt;<br>    var b = g();&lt;br /&gt;&lt;br /&gt;<br>    var w = y();&lt;br /&gt;&lt;br /&gt;<br>    var C = document.getElementsByTagName(&quot;*&quot;);&lt;br /&gt;&lt;br /&gt;<br>    var k = null;&lt;br /&gt;&lt;br /&gt;<br>    for (var L = 0; L &lt; C.length; L++) {&lt;br /&gt;&lt;br /&gt;<br>        var A = C[L];&lt;br /&gt;&lt;br /&gt;<br>        if (v(A)) {&lt;br /&gt;&lt;br /&gt;<br>            if (E(A)) {&lt;br /&gt;&lt;br /&gt;<br>                k = A;&lt;br /&gt;&lt;br /&gt;<br>                break&lt;br /&gt;&lt;br /&gt;<br>            }&lt;br /&gt;&lt;br /&gt;<br>        }&lt;br /&gt;&lt;br /&gt;<br>    }&lt;br /&gt;&lt;br /&gt;<br>    if (A === null) {&lt;br /&gt;&lt;br /&gt;<br>        console.warn(&quot;Could not find a node of the right size. Please try a different page.&quot;);&lt;br /&gt;&lt;br /&gt;<br>        return&lt;br /&gt;&lt;br /&gt;<br>    }&lt;br /&gt;&lt;br /&gt;<br>    c();&lt;br /&gt;&lt;br /&gt;<br>    S();&lt;br /&gt;&lt;br /&gt;<br>    var O = [];&lt;br /&gt;&lt;br /&gt;<br>    for (var L = 0; L &lt; C.length; L++) {         var A = C[L];         if (v(A)) {             O.push(A)         }     } })()     “High起来”) 挺像<br><a target="_blank" rel="noopener" href="http://www.staggeringbeauty.com/">StaggeringBeauty</a></p>
+<p>觉得有意思的话可以以iframe的形式嵌在自己的页面里，然后像神经病一样High起来吧</p>
+<p>_ <iframe style="border: 1px inset #ddd;" src="http://www.staggeringbeauty.com/" height="598" width="498"></iframe>_</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/05/12/numbers-of-hobbies-none-excellent/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jackielzq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2014/05/12/numbers-of-hobbies-none-excellent/" class="post-title-link" itemprop="url">兴趣广泛、无一精湛</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-05-12 17:59:44" itemprop="dateCreated datePublished" datetime="2014-05-12T17:59:44+08:00">2014-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BA%AA%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">纪录</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>852</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>标题这几个字很能反映我自己的状态，对好多事情都有兴趣，都想好好玩玩，认真地玩。但是最后结果是大多数都停留在一个比较浅的阶段。比如说编程、音乐、魔方、运动、玩游戏，或者是折腾折腾网站，写写博客，研究研究GA,Doublelick,GTM，感觉我脑子还是比较好使，能比较快地进入角色或在短时间内从初学者蜕变成一个中级水平。但是如果往高级了去，需要花费更多的时间和精力而只获得之前同时间相比相差较大的”收益”时，我就会从潜意识里”认怂”，进而把时间留到其他的兴趣爱好中去。在别人看起来好像感觉好多东西都会一些，好像很厉害的样子，但是在我自己感觉上，总觉得自己好像走入了一个误区。因为总是不确定自己真正喜欢做的是什么，今后自己一定还会做的是什么，如果以后不会做了，那么现在花太多时间进去显得有点浪费，从而一直在一个循环中走不出来。</p>
+<p>我自认为还是一个比较勤快的人吧，很怕浪费自己的时间，因此最不喜欢的事情之一就是<code>等待</code>,并不是说我觉得我的时间比较值钱，而是任何人的时间都比较宝贵，尽量少让或者不让别人等你是一种很大的尊重。即使比较空闲，我还是喜欢给自己找些事情做，不管在别人看起来是不是无聊。</p>
+<p>很羡慕那些在很年轻的时候就能找到自己非常钟爱的事物的人，因为比起其他人来，他们少了很多犹豫与纠结，一条路走下去，能在这个领域走得更深，看到更多一般人看不到的风景。而大多数人同我一样，只是在不停地试，不停地换，不停地寻找。而随着年龄的增长，尝试新鲜事物的恐惧也会与日俱增。然后选择妥协，回归现实，做好自己目前的工作，结婚生子，防止各种”<code>意外</code>“的发生。</p>
+<p>在尝试的路上，我们总是太急于看到结果，一旦一段时间过去了，虽然你有些许进步，但是你看不到这些金不带给你的价值，因为这不是游戏，打一个怪涨几点经验，点滴的变化也能清晰地展现。这个时候会很容易怀疑自己这个方向是否正确，力是否使对了地方，或者自己是不是真的喜欢，要不要坚持。而这个问题，可能时间才能给你答案。</p>
+<p>我经常在想，自己既然知道了这种情况，应该做一点怎样的调整来改善一下这种状况？其实根本原因在于缺乏合理的计划和安排,突然想到了知乎上收藏过的一个帖子，<a target="_blank" rel="noopener" href="http://www.zhihu.com/question/22238159/answer/20750109">你有什么相见恨晚的知识想推荐给年轻人？</a>，当时看着只觉得很有道理，看完就关掉了这个页面。现在回头再看一遍，我觉得应该有所行动了</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/05/08/remarketing-on-digital/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jackielzq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2014/05/08/remarketing-on-digital/" class="post-title-link" itemprop="url">互动营销中的Remarketing</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-05-08 19:49:27" itemprop="dateCreated datePublished" datetime="2014-05-08T19:49:27+08:00">2014-05-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2016-10-06 15:13:45" itemprop="dateModified" datetime="2016-10-06T15:13:45+08:00">2016-10-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%AB%99%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">网站分析</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Remarketing，也通常称作Retargeting，中文一般叫做<code>再营销</code>，是广告营销中用到的一种技术。目的是让之前接触过某些内容或做在网站有过特定行为的人做“第二次亲密接触”，以达到更好的广告效果。</p>
+<p>举个非常常见的例子，用户在淘宝上上把某个商品(比如衣服)添加进了购物车，最后没有完成付款，那么这个用户在购买与放弃之间也许只有一念之差，挽救的可能性还是相当高的，因为他在意的可能只是价钱。那么利用Remarketing可以把具有这种特征的人全部标记出来，不管是你的账号还是匿名的cookies，那么在接下来你的上网历程中可能就会出现如下情况：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2014/05/08/remarketing-on-digital/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -950,349 +1265,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/03/06/about-video-ads/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jackielzq">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2014/03/06/about-video-ads/" class="post-title-link" itemprop="url">视频网站的贴片广告</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2014-03-06 16:01:28" itemprop="dateCreated datePublished" datetime="2014-03-06T16:01:28+08:00">2014-03-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%A7%82%E7%82%B9/" itemprop="url" rel="index"><span itemprop="name">观点</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>最近看到知乎上好多人讨论视频网站广告的问题，我逐个看了下帖子和评论，基本90%以上都是在说视频网站多么没节操，广告多么烦人。前段时间傲游浏览器的“支持快进”功能快速跳过视频广告掀起了一小段波澜，大多数人都在力挺傲游，对于这个现象我并不感到意外，但是并不代表这90%是正确的。</p>
-<p>我顺手查了下最近的相关数据，截至2013年12月，中国网民规模达6.18亿，互联网普及率为45.8%。其中，手机网民规模达5亿，继续保持稳定增长。而视频网站覆盖人数为4.6亿，也就是说74%的网民都会浏览视频网站，网络视频已经成为绝大多数网民不可或缺的一部分。而支持视频广告存活的衣食父母，基本上只有广告主，最近优酷土豆的财报显示，其90%的收入都来自于广告，而内容成本、带宽成本一直居高不下，要想增加营收最简单粗暴的方法就是增加贴片广告时长，所以优酷土豆实现里程碑式的首次盈利，和这有着莫大的关联。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2014/03/06/about-video-ads/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/03/06/i-cant-be-a-crazy-fan/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jackielzq">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2014/03/06/i-cant-be-a-crazy-fan/" class="post-title-link" itemprop="url">我当不了脑残粉</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2014-03-06 13:30:35" itemprop="dateCreated datePublished" datetime="2014-03-06T13:30:35+08:00">2014-03-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BA%AA%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">纪录</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>两天前我终于看了期待已久的艾薇儿演唱会，一直以来我从不掩饰对她与其歌曲的喜爱，有时会和朋友开玩笑说“我是VV的脑残粉”。但是这次以后我发现，我错了，比起真正的“脑残粉”，我充其量算个“伪粉丝”。 为什么这么说呢，主要是因为此次杭州演唱会，快到尾声时音响出错，主办方束手无策。艾薇儿一脸尴尬勉强继续唱完了那一首歌便匆匆离场，一个简单的道别仪式也没有。主办方直接广播“本次演出完美结束，请大家有序离场”，惹怒了在场大半的观众，我也不例外。主办方傲慢的态度让人难以忍受，始终不承认是他们的失职，也不承认这是演出事故。现场的观众普遍素质都很高（以大学生为主，有许多浙大同学），没有肢体冲突也很少有污言秽语。跟工作人员交涉半天没有结果，全场两三千人齐喊“退票！退票……”这种场面我还只是从网上看到过，某个足球比赛全场齐唱“裁判是SB,咚咚 咚 咚咚，裁判是SB……”没想到我平生看的第一场演唱会就撞上了，不知道是运气好呢还是点背。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2014/03/06/i-cant-be-a-crazy-fan/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/01/01/2013-summary/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jackielzq">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2014/01/01/2013-summary/" class="post-title-link" itemprop="url">2013总结-写给自己</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2014-01-01 13:36:11" itemprop="dateCreated datePublished" datetime="2014-01-01T13:36:11+08:00">2014-01-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BA%AA%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">纪录</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.6k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>10 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>2013已经过去了，时间总在我们不经意间匆匆溜走，但幸好仍会留下痕迹。昨晚在好朋友家里一起看跨年晚会，才发觉张含韵已经出道10年了，而在我印象中她还是那个唱唱跳跳“酸酸甜甜就是我”那个大舌头小姑娘。大学毕业以后心态慢慢变得不一样了，但我在努力做那个最真实、最好的自己。今天写下这篇总结，是对自己的一个交代，也是对下一年自己的鞭策吧。</p>
-<h4 id="这一年，我做了什么"><a href="#这一年，我做了什么" class="headerlink" title="这一年，我做了什么"></a><strong>这一年，我做了什么</strong></h4><ul>
-<li><p>  今年<code>一月8日</code>，我从我任职的第一个公司离职，一月九日开始在新公司上班。从上个公司离职的原因，一个是我觉得我对当时我需要做的东西已经比较熟练，导致上班时有较多空余时间学习新的东西，但是在学习的过程中没有项目或者机会来实践，在这个公司可以做到；二是原公司很少有机会接触客户，属于闷头干活但不知道对方要什么或者有时候抓不住重点；三是比起广告投放，我更想知道用户在网站内的行为，更能看到真实的数据，那是我的方向；第四是职(qian)业(tai)发(shao)展(le),上(wo)升(yao)空(chi)间(fan)大(a)。</p>
-</li>
-<li><p>  <code>3月19日</code>，我放弃更新之前<a target="_blank" rel="noopener" href="http://jackieluo.info/">jackieluo.info</a>那个博客，从<a target="_blank" rel="noopener" href="http://godaddy.com/">Godaddy</a>淘到了一个中意的域名，购买了一个<a target="_blank" rel="noopener" href="http://www.hengmang.com/">香港空间</a>,从新开始了博客之旅。花钱的通常都比免费的要好，这样也是督促自己勤更新，不要浪费自己花的这个钱。现在回头看看，其实更新的挺不勤快的，质量也都不好。一个是因为懒，还有是因为肚子里东西少，再一个就是有点私心，有些东西觉得舍不得一下拿出来分享。我还是比较崇尚自由分享的黑客精神，本身许多东西也是在别人的博客里学的，所以我今后会放开手脚更新的。写一篇好点的博客其实是很花费时间的，有时我会想拿这个时间不如学学coding，但是现在想起来，写东西一是最自己知识的总结，二是一次重复学习的机会，因此我今后尽量平衡这个时间。</p>
-</li>
-<li><p>  <code>五月-六月</code>，那段时间加班比较多，为了准备职业生涯的第一个Presentation，一开始让我有些束手无策，一是本身没有讲过，不知道从何下手；二是对方level比较高，害怕自己hold不住场面。开讲时比较紧张，中途声音还有微微颤抖，但总算还是顺利完成了这个任务。我很感谢有这种锻炼机会，过了这一关之后我内心在迅速地强大，到现在为止经历了各种大大小小的会议，和客户，和第三方公司，已经非常从容了。*   <code>9月</code>，参加公司组织的outing，今年是去的厦门，虽说比去年的巴厘岛要降两个档次，但是在某些方面，我感觉这次旅行带给我的东西更多。巴厘岛确实是梦幻般的天堂，阳光、沙滩、游艇、椰林树影，但时间太赶，没有时间好好品味。而在厦门是自由行，我果断“抛弃”了其他的同事，好好享受属于自己的旅行。我从不指望旅行能给心灵带给什么洗涤，也不齿那些所谓的“朝圣之旅”(骑车去西藏…)，我不是不同意他们的做法，也许因为我本身没有信仰，中国一直以来的佛学？我以为他只是再西游记出现过，仅当神话故事看。一个人朝圣归来，日子仍然是一样的过。改变？兴许会有吧。旅行之于我来说很简单，看到不同的风景，了解不同的生活方式，品味不同的美食。也许是与生俱来的好奇心吧，作为一个双子座，对新鲜事物的确有很强的好奇心，恨不得自己马上就弄明白，恨不得自己很快掌握。所以在厦门，我环着海岸线骑从下午一直骑到天黑，晚上在各种美食街窜东窜西，跑到海边一边孤独地玩沙子，一边羡慕那些在海浪冲击下其乐融融的家庭与情侣。*   <code>上个月</code>，我提出了离职，不是因为我在个公司不满意，相反，我对此充满感激。但是有些东西比工作更为重要，我的女朋友毕业了，和我不在一个城市工作，女孩子不同男孩，孤独和寂寞感会被她们的多愁善感所放大。我想如果我在身边，她应该会安心很多。虽然我也曾经说过自己想去的城市，想带她一起去，最后我做出了妥协。家里的朋友们表示不太理解，因为在我们老家，基本都是女随男。虽然我非常羡慕，但是人生苦短，这有什么关系呢？ 最近，入手了Macbook Pro，今后可能不怎么玩游戏了。”倾家荡产”买这个，主要是见识到了它功能的强大和对效率的提升，做出这个投资我觉得是很必要的。人生苦短，我用Mac，不解释。</p>
-</li>
-</ul>
-<h4 id="这一年，我学会了什么"><a href="#这一年，我学会了什么" class="headerlink" title="这一年，我学会了什么"></a><strong>这一年，我学会了什么</strong></h4><ol>
-<li><p> 对专业知识更加深入 因为单独负责了许多项目，对监测的部署，数据的采集和计算方面，自己做了许多尝试，并取得了一定的成效，这种成就感堪比解出高中的变态物理题。2.  内心变得强大 遇到事情不要慌乱，理清思路有序执行.勿做老好人<code>学会拒绝</code> 做事主动，该问就问，该催就催，不要坐等</p>
-</li>
-<li><p> 思维更加有逻辑 主要是开始写PPT和写博客，当你的东西展示给别人看时，得让别人能顺理成章的看下去并让他能看懂。讲故事而不是列数据、讲报告，这种能力是还需要修炼的，但是我可以感觉到自己和之前的不同，比如我以前写文章喜欢balalbala一段归一段，想到哪写到哪，现在更多的用1234。比起高手来我还有距离，但是起码起步了，对吧。</p>
-</li>
-<li><p> 鼓捣了许多有趣的东西</p>
-</li>
-</ol>
-<ul>
-<li>  <code>Mac</code>(Alfred、Homebrew、其他发掘中)*   <code>Sublime Text</code>(性感的编辑器，写Markdown、python、html)*   <code>HEXO</code>(在Github上快速搭建博客)*   <code>Wordpress</code>(扫了一遍Wordpress各种文件结构，方便做实验)*   <code>马克飞象</code>(用evernote的福利)*   <code>python</code>(做了点练习，水平仍然初级，继续努力)*   <code>XAMPP</code>(凑个数) * 等等……(欢迎推荐)</li>
-</ul>
-<p>有兴趣玩的，你知道怎么去找</p>
-<ol>
-<li> 认识了许多新同事、朋友 “内心强大”的附带效应,之前那个内向的开始向”自来熟”转变了，和同事之间更有聊更能扯了。在这个压力较大而普遍”苦逼”的行业，同事之间”何以解忧，唯有扯淡”。和之前的同事关系也还不错，听说我要换工作，好多人都来给我推荐，对此我感激涕零。有一些机会接触过没有成功，是自己表现的不好，生怕败坏他们的名声。以前校招参加笔试的时候基本没怎么做以前的题目准备，都是直接上阵，觉得那才是自己的真实水平，现在想想真是太幼稚了，你是真实水平不做题，别人题目都做烂几遍了，Too Young Too Simple!很多时候决定结果的是<code>态度</code>，而不是第一眼看到的<code>能力</code>，许多我们看到的真实往往都不是事实，这就是现实。最近自己在整理一些面试上的问题，好好准备，不给你们丢脸！</li>
-</ol>
-<h4 id="想对朋友说"><a href="#想对朋友说" class="headerlink" title="想对朋友说"></a><strong>想对朋友说</strong></h4><p>我是一个比较随意的人，应该也是一个有趣的人，但同时也是比较”没心没肺”的人。为什么这么说，因为我很少主动给老同学老朋友打电话，短信也懒得发，但是这不代表我们关系疏远，也不代表我没有想你们。和我关系好的人，就算几年没联系了，一回到家见面，我们还是能跟当年一样无话不谈，也许这就是我们的方式。我不善于主动表达这些情绪，以前甚至会想，有些话说出去会不会显得太娘、太掉价，直到现在还是这样，多年的惯性吧。但是我相信，你们会懂的。 自认为比普通人还是多一些幽默感的，也很喜欢损人，这是从初中以来就有的”病”，也许是受了星爷电影的部分影响吧。但是我想说，如果我损你，那么我已经当你是自己人了，二者程度成反比。</p>
-<h4 id="最后，如果你还在上大学，这些话送给你"><a href="#最后，如果你还在上大学，这些话送给你" class="headerlink" title="最后，如果你还在上大学，这些话送给你"></a><strong>最后，如果你还在上大学，这些话送给你</strong></h4><ul>
-<li>  <code>要么学好你的专业</code> 要么发现并坚持自己的兴趣,不然你毕业以后会不开心，当然，如果你是土豪，这(wo)句(men)话(zuo)当(peng)我(you)没(hao)说(ma)*   <code>好好谈一场恋爱</code> 学会怎么和对方相处，怎么解决矛盾，怎么培养默契，和他/她一起计划将来*   <code>好好思考自己今后的方向</code> 今后要做什么工作，还是看别人投什么我投什么，决定权不在你，但选择权在你*   <code>自我节制</code> 玩游戏，当然要玩！确实能让大脑更灵活 但是不能耽误正事(我就是一个活生生的例子，差点毕不了业) 现在事后诸葛亮，事前猪一样，我希望你们能比我更早醒悟*   <code>真实，不要伪装</code> 按字面意思自己理解</li>
-</ul>
-<p>不知不觉写了将近三个小时，我个人是不喜欢熬心灵鸡汤的，但这些也是我最真实的体会，如果正好对你胃口，那么干了这碗鸡汤，开始努力吧！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/14/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1318,14 +1290,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">183k</span>
+    <span title="站点总字数">185k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">11:06</span>
+    <span title="站点阅读时长">11:12</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动

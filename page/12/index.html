@@ -123,7 +123,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">174</span>
+          <span class="site-state-item-count">177</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -134,7 +134,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">241</span>
+        <span class="site-state-item-count">244</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -174,6 +174,571 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/universal-analytics-recognize-other-search-engine/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jackielzq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2014/06/08/universal-analytics-recognize-other-search-engine/" class="post-title-link" itemprop="url">Universal Analytics监测细节的完善(三)—— 识别新增搜索引擎关键词</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-06-08 22:34:34" itemprop="dateCreated datePublished" datetime="2014-06-08T22:34:34+08:00">2014-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Universal-Analytics/" itemprop="url" rel="index"><span itemprop="name">Universal Analytics</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>UA会默认识别部分搜索引擎的流量并将相应的搜索词记录进来，但是由于GA为国外的产品，默认仅支持国际上较为主流的搜索引擎：</p>
+<table width="450" border="0">
+<tbody>
+<tr>
+<th scope="col">Engine</th>
+<th scope="col">Example Domain Names</th>
+<th scope="col">Parameter</th>
+</tr>
+<tr>
+<td>Daum</td>
+<td>[http://www.daum.net/](http://www.daum.net/)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>Eniro</td>
+<td>[http://www.eniro.se/](http://www.eniro.se/)</td>
+<td>search_word</td>
+</tr>
+<tr>
+<td>Naver</td>
+<td>[http://www.naver.com/](http://www.naver.com/)</td>
+<td>query</td>
+</tr>
+<tr>
+<td>Google</td>
+<td>All Google Search domains (e.g. www.google.com, www.google.co.uk, etc)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>Yahoo</td>
+<td>[http://www.yahoo.com/](http://www.yahoo.com/)</td>
+<td>p</td>
+</tr>
+<tr>
+<td>MSN</td>
+<td>[http://www.msn.com/](http://www.msn.com/)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>Bing</td>
+<td>[http://www.bing.com/](http://www.bing.com/)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>AOL</td>
+<td>[http://www.aol.com/ ](http://www.aol.com/)</td>
+<td>query</td>
+</tr>
+<tr>
+<td>AOL</td>
+<td>[http://www.aol.com/ ](http://www.aol.com/)</td>
+<td>encquery</td>
+</tr>
+<tr>
+<td>Lycos</td>
+<td>[http://www.lycos.com/](http://www.lycos.com/)</td>
+<td>query</td>
+</tr>
+<tr>
+<td>Ask</td>
+<td>[http://www.ask.com/](http://www.ask.com/)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>Altavista</td>
+<td>[http://www.altavista.com/](http://www.altavista.com/)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>Netscape</td>
+<td>[http://search.netscape.com/](http://search.netscape.com/)</td>
+<td>query</td>
+</tr>
+<tr>
+<td>CNN</td>
+<td>[http://www.cnn.com/SEARCH/](http://www.cnn.com/SEARCH/)</td>
+<td>query</td>
+</tr>
+<tr>
+<td>About</td>
+<td>[http://www.about.com/](http://www.about.com/)</td>
+<td>terms</td>
+</tr>
+<tr>
+<td>Mamma</td>
+<td>[http://www.mamma.com/ ](http://www.mamma.com/)</td>
+<td>query</td>
+</tr>
+<tr>
+<td>Alltheweb</td>
+<td>[http://www.alltheweb.com/](http://www.alltheweb.com/)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>Voila</td>
+<td>[http://www.voila.fr/](http://www.voila.fr/)</td>
+<td>rdata</td>
+</tr>
+<tr>
+<td>Virgilio</td>
+<td>[http://search.virgilio.it/](http://search.virgilio.it/)</td>
+<td>qs</td>
+</tr>
+<tr>
+<td>Live</td>
+<td>[http://www.bing.com/](http://www.bing.com/)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>Baidu</td>
+<td>[http://www.baidu.com/](http://www.baidu.com/)</td>
+<td>wd</td>
+</tr>
+<tr>
+<td>Alice</td>
+<td>[http://www.alice.com/](http://www.alice.com/)</td>
+<td>qs</td>
+</tr>
+<tr>
+<td>Yandex</td>
+<td>[http://www.yandex.com/](http://www.yandex.com/)</td>
+<td>text</td>
+</tr>
+<tr>
+<td>Najdi</td>
+<td>[http://www.najdi.org.mk/](http://www.najdi.org.mk/)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>AOL</td>
+<td>[ http://www.aol.com/ ](http://www.aol.com/)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>Mama</td>
+<td>[http://www.mamma.com/](http://www.mamma.com/)</td>
+<td>query</td>
+</tr>
+<tr>
+<td>Seznam</td>
+<td>[http://www.seznam.cz/](http://www.seznam.cz/)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>Search</td>
+<td>[http://www.search.com/](http://www.search.com/)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>Wirtulana Polska</td>
+<td>[http://www.wp.pl/](http://www.wp.pl/)</td>
+<td>szukaj</td>
+</tr>
+<tr>
+<td>O*NET</td>
+<td>[http://online.onetcenter.org/](http://online.onetcenter.org/)</td>
+<td>qt</td>
+</tr>
+<tr>
+<td>Szukacz</td>
+<td>[http://www.szukacz.pl/](http://www.szukacz.pl/)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>Yam</td>
+<td>[http://www.yam.com/](http://www.yam.com/)</td>
+<td>k</td>
+</tr>
+<tr>
+<td>PCHome</td>
+<td>[http://www.pchome.com/](http://www.pchome.com/)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>Kvasir</td>
+<td>[http://www.kvasir.no/](http://www.kvasir.no/)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>Sesam</td>
+<td>[http://sesam.no/](http://sesam.no/)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>Ozu</td>
+<td>[http://www.ozu.es/](http://www.ozu.es/)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>Terra</td>
+<td>[http://www.terra.com/](http://www.terra.com/)</td>
+<td>query</td>
+</tr>
+<tr>
+<td>Mynet</td>
+<td>[http://www.mynet.com/](http://www.mynet.com/)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>Ekolay</td>
+<td>[http://www.ekolay.net/](http://www.ekolay.net/)</td>
+<td>q</td>
+</tr>
+<tr>
+<td>Rambler</td>
+<td>[http://www.rambler.ru/](http://www.rambler.ru/)</td>
+<td>words</td>
+</tr>
+</tbody>
+</table>
+表中我们可以看到，除了google,baidu,yahoo,bing之外，其他的搜索引擎基本上不会出现在国内的搜索来源中，同时国内的360，soso，youdao等等搜索引擎也不在默认支持的列表里，那么还是需要手动把这些搜索流量加进去。
+
+<p>在GA中，我们需要在GATC代码片段中加入相应代码，比如：</p>
+<pre>
+     xxx
+    _gaq.push(['_addOrganic','so.com','q']);
+    _gaq.push(['_trackPageview([]);</pre>
+<p>在最后一条trackPageview函数之前加上默认的搜索引擎参数。其中<code>so.com</code>为其所在域,<code>q</code>为其相应搜索关键词的参数，这个参数怎么确认呢？很简单：</p>
+<p>举360搜索的例子，当我们在搜索引擎中输入<code>google analytics</code>并搜索之后，搜索结果页的URL会变成如下结构：</p>
+<pre>http://www.so.com/s?ie=utf-8&amp;shb=1&amp;src=360sou_newhome&amp;q=google+analytics</pre>
+<p>在链接中找到你所搜索的词，对应等号之前的那个参数就是搜索参数，比如上例中的<code>q</code></p>
+<p>但是在UA中则大为方便，UA的升级很大一部分好处在于，不用你写过多的代码，而更多的设置或处理放在后台，在界面中操作，也降低了对网站分析师在这方面的要求，会更加得心应手。那么我们来看下在UA中是如何设置这个功能的。</p>
+<p>打开UA后台，找到<code>Admin-Property-Tracking info - Organic Search Sources</code><br>点击<code>Add Search Engine</code><br><img src="https://www.dropbox.com/s/tutajb462f3tsx0/ua1.png?dl=1"><br>输入相应内容，如上图，然后点击保存即可，非常方便。</p>
+<p>最后再提供几个常用的国内搜索引擎及其参数，建议大家都加进去以获得更加准确的SEO数据。<br><img src="https://www.dropbox.com/s/nbq5c1gx6zlferr/ua2.png?dl=1"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/universal-analytics-exclude-query-parameter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jackielzq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2014/06/08/universal-analytics-exclude-query-parameter/" class="post-title-link" itemprop="url">Universal Analytics监测细节的完善(二) —— 去除多余参数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-06-08 22:29:48" itemprop="dateCreated datePublished" datetime="2014-06-08T22:29:48+08:00">2014-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Universal-Analytics/" itemprop="url" rel="index"><span itemprop="name">Universal Analytics</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>443</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>假如你在内容报告上看到以下类似情况：</p>
+<p><img src="https://www.dropbox.com/s/e9wlp05x5id5zuh/ua-parameter.png?dl=1"></p>
+<p>同一个页面由于后面各种乱七八糟的参数，导致被分割成几个或者多至数千个页面，这样你在面板中看到的数据会非常混乱，后期在手动处理数据尤其是做多维度较差的时候会平添很多麻烦。为了防止这种事情发生，我们需要前期做好沟通与测试，因为这些参数可能来自<code>内部参数传递</code>也可能是<code>外部广告参数</code>。</p>
+<p><code>内部参数传递</code> : 在站内页面与页面之间的切换中可能为了内部的分析会传递一些id，产品型号，或者内部搜索参数等等，你只需要从技术同事那里得到一份完整的列表，再添加进下图中的位置即可</p>
+<p><code>外部广告参数</code>: 如果你用过秒针检测系统就会知道，他家的广告监测链接后面会追加一大票的参数例如<code>mz_sp</code>,<code>mz_XX</code>等等，有时因为他们参数太长超过了广告投放平台的限制导致了部分问题的发生。同样这些参数也可能会影响到UA报表的呈现。</p>
+<p>解决这个问题的办法很简单，确实UA本身就提供了这种功能，找到<code>Admin - View - View Settings</code> 中的<code>Exclude URL Query Parameters</code></p>
+<p><img src="https://www.dropbox.com/s/rgbudg7a2ac7bup/ua-parameter2.png?dl=1"></p>
+<p>按图中格式填好，保存即可，记得参数之间用半角英文隔开，格式错误的话设置无效。（之前的中文说明坑了不少人，中文翻译参数中间是用句号隔开的，所以鉴于翻译效果不好把控，尽量使用英文版把）</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/universal-analytics-set-the-target/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jackielzq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2014/06/08/universal-analytics-set-the-target/" class="post-title-link" itemprop="url">Universal Analytics监测细节的完善(一) —— 明确转化，设置目标</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-06-08 22:26:41" itemprop="dateCreated datePublished" datetime="2014-06-08T22:26:41+08:00">2014-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Universal-Analytics/" itemprop="url" rel="index"><span itemprop="name">Universal Analytics</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>727</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>借毛主席的话“一切不以结婚为目的的谈恋爱都是耍流氓”，我认为“<strong>没有目标的网站分析都是瞎扯淡</strong>”。一开始做网站分析的时候，很容易走入一个误区，哪些数据有意思，哪些来源很诡异，找出原因后会有一些成就感，如同解出高中变态物理题一般，而随后在乐此不疲的干这些事情。事情的过程比结果有意思，但是结果才是价值的体现。所以明确你网站的目的是非常重要而急切的事情，所以我把它摆在了第一位。</p>
+<h4 id="1-定位自己的网站"><a href="#1-定位自己的网站" class="headerlink" title="1. 定位自己的网站"></a>1. 定位自己的网站</h4><p>你的网站是个什么类型的网站，能提供什么内容或者服务，用户的什么行为能给你带来收益？</p>
+<h4 id="2-关键转化点"><a href="#2-关键转化点" class="headerlink" title="2. 关键转化点"></a>2. 关键转化点</h4><p>每个网站归根结底就是一个或两个关键的转化点，比如电商就是销售产品，门户网站就是流量广告变现，博客就是扩大影响力，活动网站就是参与或者注册……搞清楚自己最想要什么，那么你的思路就会更加清晰。</p>
+<h4 id="3-清晰转化路径"><a href="#3-清晰转化路径" class="headerlink" title="3. 清晰转化路径"></a>3. 清晰转化路径</h4><p>在转化前一般会经历哪些必要环节，可能有哪些路径？把他们一一列举出来，找到所有的步骤。</p>
+<h4 id="4-在UA中设置Goal及相关参数"><a href="#4-在UA中设置Goal及相关参数" class="headerlink" title="4. 在UA中设置Goal及相关参数"></a>4. 在UA中设置Goal及相关参数</h4><p>来到Admin - View - Goal 界面<br><img src="https://www.dropbox.com/s/7pl7jtmhbym0e2k/ua-admin4.png?dl=1"></p>
+<p>有四种Goal可以供你选择：</p>
+<table>
+<thead>
+<tr>
+<th>Goal</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Destination</td>
+<td>目标页面</td>
+</tr>
+<tr>
+<td>Duration</td>
+<td>停留时间</td>
+</tr>
+<tr>
+<td>Page/Screens per Session</td>
+<td>每次访问查看页面数</td>
+</tr>
+<tr>
+<td>Event</td>
+<td>事件(视频播放，按钮点击)</td>
+</tr>
+</tbody>
+</table>
+这里需要注意的是，如果你要看到报表中的Goal Funnel(目标转化漏斗),那么请一定把这个Goal选择为Destination,或者在该行为发生时触发虚拟页面监测代码，其他类型都不支持Funnel
+
+<h4 id="5-数据分析"><a href="#5-数据分析" class="headerlink" title="5. 数据分析"></a>5. 数据分析</h4><p>利用得到的数据去验证你的假设，猜想可以提供方向，但是数据更能告诉你猜想的结论。同时通过各个环节的流失数据，我们可以找到哪些环节出了问题，哪些路径更加直接有效，哪些来源的用户目标达成率较高，达成目标的用户有着哪些共通的属性或者行为？</p>
+<h4 id="6-行动、优化"><a href="#6-行动、优化" class="headerlink" title="6. 行动、优化"></a>6. 行动、优化</h4><p>像之前说的，结果才是最重要的，你经历了这么多设置，收集这么多数据，得到了那么多结论，通过这些结论采取了哪些措施，并最终是否带来了提升？有多少的提升？如果上面两个问题回答不了，那将会是一个不愉快的体验。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1017,321 +1582,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/05/13/shake-your-mouse/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jackielzq">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2014/05/13/shake-your-mouse/" class="post-title-link" itemprop="url">晃动你的鼠标</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2014-05-13 19:20:12" itemprop="dateCreated datePublished" datetime="2014-05-13T19:20:12+08:00">2014-05-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>发现一个晃晃鼠标就变神经病的网站</p>
-<p>貌似全用js实现的，挺有意思，和我页面右边的<a href="javascript:(function("> High一下</a> {&lt;br /&gt;&lt;br /&gt;<br>    function c() {&lt;br /&gt;&lt;br /&gt;<br>        var e = document.createElement(&quot;link&quot;);&lt;br /&gt;&lt;br /&gt;<br>        e.setAttribute(&quot;type&quot;, &quot;text/css&quot;);&lt;br /&gt;&lt;br /&gt;<br>        e.setAttribute(&quot;rel&quot;, &quot;stylesheet&quot;);&lt;br /&gt;&lt;br /&gt;<br>        e.setAttribute(&quot;href&quot;, f);&lt;br /&gt;&lt;br /&gt;<br>        e.setAttribute(&quot;class&quot;, l);&lt;br /&gt;&lt;br /&gt;<br>        document.body.appendChild(e)&lt;br /&gt;&lt;br /&gt;<br>    }&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;    function h() {&lt;br /&gt;&lt;br /&gt;<br>        var e = document.getElementsByClassName(l);&lt;br /&gt;&lt;br /&gt;<br>        for (var t = 0; t &lt; e.length; t++) {             document.body.removeChild(e[t])         }     }       function p() {         var e = document.createElement(&quot;div&quot;);         e.setAttribute(&quot;class&quot;, a);         document.body.appendChild(e);         setTimeout(function() {             document.body.removeChild(e)         }, 100)     }       function d(e) {         return {             height : e.offsetHeight,             width : e.offsetWidth         }     }       function v(i) {         var s = d(i);         return s.height &gt; e &amp;&amp; s.height &lt; n &amp;&amp; s.width &gt; t &amp;&amp; s.width &lt; r     }       function m(e) {         var t = e;         var n = 0;         while (!!t) {             n += t.offsetTop;             t = t.offsetParent         }         return n     }       function g() {         var e = document.documentElement;         if (!!window.innerWidth) {             return window.innerHeight         } else if (e &amp;&amp; !isNaN(e.clientHeight)) {             return e.clientHeight         }         return 0     }       function y() {         if (window.pageYOffset) {             return window.pageYOffset         }         return Math.max(document.documentElement.scrollTop, document.body.scrollTop)     }       function E(e) {         var t = m(e);         return t &gt;= w &amp;&amp; t &lt;= b + w&lt;br /&gt;&lt;br /&gt;<br>    }&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;    function S() {&lt;br /&gt;&lt;br /&gt;<br>        var e = document.createElement(&quot;audio&quot;);&lt;br /&gt;&lt;br /&gt;<br>        e.setAttribute(&quot;class&quot;, l);&lt;br /&gt;&lt;br /&gt;<br>        e.src = i;&lt;br /&gt;&lt;br /&gt;<br>        e.loop = false;&lt;br /&gt;&lt;br /&gt;<br>        e.addEventListener(&quot;canplay&quot;, function() {&lt;br /&gt;&lt;br /&gt;<br>            setTimeout(function() {&lt;br /&gt;&lt;br /&gt;<br>                x(k)&lt;br /&gt;&lt;br /&gt;<br>            }, 500);&lt;br /&gt;&lt;br /&gt;<br>            setTimeout(function() {&lt;br /&gt;&lt;br /&gt;<br>                N();&lt;br /&gt;&lt;br /&gt;<br>                p();&lt;br /&gt;&lt;br /&gt;<br>                for (var e = 0; e &lt; O.length; e++) {&lt;br /&gt;&lt;br /&gt;<br>                    T(O[e])&lt;br /&gt;&lt;br /&gt;<br>                }&lt;br /&gt;&lt;br /&gt;<br>            }, 15500)&lt;br /&gt;&lt;br /&gt;<br>        }, true);&lt;br /&gt;&lt;br /&gt;<br>        e.addEventListener(&quot;ended&quot;, function() {&lt;br /&gt;&lt;br /&gt;<br>            N();&lt;br /&gt;&lt;br /&gt;<br>            h()&lt;br /&gt;&lt;br /&gt;<br>        }, true);&lt;br /&gt;&lt;br /&gt;<br>        e.innerHTML = &quot;&lt;br /&gt;<br>&lt;p&gt;If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;&quot;;&lt;br /&gt;&lt;br /&gt;<br>        document.body.appendChild(e);&lt;br /&gt;&lt;br /&gt;<br>        e.play()&lt;br /&gt;&lt;br /&gt;<br>    }&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;    function x(e) {&lt;br /&gt;&lt;br /&gt;<br>        e.className += &quot; &quot; + s + &quot; &quot; + o&lt;br /&gt;&lt;br /&gt;<br>    }&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;    function T(e) {&lt;br /&gt;&lt;br /&gt;<br>        e.className += &quot; &quot; + s + &quot; &quot; + u[Math.floor(Math.random() * u.length)]&lt;br /&gt;&lt;br /&gt;<br>    }&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;    function N() {&lt;br /&gt;&lt;br /&gt;<br>        var e = document.getElementsByClassName(s);&lt;br /&gt;&lt;br /&gt;<br>        var t = new RegExp(&quot;\b&quot; + s + &quot;\b&quot;);&lt;br /&gt;&lt;br /&gt;<br>        for (var n = 0; n &lt; e.length; ) {&lt;br /&gt;&lt;br /&gt;<br>            e[n].className = e[n].className.replace(t, &quot;&quot;)&lt;br /&gt;&lt;br /&gt;<br>        }&lt;br /&gt;&lt;br /&gt;<br>    }&lt;/p&gt;&lt;br /&gt;<br>&lt;p&gt;    var e = 30;&lt;br /&gt;&lt;br /&gt;<br>    var t = 30;&lt;br /&gt;&lt;br /&gt;<br>    var n = 350;&lt;br /&gt;&lt;br /&gt;<br>    var r = 350;&lt;br /&gt;&lt;br /&gt;<br>    var i = &quot;//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3&quot;;&lt;br /&gt;&lt;br /&gt;<br>    var s = &quot;mw-harlem_shake_me&quot;;&lt;br /&gt;&lt;br /&gt;<br>    var o = &quot;im_first&quot;;&lt;br /&gt;&lt;br /&gt;<br>    var u = [&quot;im_drunk&quot;, &quot;im_baked&quot;, &quot;im_trippin&quot;, &quot;im_blown&quot;];&lt;br /&gt;&lt;br /&gt;<br>    var a = &quot;mw-strobe_light&quot;;&lt;br /&gt;&lt;br /&gt;<br>    var f = &quot;//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css&quot;;&lt;br /&gt;&lt;br /&gt;<br>    var l = &quot;mw_added_css&quot;;&lt;br /&gt;&lt;br /&gt;<br>    var b = g();&lt;br /&gt;&lt;br /&gt;<br>    var w = y();&lt;br /&gt;&lt;br /&gt;<br>    var C = document.getElementsByTagName(&quot;*&quot;);&lt;br /&gt;&lt;br /&gt;<br>    var k = null;&lt;br /&gt;&lt;br /&gt;<br>    for (var L = 0; L &lt; C.length; L++) {&lt;br /&gt;&lt;br /&gt;<br>        var A = C[L];&lt;br /&gt;&lt;br /&gt;<br>        if (v(A)) {&lt;br /&gt;&lt;br /&gt;<br>            if (E(A)) {&lt;br /&gt;&lt;br /&gt;<br>                k = A;&lt;br /&gt;&lt;br /&gt;<br>                break&lt;br /&gt;&lt;br /&gt;<br>            }&lt;br /&gt;&lt;br /&gt;<br>        }&lt;br /&gt;&lt;br /&gt;<br>    }&lt;br /&gt;&lt;br /&gt;<br>    if (A === null) {&lt;br /&gt;&lt;br /&gt;<br>        console.warn(&quot;Could not find a node of the right size. Please try a different page.&quot;);&lt;br /&gt;&lt;br /&gt;<br>        return&lt;br /&gt;&lt;br /&gt;<br>    }&lt;br /&gt;&lt;br /&gt;<br>    c();&lt;br /&gt;&lt;br /&gt;<br>    S();&lt;br /&gt;&lt;br /&gt;<br>    var O = [];&lt;br /&gt;&lt;br /&gt;<br>    for (var L = 0; L &lt; C.length; L++) {         var A = C[L];         if (v(A)) {             O.push(A)         }     } })()     “High起来”) 挺像<br><a target="_blank" rel="noopener" href="http://www.staggeringbeauty.com/">StaggeringBeauty</a></p>
-<p>觉得有意思的话可以以iframe的形式嵌在自己的页面里，然后像神经病一样High起来吧</p>
-<p>_ <iframe style="border: 1px inset #ddd;" src="http://www.staggeringbeauty.com/" height="598" width="498"></iframe>_</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/05/12/numbers-of-hobbies-none-excellent/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jackielzq">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2014/05/12/numbers-of-hobbies-none-excellent/" class="post-title-link" itemprop="url">兴趣广泛、无一精湛</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2014-05-12 17:59:44" itemprop="dateCreated datePublished" datetime="2014-05-12T17:59:44+08:00">2014-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BA%AA%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">纪录</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>852</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>标题这几个字很能反映我自己的状态，对好多事情都有兴趣，都想好好玩玩，认真地玩。但是最后结果是大多数都停留在一个比较浅的阶段。比如说编程、音乐、魔方、运动、玩游戏，或者是折腾折腾网站，写写博客，研究研究GA,Doublelick,GTM，感觉我脑子还是比较好使，能比较快地进入角色或在短时间内从初学者蜕变成一个中级水平。但是如果往高级了去，需要花费更多的时间和精力而只获得之前同时间相比相差较大的”收益”时，我就会从潜意识里”认怂”，进而把时间留到其他的兴趣爱好中去。在别人看起来好像感觉好多东西都会一些，好像很厉害的样子，但是在我自己感觉上，总觉得自己好像走入了一个误区。因为总是不确定自己真正喜欢做的是什么，今后自己一定还会做的是什么，如果以后不会做了，那么现在花太多时间进去显得有点浪费，从而一直在一个循环中走不出来。</p>
-<p>我自认为还是一个比较勤快的人吧，很怕浪费自己的时间，因此最不喜欢的事情之一就是<code>等待</code>,并不是说我觉得我的时间比较值钱，而是任何人的时间都比较宝贵，尽量少让或者不让别人等你是一种很大的尊重。即使比较空闲，我还是喜欢给自己找些事情做，不管在别人看起来是不是无聊。</p>
-<p>很羡慕那些在很年轻的时候就能找到自己非常钟爱的事物的人，因为比起其他人来，他们少了很多犹豫与纠结，一条路走下去，能在这个领域走得更深，看到更多一般人看不到的风景。而大多数人同我一样，只是在不停地试，不停地换，不停地寻找。而随着年龄的增长，尝试新鲜事物的恐惧也会与日俱增。然后选择妥协，回归现实，做好自己目前的工作，结婚生子，防止各种”<code>意外</code>“的发生。</p>
-<p>在尝试的路上，我们总是太急于看到结果，一旦一段时间过去了，虽然你有些许进步，但是你看不到这些金不带给你的价值，因为这不是游戏，打一个怪涨几点经验，点滴的变化也能清晰地展现。这个时候会很容易怀疑自己这个方向是否正确，力是否使对了地方，或者自己是不是真的喜欢，要不要坚持。而这个问题，可能时间才能给你答案。</p>
-<p>我经常在想，自己既然知道了这种情况，应该做一点怎样的调整来改善一下这种状况？其实根本原因在于缺乏合理的计划和安排,突然想到了知乎上收藏过的一个帖子，<a target="_blank" rel="noopener" href="http://www.zhihu.com/question/22238159/answer/20750109">你有什么相见恨晚的知识想推荐给年轻人？</a>，当时看着只觉得很有道理，看完就关掉了这个页面。现在回头再看一遍，我觉得应该有所行动了</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/05/08/remarketing-on-digital/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jackielzq">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2014/05/08/remarketing-on-digital/" class="post-title-link" itemprop="url">互动营销中的Remarketing</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2014-05-08 19:49:27" itemprop="dateCreated datePublished" datetime="2014-05-08T19:49:27+08:00">2014-05-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-10-06 15:13:45" itemprop="dateModified" datetime="2016-10-06T15:13:45+08:00">2016-10-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BD%91%E7%AB%99%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">网站分析</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Remarketing，也通常称作Retargeting，中文一般叫做<code>再营销</code>，是广告营销中用到的一种技术。目的是让之前接触过某些内容或做在网站有过特定行为的人做“第二次亲密接触”，以达到更好的广告效果。</p>
-<p>举个非常常见的例子，用户在淘宝上上把某个商品(比如衣服)添加进了购物车，最后没有完成付款，那么这个用户在购买与放弃之间也许只有一念之差，挽救的可能性还是相当高的，因为他在意的可能只是价钱。那么利用Remarketing可以把具有这种特征的人全部标记出来，不管是你的账号还是匿名的cookies，那么在接下来你的上网历程中可能就会出现如下情况：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2014/05/08/remarketing-on-digital/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1357,14 +1607,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">183k</span>
+    <span title="站点总字数">185k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">11:06</span>
+    <span title="站点阅读时长">11:12</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
