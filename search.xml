@@ -345,8 +345,7 @@
   <entry>
     <title>人工智能词汇表</title>
     <url>/2024/03/07/AI%E8%AF%8D%E6%B1%87%E8%A1%A8/</url>
-    <content><![CDATA[<p>综合性</p>
-<table>
+    <content><![CDATA[<h5 id="综合性词汇"><a href="#综合性词汇" class="headerlink" title="综合性词汇"></a>综合性词汇</h5><table>
 <thead>
 <tr>
 <th>词汇</th>
@@ -385,17 +384,10 @@
 <td>GAN生成对抗网络</td>
 <td>通过同时训练“警察”与“小偷”，实现“道高一尺魔高一丈”的效果，最终用于生成以假乱真的内容</td>
 </tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
-<p>NLP自然语言处理</p>
-<table>
+<span id="more"></span>
+
+<h5 id="NLP自然语言处理"><a href="#NLP自然语言处理" class="headerlink" title="NLP自然语言处理"></a>NLP自然语言处理</h5><table>
 <thead>
 <tr>
 <th>词汇</th>
@@ -483,7 +475,7 @@
 <td>BERT的全称是Bidirectional Encoder Representation from Transformers，即双向Transformer的Encoder.因为<a href="https://easyai.tech/ai-definition/encoder-decoder-seq2seq/">decoder</a>是不能获要预测的信息的。模型的主要创新点都在<a href="https://easyai.tech/ai-definition/pre-train/">pre-train</a>方法上，即用了Masked LM和Next Sentence Prediction两种方法分别捕捉词语和句子级别的representation</td>
 </tr>
 </tbody></table>
-<p>大模型</p>
+<p><strong>大模型</strong></p>
 <table>
 <thead>
 <tr>
@@ -493,15 +485,15 @@
 </thead>
 <tbody><tr>
 <td>LLM -Large Language Model</td>
-<td></td>
+<td>大语言模型，市面上的ChatGPT、文心一言、讯飞星火等都是大语言模型</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
+<td>多模态</td>
+<td>相较于大语言模型，多模态指的是可以处理文字以外的多种形态的信息，比如图片、音频、视频</td>
 </tr>
 <tr>
 <td>Token</td>
-<td>Token</td>
+<td>Token是模型拆分语言的最小单位，可以是一个词也可以是词的组合，比如“我吃葡萄”可以拆为：“我”、“吃”、“葡萄”3个token</td>
 </tr>
 <tr>
 <td></td>
@@ -5542,6 +5534,8 @@ window.onresize=myChart.resize;</script>
 <p>这个网站有反爬机制，但是用webdriver直接控制电脑打开浏览器一页页的翻过去爬，还是挺稳妥，需要的可以直接拿去用，把baseurl换掉就可以爬了，记得最后加上”&amp;page=“，翻页用的。后面的参数是筛选后的城市、年线、工资水平、岗位类型等，自己在网页上筛选后把URL拿下来就行</p>
 <p>可以用来分析一下行情，地域分布，薪资分布，行业分布等等，我在excel简单做了下，就没有麻烦pandas了</p>
 <p>然后，这个对找不找得到工作，并没有多大的帮助，哈哈</p>
+<span id="more"></span>
+
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions <span class="keyword">as</span> EC</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># Boss直聘的URL，可自行在浏览器打开并且加入【筛选条件】以后再复制到下方</span></span><br><span class="line">base_url = <span class="string">&#x27;https://www.zhipin.com/web/geek/job?query=%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86&amp;city=101280100&amp;degree=203&amp;jobType=1901&amp;salary=406&amp;page=&#x27;</span></span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line"></span><br><span class="line">all_jobs = []</span><br><span class="line"><span class="keyword">for</span> page <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">    url = base_url + <span class="built_in">str</span>(page)</span><br><span class="line">    driver.get(url)</span><br><span class="line">    <span class="comment">#等待1分钟</span></span><br><span class="line">    time.sleep(<span class="number">60</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        element = WebDriverWait(driver, <span class="number">10</span>).until(</span><br><span class="line">            EC.presence_of_element_located((By.CLASS_NAME, <span class="string">&#x27;job-card-wrapper&#x27;</span>))   </span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        job_name = [elem.text <span class="keyword">for</span> elem <span class="keyword">in</span> driver.find_elements(By.CLASS_NAME, <span class="string">&#x27;job-name&#x27;</span>)]</span><br><span class="line">        job_area = [elem.text <span class="keyword">for</span> elem <span class="keyword">in</span> driver.find_elements(By.CLASS_NAME, <span class="string">&#x27;job-area&#x27;</span>)]</span><br><span class="line">        salary = [elem.text <span class="keyword">for</span> elem <span class="keyword">in</span> driver.find_elements(By.CLASS_NAME, <span class="string">&#x27;salary&#x27;</span>)]</span><br><span class="line">        years_graduate = [elem.text <span class="keyword">for</span> elem <span class="keyword">in</span> driver.find_elements(By.CLASS_NAME, <span class="string">&#x27;tag-list&#x27;</span>)]</span><br><span class="line">        info_public = [elem.text <span class="keyword">for</span> elem <span class="keyword">in</span> driver.find_elements(By.CLASS_NAME, <span class="string">&#x27;info-public&#x27;</span>)]</span><br><span class="line">        company = [elem.text <span class="keyword">for</span> elem <span class="keyword">in</span> driver.find_elements(By.CLASS_NAME, <span class="string">&#x27;company-name&#x27;</span>)]</span><br><span class="line">        com_info = [elem.text <span class="keyword">for</span> elem <span class="keyword">in</span> driver.find_elements(By.CLASS_NAME, <span class="string">&#x27;company-tag-list&#x27;</span>)]</span><br><span class="line">        detail = [elem.text <span class="keyword">for</span> elem <span class="keyword">in</span> driver.find_elements(By.CLASS_NAME, <span class="string">&#x27;info-desc&#x27;</span>)]</span><br><span class="line">        job_links = [elem.get_attribute(<span class="string">&#x27;href&#x27;</span>) <span class="keyword">for</span> elem <span class="keyword">in</span> driver.find_elements(By.CSS_SELECTOR, <span class="string">&#x27;a.job-card-left&#x27;</span>) ]</span><br><span class="line"></span><br><span class="line">    jobs = <span class="built_in">list</span>(<span class="built_in">zip</span>(job_name, job_area, salary, years_graduate, info_public, company, com_info, detail, job_links))</span><br><span class="line">    all_jobs.extend(jobs)</span><br><span class="line"></span><br><span class="line"><span class="comment">#写入dataframe</span></span><br><span class="line">df = pd.DataFrame(all_jobs, columns=[ <span class="string">&#x27;公司名&#x27;</span>,  <span class="string">&#x27;职位&#x27;</span>, <span class="string">&#x27;区域&#x27;</span>, <span class="string">&#x27;薪资&#x27;</span>, <span class="string">&#x27;经验要求&#x27;</span>, <span class="string">&#x27;信息公开&#x27;</span>,<span class="string">&#x27;企业信息&#x27;</span>, <span class="string">&#x27;详细&#x27;</span>, <span class="string">&#x27;链接&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存到Excel文件</span></span><br><span class="line">df.to_excel(<span class="string">&#x27;boss直聘产品岗位列表.xlsx&#x27;</span>, index=<span class="literal">False</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 ]]></content>
@@ -5929,8 +5923,7 @@ window.onresize=myChart.resize;</script>
   <entry>
     <title>机器学习经典算法</title>
     <url>/2024/03/07/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%85%B8%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<p>主流监督学习算法</p>
-<table>
+    <content><![CDATA[<h5 id="主流监督学习算法"><a href="#主流监督学习算法" class="headerlink" title="主流监督学习算法"></a>主流监督学习算法</h5><table>
 <thead>
 <tr>
 <th align="left">算法</th>
@@ -5989,6 +5982,8 @@ window.onresize=myChart.resize;</script>
 <td align="left">它从信息处理角度对人脑神经元网络进行抽象， 建立某种简单模型，按不同的连接方式组成不同的网络。</td>
 </tr>
 </tbody></table>
+<span id="more"></span>
+
 <p>深度学习算法</p>
 <table>
 <thead>

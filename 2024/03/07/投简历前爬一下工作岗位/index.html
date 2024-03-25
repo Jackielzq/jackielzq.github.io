@@ -27,7 +27,7 @@
 <meta property="og:description" content="年后回来开始大规模开始投简历，在gpt的帮助下快速写了个小爬虫爬取一下boss直聘上相关的岗位 这个网站有反爬机制，但是用webdriver直接控制电脑打开浏览器一页页的翻过去爬，还是挺稳妥，需要的可以直接拿去用，把baseurl换掉就可以爬了，记得最后加上”&amp;page&#x3D;“，翻页用的。后面的参数是筛选后的城市、年线、工资水平、岗位类型等，自己在网页上筛选后把URL拿下来就行 可以用来分析一">
 <meta property="og:locale">
 <meta property="article:published_time" content="2024-03-07T03:30:10.000Z">
-<meta property="article:modified_time" content="2024-03-07T05:02:05.352Z">
+<meta property="article:modified_time" content="2024-03-25T09:02:26.002Z">
 <meta property="article:author" content="Jackielzq">
 <meta property="article:tag" content="学习,交流,分享">
 <meta name="twitter:card" content="summary">
@@ -216,9 +216,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-03-07 11:30:10 / 修改时间：13:02:05" itemprop="dateCreated datePublished" datetime="2024-03-07T11:30:10+08:00">2024-03-07</time>
+      <time title="创建时间：2024-03-07 11:30:10" itemprop="dateCreated datePublished" datetime="2024-03-07T11:30:10+08:00">2024-03-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-25 17:02:26" itemprop="dateModified" datetime="2024-03-25T17:02:26+08:00">2024-03-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -231,13 +237,27 @@
     </span>
 
   
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    <a title="投简历前爬一下Boss上的工作岗位" href="/2024/03/07/%E6%8A%95%E7%AE%80%E5%8E%86%E5%89%8D%E7%88%AC%E4%B8%80%E4%B8%8B%E5%B7%A5%E4%BD%9C%E5%B2%97%E4%BD%8D/#SOHUCS" itemprop="discussionUrl">
+      <span id="sourceId::d02c5d80d108fee7d13f6b621567e563" class="cy_cmt_count" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>473</span>
+      <span>474</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -259,6 +279,8 @@
 <p>这个网站有反爬机制，但是用webdriver直接控制电脑打开浏览器一页页的翻过去爬，还是挺稳妥，需要的可以直接拿去用，把baseurl换掉就可以爬了，记得最后加上”&amp;page=“，翻页用的。后面的参数是筛选后的城市、年线、工资水平、岗位类型等，自己在网页上筛选后把URL拿下来就行</p>
 <p>可以用来分析一下行情，地域分布，薪资分布，行业分布等等，我在excel简单做了下，就没有麻烦pandas了</p>
 <p>然后，这个对找不找得到工作，并没有多大的帮助，哈哈</p>
+<span id="more"></span>
+
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions <span class="keyword">as</span> EC</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># Boss直聘的URL，可自行在浏览器打开并且加入【筛选条件】以后再复制到下方</span></span><br><span class="line">base_url = <span class="string">&#x27;https://www.zhipin.com/web/geek/job?query=%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86&amp;city=101280100&amp;degree=203&amp;jobType=1901&amp;salary=406&amp;page=&#x27;</span></span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line"></span><br><span class="line">all_jobs = []</span><br><span class="line"><span class="keyword">for</span> page <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>):</span><br><span class="line">    url = base_url + <span class="built_in">str</span>(page)</span><br><span class="line">    driver.get(url)</span><br><span class="line">    <span class="comment">#等待1分钟</span></span><br><span class="line">    time.sleep(<span class="number">60</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        element = WebDriverWait(driver, <span class="number">10</span>).until(</span><br><span class="line">            EC.presence_of_element_located((By.CLASS_NAME, <span class="string">&#x27;job-card-wrapper&#x27;</span>))   </span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        job_name = [elem.text <span class="keyword">for</span> elem <span class="keyword">in</span> driver.find_elements(By.CLASS_NAME, <span class="string">&#x27;job-name&#x27;</span>)]</span><br><span class="line">        job_area = [elem.text <span class="keyword">for</span> elem <span class="keyword">in</span> driver.find_elements(By.CLASS_NAME, <span class="string">&#x27;job-area&#x27;</span>)]</span><br><span class="line">        salary = [elem.text <span class="keyword">for</span> elem <span class="keyword">in</span> driver.find_elements(By.CLASS_NAME, <span class="string">&#x27;salary&#x27;</span>)]</span><br><span class="line">        years_graduate = [elem.text <span class="keyword">for</span> elem <span class="keyword">in</span> driver.find_elements(By.CLASS_NAME, <span class="string">&#x27;tag-list&#x27;</span>)]</span><br><span class="line">        info_public = [elem.text <span class="keyword">for</span> elem <span class="keyword">in</span> driver.find_elements(By.CLASS_NAME, <span class="string">&#x27;info-public&#x27;</span>)]</span><br><span class="line">        company = [elem.text <span class="keyword">for</span> elem <span class="keyword">in</span> driver.find_elements(By.CLASS_NAME, <span class="string">&#x27;company-name&#x27;</span>)]</span><br><span class="line">        com_info = [elem.text <span class="keyword">for</span> elem <span class="keyword">in</span> driver.find_elements(By.CLASS_NAME, <span class="string">&#x27;company-tag-list&#x27;</span>)]</span><br><span class="line">        detail = [elem.text <span class="keyword">for</span> elem <span class="keyword">in</span> driver.find_elements(By.CLASS_NAME, <span class="string">&#x27;info-desc&#x27;</span>)]</span><br><span class="line">        job_links = [elem.get_attribute(<span class="string">&#x27;href&#x27;</span>) <span class="keyword">for</span> elem <span class="keyword">in</span> driver.find_elements(By.CSS_SELECTOR, <span class="string">&#x27;a.job-card-left&#x27;</span>) ]</span><br><span class="line"></span><br><span class="line">    jobs = <span class="built_in">list</span>(<span class="built_in">zip</span>(job_name, job_area, salary, years_graduate, info_public, company, com_info, detail, job_links))</span><br><span class="line">    all_jobs.extend(jobs)</span><br><span class="line"></span><br><span class="line"><span class="comment">#写入dataframe</span></span><br><span class="line">df = pd.DataFrame(all_jobs, columns=[ <span class="string">&#x27;公司名&#x27;</span>,  <span class="string">&#x27;职位&#x27;</span>, <span class="string">&#x27;区域&#x27;</span>, <span class="string">&#x27;薪资&#x27;</span>, <span class="string">&#x27;经验要求&#x27;</span>, <span class="string">&#x27;信息公开&#x27;</span>,<span class="string">&#x27;企业信息&#x27;</span>, <span class="string">&#x27;详细&#x27;</span>, <span class="string">&#x27;链接&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 保存到Excel文件</span></span><br><span class="line">df.to_excel(<span class="string">&#x27;boss直聘产品岗位列表.xlsx&#x27;</span>, index=<span class="literal">False</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
@@ -326,7 +348,7 @@
 
 
 
-    <div class="comments gitalk-container"></div>
+    <div class="comments" id="SOHUCS" sid="d02c5d80d108fee7d13f6b621567e563"></div>
 </div>
   </main>
 
@@ -389,10 +411,8 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
-
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Jackielzq","repo":"https://github.com/Jackielzq/jackielzq.github.io","client_id":"aa95887a6af5197b8190","client_secret":"2f801ae21c12ac256b8288876e3813d58c297746","admin_user":"Jackielzq","distraction_free_mode":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"d02c5d80d108fee7d13f6b621567e563"}</script>
-<script src="/js/third-party/comments/gitalk.js"></script>
+<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyxdeHueb","appkey":"prod_3ac1ad0e503f8ef8ec5fad05e5ad0cf3","count":true}</script>
+<script src="/js/third-party/comments/changyan.js"></script>
 
 </body>
 </html>
