@@ -46,6 +46,9 @@
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>巧用Google Analytics和Tag Manager监测滚屏深度 | Jackie的博客</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N5BSEFBBS5"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-N5BSEFBBS5","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
 
 
 
@@ -131,18 +134,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-count">190</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">246</span>
+        <span class="site-state-item-count">248</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -183,214 +186,6 @@
 
     <div class="main-inner post posts-expand">
 
-
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/03/24/scroll-depth-google-analytics-tag-manager/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jackielzq">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="巧用Google Analytics和Tag Manager监测滚屏深度 | Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          巧用Google Analytics和Tag Manager监测滚屏深度
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2013-03-24 18:31:10" itemprop="dateCreated datePublished" datetime="2013-03-24T18:31:10+08:00">2013-03-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BD%91%E7%AB%99%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">网站分析</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    <a title="巧用Google Analytics和Tag Manager监测滚屏深度" href="/2013/03/24/scroll-depth-google-analytics-tag-manager/#SOHUCS" itemprop="discussionUrl">
-      <span id="sourceId::03bd40055904b59e92e63bda308b2819" class="cy_cmt_count" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <p>GA强大的功能使得我们可以做到许多它原本不提供的事情，比如接下来要讲的滚屏事件监测。相信许多站长或者网站各部门都想知道，别人来到我页面到底看到什么程度了？我的页面设计为几屏比较好？有多少人看完了我的文章？有多少人看了评论？这对于网站内容或者结构的优化都会有一定的参考作用。下面我向大家介绍一个实现这个功能的方法。 使用工具：<strong>Google Analytics</strong>&amp;<strong>Google Tag manager</strong> 主要的操作在于Tag manager（以后简称GTM）中代码和规则的设置（使用GTM的好处在于，只要在页面上加一套代码，后台都由你自己操作，最大程度得减少公司或部门之间的沟通成本）。 一、在GTM容器中添加代码 本次一共会用到三段代码</p>
-<ul>
-<li><span style="line-height: 13px;">GATC  (Google Analytics tracking code)</span></li>
-<li><a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/themes/ifeature/jquery.scrolldepth.js">jquery.scrolldepth.js</a></li>
-<li>函数调用代码</li>
-</ul>
-<span id="more"></span> 1、GATC直接从GA后台到处即可，但必须是异步代码（现在应该都是异步的了）。 2、第二段jquery是从http://robflaherty.github.com/jquery-scrolldepth/ 找到的代码，感谢这位作者的贡献。对于我们只懂代码皮毛的人来说，这真是莫大的帮助。不过在实际操作中遇到过各种问题，并不像其提到的结果一般。上面链接的代码是我现在使用的，我对它做了部分修改，直到能实现开始说的效果。懂代码或者有兴趣朋友可以仔细看一看，代码不长。 3、第三段代码是在页面中调用上面这段js的代码的，它的触发条件有下面这几个：
-
-<ol>
-<li> <span style="line-height: 13px;">必须在GATC触发以后</span></li>
-<li> 必须在第二段代码调用以后</li>
-<li> jquery版本1.7+ 我是怎么实现这些触发规则的呢？这就要用到代码管理器-GTM了，来看一下具体设置吧：</li>
-</ol>
-<p><a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2013/03/1.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/03/1-300x240.jpg" alt="GTM设置" title="GTM设置"></a></p>
-<p>跟踪代码的3部分就是刚才所提到的，下面我们仔细的看一下“</p>
-<p><strong>一、</strong> GATC：</p>
-<pre><script type="text/javascript">// <![CDATA[
-;
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-XXXX-X']);
-_gaq.push(['_trackPageview']);
-
-(function() {
-var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-
-**dataLayer.push({'event':'scroll1'});**
-// ]]></script>;</pre>
-<p>与正常的GATC不同的是，我在最后加了一句dataLayer.push({‘event’:’scroll1’}); 它的作用是给event这个变量赋值，具体作用下面会讲到</p>
-<p><strong>二、</strong> 第二段<a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/themes/ifeature/jquery.scrolldepth.js">jquery.scrolldepth.js</a>有点长，大家可以自行点开来看，这里不细讲（关键是我也不太懂），需要说明的是我在里面加了两条代码： 1、最前面加入<span style="text-decoration: underline;"><script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">// <![CDATA[<br></span> 在测试中我发现我本身主题自带的1.8.2版本并不支持，所以在这段代码之前我重新调用了1.7.1的版本。 2、<span style="text-decoration: underline;">dataLayer.push({'event':'scroll2'})</span>;和GATC的的那句作用一样，给event赋值 <strong>三、</strong> 第三段很简单，直接贴出来：</p>
-<pre><script>
-$.scrollDepth({
-testing: true,
-elements: ['#comment']
-});
-// ]]></script></span>
-
-它的作用是调用这个函数，elements:['#comment']是在我之前的基础上添加了一个类的监测，我的评论框的id（css中的id选择器的值）是comment，用处是当滚动条滑到评论框时触发相应代码。   说完了代码接下来说规则，前面我们说到这几段代码是有相互依存关系的，也就是得按顺序来触发，所以在第一段GATC中我给event赋值为scroll1，作为第二段代码触发的条件，同样第二段代码中我给它赋值为scroll2，作为第三段代码触发的条件，这样一来就能按照我预先设置的顺序触发代码了。这里举一个例子，内容见下图：
-
-[![2](http://jackie.ms/wp-content/uploads/2013/03/2-300x130.jpg)](http://jackie.ms/wp-content/uploads/2013/03/2.jpg)   这样一来我们就完成了整个代码的实施过程，接下来看看成果吧： [![3](http://jackie.ms/wp-content/uploads/2013/03/3.jpg)](http://jackie.ms/wp-content/uploads/2013/03/3.jpg)   滚屏的比例和各种元素（这里是评论框）被查看的比例都一目了然（数据为参考，不用当真）。 做网站分析的朋友，看到这里有没有跃跃欲试的冲动呢，心动不如行动，Just do it！有问题可以给我留言，不过建议先google一下，养成一个好习惯，能自己解决的先自己解决，这样进步会快一点，我自身的体验，希望对你有帮助！
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-          <div class="reward-container">
-  <div>请我一杯咖啡吧！</div>
-  <button>
-    赞赏
-  </button>
-  <div class="post-reward">
-      <div>
-        <img src="/images/wechatpay.jpg" alt="Jackielzq 微信">
-        <span>微信</span>
-      </div>
-
-  </div>
-</div>
-
-          <div class="followme">
-  <span>欢迎关注我的其它发布渠道</span>
-
-  <div class="social-list">
-
-      <div class="social-item">
-          <span class="social-link">
-            <span class="icon">
-              <i class="fab fa-weixin"></i>
-            </span>
-
-            <span class="label">WeChat</span>
-          </span>
-
-          <img class="social-item-img" src="/images/wechatopen.jpg">
-      </div>
-  </div>
-</div>
-
-          <div class="post-tags">
-              <a href="/tags/Google-analytics/" rel="tag"># Google analytics</a>
-              <a href="/tags/Tag-manager/" rel="tag"># Tag manager</a>
-              <a href="/tags/%E6%BB%9A%E5%B1%8F%E7%9B%91%E6%B5%8B/" rel="tag"># 滚屏监测</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2013/03/23/dimensions-and-metrics/" rel="prev" title="网站分析的基础知识（二）基本维度和指标">
-                  <i class="fa fa-chevron-left"></i> 网站分析的基础知识（二）基本维度和指标
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2013/03/26/key-metrics/" rel="next" title="网站分析的基础知识（三）关键指标的好与坏">
-                  网站分析的基础知识（三）关键指标的好与坏 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-
-    <div class="comments" id="SOHUCS" sid="03bd40055904b59e92e63bda308b2819"></div>
 </div>
   </main>
 
@@ -400,30 +195,15 @@ elements: ['#comment']
 
 <div class="copyright">
   &copy; 2013 – 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Jackielzq</span>
 </div>
-<div class="wordcount">
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-line"></i>
-    </span>
-      <span>站点总字数：</span>
-    <span title="站点总字数">193k</span>
-  </span>
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-      <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">11:42</span>
-  </span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
+
+
+
 
     </div>
   </footer>
@@ -453,8 +233,6 @@ elements: ['#comment']
 
 
 
-<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyxdeHueb","appkey":"prod_3ac1ad0e503f8ef8ec5fad05e5ad0cf3","count":true}</script>
-<script src="/js/third-party/comments/changyan.js"></script>
 
 </body>
 </html>

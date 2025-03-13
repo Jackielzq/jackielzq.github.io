@@ -38,6 +38,9 @@
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Jackie的博客</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N5BSEFBBS5"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-N5BSEFBBS5","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
 
 
 
@@ -123,18 +126,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-count">190</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">246</span>
+        <span class="site-state-item-count">248</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -183,7 +186,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2016/03/06/kick-balls-around-with-china-unicom/">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/03/21/wordpress-permlink/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -201,7 +204,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/03/06/kick-balls-around-with-china-unicom/" class="post-title-link" itemprop="url">一次和联通的足球赛</a>
+          <a href="/2013/03/21/wordpress-permlink/" class="post-title-link" itemprop="url">Wordpress修改固定链接</a>
         </h2>
 
         <div class="post-meta-container">
@@ -212,14 +215,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2016-03-06 16:20:42" itemprop="dateCreated datePublished" datetime="2016-03-06T16:20:42+08:00">2016-03-06</time>
+      <time title="创建时间：2013-03-21 02:12:10" itemprop="dateCreated datePublished" datetime="2013-03-21T02:12:10+08:00">2013-03-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 17:05:59" itemprop="dateModified" datetime="2016-09-21T17:05:59+08:00">2016-09-21</time>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -232,35 +235,6 @@
     </span>
 
   
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    <a title="一次和联通的足球赛" href="/2016/03/06/kick-balls-around-with-china-unicom/#SOHUCS" itemprop="discussionUrl">
-      <span id="sourceId::a2165f9f480d7b7cc20048b2a79f189f" class="cy_cmt_count" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.5k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
-    </span>
 </div>
 
         </div>
@@ -270,15 +244,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>故事前提：两年前，被联通客服忽悠办了个两年的套餐，现已到期，而人在上海，于是乎重新办了一个上海的号码。便咨询了一下如何注销掉北京这个号码</p>
-<p>1、“请问下，在上海可以注销北京的号码吗？”</p>
-<p>上海客服：“先生您好，据我所知这个是不行的，不同的地方有不同的规矩，建议您去线下服务厅咨询一下”。</p>
+          <p>相信很多朋友在采用了新版的wordpress或者更换空间的时候都遇到了这样的问题，当重新设置固定链接时，除了首页，其他页面全部链接无效。伪静态的链接对搜索引擎比较友好，所以在一开始的时候设定好固定的规则，以后会方便许多。我根据几次遇到的情况，整理了一下解决方案，具体如下：</p>
+<p><strong>前提：主机支持Mod_rewrite模块</strong>（不支持的话就不用尝试了<strong>）</strong></p>
+<p><strong>Linux主机</strong>：</p>
+<p>找到网站跟目录下的**.htaccess**文件（它就叫.htaccess，没有其他前缀），如果没看见，有可能是两个原因：</p>
+<p>1、被隐藏了，如果网站后台是cpanel等控制面板的话，勾选一下“显示隐藏的文件”。</p>
+<p>2、本来就没有该文件，自行创建一个，然后上传到根目录下。</p>
           <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/03/06/kick-balls-around-with-china-unicom/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
+
           <!--/noindex-->
         
       
@@ -306,7 +279,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2016/01/06/my-summary-of-2015/">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/03/21/315/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -324,7 +297,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/01/06/my-summary-of-2015/" class="post-title-link" itemprop="url">迟到的2015总结</a>
+          <a href="/2013/03/21/315/" class="post-title-link" itemprop="url">商业化的“3.15”？</a>
         </h2>
 
         <div class="post-meta-container">
@@ -335,14 +308,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2016-01-06 00:50:09" itemprop="dateCreated datePublished" datetime="2016-01-06T00:50:09+08:00">2016-01-06</time>
+      <time title="创建时间：2013-03-21 01:35:46" itemprop="dateCreated datePublished" datetime="2013-03-21T01:35:46+08:00">2013-03-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 17:06:26" itemprop="dateModified" datetime="2016-09-21T17:06:26+08:00">2016-09-21</time>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -350,40 +323,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BA%AA%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">纪录</span></a>
+          <a href="/categories/%E8%A7%82%E7%82%B9/" itemprop="url" rel="index"><span itemprop="name">观点</span></a>
         </span>
     </span>
 
   
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    <a title="迟到的2015总结" href="/2016/01/06/my-summary-of-2015/#SOHUCS" itemprop="discussionUrl">
-      <span id="sourceId::785c3a7670e05918d28abd276b8050a7" class="cy_cmt_count" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.7k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
-    </span>
 </div>
 
         </div>
@@ -393,14 +337,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>真是觉得随着年龄的增长，每一年的时间越来越短。似乎自己什么也没干，日期的年份就翻了个篇。虽然我一直比较懒，懒得写东西(一直不愿意承认肚子里没墨水)，每年一次对自己的总结，就是自己对自己下的一个承诺，不能食言。</p>
-<p>拿出自己2014的总结列出的to-do-list:</p>
+          <p>几天前是一年一度的3.15晚会，给我的感觉就是起了个纪录片的名，拍了一部商业片。在这个公信力饱受质疑的阶段，央视还冒着天下之大不韪，睁着眼睛说瞎话，这着实让大家为他们的导演治伤捉疾。</p>
+<p>先 说说事情最大的苹果吧，看过晚会视频的都可以明显看出来，记者在中国是去的各种看装修就感觉很山寨的授权店，而在对比国外的服务时却又都是去苹果官方旗舰 店，我很好奇这对比性在那里。至于郑渊洁、留几手、何润东的微博我在这里就不谈了，看看他们微博是从什么客户端发出来的就知道了。如果有一种东西，就算他 服务再差，缺点很多，但你仍然选择它，那他就是个好的产品，因为它的优点光芒太过耀眼了。</p>
+<p>接下来是大众、周大生、运营商广告、假医疗广告、 cookie窃取隐私等等，我第一反应就是，中国的经济发展果然快，维权都维到“上流社会”去了，又是苹果手机又是车又是黄金的。贫富差距这么大的今天， 消费得起这些的小众人群，似乎竟然成了主流。而关乎所有人生命安全的水、空气、食物却没有只言片语，让人心寒。想想北京上空的雾霾，上海的死猪，都为他们 不值，干了这么大一票，连个电视都上不了。或许他们认为，这不是消费者维权的事吧……</p>
           <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2016/01/06/my-summary-of-2015/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
+
           <!--/noindex-->
         
       
@@ -428,7 +369,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2015/12/17/my-nicknames-these-years/">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/03/21/digital-ads-down-up/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -446,7 +387,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2015/12/17/my-nicknames-these-years/" class="post-title-link" itemprop="url">细数一下多年来我的外号</a>
+          <a href="/2013/03/21/digital-ads-down-up/" class="post-title-link" itemprop="url">互联网广告的“衰”与“兴”</a>
         </h2>
 
         <div class="post-meta-container">
@@ -457,14 +398,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2015-12-17 00:35:16" itemprop="dateCreated datePublished" datetime="2015-12-17T00:35:16+08:00">2015-12-17</time>
+      <time title="创建时间：2013-03-21 01:32:55" itemprop="dateCreated datePublished" datetime="2013-03-21T01:32:55+08:00">2013-03-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 17:06:43" itemprop="dateModified" datetime="2016-09-21T17:06:43+08:00">2016-09-21</time>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -472,40 +413,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BA%AA%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">纪录</span></a>
+          <a href="/categories/%E8%A7%82%E7%82%B9/" itemprop="url" rel="index"><span itemprop="name">观点</span></a>
         </span>
     </span>
 
   
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    <a title="细数一下多年来我的外号" href="/2015/12/17/my-nicknames-these-years/#SOHUCS" itemprop="discussionUrl">
-      <span id="sourceId::63fc45ec0a1ea9ce880a529a6ba29407" class="cy_cmt_count" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
-    </span>
 </div>
 
         </div>
@@ -515,14 +427,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>由于同时和多个位置多个阶段的朋友保持沟通，经常要在不同的称呼之间切换，一时间反应过来，自己竟然有这么多外号。每一个都有特殊的来历，每一个都代表着一段成长的历程，细细想来还挺有意思。</p>
-<p>老拇(同音)哥：mu(第三声)在我老家方言中类似是“挫、逊”的意思，因为小时候太胖，走路一晃一晃摔倒了自己不会爬起来，还老爱哭，因此同村同组的人都喜欢这么称呼，天真的我开始还答应的很开心，不知道是什么意思。</p>
+          <p>今天在知乎上看到有人问这样的问题：“现在的互联网广告有用吗？是在浪费钱吗？”。在这之前我也有想过这个问题，据我所看到的数据来说，从有互联网广告开始到现在，效果可以说是在逐渐下降的，但是最近这两年却又有回暖之势。</p>
+<p>为 什么这么说呢？我们从杨致远创立的雅虎开始讲，虽然雅虎目前除了雅虎日本，其他国家或都已经在没落了，但却丝毫不能否认他在互联网历史中举足轻重的作用： 创立了门户网站的模式，内容免费，利用广告获得收入，同时也最先推出了搜索引擎。那个时候真可谓是风生水起，广告的效果也因为互联网的兴起而得到了很好的 效果，展示广告普遍都有1%的点击率。然而回到现在，普通的展示广告大部分都只有0.1%的水平（当然，部分位置醒目尺寸大的除外）。因为现在的网站太多 了，各类门户网站也太多了，广告也是眼花缭乱，让人下意识地对广告产生了抵触情绪，对于熟悉的网站甚至能够做到非常熟练的避开各种各样的广告，所以这两年 不免让少数广告人喊出“互联网广告已死”这种口号。</p>
           <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2015/12/17/my-nicknames-these-years/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
+
           <!--/noindex-->
         
       
@@ -550,7 +458,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2015/10/14/riding-to-work/">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/03/21/good-bye-msn/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -568,7 +476,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2015/10/14/riding-to-work/" class="post-title-link" itemprop="url">骑车上班</a>
+          <a href="/2013/03/21/good-bye-msn/" class="post-title-link" itemprop="url">QQ:再见MSN</a>
         </h2>
 
         <div class="post-meta-container">
@@ -579,14 +487,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2015-10-14 04:47:00" itemprop="dateCreated datePublished" datetime="2015-10-14T04:47:00+08:00">2015-10-14</time>
+      <time title="创建时间：2013-03-21 01:29:33" itemprop="dateCreated datePublished" datetime="2013-03-21T01:29:33+08:00">2013-03-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 17:07:15" itemprop="dateModified" datetime="2016-09-21T17:07:15+08:00">2016-09-21</time>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -594,40 +502,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BA%AA%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">纪录</span></a>
+          <a href="/categories/%E8%A7%82%E7%82%B9/" itemprop="url" rel="index"><span itemprop="name">观点</span></a>
         </span>
     </span>
 
   
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    <a title="骑车上班" href="/2015/10/14/riding-to-work/#SOHUCS" itemprop="discussionUrl">
-      <span id="sourceId::0de40d444022753a2500d08236aae76b" class="cy_cmt_count" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
-    </span>
 </div>
 
         </div>
@@ -637,13 +516,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>最近上班的心情比之前要好很多，不管是工作的本身以及上下班途中。早晨早起吃完早点，骑着单车慢慢悠悠20分钟到公司，道路两旁都是高大而安静的法国梧桐，即使处于盛夏，穿梭在斑驳的树影中间也完全感觉不到夏日的炎热；上班时间大家各司其职，一起努力把一个事情做好；晚上回家如果时间还早，自己做两个小菜，配上一听雪碧，同时搬出电脑看个视频；周末约几个好友吃个饭扯扯淡，或唱歌或是体育活动，剩下的时间学点新东西练练吉他……甚好。</p>
+          <p>要不是最近换了工作的原因，我觉得我根本没有可能去用MSN，这部微软的老爷车99年开始发布到现在已经有10几个年头了，这么多年一直没有什么进 步却还能一直活着，这的确是一个奇迹。12年底，微软证实2013年第一季度Skype将替代Windows Live Messenger，而Windows Live Messenger将停止服务，除了中国内地市场。我只想说，为什么不把中国内地也关掉？</p>
+<p>一 开始对MSN的印象就是：“高端、大气”，早些年，MSN貌似成了白领的代名词，电视里穿着光鲜亮丽的俊男靓女，工作中都是用它来交流。确实，在那个年 代，即时通讯服务极大了方便了人们的沟通。而怀揣50W购房款的马化腾，当时毅然决然得投入到OICQ的建设中去，加入了这个领域的竞争。但是这么多年过 来，二者无论从产品性能或者是用户比例来看，似乎都是腾讯以压倒性的优势完胜。这么多年用过QQ的都知道，它一直在完善，功能也越来越强大，界面越来越友 好，即使你再不喜欢腾讯或者马化腾这个人，你也不得不承认，QQ真的是IM届最好的产品。</p>
           <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2015/10/14/riding-to-work/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
+
           <!--/noindex-->
         
       
@@ -671,7 +547,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2015/06/20/modify-the-homepage/">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/03/21/mobile-own-app/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -689,7 +565,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2015/06/20/modify-the-homepage/" class="post-title-link" itemprop="url">修改了下网站首页</a>
+          <a href="/2013/03/21/mobile-own-app/" class="post-title-link" itemprop="url">移动时代的站长-你有自己的专属APP吗？</a>
         </h2>
 
         <div class="post-meta-container">
@@ -700,14 +576,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2015-06-20 16:45:15" itemprop="dateCreated datePublished" datetime="2015-06-20T16:45:15+08:00">2015-06-20</time>
+      <time title="创建时间：2013-03-21 01:26:30" itemprop="dateCreated datePublished" datetime="2013-03-21T01:26:30+08:00">2013-03-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 17:07:46" itemprop="dateModified" datetime="2016-09-21T17:07:46+08:00">2016-09-21</time>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -715,40 +591,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BA%AA%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">纪录</span></a>
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
         </span>
     </span>
 
   
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    <a title="修改了下网站首页" href="/2015/06/20/modify-the-homepage/#SOHUCS" itemprop="discussionUrl">
-      <span id="sourceId::3bd9590c3c5f877f4a57090a731025fa" class="cy_cmt_count" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>464</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
 </div>
 
         </div>
@@ -758,16 +605,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>一直想对网站的首页做一下改动，以目前wordpress支持的设置以及主题来看，主要有两种显示方式：</p>
-<p>1、显示前X文档标题及所有文字</p>
-<p>2、显示前X文章标题及摘要</p>
-<p>3、显示特定频道频道内容或指定页面</p>
+          <p>PC时代的兴盛带动了一大批个人草根站长的崛起，到现在移动互联网迅猛发展的形势下，“与时俱进”势不可挡。经过这么多年的发展，现在很容易就可以自建一个个人网站，这得归功于无私奉献的Wordpress等平台。而在移动端，快速制作一个属于自己的APP对于非开发者的站长来说，平台也显得格外重要。最近从一些文章得知，目前国内外已经有部分移动端APP生成器了，不管是自身需要还是好奇心驱使，相信许多人已经跃跃欲试了。下面我简单总结了几个工具供大家参考：</p>
+<p><strong>1，<a target="_blank" rel="noopener" href="http://uppsite.com/">UPPsite</a></strong></p>
+<p>UppSite这款应用的功能是将让网络Web网站变成本地移动应用，以便手机也能浏览该网站。你只需要输入URL地址然后进行应用的个性化设置，UppSite就能根据你的设置生成相应的移动应用。目前支持iOS和Android设备，未来还将支持Windows Phone设备。目前也同时在研发Wordpress VIP项目，相信在不久以后便能与wordpress漂亮地衔接。不过目前Uppsite应用支持的网站程序不多，只支持WordPress，Blogger网站，并在不久就会支持Tumblr网站。（这家是以色列的公司，虽然他们国家不是很稳定，但是相比于和谐的我们，这个产品的设计和制作也足够让我们国内的开发者敲响警钟了）</p>
           <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2015/06/20/modify-the-homepage/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
+
           <!--/noindex-->
         
       
@@ -795,7 +637,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2015/06/16/jurassic-world/">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/03/21/what-we-know-supposed-to-be-wrong/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -813,7 +655,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2015/06/16/jurassic-world/" class="post-title-link" itemprop="url">侏罗纪世界</a>
+          <a href="/2013/03/21/what-we-know-supposed-to-be-wrong/" class="post-title-link" itemprop="url">我们所知道的不一定是对的</a>
         </h2>
 
         <div class="post-meta-container">
@@ -824,14 +666,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2015-06-16 09:27:06" itemprop="dateCreated datePublished" datetime="2015-06-16T09:27:06+08:00">2015-06-16</time>
+      <time title="创建时间：2013-03-21 01:20:50" itemprop="dateCreated datePublished" datetime="2013-03-21T01:20:50+08:00">2013-03-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 17:08:06" itemprop="dateModified" datetime="2016-09-21T17:08:06+08:00">2016-09-21</time>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -844,35 +686,6 @@
     </span>
 
   
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    <a title="侏罗纪世界" href="/2015/06/16/jurassic-world/#SOHUCS" itemprop="discussionUrl">
-      <span id="sourceId::c89bc41e2886794b0147913a05f04bf1" class="cy_cmt_count" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>880</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
 </div>
 
         </div>
@@ -882,13 +695,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>虽说个人很喜欢科幻题材的大片，但是前天看了这部《侏罗纪世界》以后还是忍不住要吐槽，如果说要打分的话，10分我只能给两分，一分给演员，一分给特效。也许是受了《冰与火之歌》的影响，现在不管是看电视剧还是电影，都非常地挑剔，有些常识性的错误或者剧情上的bug会让我很不能忍受，例如《疑犯追踪》，我硬是没能坚持看完第一季，因为作为一个剧情导向的连续剧，把其他人当傻子实在是让人难以接受。</p>
+          <p>前段时间有看过关于腾讯张小龙谈产品的内容受益良多，对他最后那一句“我所说的都是错的”印象颇深。最近微博上看了一些消息，自己又听到感觉到一些 东西，觉得这句话虽然有些绝对，但是还是很有认同感。所以我说，我们所知道的不一定是对的。毕竟“不对”和“错”还是有一定区别的。</p>
+<p>我们通常只是在用自己的思维、自己的眼界来思考事情，或者干脆不假思索一味地接受来自外界传播而来的东西。但是实际上也许这些东西对我们来说，确实 是正确的，但是对于其他人来说，也许我们所认为的真理、事实，在他们眼里完全是谬论。所以为什么说读万卷书不如行万里路呢，因为行万里路你能接触到交流道 各个阶层的人，可以清楚的知道各种人之间的区别。</p>
+<p>也许你在这里大谈特谈微博微信营销，但是中国13亿人，有一半以上可能都不知道微博微信是什么。你们在这里讨论哪款手机什么配置、哪款APP可以约 炮怎么炒作怎么火，但是他们却只关心手机信号好不好，话费偏不便宜，wap快不快，有没有好的小游戏可以玩，待机时间长不长，有没有自带《月亮之上》铃 声……回到产品方面，我觉得目前做产品的确实应该跳出自己局限的思维圈，跟各个收入阶层的人都多了解一下“需求”，特别是针对于每一个产品的TA。</p>
           <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2015/06/16/jurassic-world/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
+
           <!--/noindex-->
         
       
@@ -916,7 +727,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2015/06/16/dont-ask-stupid-questions/">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/03/21/advertiser-data-reality/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -934,7 +745,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2015/06/16/dont-ask-stupid-questions/" class="post-title-link" itemprop="url">不要问蠢问题</a>
+          <a href="/2013/03/21/advertiser-data-reality/" class="post-title-link" itemprop="url">广告主与媒体的博弈–广告数据的真实性</a>
         </h2>
 
         <div class="post-meta-container">
@@ -945,14 +756,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2015-06-16 00:35:27" itemprop="dateCreated datePublished" datetime="2015-06-16T00:35:27+08:00">2015-06-16</time>
+      <time title="创建时间：2013-03-21 01:19:04" itemprop="dateCreated datePublished" datetime="2013-03-21T01:19:04+08:00">2013-03-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 17:08:24" itemprop="dateModified" datetime="2016-09-21T17:08:24+08:00">2016-09-21</time>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -960,40 +771,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BA%AA%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">纪录</span></a>
+          <a href="/categories/%E8%A7%82%E7%82%B9/" itemprop="url" rel="index"><span itemprop="name">观点</span></a>
         </span>
     </span>
 
   
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    <a title="不要问蠢问题" href="/2015/06/16/dont-ask-stupid-questions/#SOHUCS" itemprop="discussionUrl">
-      <span id="sourceId::a07c2625cd11fdce84b65c98e742d0cb" class="cy_cmt_count" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>754</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
 </div>
 
         </div>
@@ -1003,14 +785,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>为什么突然提到这个问题，与最近的几件事情有关，几件事情没有直接或者间接的联系，但是于我来说，还是深有体会：问问题，是很有讲究的。</p>
-<p>1、跟妹子说“我可以追你吗？”，被无情拒绝。首先，追不追是你自己的事情，不需要问别人，答不答应才是对方需要考虑的事情；其次，人家跟你都没多少沟通基础，上来这么直接，要么你魅力超大，人见人见(显然我不是)，要么你们两个人已经有比较深的感情基础(也没有)，我就等于是在她面前喊了个口号，愚蠢之极。不过，人是感情动物，什么时候都讲理智，生活就没意思了。</p>
+          <p>相信这是许多广告主和代理商一直以来非常头痛的问题：我花了这么多钱投广告，到底达到了什么样的效果？数据是真实可信的吗？有多少被浪费掉？如果有 水分，那么水分大概占到多少？媒体是用什么手段作弊？怎么通过技术手段滤掉这一部分数据？我觉得，这是一场永远不会结束的博弈，不会有永远的赢家（当然， 除非政府出台强硬措施，不过就目前来看还尚早）。</p>
+<p>先来说一下互联网广告的数据监测原理吧，创意公司制作好素材发给媒体，由媒体投放时添加相应的监测代码，这种代码通常是非常简单的形式：展示代码 （也叫曝光代码），通常是一个普通的1×1像素的图片请求，这个请求发向监测服务器，表示这个时候广告被展示了一次；点击代码通常是一个带301重定向的 链接，打个比方来说，张三要去李四家，但是他爸不放心，不知道他到底去没去或者去了几次，就让他每次先到李四的邻居王五家打个招呼，最后再去李四家，着同 样以来张三爸爸最后通过王五就知道张三到底去了几次了。同理，这个链接先通过了监测的服务器计数，然后再跳转到指定的页面。最后由我们看到的数就是经过服 务器整理后的数据–曝光和点击。</p>
           <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2015/06/16/dont-ask-stupid-questions/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
+
           <!--/noindex-->
         
       
@@ -1038,7 +816,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2015/06/13/immortal-van-gogh/">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/03/21/voice-of-china/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1056,7 +834,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2015/06/13/immortal-van-gogh/" class="post-title-link" itemprop="url">不朽的梵高</a>
+          <a href="/2013/03/21/voice-of-china/" class="post-title-link" itemprop="url">我看《中国好声音》</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1067,14 +845,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2015-06-13 17:28:20" itemprop="dateCreated datePublished" datetime="2015-06-13T17:28:20+08:00">2015-06-13</time>
+      <time title="创建时间：2013-03-21 01:17:11" itemprop="dateCreated datePublished" datetime="2013-03-21T01:17:11+08:00">2013-03-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 17:09:48" itemprop="dateModified" datetime="2016-09-21T17:09:48+08:00">2016-09-21</time>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1082,40 +860,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BA%AA%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">纪录</span></a>
+          <a href="/categories/%E8%A7%82%E7%82%B9/" itemprop="url" rel="index"><span itemprop="name">观点</span></a>
         </span>
     </span>
 
   
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    <a title="不朽的梵高" href="/2015/06/13/immortal-van-gogh/#SOHUCS" itemprop="discussionUrl">
-      <span id="sourceId::474ca237adbc25ebdff8049aab18f30f" class="cy_cmt_count" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>593</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
 </div>
 
         </div>
@@ -1125,13 +874,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>最近因朋友关系得到了一张《不朽的梵高》展览票，刚开始知道是一个艺术相关的展览的时候，其实我是……是拒绝的，因为我完全不懂艺术。然后朋友跟我讲，视觉效果很棒，duangduang的，而且与我住处距离很近，于是便欣然接受了(但我是一个人，为毛给我两张票)。今天午后得闲，骑着单车直杀目的地，结果感受的是这个世界深深的恶意。</p>
+          <p>今年最火的电视节目莫过于浙江卫视的《中国好声音》了，制造了无数个话题，同时也赚得盆满钵满，堪称今年来中国电视业的“神话”了，收视率一度达到 4。虽然这种形式不是中国的原创，但是要运作起来也确实不容易。与此同时制作方也在原版的基础上做了一些有“中国特色”的改变，获得了相当程度上的成功。 可以看出中国的节目制作团队还是人才辈出的，而成功的产品除了好的创意以外，执行的团队也是至关重要的。</p>
+<p>对于电视行业的各种规则我不是很清楚，但从局外人的角度来讲，这个节目到底是个什么样子呢？它与其他节目之间的差异在哪？为什么它能爆发式的成功而别的类似选秀节目却依然在胡同里赶猪–直来直去，一直没法冲出街巷，走向大道呢？我们发散思维地来看一看吧。</p>
           <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2015/06/13/immortal-van-gogh/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
+
           <!--/noindex-->
         
       
@@ -1159,7 +905,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2015/06/09/childish/">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/03/21/do-not-track/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1177,7 +923,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2015/06/09/childish/" class="post-title-link" itemprop="url">幼稚</a>
+          <a href="/2013/03/21/do-not-track/" class="post-title-link" itemprop="url">Do Not Track–精准广告的“威胁”</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1188,14 +934,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2015-06-09 01:58:56" itemprop="dateCreated datePublished" datetime="2015-06-09T01:58:56+08:00">2015-06-09</time>
+      <time title="创建时间：2013-03-21 01:13:58" itemprop="dateCreated datePublished" datetime="2013-03-21T01:13:58+08:00">2013-03-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 17:10:00" itemprop="dateModified" datetime="2016-09-21T17:10:00+08:00">2016-09-21</time>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1203,40 +949,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BA%AA%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">纪录</span></a>
+          <a href="/categories/%E8%A7%82%E7%82%B9/" itemprop="url" rel="index"><span itemprop="name">观点</span></a>
         </span>
     </span>
 
   
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    <a title="幼稚" href="/2015/06/09/childish/#SOHUCS" itemprop="discussionUrl">
-      <span id="sourceId::e85c83173f304b0a8005bebb25a89b1c" class="cy_cmt_count" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>537</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
 </div>
 
         </div>
@@ -1246,13 +963,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>今天做了一件很幼稚的事情，在某些时候，平时的理智总会被莫名其妙地丢到一边。教训是惨痛的，结局是悲伤的。仔细分享一下过程，从一个旁观者的角度来看，觉得自己好像也不像是什么好人。有意思的是，这种机会只有一次，没有把握住以后就再不会有第二次了。</p>
+          <p>Do Not Track，简称”DNT”,能够防止第三方网站跟踪用户活动，是万维网联盟W3C提出的最新解决网络隐私问题的草案之一。根据该草案，用户在使用支持该 功能的浏览器上网时，可以借此发送数字信号，告知企业停止搜集有关他们的在线活动信息，从而保护个人隐私。接受“禁止追踪”协议的网站不可以追踪用户活 动，就像电话推销员不可以向登记过“禁止推销”的人推销一样。微软首当其冲地执行了这一协议，在IE10中默认启用这个设置，想象依靠cookie做精准 广告投放的机构或代理商会遇到什么样的挑战–这显然是砸他们的饭碗了。所以这个消息一出来得到了美国广告界的强烈抗议，好不容易要进入工业革命了突然又要 你回到石器时代，这是怎么样的一种心情。</p>
+<p>微软此举相信主要是为了得到更多用户的支持，对抗强大的对手google。光有IE浏览器这么多的用户但是互联网的广告费大部分都给google挣 去了，自己只能眼巴巴得看着，还要给你继续做嫁衣，而现在你自己给自己做了个叫Chrome的衣服，我连衣服都快没的做了，当然会不爽。但是他这么做确实 有个正当的理由，“保护用户隐私”。那么这么做到底对用户来说有真正的区别吗？我好奇地点开了有关文章看了看用户的评论，发现大部分都没有理解这个“跟 踪”的定义，其中还有大部分是互联网从业人士，这让我比较意外。他们所骂的都是“现在网站广告好恶心”，“弹窗弹的好烦，关也关不掉”，“广告去死！”， “最烦贴片广告了，又臭又长”等等说的都是对某些形式广告的深恶痛绝，但这些和cookie基本没有半毛钱关系。毕竟用户习惯的养成是需要时间的，我们总 是习惯电视里插入又臭又长的广告（因为你不看也得看，再不想看也能听见），但是对于互联网来说，我可以选择我看的东西，怎么可以有广告？我想说的是，就算 不跟踪，你也一样得看广告，但是你看的内容就和你期待的会不一样了。</p>
           <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2015/06/09/childish/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
+
           <!--/noindex-->
         
       
@@ -1280,7 +994,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2015/06/07/gaokao/">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/03/21/new-start/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1298,7 +1012,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2015/06/07/gaokao/" class="post-title-link" itemprop="url">关于高考</a>
+          <a href="/2013/03/21/new-start/" class="post-title-link" itemprop="url">新的开始</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1309,14 +1023,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2015-06-07 21:44:27" itemprop="dateCreated datePublished" datetime="2015-06-07T21:44:27+08:00">2015-06-07</time>
+      <time title="创建时间：2013-03-21 00:58:14" itemprop="dateCreated datePublished" datetime="2013-03-21T00:58:14+08:00">2013-03-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 17:10:18" itemprop="dateModified" datetime="2016-09-21T17:10:18+08:00">2016-09-21</time>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1329,35 +1043,6 @@
     </span>
 
   
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    <a title="关于高考" href="/2015/06/07/gaokao/#SOHUCS" itemprop="discussionUrl">
-      <span id="sourceId::98c653ce28e038fe691295124b0fa7b8" class="cy_cmt_count" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
-    </span>
 </div>
 
         </div>
@@ -1367,13 +1052,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>今天是6月7日，举国上下关心的大日子——高考，媒体、朋友圈中充斥着关于高考的讨论。相信每一个过来人提到这个话题都会有不同的想法。就拿我自己来说，大一的时候还在后悔，发挥失常，没能去到自己更中意的好学校；大二的时候觉得，这个学校美女这么多，牡丹花下挂，重修也风流；大三时候对高考已经无感，该玩玩，该翘课的翘课；终于混到大四，回顾四年，发现自己竟一无所长，如果能够再来一次，大学四年一定好好利用，不虚度光阴；毕业前两年，活多钱少压力大，终于体会到种因得果，脑子进了多少水，这个时候确实得换成汗水留出来；时至如今，经过几年的历练，已摆脱当年的稚气，深觉过去已逝，后悔、懊恼、成就、都已无关，现在的每一秒都是最珍贵的青春。如果要留一句话给当年高考后的自己，我觉得会是“珍惜光阴，把握现在”。</p>
+          <p><a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2013/03/460334_1021700550.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/03/460334_1021700550-300x200.jpg" alt="新的开始"></a>         有过之前建站的经验，这次的这个网站就比较迅速。和之前不同的是：域名换了，在狗爹（又称Godaddy）上淘到了一个比较中意的域名。Jackie.ms 蒙特塞拉特的域名，这个相信很少人听说过吧。jackie是我的英文名，其他后缀的域名在很早之前就给人抢干净了，这次算是运气好捡了个漏吧。还有一个比较有意思的是初中的时候被冠上了一个外号“ms”，我看到这个域名的时候第一反应是”咦，这域名不是故意留给我的吗”。算是“域名本天成，妙手偶得之”吧。</p>
+<p>域名搞定了接下来是空间了，之前那个网站用的国外的freehosting，怎么说呢，通常情况下很慢，有时候速度不错，一宕机的话就不知道什么时候能好了，毕竟用的是别人免费提供的东西，别人是大爷啊。所以在这种情况下也让我对网站本身不是特别的重视。这次下了血本了，域名、空间一起买了。建站的朋友一般都比较熟悉，国内的网站最好是用国内的主机，但是最恶心的一点是要备案，流程复杂，办下来要挺久。个人觉得完全没有必要了，不知道有谁统计过，中国人建的网站备案和未备案的各有多少。如果有的话，我相信未备案的数字也一定大的惊人。国外或和香港的主机是不需要备案的，所以许多个人站长都会选择这些主机。总的来说各有优劣吧，国外的线路比较稳定，但是速度较慢；香港主机的话就刚好相反。我这次买的主机还不错，主要是对面人还不错，给大家推荐一下，这家主机商叫“<a target="_blank" rel="noopener" href="http://www.hengmang.com/">“恒芒互联</a>”，24小时客服，客服很热情而且专业，会让你省去许多烦恼。选择他这一家中间还有一个小插曲：因为我个人比较反感含有“百度推广”这几个字的链接，不管是好是坏都不点，当我搜“香港主机”时，这一家排在了所有推广位置下面的第一个。当时的感觉是：这家网站SEO做的不错。肯定也不会是骗子，事实证明我的选择是对的（这一点可能男同胞们比较像，买一样东西觉得还行就会买，如果好的话以后都会继续用，而不会想着换来换去了）。</p>
           <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2015/06/07/gaokao/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
+
           <!--/noindex-->
         
       
@@ -1394,7 +1076,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/11/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span>
   </nav>
 
 </div>
@@ -1406,30 +1088,15 @@
 
 <div class="copyright">
   &copy; 2013 – 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Jackielzq</span>
 </div>
-<div class="wordcount">
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-line"></i>
-    </span>
-      <span>站点总字数：</span>
-    <span title="站点总字数">193k</span>
-  </span>
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-      <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">11:42</span>
-  </span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
+
+
+
 
     </div>
   </footer>
@@ -1459,8 +1126,6 @@
 
 
 
-<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyxdeHueb","appkey":"prod_3ac1ad0e503f8ef8ec5fad05e5ad0cf3","count":true}</script>
-<script src="/js/third-party/comments/changyan.js"></script>
 
 </body>
 </html>

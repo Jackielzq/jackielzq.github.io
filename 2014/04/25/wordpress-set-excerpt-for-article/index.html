@@ -44,6 +44,9 @@
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Wordpress 设置文章摘要 | Jackie的博客</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N5BSEFBBS5"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-N5BSEFBBS5","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
 
 
 
@@ -130,18 +133,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-count">190</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">246</span>
+        <span class="site-state-item-count">248</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -182,186 +185,6 @@
 
     <div class="main-inner post posts-expand">
 
-
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/04/25/wordpress-set-excerpt-for-article/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jackielzq">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Wordpress 设置文章摘要 | Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Wordpress 设置文章摘要
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2014-04-25 16:41:22" itemprop="dateCreated datePublished" datetime="2014-04-25T16:41:22+08:00">2014-04-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    <a title="Wordpress 设置文章摘要" href="/2014/04/25/wordpress-set-excerpt-for-article/#SOHUCS" itemprop="discussionUrl">
-      <span id="sourceId::268255d695060d24691cf81921f88e61" class="cy_cmt_count" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>429</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <p>以前一直习惯于用<code>&amp;lt;!--more--&amp;gt;</code>标签加在文章相应的位置以显示在首页或者其他分类页面，这次换了个新主题以后顿时发现这个标签突然没用了，在首页上每页只显示每篇文章的第一行。翻遍各个php模板找地方改代码，结果发现还是无济于事，作为强迫症自身患者，不能忍。</p>
-<h5 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h5><ol>
-<li> 打开Wordpress后台，进入**<code>写文章</code><strong>或者</strong><code>新建页面</code>**板块</li>
-<li> 点击顶部的**<code>显示选项</code>**选项卡</li>
-<li> 将**<code>摘要</code>**选项勾上，如下图</li>
-</ol>
-<p>这样，在你发布框的下方就会出现**<code>摘要</code><strong>这个板块了，将你需要显示的主要内容填入这个框内，内容请回忆初中时期的语文，</strong><code>概括段落大意</code>**。当然你可以填任何值，像我一样偷懒，只截取前几行。但是为了SEO考虑，尽量在把事情说明白的前提下突出重点。</p>
-<h4 id="原理回顾："><a href="#原理回顾：" class="headerlink" title="原理回顾："></a>原理回顾：</h4><p>知道了解决方案以后还得了解下<code>为什么</code>：</p>
-<p>在Wordpress官网里找到了关于这方面的说明文章，截取如下部分：</p>
-<blockquote>
-<p>这三者之间的关系是这样的：当文章没有（手动）摘要时，而且当前文章模板使用 <strong><code>the_excerpt()</code></strong> 的模板标签时，WordPress 将会自动截取文章的前 <strong><code>55</code></strong> 个单词作为自动摘要；而当文章模板使用 <strong><code>the_content()</code></strong> 的模板标签时，WordPress 则会在文章中搜索 <span id="more"></span> 标签，并将其之前的部分作为内容预告。</p>
-</blockquote>
-<p>回去看了一下自己的文章模板，果然是**<code>the_excerpt()</code>**方法,诚不我欺也！</p>
-
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-          <div class="reward-container">
-  <div>请我一杯咖啡吧！</div>
-  <button>
-    赞赏
-  </button>
-  <div class="post-reward">
-      <div>
-        <img src="/images/wechatpay.jpg" alt="Jackielzq 微信">
-        <span>微信</span>
-      </div>
-
-  </div>
-</div>
-
-          <div class="followme">
-  <span>欢迎关注我的其它发布渠道</span>
-
-  <div class="social-list">
-
-      <div class="social-item">
-          <span class="social-link">
-            <span class="icon">
-              <i class="fab fa-weixin"></i>
-            </span>
-
-            <span class="label">WeChat</span>
-          </span>
-
-          <img class="social-item-img" src="/images/wechatopen.jpg">
-      </div>
-  </div>
-</div>
-
-          <div class="post-tags">
-              <a href="/tags/wordpress/" rel="tag"># wordpress</a>
-              <a href="/tags/more/" rel="tag"># more</a>
-              <a href="/tags/%E6%91%98%E8%A6%81/" rel="tag"># 摘要</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2014/04/24/indent-setup/" rel="prev" title="Wordpress设置首行缩进">
-                  <i class="fa fa-chevron-left"></i> Wordpress设置首行缩进
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2014/04/26/wordpress-theme-translation-poedit/" rel="next" title="Wordpress 主题翻译—Poedit">
-                  Wordpress 主题翻译—Poedit <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-
-    <div class="comments" id="SOHUCS" sid="268255d695060d24691cf81921f88e61"></div>
 </div>
   </main>
 
@@ -371,30 +194,15 @@
 
 <div class="copyright">
   &copy; 2013 – 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Jackielzq</span>
 </div>
-<div class="wordcount">
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-line"></i>
-    </span>
-      <span>站点总字数：</span>
-    <span title="站点总字数">193k</span>
-  </span>
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-      <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">11:42</span>
-  </span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
+
+
+
 
     </div>
   </footer>
@@ -424,8 +232,6 @@
 
 
 
-<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyxdeHueb","appkey":"prod_3ac1ad0e503f8ef8ec5fad05e5ad0cf3","count":true}</script>
-<script src="/js/third-party/comments/changyan.js"></script>
 
 </body>
 </html>

@@ -47,6 +47,9 @@
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Universal Analytics监测细节的完善(五)——网站服务器是否正常 - 监控宝 | Jackie的博客</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N5BSEFBBS5"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-N5BSEFBBS5","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
 
 
 
@@ -132,18 +135,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-count">190</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">246</span>
+        <span class="site-state-item-count">248</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -184,183 +187,6 @@
 
     <div class="main-inner post posts-expand">
 
-
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/universal-analytics-server-track-jiankongbao/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jackielzq">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Universal Analytics监测细节的完善(五)——网站服务器是否正常 - 监控宝 | Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Universal Analytics监测细节的完善(五)——网站服务器是否正常 - 监控宝
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2014-06-08 22:40:53" itemprop="dateCreated datePublished" datetime="2014-06-08T22:40:53+08:00">2014-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Universal-Analytics/" itemprop="url" rel="index"><span itemprop="name">Universal Analytics</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    <a title="Universal Analytics监测细节的完善(五)——网站服务器是否正常 - 监控宝" href="/2014/06/08/universal-analytics-server-track-jiankongbao/#SOHUCS" itemprop="discussionUrl">
-      <span id="sourceId::5412be9af177a28908bac1370be8f150" class="cy_cmt_count" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>732</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <p>除了数据之外，你的网站服务器是否稳定也是一个非常重要的因素。作为个人站长来说，不可能每时每刻甚至说每天去查看自己的网站，那么我们就需要一些工具或者平台的辅助，定时地帮我们测试网站访问是否正常(而且我们还不想花钱),那么**<a target="_blank" rel="noopener" href="http://www.jiankongbao.com/">监控宝</a>**是你非常好的选择。</p>
-<blockquote>
-<p>监控宝是由北京云智慧科技所提供的一项非免费服务，可以<code>定时监控网站、服务和服务器器的可用率（Uptime）和响应时间(Response Time)</code>，一旦网站<code>无法连结</code>、<code>Apache等Web服务器负载过高</code>、<code>Mysql等数据库压力过</code>大、或是<code>服务器发生错误</code>，监控宝服务就会在<code>最短的时间内以Email或简讯来通知网站管理员</code>，让因网站停摆而造成的损失降到最低。监控宝同时支持基于线路和地区的监控告警设置，可以用来较好的应对中国复杂的网络状况和环境，帮助网站管理员更全面的了解和管理网站。</p>
-<p>除此之外，该服务也提供实用的「使用者访问速度追踪」功能，可以追踪<code>国内不同地区</code>的使用者进入你网站的速度。<br>对免费用户，监控宝提供5个监测需求，你只需输入你需要监测的请求或者链接，设置好相应的时间间隔，那么监控宝服务器则会按照设置的时间间隔无限地进行请求并返回结果，若某一次请求失败或者超时，则会立刻发送短信或者E-mail通知你，最大限度地减少服务器问题带来的影响和损失。</p>
-</blockquote>
-<p><img src="https://www.dropbox.com/s/sfmadp8yg3ziwaa/jiankongbao.png?dl=1"></p>
-<p>我使用的是免备案的香港服务器，相对于内地服务器来说部是那么地稳定。所以更加需要这类的服务，因为这家<a target="_blank" rel="noopener" href="http://www.hengmang.com/">供应商</a>及客服态度非常好，只要你收到监控宝的邮件说打不开，就可以去找他们聊天了。</p>
-<p>另外如果你或者你的企业有需要的话，可以购买监控宝的收费服务，反应更快，功能更强，其中一大亮点是可以通过授权同步GA中的数据，可以将访问、负载情况与流量数据进行结合，这个是非常有趣的事情，感兴趣的朋友可以试一试。对于企业来说，最贵的套餐也不过￥599/月，确实不贵。</p>
-<p>用了他家免费的功能好几年，一直没有给与经济上的支持，所以在这里相当于给他打一个广告把，虽然我的博客影响力及其有限，但是轻声细语也可以是感谢，对吧。</p>
-
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-          <div class="reward-container">
-  <div>请我一杯咖啡吧！</div>
-  <button>
-    赞赏
-  </button>
-  <div class="post-reward">
-      <div>
-        <img src="/images/wechatpay.jpg" alt="Jackielzq 微信">
-        <span>微信</span>
-      </div>
-
-  </div>
-</div>
-
-          <div class="followme">
-  <span>欢迎关注我的其它发布渠道</span>
-
-  <div class="social-list">
-
-      <div class="social-item">
-          <span class="social-link">
-            <span class="icon">
-              <i class="fab fa-weixin"></i>
-            </span>
-
-            <span class="label">WeChat</span>
-          </span>
-
-          <img class="social-item-img" src="/images/wechatopen.jpg">
-      </div>
-  </div>
-</div>
-
-          <div class="post-tags">
-              <a href="/tags/Universal-Analytics/" rel="tag"># Universal Analytics</a>
-              <a href="/tags/%E5%BC%82%E5%B8%B8/" rel="tag"># 异常</a>
-              <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag"># 服务器</a>
-              <a href="/tags/%E7%9B%91%E6%8E%A7%E5%AE%9D/" rel="tag"># 监控宝</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2014/06/08/universal-analytics-track-site-search/" rel="prev" title="Universal Analytics监测细节的完善(四)——监测站内搜索">
-                  <i class="fa fa-chevron-left"></i> Universal Analytics监测细节的完善(四)——监测站内搜索
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2014/06/08/universal-analytics-data-alert/" rel="next" title="Universal Analytics监测细节的完善(六)——数据警报">
-                  Universal Analytics监测细节的完善(六)——数据警报 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-
-    <div class="comments" id="SOHUCS" sid="5412be9af177a28908bac1370be8f150"></div>
 </div>
   </main>
 
@@ -370,30 +196,15 @@
 
 <div class="copyright">
   &copy; 2013 – 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Jackielzq</span>
 </div>
-<div class="wordcount">
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-line"></i>
-    </span>
-      <span>站点总字数：</span>
-    <span title="站点总字数">193k</span>
-  </span>
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-      <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">11:42</span>
-  </span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
+
+
+
 
     </div>
   </footer>
@@ -423,8 +234,6 @@
 
 
 
-<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyxdeHueb","appkey":"prod_3ac1ad0e503f8ef8ec5fad05e5ad0cf3","count":true}</script>
-<script src="/js/third-party/comments/changyan.js"></script>
 
 </body>
 </html>

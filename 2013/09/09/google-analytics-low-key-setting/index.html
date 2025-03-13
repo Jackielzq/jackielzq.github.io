@@ -49,6 +49,9 @@
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Google Analytics中低调而又实用的设置 | Jackie的博客</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N5BSEFBBS5"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-N5BSEFBBS5","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
 
 
 
@@ -134,18 +137,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-count">190</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">246</span>
+        <span class="site-state-item-count">248</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -186,189 +189,6 @@
 
     <div class="main-inner post posts-expand">
 
-
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/09/09/google-analytics-low-key-setting/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jackielzq">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Google Analytics中低调而又实用的设置 | Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Google Analytics中低调而又实用的设置
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2013-09-09 22:52:26" itemprop="dateCreated datePublished" datetime="2013-09-09T22:52:26+08:00">2013-09-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BD%91%E7%AB%99%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">网站分析</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    <a title="Google Analytics中低调而又实用的设置" href="/2013/09/09/google-analytics-low-key-setting/#SOHUCS" itemprop="discussionUrl">
-      <span id="sourceId::bf35cd2a50dd66c3457fcc3a44b8828b" class="cy_cmt_count" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <p>Google Analytics(以下简称GA)是目前最为主流的网站分析工具，这几年来网站分析被越来越看重，从而实用它的人也越来越多。但是就目前而言，有许多站长仍然只是停留在“统计”的阶段，类似于百度统计或者腾讯分析的功能（这里没有黑百度的意思，百度统计近年来越做越好，功能也比以前更加强大了；腾讯分析的话，界面比较漂亮，看着开心就好），真正能把这个工具用得比较好的还是少数。在遇到某些问题的时候(流量数据以外)不知道如何下手解决，甚至不知道是前端代码加的有问题还是后台设置的问题。这里介绍几个小的设置，如果你没有用过或者很少用，那么相信对你会有帮助。它们不是必须的，但是可以让你的界面看起来更干净，数据看起来更加直观。</p>
-<span id="more"></span>
-
-<p><a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2013/09/111.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/09/111.jpg" alt="ga-setting" title="GA设置"></a></p>
-<p>上图中是GA Profile - View Setting （中文版没怎么用过，请自行对应）的设置界面，看标题描述也知道，它的设定可以改变你看到的东西，但具体是什么呢，我们逐个来看。</p>
-<p>1、Default Page(默认首页)</p>
-<p>这是决定你网站显示在GA报表里的默认首页，为什么会有这个设置呢？因为在某些时候，你的首页不止一个URL，比如<a target="_blank" rel="noopener" href="http://www.abc.com/">www.abc.com/</a>, <a target="_blank" rel="noopener" href="http://www.abc.com/index.php......%E4%B8%80%E8%88%AC%E6%83%85%E5%86%B5%E4%B8%8B%E4%B8%8D%E4%BC%9A%E6%9C%89%E8%BF%99%E4%B9%882%E7%9A%84%E4%BA%8B%E6%83%85%E5%8F%91%E7%94%9F%EF%BC%8C%E4%BD%86%E6%98%AF%E5%AE%9E%E9%99%85%E6%83%85%E5%86%B5%E4%B8%8B%E6%98%AF%E6%9C%89%E7%9A%84%EF%BC%8C%E8%BF%99%E7%A7%8D%E6%83%85%E5%86%B5%E5%8F%91%E7%94%9F%E4%BB%A5%E5%90%8E%E5%86%8D%E6%8A%A5%E8%A1%A8%E9%87%8C%E4%BC%9A%E7%9C%8B%E5%88%B0%E8%BF%99%E6%A0%B7%E4%B8%89%E4%B8%AA%E9%A6%96%E9%A1%B5%EF%BC%8C%E5%9C%A8%E7%9C%8B%E9%A1%B5%E9%9D%A2%E6%8A%A5%E8%A1%A8%E7%9A%84%E6%97%B6%E5%80%99%E4%BC%9A%E6%98%BE%E5%BE%97%E6%AF%94%E8%BE%83%E9%9A%BE%E7%9C%8B%EF%BC%8C%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%83%B3%E5%AE%83%E5%B9%B2%E5%87%80%E4%B8%80%E7%82%B9%E7%9A%84%E8%AF%9D%EF%BC%8C%E5%B0%B1%E6%8A%8A%E4%BD%A0%E5%AE%9E%E9%99%85%E4%B8%8A%E9%A6%96%E9%A1%B5%E7%9A%84URI%E5%A1%AB%E4%B8%8A%E5%8E%BB%EF%BC%88%E6%AF%94%E5%A6%82%E4%B8%8A%E9%9D%A2%E7%9A%84%E4%BE%8B%E5%AD%90%EF%BC%8Cindex.php%EF%BC%89%E6%B2%A1%E6%9C%89%E8%BF%99%E7%A7%8D%E6%83%85%E5%86%B5%E7%9A%84%E8%AF%9D%E7%95%99%E7%A9%BA%E5%B0%B1%E8%A1%8C%E3%80%82%E5%BC%BA%E8%BF%AB%E7%97%87%E4%BC%A4%E4%B8%8D%E8%B5%B7">www.abc.com/index.php......一般情况下不会有这么2的事情发生，但是实际情况下是有的，这种情况发生以后再报表里会看到这样三个首页，在看页面报表的时候会显得比较难看，如果你想它干净一点的话，就把你实际上首页的URI填上去（比如上面的例子，index.php）没有这种情况的话留空就行。强迫症伤不起</a></p>
-<p>2、Exclude URL Query Parameter(去除URL参数)</p>
-<p>这个通常使用的会比较多，因为经常会有这样的情况：1、网站内部导航点击回首页带参数，如<a target="_blank" rel="noopener" href="http://www.abc.com/?nav=button1">www.abc.com/?nav=button1</a> ；2、外链或者广告链接中的参数，而且参数GA不会自动给你去除，除了他默认能识别的部分，这样一来你的报表中很可能回这样：/index.php?abc=1  , /index.php?def=2……这样也会出现各种首页或者其他页面，那么在其他地方计算或者导出数据的时候还得做其他额外的设置才能得到最终的结果，就必须把这种abc, def无聊的参数去掉，这个操作也比较简单，在第二个标示位置填入相应的参数名，中间用半角逗号隔开就行，参数再多野不怕，就像这样”abc,mz,test,p,word”。（这里小心一点别看中文版的说明，翻译过来的时候中间间隔是“。”句号，所以你的过滤效果也不会生效的）为了在后面能轻松一点，前期的工作一定要想办法做足。</p>
-<p>3、Site Search Setting(站内搜索设置)</p>
-<p>通常来说除了部分活动网站以外，绝大多数网站都会有站内搜索的功能，可以说它是一个正常网站所应该必备的功能，因为网站内容太多，导航又作得不好，那么搜索就会是用户找到想要信息的直接途径。但是默认情况下这个功能也是关闭的，需要自己进行设置：</p>
-<p>[caption id=”attachment_264” align=”aligncenter” width=”594”]<a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2013/09/222.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/09/222.jpg" alt="Site Search Setting"></a> Site Search Setting[/caption]</p>
-<p>选中以后会出现上图的界面，同上面去除参数一样，这里要填入你搜索结果时这个词的内容所在参数，拿我的网站距离，我搜索“网站分析”，确定，那么接下来我的页面URL将为<a target="_blank" rel="noopener" href="http://jackie.ms/s=%E7%BD%91%E7%AB%99%E5%88%86%E6%9E%90">http://jackie.ms/s=%E7%BD%91%E7%AB%99%E5%88%86%E6%9E%90</a></p>
-<p>而这个s就是我要填的参数，设置好以后就能够看到所有来到我网页的用户到底搜了些什么东西了。站内搜索能直接反应出用户来到网站的意图，而且是一个有明确目的并还有一定忍耐力的人（能忍受你不堪的导航），所以这种用户要好好把握，拿出你的站内搜索词报告好好看看吧，兴许下一个机会在这里，一个更加完善的导航也在这里……</p>
-
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-          <div class="reward-container">
-  <div>请我一杯咖啡吧！</div>
-  <button>
-    赞赏
-  </button>
-  <div class="post-reward">
-      <div>
-        <img src="/images/wechatpay.jpg" alt="Jackielzq 微信">
-        <span>微信</span>
-      </div>
-
-  </div>
-</div>
-
-          <div class="followme">
-  <span>欢迎关注我的其它发布渠道</span>
-
-  <div class="social-list">
-
-      <div class="social-item">
-          <span class="social-link">
-            <span class="icon">
-              <i class="fab fa-weixin"></i>
-            </span>
-
-            <span class="label">WeChat</span>
-          </span>
-
-          <img class="social-item-img" src="/images/wechatopen.jpg">
-      </div>
-  </div>
-</div>
-
-          <div class="post-tags">
-              <a href="/tags/Google-analytics/" rel="tag"># Google analytics</a>
-              <a href="/tags/%E5%8E%BB%E9%99%A4%E5%8F%82%E6%95%B0/" rel="tag"># 去除参数</a>
-              <a href="/tags/%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/" rel="tag"># 站内搜索</a>
-              <a href="/tags/%E8%AE%BE%E7%BD%AE/" rel="tag"># 设置</a>
-              <a href="/tags/%E9%BB%98%E8%AE%A4%E9%A6%96%E9%A1%B5/" rel="tag"># 默认首页</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2013/08/25/think-of-myself/" rel="prev" title="一个什么样的人">
-                  <i class="fa fa-chevron-left"></i> 一个什么样的人
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2013/09/18/what-we-are-from-each-other/" rel="next" title="我们眼中的“他”和他们眼中的“我”">
-                  我们眼中的“他”和他们眼中的“我” <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-
-    <div class="comments" id="SOHUCS" sid="bf35cd2a50dd66c3457fcc3a44b8828b"></div>
 </div>
   </main>
 
@@ -378,30 +198,15 @@
 
 <div class="copyright">
   &copy; 2013 – 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Jackielzq</span>
 </div>
-<div class="wordcount">
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-line"></i>
-    </span>
-      <span>站点总字数：</span>
-    <span title="站点总字数">193k</span>
-  </span>
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-      <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">11:42</span>
-  </span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
+
+
+
 
     </div>
   </footer>
@@ -431,8 +236,6 @@
 
 
 
-<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyxdeHueb","appkey":"prod_3ac1ad0e503f8ef8ec5fad05e5ad0cf3","count":true}</script>
-<script src="/js/third-party/comments/changyan.js"></script>
 
 </body>
 </html>

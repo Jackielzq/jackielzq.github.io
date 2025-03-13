@@ -45,6 +45,9 @@
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>如何用Universal Analytics对网站实施完整监测 | Jackie的博客</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N5BSEFBBS5"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-N5BSEFBBS5","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
 
 
 
@@ -131,18 +134,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">187</span>
+          <span class="site-state-item-count">190</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">246</span>
+        <span class="site-state-item-count">248</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -183,190 +186,6 @@
 
     <div class="main-inner post posts-expand">
 
-
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/how-to-use-universal-analytics-for-full-tracking/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jackielzq">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="如何用Universal Analytics对网站实施完整监测 | Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          如何用Universal Analytics对网站实施完整监测
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2014-06-08 22:08:59" itemprop="dateCreated datePublished" datetime="2014-06-08T22:08:59+08:00">2014-06-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Universal-Analytics/" itemprop="url" rel="index"><span itemprop="name">Universal Analytics</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Changyan：</span>
-    
-    <a title="如何用Universal Analytics对网站实施完整监测" href="/2014/06/08/how-to-use-universal-analytics-for-full-tracking/#SOHUCS" itemprop="discussionUrl">
-      <span id="sourceId::196cbc688c9239203acfc32e172602c7" class="cy_cmt_count" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>320</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <p>由于Universal Analytics(以下简称UA)在网站分析领域已是大势所趋，必将完全取代目前的Google Analytics，所以接下来我要整理的主要是基于UA的配置与各种常见问题解决方案，希望帮助初学者快速入门并与有经验人士探讨更多可能。<br>因为本网站是基于<a target="_blank" rel="noopener" href="http://wordpress.org/">Wordpress</a>平台搭建的,所以下面所说的例子会结合我自己的网站以及Wordpress的结构特点进行部署。大家请记住，几乎所有的CMS系统原理都是差不多的，所以不管你是Wordpress,还是Disqus，Jekyll,Hexo等等，一种通了则其他的也用类似的方法实现即可，不必对此钻牛角尖，毕竟最重要的是实现的思路方法。</p>
-<h3 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h3><ol>
-<li> <a href="/webanalytics/universalanalytics/universal-anal%E2%80%A6ccount-setting.html">Universal Analytics账号配置</a></li>
-<li> <a href="/webanalytics/universalanalytics/universal-anal%E2%80%A6-and-implement.html">Universal Analytics代码生成与部署</a></li>
-<li> 测试代码，验证数据</li>
-</ol>
-<h3 id="完善细节"><a href="#完善细节" class="headerlink" title="完善细节"></a>完善细节</h3><ol>
-<li> <a href="/webanalytics/universalanalytics/universal-anal%E2%80%A6set-the-target.html">明确转化，设置目标</a></li>
-<li> <a href="/webanalytics/universalanalytics/universal-anal%E2%80%A6uery-parameter.html">去除多余URL参数</a></li>
-<li> <a href="/webanalytics/universalanalytics/universal-anal%E2%80%A6-search-engine.html">识别新增搜索引擎关键词</a></li>
-<li> <a href="/webanalytics/universalanalytics/universal-anal%E2%80%A6ck-site-search.html%20%E2%80%8E">监测站内搜索(In site Search)</a></li>
-<li> <a href="/webanalytics/universalanalytics/universal-anal%E2%80%A6ck-jiankongbao.html">监控网站服务器是否正常</a></li>
-<li> <a href="/webanalytics/universalanalytics/universal-analytics-data-alert.html">数据警报(网站数据异常提醒)</a></li>
-<li> <a href="/webanalytics/universalanalytics/universal-anal%E2%80%A6ata-in-regular.html%20%E2%80%8E">定时发送数据</a></li>
-</ol>
-<h3 id="高级部署"><a href="#高级部署" class="headerlink" title="高级部署"></a>高级部署</h3><p>未完待续……</p>
-
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-          <div class="reward-container">
-  <div>请我一杯咖啡吧！</div>
-  <button>
-    赞赏
-  </button>
-  <div class="post-reward">
-      <div>
-        <img src="/images/wechatpay.jpg" alt="Jackielzq 微信">
-        <span>微信</span>
-      </div>
-
-  </div>
-</div>
-
-          <div class="followme">
-  <span>欢迎关注我的其它发布渠道</span>
-
-  <div class="social-list">
-
-      <div class="social-item">
-          <span class="social-link">
-            <span class="icon">
-              <i class="fab fa-weixin"></i>
-            </span>
-
-            <span class="label">WeChat</span>
-          </span>
-
-          <img class="social-item-img" src="/images/wechatopen.jpg">
-      </div>
-  </div>
-</div>
-
-          <div class="post-tags">
-              <a href="/tags/UA/" rel="tag"># UA</a>
-              <a href="/tags/Universal-Analytics/" rel="tag"># Universal Analytics</a>
-              <a href="/tags/%E7%9B%91%E6%B5%8B/" rel="tag"># 监测</a>
-              <a href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag"># 部署</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2014/06/06/good-movie-the-terror-live/" rel="prev" title="好电影《恐怖直播》">
-                  <i class="fa fa-chevron-left"></i> 好电影《恐怖直播》
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2014/06/08/universal-analytics-account-setting/" rel="next" title="Universal Analytics基础配置(一) 账号设置">
-                  Universal Analytics基础配置(一) 账号设置 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
-</div>
-
-
-
-
-
-
-    <div class="comments" id="SOHUCS" sid="196cbc688c9239203acfc32e172602c7"></div>
 </div>
   </main>
 
@@ -376,30 +195,15 @@
 
 <div class="copyright">
   &copy; 2013 – 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Jackielzq</span>
 </div>
-<div class="wordcount">
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-chart-line"></i>
-    </span>
-      <span>站点总字数：</span>
-    <span title="站点总字数">193k</span>
-  </span>
-  <span class="post-meta-item">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-coffee"></i>
-    </span>
-      <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">11:42</span>
-  </span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
+
+
+
 
     </div>
   </footer>
@@ -429,8 +233,6 @@
 
 
 
-<script class="next-config" data-name="changyan" type="application/json">{"enable":true,"appid":"cyxdeHueb","appkey":"prod_3ac1ad0e503f8ef8ec5fad05e5ad0cf3","count":true}</script>
-<script src="/js/third-party/comments/changyan.js"></script>
 
 </body>
 </html>
