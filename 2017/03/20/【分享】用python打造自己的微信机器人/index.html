@@ -14,10 +14,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"jackielzq.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jackielzq.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="简介由于我没事喜欢去github上找找好玩有趣的东西，这次又淘到一个有意思的应用，通过python调用微信接口来把自己的微信号转变成一个可以自动回复的机器人。 原文地址：http:&#x2F;&#x2F;itchat.readthedocs.io&#x2F;zh&#x2F;latest&#x2F; 实践起来可能还需要有一些调整： 安装命令行安装（预装pip,没有装的请参考，python3）： 1$pip3 install itchat  接下来我">
 <meta property="og:type" content="article">
@@ -40,14 +40,13 @@
 <link rel="canonical" href="http://jackielzq.github.io/2017/03/20/%E3%80%90%E5%88%86%E4%BA%AB%E3%80%91%E7%94%A8python%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/">
 
 
-
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://jackielzq.github.io/2017/03/20/%E3%80%90%E5%88%86%E4%BA%AB%E3%80%91%E7%94%A8python%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/","path":"2017/03/20/【分享】用python打造自己的微信机器人/","title":"【分享】用Python打造自己的微信机器人"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>【分享】用Python打造自己的微信机器人 | Jackie的博客</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N5BSEFBBS5"></script>
-  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-N5BSEFBBS5","only_pageview":false}</script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-N5BSEFBBS5","only_pageview":false,"measure_protocol_api_secret":null}</script>
   <script src="/js/third-party/analytics/google-analytics.js"></script>
 
 
@@ -95,7 +94,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-study"><a href="/study/" rel="section"><i class="fa fa-book fa-fw"></i>学习</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
   </ul>
 </nav>
 
@@ -135,7 +134,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">190</span>
+          <span class="site-state-item-count">192</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -146,17 +145,14 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">248</span>
+        <span class="site-state-item-count">250</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
   <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://weibo.com/jackielzq" title="微博 → https:&#x2F;&#x2F;weibo.com&#x2F;jackielzq" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>微博</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.zhihu.com/people/jackielzq" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;jackielzq" rel="noopener me" target="_blank"><i class="fab fa-zhihu fa-fw"></i>知乎</a>
+        <a href="mailto:jackielzq@qq.com" title="E-Mail → mailto:jackielzq@qq.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
   </div>
 
@@ -187,29 +183,160 @@
 
     <div class="main-inner post posts-expand">
 
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2017/03/20/%E3%80%90%E5%88%86%E4%BA%AB%E3%80%91%E7%94%A8python%E6%89%93%E9%80%A0%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BE%AE%E4%BF%A1%E6%9C%BA%E5%99%A8%E4%BA%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jackielzq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【分享】用Python打造自己的微信机器人 | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【分享】用Python打造自己的微信机器人
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2017-03-20 14:46:37 / 修改时间：16:14:42" itemprop="dateCreated datePublished" datetime="2017-03-20T14:46:37+08:00">2017-03-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">分享</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>由于我没事喜欢去github上找找好玩有趣的东西，这次又淘到一个有意思的应用，通过python调用微信接口来把自己的微信号转变成一个可以自动回复的机器人。</p>
+<p>原文地址：<a target="_blank" rel="noopener" href="http://itchat.readthedocs.io/zh/latest/">http://itchat.readthedocs.io/zh/latest/</a></p>
+<p>实践起来可能还需要有一些调整：</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>命令行安装（预装pip,没有装的请参考，python3）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$pip3 install itchat</span><br></pre></td></tr></table></figure>
+
+<p>接下来我们绕过原文文档的内容，直奔主题</p>
+<span id="more"></span>
+
+<p>先创建一个文件夹，文件夹里需包含3个文件：</p>
+<ul>
+<li>wechat.py (主程序)</li>
+<li>tuling.py (图灵机器人模块调用)</li>
+<li>tuling.json (图灵账号配置API Key)</li>
+</ul>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h4 id="wechat-py"><a href="#wechat-py" class="headerlink" title="wechat.py"></a>wechat.py</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">#coding=utf8</span><br><span class="line">import itchat</span><br><span class="line"># tuling plugin can be get here:</span><br><span class="line"># https://github.com/littlecodersh/EasierLife/tree/master/Plugins/Tuling</span><br><span class="line">from tuling import get_response</span><br><span class="line"></span><br><span class="line">@itchat.msg_register(&#x27;Text&#x27;)</span><br><span class="line">def text_reply(msg):</span><br><span class="line">    if u&#x27;作者&#x27; in msg[&#x27;Text&#x27;] or u&#x27;主人&#x27; in msg[&#x27;Text&#x27;]:</span><br><span class="line">        return u&#x27;你可以在这里了解他：https://github.com/littlecodersh&#x27;</span><br><span class="line">    elif u&#x27;源代码&#x27; in msg[&#x27;Text&#x27;] or u&#x27;获取文件&#x27; in msg[&#x27;Text&#x27;]:</span><br><span class="line">        itchat.send(&#x27;@fil@main.py&#x27;, msg[&#x27;FromUserName&#x27;])</span><br><span class="line">        return u&#x27;这就是现在机器人后台的代码，是不是很简单呢？&#x27;</span><br><span class="line">    elif u&#x27;获取图片&#x27; in msg[&#x27;Text&#x27;]:</span><br><span class="line">        itchat.send(&#x27;@img@applaud.gif&#x27;, msg[&#x27;FromUserName&#x27;]) # there should be a picture</span><br><span class="line">    else:</span><br><span class="line">        return get_response(msg[&#x27;Text&#x27;]) or u&#x27;收到：&#x27; + msg[&#x27;Text&#x27;]</span><br><span class="line"></span><br><span class="line">@itchat.msg_register([&#x27;Picture&#x27;, &#x27;Recording&#x27;, &#x27;Attachment&#x27;, &#x27;Video&#x27;])</span><br><span class="line">def atta_reply(msg):</span><br><span class="line">    return (&#123; &#x27;Picture&#x27;: u&#x27;图片&#x27;, &#x27;Recording&#x27;: u&#x27;录音&#x27;,</span><br><span class="line">        &#x27;Attachment&#x27;: u&#x27;附件&#x27;, &#x27;Video&#x27;: u&#x27;视频&#x27;, &#125;.get(msg[&#x27;Type&#x27;]) +</span><br><span class="line">        u&#x27;已下载到本地&#x27;) # download function is: msg[&#x27;Text&#x27;](msg[&#x27;FileName&#x27;])</span><br><span class="line"></span><br><span class="line">@itchat.msg_register([&#x27;Map&#x27;, &#x27;Card&#x27;, &#x27;Note&#x27;, &#x27;Sharing&#x27;])</span><br><span class="line">def mm_reply(msg):</span><br><span class="line">    if msg[&#x27;Type&#x27;] == &#x27;Map&#x27;:</span><br><span class="line">        return u&#x27;收到位置分享&#x27;</span><br><span class="line">    elif msg[&#x27;Type&#x27;] == &#x27;Sharing&#x27;:</span><br><span class="line">        return u&#x27;收到分享&#x27; + msg[&#x27;Text&#x27;]</span><br><span class="line">    elif msg[&#x27;Type&#x27;] == &#x27;Note&#x27;:</span><br><span class="line">        return u&#x27;收到：&#x27; + msg[&#x27;Text&#x27;]</span><br><span class="line">    elif msg[&#x27;Type&#x27;] == &#x27;Card&#x27;:</span><br><span class="line">        return u&#x27;收到好友信息：&#x27; + msg[&#x27;Text&#x27;][&#x27;Alias&#x27;]</span><br><span class="line"></span><br><span class="line">@itchat.msg_register(&#x27;Text&#x27;, isGroupChat = True)</span><br><span class="line">def group_reply(msg):</span><br><span class="line">    if msg[&#x27;isAt&#x27;]:</span><br><span class="line">        return u&#x27;@%s\u2005%s&#x27; % (msg[&#x27;ActualNickName&#x27;],</span><br><span class="line">            get_response(msg[&#x27;Text&#x27;]) or u&#x27;收到：&#x27; + msg[&#x27;Text&#x27;])</span><br><span class="line"></span><br><span class="line">@itchat.msg_register(&#x27;Friends&#x27;)</span><br><span class="line">def add_friend(msg):</span><br><span class="line">    itchat.add_friend(**msg[&#x27;Text&#x27;])</span><br><span class="line">    itchat.send_msg(u&#x27;项目主页：github.com/littlecodersh/ItChat\n&#x27;</span><br><span class="line">        + u&#x27;源代码  ：回复源代码\n&#x27; + u&#x27;图片获取：回复获取图片\n&#x27;</span><br><span class="line">        + u&#x27;欢迎Star我的项目关注更新！&#x27;, msg[&#x27;RecommendInfo&#x27;][&#x27;UserName&#x27;])</span><br><span class="line"></span><br><span class="line">itchat.auto_login(True, enableCmdQR=True)</span><br><span class="line">itchat.run()</span><br></pre></td></tr></table></figure>
+
+<h4 id="Tuling-py"><a href="#Tuling-py" class="headerlink" title="Tuling.py"></a>Tuling.py</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">#coding=utf8</span><br><span class="line">import sys, os</span><br><span class="line">import requests, json</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">    with open(&#x27;tuling.json&#x27;) as f: key = json.loads(f.read())[&#x27;key&#x27;]</span><br><span class="line">except:</span><br><span class="line">    key = &#x27;&#x27; # if key is &#x27;&#x27;, get_response will return None</span><br><span class="line">    # raise Exception(&#x27;There is something wrong with the format of you plugin/config/tuling.json&#x27;)</span><br><span class="line"></span><br><span class="line">def get_response(msg, storageClass = None, userName = None, userid = &#x27;ItChat&#x27;):</span><br><span class="line">    url = &#x27;http://www.tuling123.com/openapi/api&#x27;</span><br><span class="line">    payloads = &#123;</span><br><span class="line">        &#x27;key&#x27;: key,</span><br><span class="line">        &#x27;info&#x27;: msg,</span><br><span class="line">        &#x27;userid&#x27;: userid,</span><br><span class="line">    &#125;</span><br><span class="line">    try:</span><br><span class="line">        r = requests.post(url, data = json.dumps(payloads)).json()</span><br><span class="line">    except:</span><br><span class="line">        return</span><br><span class="line">    if not r[&#x27;code&#x27;] in (100000, 200000, 302000, 308000, 313000, 314000): return</span><br><span class="line">    if r[&#x27;code&#x27;] == 100000: # 文本类</span><br><span class="line">        return &#x27;\n&#x27;.join([r[&#x27;text&#x27;].replace(&#x27;&lt;br&gt;&#x27;,&#x27;\n&#x27;)])</span><br><span class="line">    elif r[&#x27;code&#x27;] == 200000: # 链接类</span><br><span class="line">        return &#x27;\n&#x27;.join([r[&#x27;text&#x27;].replace(&#x27;&lt;br&gt;&#x27;,&#x27;\n&#x27;), r[&#x27;url&#x27;]])</span><br><span class="line">    elif r[&#x27;code&#x27;] == 302000: # 新闻类</span><br><span class="line">        l = [r[&#x27;text&#x27;].replace(&#x27;&lt;br&gt;&#x27;,&#x27;\n&#x27;)]</span><br><span class="line">        for n in r[&#x27;list&#x27;]: l.append(&#x27;%s - %s&#x27;%(n[&#x27;article&#x27;], n[&#x27;detailurl&#x27;]))</span><br><span class="line">        return &#x27;\n&#x27;.join(l)</span><br><span class="line">    elif r[&#x27;code&#x27;] == 308000: # 菜谱类</span><br><span class="line">        l = [r[&#x27;text&#x27;].replace(&#x27;&lt;br&gt;&#x27;,&#x27;\n&#x27;)]</span><br><span class="line">        for n in r[&#x27;list&#x27;]: l.append(&#x27;%s - %s&#x27;%(n[&#x27;name&#x27;], n[&#x27;detailurl&#x27;]))</span><br><span class="line">        return &#x27;\n&#x27;.join(l)</span><br><span class="line">    elif r[&#x27;code&#x27;] == 313000: # 儿歌类</span><br><span class="line">        return &#x27;\n&#x27;.join([r[&#x27;text&#x27;].replace(&#x27;&lt;br&gt;&#x27;,&#x27;\n&#x27;)])</span><br><span class="line">    elif r[&#x27;code&#x27;] == 314000: # 诗词类</span><br><span class="line">        return &#x27;\n&#x27;.join([r[&#x27;text&#x27;].replace(&#x27;&lt;br&gt;&#x27;,&#x27;\n&#x27;)])</span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    try:</span><br><span class="line">        ipt = raw_input</span><br><span class="line">        ipt = lambda: raw_input(&#x27;&gt;&#x27;).decode(sys.stdin.encoding)</span><br><span class="line">    except:</span><br><span class="line">        ipt = lambda: input(&#x27;&gt;&#x27;)</span><br><span class="line">    while True:</span><br><span class="line">        a = ipt()</span><br><span class="line">        print(get_response(a, &#x27;ItChat&#x27;))</span><br></pre></td></tr></table></figure>
+
+<h4 id="Tuling-json"><a href="#Tuling-json" class="headerlink" title="Tuling.json"></a>Tuling.json</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;key&quot;: &quot;d7f31775f8d048fdxxxxxxxxxx&quot;  #替换成自己的API Key</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="图灵API-Key"><a href="#图灵API-Key" class="headerlink" title="图灵API Key"></a>图灵API Key</h4><ol>
+<li><p>到<a target="_blank" rel="noopener" href="http://www.tuling123.com/">http://www.tuling123.com/</a>注册账号</p>
+</li>
+<li><p>创建机器人</p>
+</li>
+<li><p>首页-机器人看板  获取API Key，替换掉Tuling.json文件中的key值</p>
+<p><img src="http://p1.bpimg.com/567571/7fd1eef4d156b181.jpg"></p>
+</li>
+</ol>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p>接下来，直接运行wechat.py文件，扫描弹出的二维码授权登录，即可。</p>
+<p>找几个微信好友调戏起来吧！</p>
+<p><img src="http://p1.bqimg.com/567571/f4fdcaa45ad8c52f.jpg"></p>
+<p><img src="http://p1.bpimg.com/567571/e0ce2f467f949745.jpg"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%88%86%E4%BA%AB-python-%E5%BE%AE%E4%BF%A1-%E6%9C%BA%E5%99%A8%E4%BA%BA/" rel="tag"># 分享,python,微信,机器人</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/03/17/%E3%80%90%E5%88%86%E4%BA%AB%E3%80%91%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E8%BD%BDyoutube%E8%A7%86%E9%A2%91/" rel="prev" title="【分享】命令行下载Youtube视频">
+                  <i class="fa fa-angle-left"></i> 【分享】命令行下载Youtube视频
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/04/30/%E5%8F%88%E4%B8%80%E6%AC%A1%E5%8A%A8%E8%BF%81/" rel="next" title="又一次动迁">
+                  又一次动迁 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
 </div>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 2013 – 
-  <span itemprop="copyrightYear">2025</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Jackielzq</span>
-</div>
-
-
-
+  <div class="copyright">
+    &copy; 2013 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Jackielzq</span>
+  </div>
 
     </div>
   </footer>
 
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
   <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
@@ -222,9 +349,11 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
 
   
+
+
 
 
 

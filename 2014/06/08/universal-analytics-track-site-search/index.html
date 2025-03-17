@@ -14,10 +14,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"jackielzq.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jackielzq.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="站内搜索一直是一块非常有价值的资源，也是容易被大多数人遗忘的宝藏。你的网站内容结构好不好，是否满足用户的需求，如何发掘用户其他潜在的需求，在用户的搜索内容中会得到很多的体现。所以，监测好用户站内搜索的内容是网站分析中不可或缺的一环。 那么在UA中如何设置站内搜索的监测呢？其实也比较简单，其实在GA中就早已有此功能，因为不起眼所以很少获得关注。下面我们来设置一下： 首先，确定搜索参数如同添加默认识别">
 <meta property="og:type" content="article">
@@ -40,14 +40,13 @@
 <link rel="canonical" href="http://jackielzq.github.io/2014/06/08/universal-analytics-track-site-search/">
 
 
-
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://jackielzq.github.io/2014/06/08/universal-analytics-track-site-search/","path":"2014/06/08/universal-analytics-track-site-search/","title":"Universal Analytics监测细节的完善(四)——监测站内搜索"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Universal Analytics监测细节的完善(四)——监测站内搜索 | Jackie的博客</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N5BSEFBBS5"></script>
-  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-N5BSEFBBS5","only_pageview":false}</script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-N5BSEFBBS5","only_pageview":false,"measure_protocol_api_secret":null}</script>
   <script src="/js/third-party/analytics/google-analytics.js"></script>
 
 
@@ -95,7 +94,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-study"><a href="/study/" rel="section"><i class="fa fa-book fa-fw"></i>学习</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
   </ul>
 </nav>
 
@@ -135,7 +134,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">190</span>
+          <span class="site-state-item-count">192</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -146,17 +145,14 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">248</span>
+        <span class="site-state-item-count">250</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
   <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://weibo.com/jackielzq" title="微博 → https:&#x2F;&#x2F;weibo.com&#x2F;jackielzq" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>微博</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.zhihu.com/people/jackielzq" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;jackielzq" rel="noopener me" target="_blank"><i class="fab fa-zhihu fa-fw"></i>知乎</a>
+        <a href="mailto:jackielzq@qq.com" title="E-Mail → mailto:jackielzq@qq.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
   </div>
 
@@ -187,29 +183,143 @@
 
     <div class="main-inner post posts-expand">
 
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/universal-analytics-track-site-search/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jackielzq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Universal Analytics监测细节的完善(四)——监测站内搜索 | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Universal Analytics监测细节的完善(四)——监测站内搜索
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-06-08 22:37:27" itemprop="dateCreated datePublished" datetime="2014-06-08T22:37:27+08:00">2014-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Universal-Analytics/" itemprop="url" rel="index"><span itemprop="name">Universal Analytics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>站内搜索一直是一块非常有价值的资源，也是容易被大多数人遗忘的宝藏。你的网站内容结构好不好，是否满足用户的需求，如何发掘用户其他潜在的需求，在用户的搜索内容中会得到很多的体现。所以，监测好用户站内搜索的内容是网站分析中不可或缺的一环。</p>
+<p>那么在UA中如何设置站内搜索的监测呢？其实也比较简单，其实在GA中就早已有此功能，因为不起眼所以很少获得关注。下面我们来设置一下：</p>
+<h4 id="首先，确定搜索参数"><a href="#首先，确定搜索参数" class="headerlink" title="首先，确定搜索参数"></a>首先，确定搜索参数</h4><p>如同添加默认识别搜索引擎一样，需要监测站内搜索的内容，首先你需要知道你搜索的内容存在什么位置、什么参数中。举我的网站作为例子，当我搜索<code>google analytics</code>的时候，搜索结果页的URL为：</p>
+<pre>
+http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
+</pre>
+<p>其中<code>s</code>就是我需要的参数 (补充一点，Wordpress站点的搜索参数都未s)</p>
+<h4 id="其次，后台补充设置"><a href="#其次，后台补充设置" class="headerlink" title="其次，后台补充设置"></a>其次，后台补充设置</h4><p>打开<code>Admin-View-View Setting</code><br><img src="https://www.dropbox.com/s/t7nefjv7k6xqlxn/ua3.png?dl=1"><br>打开Site Search Tracking，并将该参数填入相应位置，保存即可。<br>(最后选项为在content报告中URL是否去除搜索词参数)</p>
+<h4 id="补充，数据查看"><a href="#补充，数据查看" class="headerlink" title="补充，数据查看"></a>补充，数据查看</h4><p>在Reporting报告界面中，找到<code>Behavior-Site Search</code>即可查看相应站内搜索词，从这个时刻开始，你会更加了解你的用户，他们喜欢看什么内容，还想看什么内容，然后试着去补充这方面的内容把，相信用户会更加喜欢你的网站的。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2/" rel="tag"># 站内搜索</a>
+              <a href="/tags/Universal-Analytics/" rel="tag"># Universal Analytics</a>
+              <a href="/tags/%E7%9B%91%E6%B5%8B/" rel="tag"># 监测</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2014/06/08/universal-analytics-recognize-other-search-engine/" rel="prev" title="Universal Analytics监测细节的完善(三)—— 识别新增搜索引擎关键词">
+                  <i class="fa fa-angle-left"></i> Universal Analytics监测细节的完善(三)—— 识别新增搜索引擎关键词
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2014/06/08/universal-analytics-server-track-jiankongbao/" rel="next" title="Universal Analytics监测细节的完善(五)——网站服务器是否正常 - 监控宝">
+                  Universal Analytics监测细节的完善(五)——网站服务器是否正常 - 监控宝 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
 </div>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 2013 – 
-  <span itemprop="copyrightYear">2025</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Jackielzq</span>
-</div>
-
-
-
+  <div class="copyright">
+    &copy; 2013 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Jackielzq</span>
+  </div>
 
     </div>
   </footer>
 
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
   <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
@@ -222,9 +332,11 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
 
   
+
+
 
 
 

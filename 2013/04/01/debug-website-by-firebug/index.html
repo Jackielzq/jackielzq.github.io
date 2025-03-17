@@ -14,10 +14,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"jackielzq.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"jackielzq.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.22.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="相信许多做网站开发的都有接触到或者用到Firebug这个工具，因为它确实给调试程序或代码带来了极大的便利。跟网站有关的html、javascript以及css都能调试并直接预览结果，相比你改完-保存-上传-刷新这种步骤要节省好多时间，而且更加的直观。下面我来简单介绍一下这个工具以及通过在实际应用情况下让大家感受一下他的强大。 1、Firebug的安装： firebug是firefox浏览器中的一个">
 <meta property="og:type" content="article">
@@ -46,14 +46,13 @@
 <link rel="canonical" href="http://jackielzq.github.io/2013/04/01/debug-website-by-firebug/">
 
 
-
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://jackielzq.github.io/2013/04/01/debug-website-by-firebug/","path":"2013/04/01/debug-website-by-firebug/","title":"用Firebug调试网站"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>用Firebug调试网站 | Jackie的博客</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N5BSEFBBS5"></script>
-  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-N5BSEFBBS5","only_pageview":false}</script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-N5BSEFBBS5","only_pageview":false,"measure_protocol_api_secret":null}</script>
   <script src="/js/third-party/analytics/google-analytics.js"></script>
 
 
@@ -101,7 +100,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-study"><a href="/study/" rel="section"><i class="fa fa-book fa-fw"></i>学习</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
   </ul>
 </nav>
 
@@ -140,7 +139,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">190</span>
+          <span class="site-state-item-count">192</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -151,17 +150,14 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">248</span>
+        <span class="site-state-item-count">250</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
   <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://weibo.com/jackielzq" title="微博 → https:&#x2F;&#x2F;weibo.com&#x2F;jackielzq" rel="noopener me" target="_blank"><i class="fab fa-weibo fa-fw"></i>微博</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.zhihu.com/people/jackielzq" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;jackielzq" rel="noopener me" target="_blank"><i class="fab fa-zhihu fa-fw"></i>知乎</a>
+        <a href="mailto:jackielzq@qq.com" title="E-Mail → mailto:jackielzq@qq.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
   </div>
 
@@ -192,29 +188,163 @@
 
     <div class="main-inner post posts-expand">
 
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/04/01/debug-website-by-firebug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jackielzq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="用Firebug调试网站 | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          用Firebug调试网站
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2013-04-01 00:13:57" itemprop="dateCreated datePublished" datetime="2013-04-01T00:13:57+08:00">2013-04-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>相信许多做网站开发的都有接触到或者用到Firebug这个工具，因为它确实给调试程序或代码带来了极大的便利。跟网站有关的html、javascript以及css都能调试并直接预览结果，相比你改完-保存-上传-刷新这种步骤要节省好多时间，而且更加的直观。下面我来简单介绍一下这个工具以及通过在实际应用情况下让大家感受一下他的强大。</p>
+<p><strong>1、Firebug的安装</strong>：</p>
+<p>firebug是firefox浏览器中的一个插件，类似于chrome中的开发者工具，但个人觉得firebug要好用许多，也许是习惯了吧。言归正传，首先在工具栏中找到工具—附加组件，然后在打开界面的搜索框中输入firebug，点击“直接安装”就好了，非常方便</p>
+<span id="more"></span>
+
+<p><a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2013/04/firebug11.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/04/firebug11.jpg" alt="firebug11"></a></p>
+<p>&nbsp;</p>
+<p><strong>2、界面</strong></p>
+<p>它的主要功能区如下图：主要分为控制台、CSS、脚本、DOM、网络和cookie，启动这个界面有两个方法，一是在火狐浏览器右上角点击那个灰色的小虫子图标，他将变成彩色，这时候说明它启动了，；二是直接在页面上点击右键，选择“使用firebug查看元素”。下面我们来看一下它的具体功能：</p>
+<p><a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2013/03/firebug2.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/03/firebug2.jpg" alt="firebug2"></a></p>
+<p>（1）、控制台</p>
+<p>点击控制台选项，会到下面这个图的界面，如果没有开启，点击提示框中的按钮直接开启就好</p>
+<p><a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2013/03/firebug3.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/03/firebug3.jpg" alt="firebug3"></a></p>
+<p>上图中我以document.location.href为例，在最下方输入框直接敲入这部分代码—回车，就可以直接得到这段代码在当前页面上操作的结果，就像我这次的，我请求的是当前页面的URL，返回的是”<a target="_blank" rel="noopener" href="http://jackie.ms/&quot;">http://jackie.ms/&quot;</a> 。当然你输入其他的javascript的操作函数也都是适用的，firebug比较方便的一点是当你输入第一个字母的时候它会自动显示已这个字母开头的所有函数，所以就算你忘了方法名称，在这里也可以很方便的找到，当然，前提是你得认识这个方法。</p>
+<p>（2）HTML</p>
+<p>这部分是最常用的，因为我们调试的最多的就是这部分代码。那为什么说这个方便呢，因为它即调即用。下面我们用例子来演示一下：</p>
+<p><a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2013/03/firebug4.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/03/firebug4.jpg" alt="firebug4"></a></p>
+<p>右击我想修改的部分（图中为”Jackie”）选择”用firebug查看元素”,下面HTML部分会自动跳转到这个标签的源代码</p>
+<p><a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2013/03/firebug51.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/03/firebug51.jpg" alt="firebug5"></a></p>
+<p>点击编辑，会进入到这个a标签内所有代码的编辑界面</p>
+<p><a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2013/03/firebug6.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/03/firebug6.jpg" alt="firebug6"></a></p>
+<p>这时候可以随意修改里面的代码，修改完成后再次点击”编辑”就完成修改了，此时你再点击这个按钮，他就会在这个原来的页面执行新代码请求，起到立竿见影的效果。我之前博客有篇文章介绍<a target="_blank" rel="noopener" href="http://www.jackieluo.info/blog/ticket-killer-firebug.html">用firebug抢火车票</a>就是这么实现的，通过提交自己修改过的请求来提前订票。</p>
+<p>（3）、CSS</p>
+<p>如果你要修改自己的主题的话，肯定是要懂一点CSS的，比如它的代码格式。比如我要给我的主题换个颜色，换个字体、大小，修改行距等等，都可以用它来简单实现。我用自己亲身经历的例子给大家示范一下，这个主题默认情况下是没有首行缩进的，所以刚发布出来文章也会比较得难看，让人有点分不清段落的感觉，这个时候在文章段落部分右键单击，并切换到CSS窗口，就可以看到你当前选择的元素的CSS代码了，比如我的：</p>
+<p><a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2013/03/firebug7.jpg"><img src="http://jackie.ms/wp-content/uploads/2013/03/firebug7.jpg" alt="firebug7"></a></p>
+<p>其中article.post p, article.page p 大括号后面的部分就是这个段落的样式代码，比如上图中的字体大小：1.1倍正常字体，行距：1.5倍，完全没有首行缩进的部分，但是这个时候我们可以自己添加了，在后面用相同的格式加上”text-indent: 2em;”页面中的首行缩进马上就出来了，正如我现在文章中的样子。（如果不知道怎么写也没关系，知道你的目的是什么，然后再借助搜索引擎，很快就有结果）至于颜色什么的就更明显了，可以看到上图中代表颜色的#DD3333,这个就代表了一种颜色，分为三段，每段由两位十六进制数，分别代表红绿蓝三原色的值，值越大则颜色越深。觉得好玩的话自己可以试试，给自己主题换个自己喜欢的颜色。</p>
+<p>当然，还有一个<strong>很重要的步骤</strong>，就是上面只是你自己的调试过程，当成功以后，你还得需要找到相对应的网站源文件比如style.css（总样式表）找到之前调试的位置将代码替换掉来达到你想要的目的。firebug中会有提示你所修改元素的css文件所在地以及行数，实现”一步成功“的效果。</p>
+<p>（4）、其他</p>
+<p>剩下的脚本、DOM、网络、cookie都是查看型的，用来查看结果的。但是它也会比通过其他途径来看方便许多，而且会更加得详细。有兴趣的朋友可以自己看看摸索一下，在这里不多做介绍。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/debug/" rel="tag"># debug</a>
+              <a href="/tags/firebug/" rel="tag"># firebug</a>
+              <a href="/tags/%E8%B0%83%E8%AF%95%E7%BD%91%E7%AB%99/" rel="tag"># 调试网站</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2013/03/31/cloud-drive/" rel="prev" title="别让自己的文件白白丢失—云盘的存储与同步">
+                  <i class="fa fa-angle-left"></i> 别让自己的文件白白丢失—云盘的存储与同步
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2013/04/02/about-laoluo-rom-about-me/" rel="next" title="有关老罗ROM发布会的一点感想">
+                  有关老罗ROM发布会的一点感想 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
 </div>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 2013 – 
-  <span itemprop="copyrightYear">2025</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Jackielzq</span>
-</div>
-
-
-
+  <div class="copyright">
+    &copy; 2013 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Jackielzq</span>
+  </div>
 
     </div>
   </footer>
 
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
   <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
@@ -227,9 +357,11 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
 
   
+
+
 
 
 
