@@ -1121,7 +1121,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #db55d1;
+    background: #c9ff8c;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2069,6 +2069,8 @@ pre code {
 }
 .post-block.animated.fadeIn {
   padding: 0;
+  margin-left: 80px;
+  margin-right: 80px;
 }
 .post-header.animated.fadeInDown {
   margin: 0;
@@ -2076,6 +2078,15 @@ pre code {
 .collection-year {
   margin-top: 10px !important;
   margin-bottom: 10px !important;
+}
+.post-body.animated.fadeInDown {
+  margin: 0;
+  padding-top: 15px;
+  margin-left: 80px; /* 左边距 */
+  margin-right: 80px; /* 右边距 */
+}
+p {
+  text-indent: 2em; /* 首行缩进 2em */
 }
 .category-all-page .category-all-title {
   text-align: center;
