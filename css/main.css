@@ -1121,7 +1121,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ffa6ff;
+    background: #db55d1;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1707,7 +1707,7 @@ pre code {
   background: #222;
 }
 .posts-collapse .post-content .post-meta-container {
-  display: inline;
+  display: block;
   font-size: 0.75em;
   margin-right: 10px;
 }
@@ -1878,7 +1878,6 @@ pre code {
   font-size: 1.125em;
   margin-bottom: 60px;
   text-align: center;
-  display: flex;
   align-items: center;
   justify-content: center;
 }
