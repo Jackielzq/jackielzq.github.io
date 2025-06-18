@@ -1121,7 +1121,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #c9ff8c;
+    background: #41ffa3;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1848,6 +1848,10 @@ pre code {
   top: 0;
   width: 100%;
 }
+.article.post-content {
+  margin-left: 100px;
+  margin-right: 100px;
+}
 .post-gallery {
   display: flex;
   min-height: 200px;
@@ -2069,8 +2073,8 @@ pre code {
 }
 .post-block.animated.fadeIn {
   padding: 0;
-  margin-left: 80px;
-  margin-right: 80px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 .post-header.animated.fadeInDown {
   margin: 0;
@@ -2082,8 +2086,17 @@ pre code {
 .post-body.animated.fadeInDown {
   margin: 0;
   padding-top: 15px;
-  margin-left: 80px; /* 左边距 */
-  margin-right: 80px; /* 右边距 */
+  margin-left: 60px; /* 左边距 */
+  margin-right: 60px; /* 右边距 */
+}
+.post-title::before {
+  display: none !important;
+}
+.post-title {
+  font-size: 1.1em;
+}
+.post-body {
+  font-size: 1.1em;
 }
 p {
   text-indent: 2em; /* 首行缩进 2em */
