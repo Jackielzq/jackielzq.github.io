@@ -6,7 +6,7 @@
   <link href="http://jackielzq.github.io/atom.xml" rel="self"/>
   
   <link href="http://jackielzq.github.io/"/>
-  <updated>2025-06-26T14:22:52.869Z</updated>
+  <updated>2025-06-29T14:05:32.301Z</updated>
   <id>http://jackielzq.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>重新整了下主题</title>
+    <link href="http://jackielzq.github.io/2025/06/29/%E9%87%8D%E6%96%B0%E6%95%B4%E4%BA%86%E4%B8%8B%E4%B8%BB%E9%A2%98/"/>
+    <id>http://jackielzq.github.io/2025/06/29/%E9%87%8D%E6%96%B0%E6%95%B4%E4%BA%86%E4%B8%8B%E4%B8%BB%E9%A2%98/</id>
+    <published>2025-06-29T13:16:47.000Z</published>
+    <updated>2025-06-29T14:05:32.301Z</updated>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;之前因为觉得这个主题的首页内容多了，想简化一下，代码能力又有限，于是乎在AI的加持下改了东改西改改了好多东西，也伴随着出现了一些新问题。于是乎重新下载了这版主题，把之前的配置项复制了过来，算是重新开始吧，实在懒得折腾。&lt;/p&gt;
+&lt;p&gt;鉴于最近看的人多了点，也有朋友给我各种建</summary>
+      
+    
+    
+    
+    <category term="记录" scheme="http://jackielzq.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="Hexo,主题" scheme="http://jackielzq.github.io/tags/Hexo-%E4%B8%BB%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>股市复盘</title>
@@ -424,27 +447,6 @@
       
     <summary type="html">&lt;p&gt;朋友问我，为什么要把博客放在Github，让我思绪一下回到了10几年前&lt;/p&gt;
 &lt;p&gt;当年刚毕业的时候在广告公司做广告与网站流量分析，在那个时候受同事影响，决定学习自己搭建网站，以更好地去完成手上的工作。最开始是用wordpress搭建，有一撇没一撇的随便更新点内容，顺便自</summary>
-      
-    
-    
-    
-    <category term="记录" scheme="http://jackielzq.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>似曾相识的Soul，聊聊当年的创业项目</title>
-    <link href="http://jackielzq.github.io/2025/05/13/%E4%BC%BC%E6%9B%BE%E7%9B%B8%E8%AF%86%E7%9A%84soul%EF%BC%8C%E8%81%8A%E8%81%8A%E5%BD%93%E5%B9%B4%E7%9A%84%E5%88%9B%E4%B8%9A%E9%A1%B9%E7%9B%AE/"/>
-    <id>http://jackielzq.github.io/2025/05/13/%E4%BC%BC%E6%9B%BE%E7%9B%B8%E8%AF%86%E7%9A%84soul%EF%BC%8C%E8%81%8A%E8%81%8A%E5%BD%93%E5%B9%B4%E7%9A%84%E5%88%9B%E4%B8%9A%E9%A1%B9%E7%9B%AE/</id>
-    <published>2025-05-13T14:18:47.000Z</published>
-    <updated>2025-05-13T14:21:23.755Z</updated>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;知乎上看到相关的问题提到了Soul这个软件，在我印象中它出现也有一定年头了。以前顺手下来看了一下，不是我吹牛，一种当年我设计的社交软件被它抄过来的感觉。&lt;/p&gt;
-&lt;p&gt;15年被忽悠从阿里出来“创业”做社交产品，因为整体投融资氛围较好，所以也还算比较容易地拿了第一笔投资，当时</summary>
       
     
     
