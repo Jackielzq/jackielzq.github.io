@@ -143,7 +143,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">248</span>
+          <span class="site-state-item-count">249</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -194,6 +194,142 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/03/26/get-google-analytics-data-with-google-drive/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jackielzq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2014/03/26/get-google-analytics-data-with-google-drive/" class="post-title-link" itemprop="url">利用Google Drive快速获取Google Analytics数据</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-03-26 03:33:04" itemprop="dateCreated datePublished" datetime="2014-03-26T03:33:04+08:00">2014-03-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BD%91%E7%AB%99%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">网站分析</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2014/03/26/get-google-analytics-data-with-google-drive/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2014/03/26/get-google-analytics-data-with-google-drive/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>860</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>要获取Google Analytics数据，一般有以下几种方法：</p>
+<p>一、直接在面板上选定需要的数据，点击导出 这种是最Low的，通常只适合偶然性的查看数据。</p>
+<p>二、设定自定义报告，调整相应日期一键导出或定时发送 对于定期获取固定的基础数据较为方便，但若涉及到高级细分或者多维度多指标的导出，它就力不从心了。</p>
+<p>三、Excel插件，<a target="_blank" rel="noopener" href="http://www.outfox.com/excellentanalytics/">Excellent Analytics</a>, 通过Excel直接调用GA的数据API，将数据展示在Excel表中。</p>
+<p>  <a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2014/03/5B511217-182F-48A1-9C0E-51E572467E4A.jpg"><img src="http://jackie.ms/wp-content/uploads/2014/03/5B511217-182F-48A1-9C0E-51E572467E4A.jpg" alt="Excellent analytics" title="Excellent Analytics操作界面"></a></p>
+<p>  你要做的只是选择你所需要的账号、配置文件，设定好时间范围、维度、指标以及细分情况，然后就可以一键导出了，特别方便。更加方便的是，如果你要做的是周期性的报告比如周报月报，一旦模板确定，那么你需要的常规数据也就都差不多了。这时候通过EXCEL公式可以将你所需要的图表与这些源数据链接起来(借助数据透视表或者VLOOKUP)。这种情况下如果你第一周报告搞定了，那么后面几周基本上点几下鼠标，一样的报告几分钟就搞定了，事半功倍！</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>  四、Google Drive中的Spread Sheet</p>
+<p>  为什么要用到这个呢?刚才的Excellent analytics已经相当强大够用了。没错，虽然如此，但是它仍然有一定的局限性：</p>
+<p>  1，只能在Windows平台下使用</p>
+<p>  2、部分用户安装的时候默认被禁止加载</p>
+<p>  3、每个数据请求都需单独更新日期</p>
+<p>  其中最头疼的还是它目前还不支持Mac端，那么Mac用户就只有去找Google自己的亲儿子——<strong>Spread Sheet</strong>。</p>
+<p>  下面来介绍一下它的用法(比Excellent Analytics还要便捷可靠)：</p>
+<p>  1.打开<a target="_blank" rel="noopener" href="https://drive.google.com/">Google Drive</a>,新建一个Spread sheet</p>
+<p>  <a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2014/03/113F1D9E-8925-4B49-9594-E018318FE5A7.jpg"><img src="http://jackie.ms/wp-content/uploads/2014/03/113F1D9E-8925-4B49-9594-E018318FE5A7.jpg" alt="113F1D9E-8925-4B49-9594-E018318FE5A7" title="Google drive"></a></p>
+<p>  1. 找到Add-on(插件)选项，选择Get-Add on</p>
+<p>  接下来会出现他已支持的各种插件，我们选择Analytics Canvas或者Google Analytics都可以，两者都是与Excellent Analytics功能相似的插件，只是界面风格稍有不同，我们根据自己喜好选择一种就行，下面我以Analytics Canvas为例演示一下：</p>
+<p>  <a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2014/03/query.jpg"><img src="http://jackie.ms/wp-content/uploads/2014/03/query-754x1024.jpg" alt="query"></a></p>
+<p>  上图中，我直接选定了配置文件，时间，维度及各个我所需要的指标，也可以选择是否使用你之前配置好的高级细分，或者在这里使用过滤器等等，点击SAVE AND RUN,插件结果：</p>
+<p>  <a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2014/03/173E899F-12F8-4B16-8C86-46F28E199CCC.jpg"><img src="http://jackie.ms/wp-content/uploads/2014/03/173E899F-12F8-4B16-8C86-46F28E199CCC-936x1024.jpg" alt="173E899F-12F8-4B16-8C86-46F28E199CCC"></a></p>
+<p>  我所需要的数据就显示在了我所指定的位置，同样的方法，我们可以建立多个数据请求，再统一编辑，一键更新所有请求的数据</p>
+<p>  <a target="_blank" rel="noopener" href="http://jackie.ms/wp-content/uploads/2014/03/3.jpg"><img src="http://jackie.ms/wp-content/uploads/2014/03/3-751x1024.jpg" alt="3"></a></p>
+<p>  非常方便，这是Excellent Analytics做不到的地方，当请求量多时，一键更新会免去你很多的烦恼。更爽的是，你再Google Drive上操作，它都是会实时帮你保存的，所以你不用担心Office突然挂掉甚至停电，也不用担心电脑忘带U盘找不到，更不用担心与同事间发送的麻烦，因为它是存在云端的，你可以选择分享给你的朋友，邀请他们与你一同编辑或使用这个表。而且在这里，Windows和OS X是一家。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -6127,7 +6263,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">13:26</span>
+    <span title="站点阅读时长">13:27</span>
   </span>
 </div>
 
