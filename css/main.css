@@ -266,9 +266,6 @@ dd {
   margin: 0;
   padding: 0;
 }
-p {
-  text-indent: 2em; /* 首行缩进2个字符宽度 */
-}
 .table-container {
   overflow: auto;
 }
@@ -1114,7 +1111,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #36ffff;
+    background: #2ea628;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);

@@ -143,7 +143,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">252</span>
+          <span class="site-state-item-count">253</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -194,6 +194,137 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/04/25/wordpress-set-excerpt-for-article/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jackielzq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2014/04/25/wordpress-set-excerpt-for-article/" class="post-title-link" itemprop="url">Wordpress 设置文章摘要</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-04-25 16:41:22" itemprop="dateCreated datePublished" datetime="2014-04-25T16:41:22+08:00">2014-04-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/wordpress/" itemprop="url" rel="index"><span itemprop="name">wordpress</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2014/04/25/wordpress-set-excerpt-for-article/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2014/04/25/wordpress-set-excerpt-for-article/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>429</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>以前一直习惯于用<code>&amp;lt;!--more--&amp;gt;</code>标签加在文章相应的位置以显示在首页或者其他分类页面，这次换了个新主题以后顿时发现这个标签突然没用了，在首页上每页只显示每篇文章的第一行。翻遍各个php模板找地方改代码，结果发现还是无济于事，作为强迫症自身患者，不能忍。</p>
+<h5 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h5><ol>
+<li> 打开Wordpress后台，进入**<code>写文章</code><strong>或者</strong><code>新建页面</code>**板块</li>
+<li> 点击顶部的**<code>显示选项</code>**选项卡</li>
+<li> 将**<code>摘要</code>**选项勾上，如下图</li>
+</ol>
+<p>这样，在你发布框的下方就会出现**<code>摘要</code><strong>这个板块了，将你需要显示的主要内容填入这个框内，内容请回忆初中时期的语文，</strong><code>概括段落大意</code>**。当然你可以填任何值，像我一样偷懒，只截取前几行。但是为了SEO考虑，尽量在把事情说明白的前提下突出重点。</p>
+<h4 id="原理回顾："><a href="#原理回顾：" class="headerlink" title="原理回顾："></a>原理回顾：</h4><p>知道了解决方案以后还得了解下<code>为什么</code>：</p>
+<p>在Wordpress官网里找到了关于这方面的说明文章，截取如下部分：</p>
+<blockquote>
+<p>这三者之间的关系是这样的：当文章没有（手动）摘要时，而且当前文章模板使用 <strong><code>the_excerpt()</code></strong> 的模板标签时，WordPress 将会自动截取文章的前 <strong><code>55</code></strong> 个单词作为自动摘要；而当文章模板使用 <strong><code>the_content()</code></strong> 的模板标签时，WordPress 则会在文章中搜索
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2014/04/25/wordpress-set-excerpt-for-article/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -6226,128 +6357,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/03/21/voice-of-china/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jackielzq">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2013/03/21/voice-of-china/" class="post-title-link" itemprop="url">我看《中国好声音》</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2013-03-21 01:17:11" itemprop="dateCreated datePublished" datetime="2013-03-21T01:17:11+08:00">2013-03-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%A7%82%E7%82%B9/" itemprop="url" rel="index"><span itemprop="name">观点</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2013/03/21/voice-of-china/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2013/03/21/voice-of-china/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3.2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>12 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>今年最火的电视节目莫过于浙江卫视的《中国好声音》了，制造了无数个话题，同时也赚得盆满钵满，堪称今年来中国电视业的“神话”了，收视率一度达到 4。虽然这种形式不是中国的原创，但是要运作起来也确实不容易。与此同时制作方也在原版的基础上做了一些有“中国特色”的改变，获得了相当程度上的成功。 可以看出中国的节目制作团队还是人才辈出的，而成功的产品除了好的创意以外，执行的团队也是至关重要的。</p>
-<p>对于电视行业的各种规则我不是很清楚，但从局外人的角度来讲，这个节目到底是个什么样子呢？它与其他节目之间的差异在哪？为什么它能爆发式的成功而别的类似选秀节目却依然在胡同里赶猪–直来直去，一直没法冲出街巷，走向大道呢？我们发散思维地来看一看吧。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2013/03/21/voice-of-china/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -6371,13 +6380,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">223k</span>
+    <span title="站点总字数">224k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">13:32</span>
+    <span title="站点阅读时长">13:33</span>
   </span>
 </div>
 
