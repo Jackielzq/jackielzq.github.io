@@ -21,7 +21,7 @@
 
     <meta property="og:type" content="website">
 <meta property="og:title" content="Jackie的博客">
-<meta property="og:url" content="http://jackielzq.github.io/page/5/index.html">
+<meta property="og:url" content="https://jackielzq.github.io/page/5/index.html">
 <meta property="og:site_name" content="Jackie的博客">
 <meta property="og:locale">
 <meta property="article:author" content="Jackielzq">
@@ -29,7 +29,7 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://jackielzq.github.io/page/5/">
+<link rel="canonical" href="https://jackielzq.github.io/page/5/">
 
 
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-Hans","comments":"","permalink":"","path":"page/5/index.html","title":""}</script>
@@ -143,7 +143,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">270</span>
+          <span class="site-state-item-count">271</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -203,7 +203,129 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/universal-analytics-data-alert/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/06/08/universal-analytics-send-data-in-regular/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="Jackielzq">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jackie的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2014/06/08/universal-analytics-send-data-in-regular/" class="post-title-link" itemprop="url">Universal Analytics监测细节的完善(七)——定时发送数据</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2014-06-08 22:46:31" itemprop="dateCreated datePublished" datetime="2014-06-08T22:46:31+08:00">2014-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Universal-Analytics/" itemprop="url" rel="index"><span itemprop="name">Universal Analytics</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2014/06/08/universal-analytics-send-data-in-regular/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2014/06/08/universal-analytics-send-data-in-regular/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>685</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>除了及时发现服务器端或者数据的异常之外，更多的情况下我们会需要定期知道一些特定的数据。作为网站分析人员，很可能会收到其他各个部门人员的需求，“给我导个XX数把”，“我们部门需要知道一下XXXX的数据”，这个时候千万别愣头愣脑的来一个需求满足一个，应该首先明确一下，需要这些数字的目的是什么？这个需求是一次性的还是长期的？网站分析更多的时间应该侧重在分析这块，而不是帮忙跑数据。所以如果是一次性的需求，那么友情赞助一下，没有问题；如果是长期的，写清楚需求，哪些维度，哪些指标，时间间隔，是否细分等等；如果他也答不上来要这些数字干吗，那还是算了把……</p>
+<p>稍微有点跑题，我们回到刚才的问题上来，如果是一个长期的、定期的数据需求，只要明确了上面所要求的点，我们是可以一劳永逸地实现这个功能的，只需用到UA的定时发送数据功能。</p>
+<p>在UA的Reporting界面中，我们可以看到几大类的数据报告，<code>Audience(用户)</code>,<code>Aquisition(流量获取)</code>, <code>Behavior(行为)</code>,<code>Conversion(转化)</code>这几个主要大类涵盖了100多份报告，可以从一个完整的角度诠释你网站运营的整体状况，大部分报告界面上方都有一个Email按钮，点击该按钮就能将你当前视图中的数据以Email的形式定期地发送到你指定的邮箱中。</p>
+<p><img src="https://www.dropbox.com/s/j0lsjss0g4a2inj/ua5.png?dl=1"></p>
+<p>但是注意，这觉不仅限于默认提供的100多个报表，因为多个维度的交叉会使得报告的可能性成几何倍数增长。所以若要满足相应需求，需要用到<code>自定义报告</code>。</p>
+<p>在界面顶部导航中选取<code>Customization</code>,点击<code>New Custom Report</code>，即可新建自定义报告</p>
+<p><img src="https://www.dropbox.com/s/a087vwo5vm1e2pl/ua6.png?dl=1"></p>
+<p>选定相应的维度和指标，点击保存即可。</p>
+<p>但是有一点需要注意，维度和指标之间是有对应的关系的，而不是你想怎么选就怎么选。在了解各个维度和指标的意义及使用场景的前提下，注意可能的上下级和对应关系，因为如果他们之间出现了逻辑错误的话，自定义报告会是一片空白，这个时候请回去仔细查看你的设置，如果不是很清楚的话，可以多尝试几次，相信最后一定会有结果的。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/06/08/universal-analytics-data-alert/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -320,7 +442,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/universal-analytics-server-track-jiankongbao/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/06/08/universal-analytics-server-track-jiankongbao/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -442,7 +564,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/universal-analytics-track-site-search/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/06/08/universal-analytics-track-site-search/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -564,7 +686,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/universal-analytics-recognize-other-search-engine/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/06/08/universal-analytics-recognize-other-search-engine/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -901,7 +1023,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/universal-analytics-exclude-query-parameter/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/06/08/universal-analytics-exclude-query-parameter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1022,7 +1144,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/universal-analytics-set-the-target/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/06/08/universal-analytics-set-the-target/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1171,7 +1293,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/universal-analytics-e7-9a-84-e8-b4-a6-e6-88-b7-e7-bb-93-e6-9e-84/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/06/08/universal-analytics-e7-9a-84-e8-b4-a6-e6-88-b7-e7-bb-93-e6-9e-84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1313,7 +1435,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/universal-analytics-tracking-code-generate-and-implement/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/06/08/universal-analytics-tracking-code-generate-and-implement/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1437,7 +1559,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/universal-analytics-account-setting/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/06/08/universal-analytics-account-setting/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1585,7 +1707,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/08/how-to-use-universal-analytics-for-full-tracking/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/06/08/how-to-use-universal-analytics-for-full-tracking/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1714,7 +1836,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/06/06/good-movie-the-terror-live/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/06/06/good-movie-the-terror-live/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1833,7 +1955,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/05/14/write-blog-with-markdown-syntax/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/05/14/write-blog-with-markdown-syntax/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -1981,7 +2103,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/05/14/link-to-dropbox-files-outside/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/05/14/link-to-dropbox-files-outside/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -2111,7 +2233,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/05/13/shake-your-mouse/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/05/13/shake-your-mouse/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -2228,7 +2350,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/05/12/numbers-of-hobbies-none-excellent/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/05/12/numbers-of-hobbies-none-excellent/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -2346,7 +2468,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/05/08/remarketing-on-digital/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/05/08/remarketing-on-digital/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -2468,7 +2590,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/04/26/wordpress-theme-translation-poedit/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/04/26/wordpress-theme-translation-poedit/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -2592,7 +2714,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/04/25/wordpress-set-excerpt-for-article/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/04/25/wordpress-set-excerpt-for-article/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -2723,7 +2845,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/04/24/indent-setup/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/04/24/indent-setup/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -2844,7 +2966,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/04/23/google-website-optimizer-404/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/04/23/google-website-optimizer-404/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -2960,7 +3082,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/04/14/information-explode-entertain-to-death/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/04/14/information-explode-entertain-to-death/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -3081,7 +3203,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/03/26/get-google-analytics-data-with-google-drive/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/03/26/get-google-analytics-data-with-google-drive/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -3217,7 +3339,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/03/21/some-software-for-mac/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/03/21/some-software-for-mac/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -3341,7 +3463,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/03/06/about-video-ads/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/03/06/about-video-ads/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -3463,7 +3585,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/03/06/i-cant-be-a-crazy-fan/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/03/06/i-cant-be-a-crazy-fan/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -3584,7 +3706,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2014/01/01/2013-summary/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2014/01/01/2013-summary/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -3726,7 +3848,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/12/27/reknow-myself/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/12/27/reknow-myself/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -3851,7 +3973,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/11/17/track-click-with-google-short-link/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/11/17/track-click-with-google-short-link/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -3974,7 +4096,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/11/17/be-aggressive-and-say-it/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/11/17/be-aggressive-and-say-it/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -4101,7 +4223,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/09/18/what-we-are-from-each-other/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/09/18/what-we-are-from-each-other/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -4223,7 +4345,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/09/09/google-analytics-low-key-setting/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/09/09/google-analytics-low-key-setting/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -4344,7 +4466,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/08/25/think-of-myself/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/08/25/think-of-myself/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -4466,7 +4588,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/08/24/how-to-recognize-fraud-traffic/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/08/24/how-to-recognize-fraud-traffic/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -4589,7 +4711,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/08/21/about-momo/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/08/21/about-momo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -4710,7 +4832,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/08/20/the-attitude-to-data/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/08/20/the-attitude-to-data/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -4832,7 +4954,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/07/19/out-of-date-movie-recently/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/07/19/out-of-date-movie-recently/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -4954,7 +5076,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/06/13/sick-culture-of-achohol/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/06/13/sick-culture-of-achohol/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -5076,7 +5198,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/06/03/leisure-tv-show/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/06/03/leisure-tv-show/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -5197,7 +5319,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/05/17/about-work-overtime/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/05/17/about-work-overtime/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -5319,7 +5441,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/05/13/sina-weibo-content-filt/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/05/13/sina-weibo-content-filt/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -5440,7 +5562,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/05/10/google-analyticstime-on-site-and-time-on-page/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/05/10/google-analyticstime-on-site-and-time-on-page/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -5562,7 +5684,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/05/09/google-analytics-sample/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/05/09/google-analytics-sample/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -5683,7 +5805,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/05/06/web-analytics-tools-minds/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/05/06/web-analytics-tools-minds/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -5804,7 +5926,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/05/01/2-8-faze/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/05/01/2-8-faze/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -5931,7 +6053,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/04/26/about-music/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/04/26/about-music/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -6053,7 +6175,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/04/25/action-pageview-or-event/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/04/25/action-pageview-or-event/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -6174,7 +6296,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/04/22/about-earthquake-yaan/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/04/22/about-earthquake-yaan/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -6295,7 +6417,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/04/20/wordpress-tag-category-page-404/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/04/20/wordpress-tag-category-page-404/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -6417,7 +6539,7 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/04/12/wordpress-change-font-ifeature/">
+    <link itemprop="mainEntityOfPage" href="https://jackielzq.github.io/2013/04/12/wordpress-change-font-ifeature/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -6531,128 +6653,6 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://jackielzq.github.io/2013/04/09/google-analytics-custom-variable/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="Jackielzq">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jackie的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2013/04/09/google-analytics-custom-variable/" class="post-title-link" itemprop="url">Google Analytics中的自定义变量</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2013-04-09 00:36:30" itemprop="dateCreated datePublished" datetime="2013-04-09T00:36:30+08:00">2013-04-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2016-09-21 15:45:39" itemprop="dateModified" datetime="2016-09-21T15:45:39+08:00">2016-09-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BD%91%E7%AB%99%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">网站分析</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2013/04/09/google-analytics-custom-variable/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2013/04/09/google-analytics-custom-variable/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.7k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在GA的使用过程中，大部分情况下我们都只会使用标准的GATC，补充一些自然搜索引擎的识别，在后台加上各种过滤器来呈现不同的内容。这些内容固然重要，但是如果要进一步细分人群或者标签化一类人属性的话，光靠这些代码还是不够的。这个时候我们要用到GA的另一个强大的功能——自定义变量。</p>
-<p>GA分为普通版和收费版，收费版是15W/Y的收费，相比Omniture要便宜太多。而收费版和免费版的区别就只有两个：1、数据是否抽样，2、自定义变量的个数（免费版5个，收费版50个）。从这里我们就可以看出自定义变量的重要性，Google在这点上从来不含糊。那么GA中的自定义变量都能做什么呢？下面来简单说说：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2013/04/09/google-analytics-custom-variable/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -6676,13 +6676,13 @@ http://jackie.ms/?s=google+analytics&submit=%E6%90%9C%E7%B4%A2
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">234k</span>
+    <span title="站点总字数">235k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:10</span>
+    <span title="站点阅读时长">14:14</span>
   </span>
 </div>
 
