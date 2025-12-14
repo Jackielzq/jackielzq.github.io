@@ -6,7 +6,7 @@
   <link href="https://jackielzq.github.io/atom.xml" rel="self"/>
   
   <link href="https://jackielzq.github.io/"/>
-  <updated>2025-12-07T13:06:30.976Z</updated>
+  <updated>2025-12-14T15:42:30.969Z</updated>
   <id>https://jackielzq.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Google Gemini体验</title>
+    <link href="https://jackielzq.github.io/2025/12/14/Google%20Gemini%E4%BD%93%E9%AA%8C/"/>
+    <id>https://jackielzq.github.io/2025/12/14/Google%20Gemini%E4%BD%93%E9%AA%8C/</id>
+    <published>2025-12-14T15:20:12.000Z</published>
+    <updated>2025-12-14T15:42:30.969Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近自己在用Python处理一些个人的任务，前面用Deepseek也能跑，但是问题一堆堆，层出不穷。虽然Deepseek在我看来已经国内最强的一批，但是面对国外大厂，感觉差距还是很明显。</p><p>之前的问题反复修，改了又改，我提示词都升级了好几版，结果总是不如人意，好不容易添加了功能吧，效率又特别低，效率上来了，原来的老问题又冒出来…总之一直是按下葫芦起了瓢，东边灭火西边起火的状态。</p><p>但是该用Gemini以后，相比较之下，彻底沦陷。基本上我用前面的提示词生成的代码，大部分问题都是一遍过，都不会报错的那种，而且还兼顾了效率，还会主动帮我做一些优化，只能用“惊艳”来形容，以后感觉离不开它了…</p><p>之前Google的Nano banana出来我也去用了，生图效果也特别好，视频的因为账号问题没有用到最新版，但是通过提示词从0创造视频效果也比我预期的好很多。确实，现在只要设计到内容生产（不管你是代码还是文字、图片、视频、音频等），再不用AI的话，只会被这个时代抛弃…就像工业革命时那些不懂用机器的人，渐渐地就会沦为时代进步的弃子。（话虽严重，但确实是事实）</p><p>接下来这段时间，打算继续探索一下，做点有用然后最好可以变现的东西出来</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最近自己在用Python处理一些个人的任务，前面用Deepseek也能跑，但是问题一堆堆，层出不穷。虽然Deepseek在我看来已经国内最强的一批，但是面对国外大厂，感觉差距还是很明显。&lt;/p&gt;
+&lt;p&gt;之前的问题反复修，改了又改，我提示词都升级了好几版，结果总是不如人意，好</summary>
+      
+    
+    
+    
+    <category term="记录" scheme="https://jackielzq.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>有些人的脑回路</title>
@@ -449,31 +472,6 @@
     
     <category term="记录" scheme="https://jackielzq.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>近期自动复盘计划</title>
-    <link href="https://jackielzq.github.io/2025/08/05/%E8%BF%91%E6%9C%9F%E8%87%AA%E5%8A%A8%E5%A4%8D%E7%9B%98%E8%AE%A1%E5%88%92/"/>
-    <id>https://jackielzq.github.io/2025/08/05/%E8%BF%91%E6%9C%9F%E8%87%AA%E5%8A%A8%E5%A4%8D%E7%9B%98%E8%AE%A1%E5%88%92/</id>
-    <published>2025-08-05T13:04:12.000Z</published>
-    <updated>2025-08-05T13:17:06.207Z</updated>
-    
-    <content type="html"><![CDATA[<p>最近白天上班腰酸背痛，晚上本来想给自己定个目标做点事情，但是一做起来就酸痛引起耽搁了，迟迟未动。这样下去不行，还是得动起来，该锻炼锻炼，该睡觉睡觉，该干活干活，不能停下来。</p><p>之前一直有这个计划，基于之前写的股市自动复盘的代码，结合我自己总结的经验，整体优化一下并做到尽可能的自动化，具体思路：</p><p>1、优化复盘内容：大盘、板块、涨跌比、连板高度、综合评分</p><p>2、选股，此部分结合自己设置的各种组合做代码调试，此处不展开</p><p>3、近期热点，结合财经类新闻进行语义分析总结，生成热榜</p><p>4、内容可视化，生成网页（此次不用PDF了，比较麻烦），放入指定位置</p><p>5、该网页传到网站，支持在线访问</p><p>这些步骤全部一键自动执行，然后定期调整我的选股公式即可</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;最近白天上班腰酸背痛，晚上本来想给自己定个目标做点事情，但是一做起来就酸痛引起耽搁了，迟迟未动。这样下去不行，还是得动起来，该锻炼锻炼，该睡觉睡觉，该干活干活，不能停下来。&lt;/p&gt;
-&lt;p&gt;之前一直有这个计划，基于之前写的股市自动复盘的代码，结合我自己总结的经验，整体优化一下</summary>
-      
-    
-    
-    
-    <category term="记录" scheme="https://jackielzq.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
-    
-    
-    <category term="股票" scheme="https://jackielzq.github.io/tags/%E8%82%A1%E7%A5%A8/"/>
     
   </entry>
   
