@@ -1,0 +1,933 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>量化选股策略日报 - 20251219</title>
+    <style>
+        body { font-family: 'Microsoft YaHei', sans-serif; background-color: #f5f7fa; padding: 20px; color: #333; }
+        .container { max-width: 1280px; margin: 0 auto; }
+        h1 { text-align: center; color: #2c3e50; margin-bottom: 5px; }
+        .info { font-size: 12px; color: #666; margin-bottom: 25px; text-align: center; }
+        
+        /* 策略区块样式 */
+        .strategy-section { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 25px; }
+        .strategy-header { 
+            font-size: 18px; font-weight: bold; color: #2c3e50; 
+            border-left: 5px solid #3498db; padding-left: 10px; margin-bottom: 15px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .count-badge { background: #e74c3c; color: white; padding: 2px 10px; border-radius: 12px; font-size: 14px; }
+        
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        th { background-color: #f8f9fa; padding: 10px; text-align: center; border-bottom: 2px solid #ddd; font-weight: bold; color: #555; }
+        td { padding: 8px; text-align: center; border-bottom: 1px solid #eee; }
+        tr:hover { background-color: #f0faff; }
+        
+        .up { color: #e74c3c; font-weight: bold; }
+        .down { color: #27ae60; font-weight: bold; }
+        .flat { color: #95a5a6; font-weight: bold; }
+        
+        .score-box { font-weight: bold; color: #d35400; }
+        .market-tag { font-size: 12px; color: #fff; padding: 2px 6px; border-radius: 4px; background-color: #95a5a6; }
+        .market-主板 { background-color: #2980b9; }
+        .market-创业板 { background-color: #16a085; }
+        
+        .note { font-size: 12px; color: #999; margin-top: 20px; text-align: center; }
+        .empty-state { text-align: center; color: #999; padding: 20px; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📈 量化选股策略日报</h1>
+        <div class="info">生成时间: 2025-12-19 21:58:06 | 交易日:  | 总选出: 53 支</div>
+        
+        
+        <div class="strategy-section">
+            <div class="strategy-header">
+                策略1:放量涨停破新高
+                <span class="count-badge">11 支</span>
+            </div>
+            
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>代码</th><th>名称</th><th>市场</th><th>板块</th>
+                        <th>现价</th><th>当日涨幅</th>
+                        <th>换手率</th><th>市值(亿)</th><th>量比</th><th>综合评分</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>600838.SH</td>
+                        <td>上海九百</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>百货</td>
+                        <td>11.09</td>
+                        <td class="up">
+                            10.02%
+                        </td>
+                        <td>18.01%</td>
+                        <td>44.46</td>
+                        <td>3.05</td>
+                        <td><span class="score-box">8.3</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002361.SZ</td>
+                        <td>神剑股份</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>化工原料</td>
+                        <td>8.17</td>
+                        <td class="up">
+                            9.96%
+                        </td>
+                        <td>30.98%</td>
+                        <td>77.7</td>
+                        <td>3.48</td>
+                        <td><span class="score-box">7.9</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>000419.SZ</td>
+                        <td>通程控股</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>百货</td>
+                        <td>7.05</td>
+                        <td class="up">
+                            9.98%
+                        </td>
+                        <td>11.48%</td>
+                        <td>38.32</td>
+                        <td>4.25</td>
+                        <td><span class="score-box">7.5</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>600234.SH</td>
+                        <td>科新发展</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>装修装饰</td>
+                        <td>13.99</td>
+                        <td class="up">
+                            9.98%
+                        </td>
+                        <td>4.83%</td>
+                        <td>36.73</td>
+                        <td>1.41</td>
+                        <td><span class="score-box">7.5</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>000417.SZ</td>
+                        <td>合百集团</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>百货</td>
+                        <td>8.33</td>
+                        <td class="up">
+                            10.04%
+                        </td>
+                        <td>12.49%</td>
+                        <td>64.96</td>
+                        <td>1.97</td>
+                        <td><span class="score-box">7.3</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>001379.SZ</td>
+                        <td>腾达科技</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>机械基件</td>
+                        <td>25.62</td>
+                        <td class="up">
+                            10.0%
+                        </td>
+                        <td>19.63%</td>
+                        <td>51.24</td>
+                        <td>1.98</td>
+                        <td><span class="score-box">7.1</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>000917.SZ</td>
+                        <td>电广传媒</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>广告包装</td>
+                        <td>10.29</td>
+                        <td class="up">
+                            10.05%
+                        </td>
+                        <td>12.73%</td>
+                        <td>145.87</td>
+                        <td>2.17</td>
+                        <td><span class="score-box">6.9</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>300446.SZ</td>
+                        <td>航天智造</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>汽车配件</td>
+                        <td>26.25</td>
+                        <td class="up">
+                            16.3%
+                        </td>
+                        <td>42.17%</td>
+                        <td>221.92</td>
+                        <td>3.27</td>
+                        <td><span class="score-box">6.5</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>603977.SH</td>
+                        <td>国泰集团</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>化工原料</td>
+                        <td>14.21</td>
+                        <td class="up">
+                            9.98%
+                        </td>
+                        <td>10.01%</td>
+                        <td>88.28</td>
+                        <td>3.73</td>
+                        <td><span class="score-box">5.6</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>000523.SZ</td>
+                        <td>红棉股份</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>食品</td>
+                        <td>3.73</td>
+                        <td class="up">
+                            10.03%
+                        </td>
+                        <td>6.63%</td>
+                        <td>68.46</td>
+                        <td>1.93</td>
+                        <td><span class="score-box">4.3</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>301119.SZ</td>
+                        <td>正强股份</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>汽车配件</td>
+                        <td>51.71</td>
+                        <td class="up">
+                            12.17%
+                        </td>
+                        <td>7.57%</td>
+                        <td>53.78</td>
+                        <td>3.73</td>
+                        <td><span class="score-box">4.3</span></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            
+        </div>
+        
+        <div class="strategy-section">
+            <div class="strategy-header">
+                策略2:涨停后盘整潜伏
+                <span class="count-badge">29 支</span>
+            </div>
+            
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>代码</th><th>名称</th><th>市场</th><th>板块</th>
+                        <th>现价</th><th>当日涨幅</th>
+                        <th>换手率</th><th>市值(亿)</th><th>量比</th><th>综合评分</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>000530.SZ</td>
+                        <td>冰山冷热</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>机械基件</td>
+                        <td>7.73</td>
+                        <td class="up">
+                            3.07%
+                        </td>
+                        <td>13.8%</td>
+                        <td>65.18</td>
+                        <td>0.75</td>
+                        <td><span class="score-box">7.3</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>000532.SZ</td>
+                        <td>华金资本</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>多元金融</td>
+                        <td>15.71</td>
+                        <td class="up">
+                            1.22%
+                        </td>
+                        <td>7.45%</td>
+                        <td>54.15</td>
+                        <td>1.12</td>
+                        <td><span class="score-box">7.3</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002438.SZ</td>
+                        <td>江苏神通</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>机械基件</td>
+                        <td>15.35</td>
+                        <td class="up">
+                            3.51%
+                        </td>
+                        <td>5.34%</td>
+                        <td>77.91</td>
+                        <td>0.78</td>
+                        <td><span class="score-box">7.3</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>000801.SZ</td>
+                        <td>四川九洲</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>家用电器</td>
+                        <td>17.3</td>
+                        <td class="up">
+                            1.29%
+                        </td>
+                        <td>3.99%</td>
+                        <td>175.82</td>
+                        <td>0.57</td>
+                        <td><span class="score-box">7.1</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>000862.SZ</td>
+                        <td>银星能源</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>新型电力</td>
+                        <td>5.96</td>
+                        <td class="up">
+                            1.53%
+                        </td>
+                        <td>4.09%</td>
+                        <td>54.71</td>
+                        <td>0.65</td>
+                        <td><span class="score-box">6.5</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002090.SZ</td>
+                        <td>金智科技</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>电气设备</td>
+                        <td>11.93</td>
+                        <td class="up">
+                            4.1%
+                        </td>
+                        <td>4.3%</td>
+                        <td>47.79</td>
+                        <td>1.36</td>
+                        <td><span class="score-box">6.5</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002344.SZ</td>
+                        <td>海宁皮城</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>商品城</td>
+                        <td>5.02</td>
+                        <td class="up">
+                            4.15%
+                        </td>
+                        <td>3.75%</td>
+                        <td>64.39</td>
+                        <td>1.46</td>
+                        <td><span class="score-box">6.5</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>003029.SZ</td>
+                        <td>吉大正元</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>软件服务</td>
+                        <td>26.86</td>
+                        <td class="up">
+                            2.44%
+                        </td>
+                        <td>6.62%</td>
+                        <td>52.01</td>
+                        <td>0.87</td>
+                        <td><span class="score-box">6.3</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>600707.SH</td>
+                        <td>彩虹股份</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>元器件</td>
+                        <td>6.35</td>
+                        <td class="up">
+                            0.32%
+                        </td>
+                        <td>0.94%</td>
+                        <td>227.86</td>
+                        <td>0.53</td>
+                        <td><span class="score-box">6.3</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>601500.SH</td>
+                        <td>通用股份</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>汽车配件</td>
+                        <td>4.82</td>
+                        <td class="up">
+                            0.42%
+                        </td>
+                        <td>2.42%</td>
+                        <td>76.61</td>
+                        <td>0.87</td>
+                        <td><span class="score-box">6.0</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>601010.SH</td>
+                        <td>文峰股份</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>百货</td>
+                        <td>3.1</td>
+                        <td class="up">
+                            1.97%
+                        </td>
+                        <td>6.8%</td>
+                        <td>57.29</td>
+                        <td>1.2</td>
+                        <td><span class="score-box">5.8</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>603311.SH</td>
+                        <td>金海高科</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>家用电器</td>
+                        <td>12.98</td>
+                        <td class="up">
+                            1.33%
+                        </td>
+                        <td>2.31%</td>
+                        <td>30.62</td>
+                        <td>0.79</td>
+                        <td><span class="score-box">5.7</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>600399.SH</td>
+                        <td>抚顺特钢</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>特种钢</td>
+                        <td>5.53</td>
+                        <td class="up">
+                            1.47%
+                        </td>
+                        <td>2.69%</td>
+                        <td>109.06</td>
+                        <td>0.58</td>
+                        <td><span class="score-box">5.5</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002104.SZ</td>
+                        <td>恒宝股份</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>通信设备</td>
+                        <td>19.88</td>
+                        <td class="up">
+                            3.6%
+                        </td>
+                        <td>13.94%</td>
+                        <td>140.82</td>
+                        <td>1.05</td>
+                        <td><span class="score-box">5.4</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>301127.SZ</td>
+                        <td>武汉天源</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>环境保护</td>
+                        <td>15.48</td>
+                        <td class="up">
+                            2.79%
+                        </td>
+                        <td>1.86%</td>
+                        <td>104.35</td>
+                        <td>1.26</td>
+                        <td><span class="score-box">5.3</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>000720.SZ</td>
+                        <td>新能泰山</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>电气设备</td>
+                        <td>3.58</td>
+                        <td class="up">
+                            0.85%
+                        </td>
+                        <td>2.4%</td>
+                        <td>44.98</td>
+                        <td>0.6</td>
+                        <td><span class="score-box">5.2</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>601696.SH</td>
+                        <td>中银证券</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>证券</td>
+                        <td>14.26</td>
+                        <td class="up">
+                            0.14%
+                        </td>
+                        <td>2.55%</td>
+                        <td>396.14</td>
+                        <td>0.53</td>
+                        <td><span class="score-box">5.1</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002913.SZ</td>
+                        <td>奥士康</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>元器件</td>
+                        <td>41.72</td>
+                        <td class="down">
+                            -2.32%
+                        </td>
+                        <td>1.95%</td>
+                        <td>132.4</td>
+                        <td>1.07</td>
+                        <td><span class="score-box">5.0</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>603015.SH</td>
+                        <td>弘讯科技</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>电气设备</td>
+                        <td>12.48</td>
+                        <td class="up">
+                            4.17%
+                        </td>
+                        <td>3.19%</td>
+                        <td>50.45</td>
+                        <td>1.07</td>
+                        <td><span class="score-box">4.8</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>600733.SH</td>
+                        <td>北汽蓝谷</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>汽车整车</td>
+                        <td>8.21</td>
+                        <td class="up">
+                            3.4%
+                        </td>
+                        <td>5.86%</td>
+                        <td>457.58</td>
+                        <td>1.19</td>
+                        <td><span class="score-box">4.6</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>300726.SZ</td>
+                        <td>宏达电子</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>元器件</td>
+                        <td>42.05</td>
+                        <td class="up">
+                            4.08%
+                        </td>
+                        <td>6.36%</td>
+                        <td>173.18</td>
+                        <td>1.81</td>
+                        <td><span class="score-box">4.3</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>600255.SH</td>
+                        <td>鑫科材料</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>小金属</td>
+                        <td>4.01</td>
+                        <td class="up">
+                            1.26%
+                        </td>
+                        <td>3.42%</td>
+                        <td>72.43</td>
+                        <td>0.5</td>
+                        <td><span class="score-box">4.3</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002382.SZ</td>
+                        <td>蓝帆医疗</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>医疗保健</td>
+                        <td>5.68</td>
+                        <td class="up">
+                            2.9%
+                        </td>
+                        <td>1.44%</td>
+                        <td>57.21</td>
+                        <td>0.8</td>
+                        <td><span class="score-box">4.2</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002625.SZ</td>
+                        <td>光启技术</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>航空</td>
+                        <td>52.05</td>
+                        <td class="up">
+                            0.33%
+                        </td>
+                        <td>1.0%</td>
+                        <td>1121.46</td>
+                        <td>0.44</td>
+                        <td><span class="score-box">4.2</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002676.SZ</td>
+                        <td>顺威股份</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>家用电器</td>
+                        <td>8.23</td>
+                        <td class="up">
+                            0.49%
+                        </td>
+                        <td>2.47%</td>
+                        <td>59.26</td>
+                        <td>0.68</td>
+                        <td><span class="score-box">4.2</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>600284.SH</td>
+                        <td>浦东建设</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>建筑工程</td>
+                        <td>8.07</td>
+                        <td class="up">
+                            1.0%
+                        </td>
+                        <td>1.18%</td>
+                        <td>78.3</td>
+                        <td>0.56</td>
+                        <td><span class="score-box">4.2</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>601619.SH</td>
+                        <td>嘉泽新能</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>新型电力</td>
+                        <td>4.58</td>
+                        <td class="up">
+                            4.33%
+                        </td>
+                        <td>4.14%</td>
+                        <td>133.4</td>
+                        <td>0.98</td>
+                        <td><span class="score-box">4.1</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002053.SZ</td>
+                        <td>云南能投</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>新型电力</td>
+                        <td>11.76</td>
+                        <td class="up">
+                            1.38%
+                        </td>
+                        <td>0.97%</td>
+                        <td>108.28</td>
+                        <td>0.68</td>
+                        <td><span class="score-box">3.8</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>600187.SH</td>
+                        <td>国中水务</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>水务</td>
+                        <td>2.68</td>
+                        <td class="up">
+                            2.29%
+                        </td>
+                        <td>2.49%</td>
+                        <td>43.25</td>
+                        <td>0.78</td>
+                        <td><span class="score-box">3.7</span></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            
+        </div>
+        
+        <div class="strategy-section">
+            <div class="strategy-header">
+                策略3:横盘突破潜力
+                <span class="count-badge">9 支</span>
+            </div>
+            
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>代码</th><th>名称</th><th>市场</th><th>板块</th>
+                        <th>现价</th><th>当日涨幅</th>
+                        <th>换手率</th><th>市值(亿)</th><th>量比</th><th>综合评分</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>001278.SZ</td>
+                        <td>一彬科技</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>汽车配件</td>
+                        <td>20.65</td>
+                        <td class="up">
+                            2.33%
+                        </td>
+                        <td>9.49%</td>
+                        <td>25.55</td>
+                        <td>1.53</td>
+                        <td><span class="score-box">8.3</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>300306.SZ</td>
+                        <td>远方信息</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>电器仪表</td>
+                        <td>15.1</td>
+                        <td class="up">
+                            5.08%
+                        </td>
+                        <td>15.69%</td>
+                        <td>40.61</td>
+                        <td>1.52</td>
+                        <td><span class="score-box">8.3</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>000419.SZ</td>
+                        <td>通程控股</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>百货</td>
+                        <td>7.05</td>
+                        <td class="up">
+                            9.98%
+                        </td>
+                        <td>11.48%</td>
+                        <td>38.32</td>
+                        <td>4.25</td>
+                        <td><span class="score-box">7.5</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>001379.SZ</td>
+                        <td>腾达科技</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>机械基件</td>
+                        <td>25.62</td>
+                        <td class="up">
+                            10.0%
+                        </td>
+                        <td>19.63%</td>
+                        <td>51.24</td>
+                        <td>1.98</td>
+                        <td><span class="score-box">7.1</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>600456.SH</td>
+                        <td>宝钛股份</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>小金属</td>
+                        <td>36.21</td>
+                        <td class="up">
+                            4.02%
+                        </td>
+                        <td>11.65%</td>
+                        <td>173.0</td>
+                        <td>2.64</td>
+                        <td><span class="score-box">6.6</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>600859.SH</td>
+                        <td>王府井</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>百货</td>
+                        <td>15.52</td>
+                        <td class="up">
+                            4.16%
+                        </td>
+                        <td>7.3%</td>
+                        <td>174.43</td>
+                        <td>1.86</td>
+                        <td><span class="score-box">6.1</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>000919.SZ</td>
+                        <td>金陵药业</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>化学制药</td>
+                        <td>7.71</td>
+                        <td class="up">
+                            4.61%
+                        </td>
+                        <td>12.27%</td>
+                        <td>47.95</td>
+                        <td>6.36</td>
+                        <td><span class="score-box">6.0</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>600765.SH</td>
+                        <td>中航重机</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>航空</td>
+                        <td>18.04</td>
+                        <td class="up">
+                            0.84%
+                        </td>
+                        <td>7.21%</td>
+                        <td>284.22</td>
+                        <td>1.69</td>
+                        <td><span class="score-box">5.9</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>603977.SH</td>
+                        <td>国泰集团</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>化工原料</td>
+                        <td>14.21</td>
+                        <td class="up">
+                            9.98%
+                        </td>
+                        <td>10.01%</td>
+                        <td>88.28</td>
+                        <td>3.73</td>
+                        <td><span class="score-box">5.6</span></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            
+        </div>
+        
+        <div class="strategy-section">
+            <div class="strategy-header">
+                策略4:涨停后连阳上涨
+                <span class="count-badge">4 支</span>
+            </div>
+            
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>代码</th><th>名称</th><th>市场</th><th>板块</th>
+                        <th>现价</th><th>当日涨幅</th>
+                        <th>换手率</th><th>市值(亿)</th><th>量比</th><th>综合评分</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>603212.SH</td>
+                        <td>赛伍技术</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>塑料</td>
+                        <td>14.67</td>
+                        <td class="up">
+                            4.79%
+                        </td>
+                        <td>13.36%</td>
+                        <td>64.18</td>
+                        <td>1.33</td>
+                        <td><span class="score-box">8.1</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>300997.SZ</td>
+                        <td>欢乐家</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>软饮料</td>
+                        <td>33.39</td>
+                        <td class="up">
+                            15.9%
+                        </td>
+                        <td>9.98%</td>
+                        <td>146.07</td>
+                        <td>1.35</td>
+                        <td><span class="score-box">7.6</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>600936.SH</td>
+                        <td>广西广电</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>软件服务</td>
+                        <td>4.3</td>
+                        <td class="up">
+                            9.97%
+                        </td>
+                        <td>6.76%</td>
+                        <td>71.85</td>
+                        <td>0.67</td>
+                        <td><span class="score-box">6.8</span></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002813.SZ</td>
+                        <td>路畅科技</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>汽车配件</td>
+                        <td>30.71</td>
+                        <td class="up">
+                            9.99%
+                        </td>
+                        <td>7.59%</td>
+                        <td>36.85</td>
+                        <td>1.14</td>
+                        <td><span class="score-box">6.2</span></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            
+        </div>
+        
+        
+        <div class="note">* 已过滤科创板(688)、北交所(8/4/9)及ST个股。评分满分10分。</div>
+    </div>
+</body>
+</html>
