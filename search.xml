@@ -8199,4 +8199,94 @@ window.onresize=myChart.resize;</script>
         <category>记录</category>
       </categories>
   </entry>
+  <entry>
+    <title>整了下股票自动复盘程序（爱上Gemini）</title>
+    <url>/2025/12/26/%E6%95%B4%E4%BA%86%E4%B8%8B%E8%82%A1%E7%A5%A8%E8%87%AA%E5%8A%A8%E5%A4%8D%E7%9B%98%E7%A8%8B%E5%BA%8F%EF%BC%88%E7%88%B1%E4%B8%8AGemini%EF%BC%89/</url>
+    <content><![CDATA[<p>最近10来天都没想起来到博客无病呻吟几句，主要是Gemini玩的略微有点上瘾，让我重新燃起了对python以及对一些新想法创造的热情。第一件事就是重塑了一下我的股票分析程序，经过多天跟它的“斗智斗勇“，上万字对它的“训话”，加上自己的手动调整，总算让这个东西像个样子，具体的内容可以到我右边菜单【股票】里去看，里面是相关的成果，下面是它的运行流程及主要结构，持续优化中:</p>
+<hr>
+<h4 id="主要流程："><a href="#主要流程：" class="headerlink" title="主要流程："></a>主要流程：</h4><ol>
+<li><strong>数据获取</strong><ol>
+<li>初始化数据，通过Tushare接口将近几年的日交易数据存入数据库</li>
+<li>每天/按需更新最新的数据，保证后续的分析使用最新数据计算</li>
+<li>计算额外指标，获取额外数据<ol>
+<li>因为接口获取的只有基础指标，至于其他X日日均、连板、强势弱势等都得基于基础指标进行计算，然后写入数据库</li>
+<li>获取概念数据，因为接口权限不够，不能从Tushare获取，因此曲线救国，使用Akshare接口来补充</li>
+<li>获取新闻数据，从财联社接口获取最近48小时新闻</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>每日复盘</strong><ol>
+<li>大盘当天主要指标：点数、成交量、涨跌幅、上涨下跌数、涨停/跌停数、情绪指标（我自己根据各种经验设计的一个模型，用于计算整体市场情绪，总分100分）</li>
+<li>近10日趋势变化</li>
+<li>最强/最弱板块</li>
+<li>最强/最弱概念</li>
+<li>最强/最弱个股</li>
+<li>热点新闻分析，此处讨了个巧，因为消息这个东西个人解读起来很麻烦且费事，就给Deepseek充了20块钱，用它的接口来帮我归纳整理打分并给出具体影响：利好/利空，对应的股票名称（一次1分钱，等于不要钱）</li>
+<li>做个漂亮点的静态页面进行呈现daily_review.html</li>
+</ol>
+</li>
+<li><strong>每日选股</strong><ol>
+<li>策略编写，目前我从之前自己的10个策略砍到了4个，打算看下这些策略选出来的股票短线表现哪个好，然后再逐步精简</li>
+<li>选出的股票经过模型打分排序（参考了我自己编的一个模型，设置了不同的权重，目前看戏下来还有很大提升空间）</li>
+<li>将选入的股票存入本地数据库</li>
+<li>结果生成静态页面stock_selection.html</li>
+</ol>
+</li>
+<li>每日策略回测<ol>
+<li>根据本地数据库里近期选入的股票后续表现（次日，5日，10日）进行跟踪回测</li>
+<li>分析结果生成静态页面stock_backtest.html</li>
+</ol>
+</li>
+<li><strong>邮件发送</strong><ol>
+<li>目前对于我们核心成员，将每日的复盘结果通过邮件发送到大家的邮箱供大家参考，给大家省点时间,静态网页的好处就是邮件客户端可以直接打开，手机查看也方便</li>
+</ol>
+</li>
+<li><strong>发布到网站</strong><ol>
+<li>将生成的三个页面存入我Hexo本地文件库</li>
+<li>生成/更新导航页</li>
+<li>手动配置，增加菜单</li>
+<li>最后的发布动作还是自己亲自来，比较有仪式感，deploy到github</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h4 id="项目结构："><a href="#项目结构：" class="headerlink" title="项目结构："></a>项目结构：</h4><ul>
+<li>/core<ul>
+<li>data_updater.py    用于更新初始化/增量更新市场数据、定义表结构、计算均线等指标</li>
+<li>db_engine.py    初始化数据库连接，定义查询方法</li>
+<li>factor_calculator.py  计算时长情绪、连板、行业、概念等数据</li>
+<li>strategies.py   选股及回测</li>
+</ul>
+</li>
+<li>/report<ul>
+<li>renderer.py    用于渲染报告</li>
+<li>/templates<ul>
+<li>daily_review.html        模板-每日复盘</li>
+<li>stock_selection.html    模板-选股</li>
+<li>back_test.html             模板-选股策略回测结果</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>/services<ul>
+<li>news_service.py      获取新闻</li>
+<li>mail_dervice.py       发送邮件</li>
+<li>deploy_hexo.py      文件同步至hexo</li>
+</ul>
+</li>
+<li>/utils<ul>
+<li>market_utils.py      市场代码对应表、打印进度条</li>
+</ul>
+</li>
+<li>config.py           数据库配置、Tushare配置、表配置、多线程配置、邮件配置、大语言模型配置</li>
+<li>main.py             主程序，调用各类服务</li>
+<li>requirements.txt    依赖安装包</li>
+<li>Readme.md            使用说明</li>
+</ul>
+]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+  </entry>
 </search>
