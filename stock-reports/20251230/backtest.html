@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>策略历史回测报告</title>
+    <style>
+        body { font-family: 'Microsoft YaHei', sans-serif; background-color: #f0f2f5; padding: 20px; color: #333; }
+        .container { max-width: 1380px; margin: 0 auto; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        h1 { text-align: center; color: #2c3e50; }
+        h2 { font-size: 18px; border-left: 4px solid #3498db; padding-left: 10px; margin-bottom: 15px; }
+        
+        /* 表格样式优化 */
+        table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 15px; }
+        th { background: #f8f9fa; padding: 8px 10px; text-align: center; border-bottom: 2px solid #ddd; white-space: nowrap; font-weight: 600; color: #555; }
+        td { padding: 8px 10px; text-align: center; border-bottom: 1px solid #eee; }
+        
+        .win { color: #e74c3c; font-weight: bold; }
+        .loss { color: #27ae60; font-weight: bold; }
+        .gray { color: #999; }
+        
+        .summary-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; }
+        .stat-box { background: #f9f9f9; padding: 15px; border-radius: 6px; text-align: center; border: 1px solid #eee; }
+        .stat-name { font-size: 14px; color: #555; margin-bottom: 5px; font-weight: bold; }
+        .stat-rate { font-size: 24px; font-weight: bold; color: #333; }
+        .stat-detail { font-size: 12px; color: #777; margin-top: 5px; }
+        .stat-returns { font-size: 12px; margin-top: 8px; border-top: 1px dashed #ddd; padding-top: 5px; }
+        
+        /* 矩阵表专用样式 */
+        .matrix-table { table-layout: fixed; }
+        .matrix-table th { background-color: #ecf0f1; font-size: 12px; color: #555; }
+        .matrix-table td { height: 45px; vertical-align: middle; }
+        .col-strategy { width: 180px; font-weight: bold; text-align: left; padding-left: 15px; background: #fcfcfc; border-right: 2px solid #eee; }
+        .cell-win-rate { font-size: 14px; font-weight: bold; display: block; }
+        .cell-count { font-size: 10px; color: #999; display: block; margin-top: 2px; }
+        .no-data { color: #ddd; font-size: 18px; }
+
+        .market-tag { font-size: 11px; color: #fff; padding: 1px 4px; border-radius: 3px; background-color: #95a5a6; }
+        .market-主板 { background-color: #2980b9; }
+        .market-创业板 { background-color: #16a085; }
+        
+        .strategy-title { 
+            font-size: 16px; font-weight: bold; color: #2c3e50; 
+            border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 15px;
+            margin-top: 10px;
+        }
+        .total-win-rate { color: #e74c3c; font-weight: bold; font-size: 16px; margin-left: 5px; }
+        .strategy-stats { font-size: 13px; font-weight: normal; color: #666; float: right; }
+        
+        /* 日期头样式 */
+        .date-header {
+            background-color: #eaf2f8;
+            padding: 8px 15px;
+            border-left: 4px solid #3498db;
+            margin-top: 20px;
+            margin-bottom: 0; /* 紧贴表格 */
+            font-weight: bold;
+            color: #2c3e50;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+        .date-win-rate {
+            float: right;
+            font-size: 13px;
+            color: #d35400;
+        }
+        /* 去掉每个日期表格的上边距，使其紧贴Header */
+        .date-table { margin-top: 0; border-top: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 策略回测报告 (Next Day Win Rate)</h1>
+        
+        <!-- 1. 全策略历史汇总 -->
+        <div class="card">
+            <h2>全策略历史总表现 (已剔除当日未结算)</h2>
+            <div class="summary-grid">
+                
+                <div class="stat-box">
+                    <div class="stat-name">策略1</div>
+                    <div class="stat-rate" style="color: #27ae60">
+                        21.4%
+                    </div>
+                    <div class="stat-detail">
+                        胜/总: 3/14
+                    </div>
+                    <div class="stat-returns">
+                        次日均: <span class="loss">nan%</span>
+                    </div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-name">策略2</div>
+                    <div class="stat-rate" style="color: #e74c3c">
+                        100.0%
+                    </div>
+                    <div class="stat-detail">
+                        胜/总: 1/1
+                    </div>
+                    <div class="stat-returns">
+                        次日均: <span class="win">0.83%</span>
+                    </div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-name">策略3</div>
+                    <div class="stat-rate" style="color: #27ae60">
+                        28.6%
+                    </div>
+                    <div class="stat-detail">
+                        胜/总: 2/7
+                    </div>
+                    <div class="stat-returns">
+                        次日均: <span class="loss">-0.66%</span>
+                    </div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-name">策略4</div>
+                    <div class="stat-rate" style="color: #e74c3c">
+                        53.3%
+                    </div>
+                    <div class="stat-detail">
+                        胜/总: 8/15
+                    </div>
+                    <div class="stat-returns">
+                        次日均: <span class="win">0.98%</span>
+                    </div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-name">策略5</div>
+                    <div class="stat-rate" style="color: #999">
+                        0%
+                    </div>
+                    <div class="stat-detail">
+                        胜/总: 0/0
+                    </div>
+                    <div class="stat-returns">
+                        次日均: <span class="loss">0%</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- 2. 近5日趋势矩阵 -->
+        <div class="card">
+            <h2>🔥 各策略胜率趋势 (近5日)</h2>
+            <table class="matrix-table">
+                <thead>
+                    <tr>
+                        <th class="col-strategy">策略 \ 日期</th>
+                        
+                        <th>12-26</th>
+                        
+                        <th>12-29</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="col-strategy">策略1</td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate loss">33%</span>
+                                <span class="cell-count">(1/3)</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate loss">18%</span>
+                                <span class="cell-count">(2/11)</span>
+                            
+                        </td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="col-strategy">策略2</td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate win">100%</span>
+                                <span class="cell-count">(1/1)</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="no-data">-</span>
+                            
+                        </td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="col-strategy">策略3</td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate win">67%</span>
+                                <span class="cell-count">(2/3)</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate loss">0%</span>
+                                <span class="cell-count">(0/4)</span>
+                            
+                        </td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="col-strategy">策略4</td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate win">57%</span>
+                                <span class="cell-count">(4/7)</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate loss">50%</span>
+                                <span class="cell-count">(4/8)</span>
+                            
+                        </td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="col-strategy">策略5</td>
+                        
+                        <td>
+                            
+                                <span class="no-data">-</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="no-data">-</span>
+                            
+                        </td>
+                        
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 3. 详细明细 -->
+        
+        <div class="card">
+            <div class="strategy-title">
+                策略1
+                <div class="strategy-stats">
+                    总计: 14 | 胜: 3 | 
+                    总胜率: <span class="total-win-rate">21.4%</span> |
+                    1日均盈: <span class="loss">nan%</span>
+                </div>
+            </div>
+
+            <!-- 遍历该策略下的每一天 -->
+            
+                
+                <!-- 每日标题 -->
+                <div class="date-header">
+                    📅 20251229
+                    <span class="date-win-rate">
+                        <!-- 修正：使用 win_rate_val 而不是 win_rate -->
+                        当日胜率: 18% (2/11)
+                    </span>
+                </div>
+
+                <!-- 每日独立表格 -->
+                <table class="date-table">
+                    <thead>
+                        <tr>
+                            <!-- 基础列 -->
+                            <th width="10%">代码</th>
+                            <th width="15%">名称</th>
+                            <th width="8%">市场</th>
+                            <th width="12%">板块</th>
+                            <th width="6%">评分</th>
+                            <th width="8%">市值</th>
+                            <th width="8%">入选价</th>
+                            <th width="8%">最新价</th>
+                            <th width="8%">次日涨幅</th>
+                            
+                            <!-- 动态列：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <th width="6%">胜负</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>002117.SZ</td>
+                            <td>东港股份</td>
+                            <td><span class="market-tag market-主板">主板</span></td>
+                            <td>广告包装</td>
+                            <td><b>7.5</b></td>
+                            <td>73.95亿</td>
+                            <td>14.12</td>
+                            <td>14.24</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="win">0.85%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="win">胜</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>002476.SZ</td>
+                            <td>宝莫股份</td>
+                            <td><span class="market-tag market-主板">主板</span></td>
+                            <td>化工原料</td>
+                            <td><b>7.5</b></td>
+                            <td>43.51亿</td>
+                            <td>7.11</td>
+                            <td>7.04</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="loss">-0.98%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="loss">负</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>000659.SZ</td>
+                            <td>珠海中富</td>
+                            <td><span class="market-tag market-主板">主板</span></td>
+                            <td>广告包装</td>
+                            <td><b>7.0</b></td>
+                            <td>49.89亿</td>
+                            <td>3.88</td>
+                            <td>3.9</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="win">0.52%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="win">胜</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>002243.SZ</td>
+                            <td>力合科创</td>
+                            <td><span class="market-tag market-主板">主板</span></td>
+                            <td>广告包装</td>
+                            <td><b>7.0</b></td>
+                            <td>130.87亿</td>
+                            <td>10.81</td>
+                            <td>9.96</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="loss">-7.86%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="loss">负</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>300550.SZ</td>
+                            <td>和仁科技</td>
+                            <td><span class="market-tag market-创业板">创业板</span></td>
+                            <td>软件服务</td>
+                            <td><b>7.0</b></td>
+                            <td>38.86亿</td>
+                            <td>14.8</td>
+                            <td>14.63</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="loss">-1.15%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="loss">负</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>600178.SH</td>
+                            <td>东安动力</td>
+                            <td><span class="market-tag market-主板">主板</span></td>
+                            <td>汽车配件</td>
+                            <td><b>6.5</b></td>
+                            <td>61.39亿</td>
+                            <td>13.16</td>
+                            <td>12.84</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="loss">-2.43%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="loss">负</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>600736.SH</td>
+                            <td>苏州高新</td>
+                            <td><span class="market-tag market-主板">主板</span></td>
+                            <td>园区开发</td>
+                            <td><b>6.5</b></td>
+                            <td>83.7亿</td>
+                            <td>7.27</td>
+                            <td>6.75</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="loss">-7.15%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="loss">负</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>000987.SZ</td>
+                            <td>越秀资本</td>
+                            <td><span class="market-tag market-主板">主板</span></td>
+                            <td>多元金融</td>
+                            <td><b>6.0</b></td>
+                            <td>421.44亿</td>
+                            <td>8.4</td>
+                            <td>8.12</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="loss">-3.33%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="loss">负</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>600058.SH</td>
+                            <td>五矿发展</td>
+                            <td><span class="market-tag market-主板">主板</span></td>
+                            <td>商贸代理</td>
+                            <td><b>6.0</b></td>
+                            <td>123.48亿</td>
+                            <td>11.52</td>
+                            <td>nan</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="loss">nan%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="loss">负</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>002652.SZ</td>
+                            <td>扬子新材</td>
+                            <td><span class="market-tag market-主板">主板</span></td>
+                            <td>其他建材</td>
+                            <td><b>5.8</b></td>
+                            <td>24.89亿</td>
+                            <td>4.86</td>
+                            <td>4.37</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="loss">-10.08%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="loss">负</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>000420.SZ</td>
+                            <td>吉林化纤</td>
+                            <td><span class="market-tag market-主板">主板</span></td>
+                            <td>化纤</td>
+                            <td><b>5.5</b></td>
+                            <td>114.34亿</td>
+                            <td>4.65</td>
+                            <td>4.61</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="loss">-0.86%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="loss">负</span>
+                                
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            
+        </div>
+        
+        <div class="card">
+            <div class="strategy-title">
+                策略2
+                <div class="strategy-stats">
+                    总计: 1 | 胜: 1 | 
+                    总胜率: <span class="total-win-rate">100.0%</span> |
+                    1日均盈: <span class="win">0.83%</span>
+                </div>
+            </div>
+
+            <!-- 遍历该策略下的每一天 -->
+            
+        </div>
+        
+        <div class="card">
+            <div class="strategy-title">
+                策略3
+                <div class="strategy-stats">
+                    总计: 7 | 胜: 2 | 
+                    总胜率: <span class="total-win-rate">28.6%</span> |
+                    1日均盈: <span class="loss">-0.66%</span>
+                </div>
+            </div>
+
+            <!-- 遍历该策略下的每一天 -->
+            
+                
+                <!-- 每日标题 -->
+                <div class="date-header">
+                    📅 20251229
+                    <span class="date-win-rate">
+                        <!-- 修正：使用 win_rate_val 而不是 win_rate -->
+                        当日胜率: 0% (0/4)
+                    </span>
+                </div>
+
+                <!-- 每日独立表格 -->
+                <table class="date-table">
+                    <thead>
+                        <tr>
+                            <!-- 基础列 -->
+                            <th width="10%">代码</th>
+                            <th width="15%">名称</th>
+                            <th width="8%">市场</th>
+                            <th width="12%">板块</th>
+                            <th width="6%">评分</th>
+                            <th width="8%">市值</th>
+                            <th width="8%">入选价</th>
+                            <th width="8%">最新价</th>
+                            <th width="8%">次日涨幅</th>
+                            
+                            <!-- 动态列：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <th width="6%">胜负</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>601279.SH</td>
+                            <td>英利汽车</td>
+                            <td><span class="market-tag market-主板">主板</span></td>
+                            <td>汽车配件</td>
+                            <td><b>8.0</b></td>
+                            <td>86.11亿</td>
+                            <td>5.43</td>
+                            <td>5.3</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="loss">-2.39%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="loss">负</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>603256.SH</td>
+                            <td>宏和科技</td>
+                            <td><span class="market-tag market-主板">主板</span></td>
+                            <td>玻璃</td>
+                            <td><b>6.5</b></td>
+                            <td>334.47亿</td>
+                            <td>38.02</td>
+                            <td>37.91</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="loss">-0.29%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="loss">负</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>301217.SZ</td>
+                            <td>铜冠铜箔</td>
+                            <td><span class="market-tag market-创业板">创业板</span></td>
+                            <td>元器件</td>
+                            <td><b>5.5</b></td>
+                            <td>303.09亿</td>
+                            <td>36.56</td>
+                            <td>35.74</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="loss">-2.24%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="loss">负</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>002961.SZ</td>
+                            <td>瑞达期货</td>
+                            <td><span class="market-tag market-主板">主板</span></td>
+                            <td>多元金融</td>
+                            <td><b>5.0</b></td>
+                            <td>130.85亿</td>
+                            <td>28.85</td>
+                            <td>28.67</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="loss">-0.62%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="loss">负</span>
+                                
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            
+        </div>
+        
+        <div class="card">
+            <div class="strategy-title">
+                策略4
+                <div class="strategy-stats">
+                    总计: 15 | 胜: 8 | 
+                    总胜率: <span class="total-win-rate">53.3%</span> |
+                    1日均盈: <span class="win">0.98%</span>
+                </div>
+            </div>
+
+            <!-- 遍历该策略下的每一天 -->
+            
+                
+                <!-- 每日标题 -->
+                <div class="date-header">
+                    📅 20251229
+                    <span class="date-win-rate">
+                        <!-- 修正：使用 win_rate_val 而不是 win_rate -->
+                        当日胜率: 50% (4/8)
+                    </span>
+                </div>
+
+                <!-- 每日独立表格 -->
+                <table class="date-table">
+                    <thead>
+                        <tr>
+                            <!-- 基础列 -->
+                            <th width="10%">代码</th>
+                            <th width="15%">名称</th>
+                            <th width="8%">市场</th>
+                            <th width="12%">板块</th>
+                            <th width="6%">评分</th>
+                            <th width="8%">市值</th>
+                            <th width="8%">入选价</th>
+                            <th width="8%">最新价</th>
+                            <th width="8%">次日涨幅</th>
+                            
+                            <!-- 动态列：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <th width="6%">胜负</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>300141.SZ</td>
+                            <td>和顺电气</td>
+                            <td><span class="market-tag market-创业板">创业板</span></td>
+                            <td>电气设备</td>
+                            <td><b>7.5</b></td>
+                            <td>33.7亿</td>
+                            <td>13.07</td>
+                            <td>12.71</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="loss">-2.75%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="loss">负</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>301043.SZ</td>
+                            <td>绿岛风</td>
+                            <td><span class="market-tag market-创业板">创业板</span></td>
+                            <td>机械基件</td>
+                            <td><b>7.0</b></td>
+                            <td>45.99亿</td>
+                            <td>67.63</td>
+                            <td>64.8</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="loss">-4.18%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="loss">负</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>300129.SZ</td>
+                            <td>泰胜风能</td>
+                            <td><span class="market-tag market-创业板">创业板</span></td>
+                            <td>电气设备</td>
+                            <td><b>6.3</b></td>
+                            <td>100.03亿</td>
+                            <td>10.7</td>
+                            <td>10.0</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="loss">-6.54%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="loss">负</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>300668.SZ</td>
+                            <td>杰恩设计</td>
+                            <td><span class="market-tag market-创业板">创业板</span></td>
+                            <td>装修装饰</td>
+                            <td><b>6.0</b></td>
+                            <td>33.94亿</td>
+                            <td>28.19</td>
+                            <td>28.78</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="win">2.09%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="win">胜</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>000559.SZ</td>
+                            <td>万向钱潮</td>
+                            <td><span class="market-tag market-主板">主板</span></td>
+                            <td>汽车配件</td>
+                            <td><b>5.5</b></td>
+                            <td>472.77亿</td>
+                            <td>14.26</td>
+                            <td>15.69</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="win">10.03%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="win">胜</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>000593.SZ</td>
+                            <td>德龙汇能</td>
+                            <td><span class="market-tag market-主板">主板</span></td>
+                            <td>供气供热</td>
+                            <td><b>5.0</b></td>
+                            <td>41.96亿</td>
+                            <td>11.7</td>
+                            <td>11.21</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="loss">-4.19%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="loss">负</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>600376.SH</td>
+                            <td>首开股份</td>
+                            <td><span class="market-tag market-主板">主板</span></td>
+                            <td>区域地产</td>
+                            <td><b>5.0</b></td>
+                            <td>161.48亿</td>
+                            <td>6.26</td>
+                            <td>6.89</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="win">10.06%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="win">胜</span>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>603119.SH</td>
+                            <td>浙江荣泰</td>
+                            <td><span class="market-tag market-主板">主板</span></td>
+                            <td>汽车配件</td>
+                            <td><b>4.5</b></td>
+                            <td>389.57亿</td>
+                            <td>107.1</td>
+                            <td>117.81</td>
+                            
+                            <!-- 次日涨幅 -->
+                            <td class="win">10.00%</td>
+                            
+                            <!-- 动态数据：只有 show_extended 为 True 时才显示 -->
+                            
+                            
+                            <td>
+                                 <span class="win">胜</span>
+                                
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            
+        </div>
+        
+        <div class="card">
+            <div class="strategy-title">
+                策略5
+                <div class="strategy-stats">
+                    总计: 0 | 胜: 0 | 
+                    总胜率: <span class="total-win-rate">0%</span> |
+                    1日均盈: <span class="loss">0%</span>
+                </div>
+            </div>
+
+            <!-- 遍历该策略下的每一天 -->
+            
+        </div>
+        
+        
+        <div style="text-align:center; font-size:12px; color:#999; margin-top:20px;">Generated at 2025-12-30 16:33:00</div>
+    </div>
+</body>
+</html>
