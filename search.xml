@@ -8327,4 +8327,20 @@ window.onresize=myChart.resize;</script>
         <tag>健康</tag>
       </tags>
   </entry>
+  <entry>
+    <title>效率爆炸</title>
+    <url>/2026/01/03/%E6%95%88%E7%8E%87%E7%88%86%E7%82%B8/</url>
+    <content><![CDATA[<p>晚上想起来博客还欠了点债没整，之前因为自己学艺不精，加上误信谗言（包括Deepseek以及Trae）被玩崩过，导致后面没有兴致再去调。但是最近每日疯狂鞭打Gemini给我写程序，今晚灵光一现，让这位好同学给我顺道把问题解决了，看看效率如何？</p>
+<ul>
+<li>首页简化改版，调整样式</li>
+<li>评论留言邮件提醒</li>
+<li>关于rss的调整，加上作者(目前我用的是Fluent Reader)</li>
+</ul>
+<p>除了第一个问题经过我多轮修改需求调整，花了点时间外，整个过程非常的顺利，一共一个小时左右就搞定了，这个效率的确挺给我惊喜。感觉我已经离不开它了，免费期过后果断要买。</p>
+<p>刚调整的时候发现一个有意思的巧合：现在用的最爽的大模型Gemini，我又是双子座（Gemini）、关键我这个网站主题的Scheme配置居然也叫Gemini,希望接下来可以带来好运~</p>
+]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+  </entry>
 </search>
