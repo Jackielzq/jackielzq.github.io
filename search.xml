@@ -8343,4 +8343,25 @@ window.onresize=myChart.resize;</script>
         <tag>青春，遗憾</tag>
       </tags>
   </entry>
+  <entry>
+    <title>再修正了一下博客的评论问题</title>
+    <url>/2026/01/04/%E5%86%8D%E4%BF%AE%E6%AD%A3%E4%BA%86%E4%B8%80%E4%B8%8B%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%AF%84%E8%AE%BA%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>因为博客是挂在了Github上，并且评论系统Waline是部署在Vercel上，基本上要翻墙才能使用或者查看留言（Vercel被墙了），挺不方便，所以打算还是修一下，毕竟之前很多人都是挡在了翻墙这个门槛上（连看到这个博客有时候都得刷新好多次，是属于真朋友了）</p>
+<p>在找解决方案时本来考虑“一劳永逸“买个域名，但是看了一遍域名网站后想想还是算了，便宜的虽然1美金/首年，后面可是每年至少20-30美金，套路满满，而且后面如果忘记续费了也麻烦，所以暂时先解决一半吧，github域名不翻墙也能看，但是评论不翻墙确实就没办法了，先解决这个问题</p>
+<p>尝试了两个方案，最终发现了天使般的 <a href="https://zeabur.com/">Zeabur</a>，一次性给解决了所有问题，即能提供一个免费不被墙的二级域名，又能直接部署Waline，默认还给我送了个mongodb服务，贴心到位。但是因为有历史的评论数据在Leancloud上，因此最终还是把Leancloud的配置挪过来，这样历史评论也能一步继承。试了一下，不用翻墙也能评论了，完美解决。</p>
+<p>不用一分钱就能一直用下去的博客，在此向以下单位鸣谢：</p>
+<ul>
+<li><code>Github Pages</code>提供免费网站部署</li>
+<li><code>Hexo</code>  提供高质量的惊天博客部署方案</li>
+<li><code>Next </code> 好看实用的主题</li>
+<li><code>Waline</code> 免费且目前可能是唯一匹配Hexo的评论插件</li>
+<li><code>Zeabur</code>一站式Waline服务部署</li>
+<li><code>Leancloud</code>免费的云数据库</li>
+<li><code>Google Gemini</code> 当然还有这位大哥，如黑夜中的明灯，从此告别百度CSDN</li>
+</ul>
+]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+  </entry>
 </search>

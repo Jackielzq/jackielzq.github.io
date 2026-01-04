@@ -6,7 +6,7 @@
   <link href="https://jackielzq.github.io/atom.xml" rel="self"/>
   
   <link href="https://jackielzq.github.io/"/>
-  <updated>2026-01-03T14:19:09.414Z</updated>
+  <updated>2026-01-04T12:38:51.537Z</updated>
   <id>https://jackielzq.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>再修正了一下博客的评论问题</title>
+    <link href="https://jackielzq.github.io/2026/01/04/%E5%86%8D%E4%BF%AE%E6%AD%A3%E4%BA%86%E4%B8%80%E4%B8%8B%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%AF%84%E8%AE%BA%E9%97%AE%E9%A2%98/"/>
+    <id>https://jackielzq.github.io/2026/01/04/%E5%86%8D%E4%BF%AE%E6%AD%A3%E4%BA%86%E4%B8%80%E4%B8%8B%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%AF%84%E8%AE%BA%E9%97%AE%E9%A2%98/</id>
+    <published>2026-01-04T12:12:12.000Z</published>
+    <updated>2026-01-04T12:38:51.537Z</updated>
+    
+    <content type="html"><![CDATA[<p>因为博客是挂在了Github上，并且评论系统Waline是部署在Vercel上，基本上要翻墙才能使用或者查看留言（Vercel被墙了），挺不方便，所以打算还是修一下，毕竟之前很多人都是挡在了翻墙这个门槛上（连看到这个博客有时候都得刷新好多次，是属于真朋友了）</p><p>在找解决方案时本来考虑“一劳永逸“买个域名，但是看了一遍域名网站后想想还是算了，便宜的虽然1美金/首年，后面可是每年至少20-30美金，套路满满，而且后面如果忘记续费了也麻烦，所以暂时先解决一半吧，github域名不翻墙也能看，但是评论不翻墙确实就没办法了，先解决这个问题</p><p>尝试了两个方案，最终发现了天使般的 <a href="https://zeabur.com/">Zeabur</a>，一次性给解决了所有问题，即能提供一个免费不被墙的二级域名，又能直接部署Waline，默认还给我送了个mongodb服务，贴心到位。但是因为有历史的评论数据在Leancloud上，因此最终还是把Leancloud的配置挪过来，这样历史评论也能一步继承。试了一下，不用翻墙也能评论了，完美解决。</p><p>不用一分钱就能一直用下去的博客，在此向以下单位鸣谢：</p><ul><li><code>Github Pages</code>提供免费网站部署</li><li><code>Hexo</code>  提供高质量的惊天博客部署方案</li><li><code>Next </code> 好看实用的主题</li><li><code>Waline</code> 免费且目前可能是唯一匹配Hexo的评论插件</li><li><code>Zeabur</code>一站式Waline服务部署</li><li><code>Leancloud</code>免费的云数据库</li><li><code>Google Gemini</code> 当然还有这位大哥，如黑夜中的明灯，从此告别百度CSDN</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;因为博客是挂在了Github上，并且评论系统Waline是部署在Vercel上，基本上要翻墙才能使用或者查看留言（Vercel被墙了），挺不方便，所以打算还是修一下，毕竟之前很多人都是挡在了翻墙这个门槛上（连看到这个博客有时候都得刷新好多次，是属于真朋友了）&lt;/p&gt;
+&lt;p&gt;</summary>
+      
+    
+    
+    
+    <category term="记录" scheme="https://jackielzq.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>效率爆炸</title>
@@ -446,28 +469,6 @@
       
     <summary type="html">&lt;p&gt;前段时间周末去隔壁市找同学聚会，鉴于之前自己开车挺累的经验，于是打算这次坐车去，但奇怪的是这两个市挨得挺近，坐高铁居然如此麻烦…于是乎上滴滴约了一个顺风车。讲道理，如果要考虑坐的舒服的话，顺风车还是别考虑了，来回的两趟，这两个司机的行为出奇地一致…&lt;/p&gt;
 &lt;p&gt;首先，现在</summary>
-      
-    
-    
-    
-    <category term="记录" scheme="https://jackielzq.github.io/categories/%E8%AE%B0%E5%BD%95/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>习惯性跟老板吵架</title>
-    <link href="https://jackielzq.github.io/2025/09/01/%E4%B9%A0%E6%83%AF%E6%80%A7%E8%B7%9F%E8%80%81%E6%9D%BF%E5%90%B5%E6%9E%B6/"/>
-    <id>https://jackielzq.github.io/2025/09/01/%E4%B9%A0%E6%83%AF%E6%80%A7%E8%B7%9F%E8%80%81%E6%9D%BF%E5%90%B5%E6%9E%B6/</id>
-    <published>2025-09-01T14:04:12.000Z</published>
-    <updated>2025-09-02T13:08:32.989Z</updated>
-    
-    <content type="html"><![CDATA[<p>前两天又跟老板吵得面红耳赤，感觉这种状况是停不下来了。多buff加持的老板真的是最可怕生物（单身+大龄+女性+事业心强+当过领导），通常都是性格强势，听不得任何与她想法不同的意见。这种人除了用比她更大的声音跟她吵，把她镇住，基本无解，你越是不跟她吵她越觉得自己正确，得寸进尺…吵完之后发现自己的问题了，也不会认，就转移一下话题就想把这个问题盖过去，丝毫不考虑之前自己那副德性是否给对方造成什么样的心理创伤。</p><p>基本上就是吵完，另外的合伙人老板两边劝，好一阵，然后过一段时间出现问题了又继续吵，周而复始，确实心累。但是不吵不是我的性格，你瞎BB说的明显是错的，到时项目出现了问题，还会把锅甩到别人身上，与其如此，不如在一开始就把矛盾激发出来，逼她说出那句话“除了问题算我的！”</p><p>每次吵架，我都是抱着“你要不爽我你就裁了我，我随时可以走”的心态来的，因此也不落下风。我跟同事说，但凡我做的事情少一点，做事糊弄一点，我都不敢跟她这么硬气；但凡她能找着比我更好用的员工，她早叫我滚蛋了，能留我到这？</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;前两天又跟老板吵得面红耳赤，感觉这种状况是停不下来了。多buff加持的老板真的是最可怕生物（单身+大龄+女性+事业心强+当过领导），通常都是性格强势，听不得任何与她想法不同的意见。这种人除了用比她更大的声音跟她吵，把她镇住，基本无解，你越是不跟她吵她越觉得自己正确，得寸进尺</summary>
       
     
     
