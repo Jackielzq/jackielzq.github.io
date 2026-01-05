@@ -1,0 +1,2481 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>策略历史回测报告</title>
+    <style>
+        body { font-family: 'Microsoft YaHei', sans-serif; background-color: #f0f2f5; padding: 20px; color: #333; }
+        .container { max-width: 1380px; margin: 0 auto; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        h1 { text-align: center; color: #2c3e50; }
+        h2 { font-size: 18px; border-left: 4px solid #3498db; padding-left: 10px; margin-bottom: 15px; }
+        
+        /* 表格样式优化 */
+        table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 15px; }
+        th { background: #f8f9fa; padding: 8px 10px; text-align: center; border-bottom: 2px solid #ddd; white-space: nowrap; font-weight: 600; color: #555; }
+        td { padding: 8px 10px; text-align: center; border-bottom: 1px solid #eee; }
+        
+        .win { color: #e74c3c; font-weight: bold; }
+        .loss { color: #27ae60; font-weight: bold; }
+        .gray { color: #999; }
+        
+        .summary-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; }
+        .stat-box { background: #f9f9f9; padding: 15px; border-radius: 6px; text-align: center; border: 1px solid #eee; }
+        .stat-name { font-size: 14px; color: #555; margin-bottom: 5px; font-weight: bold; }
+        .stat-rate { font-size: 24px; font-weight: bold; color: #333; }
+        .stat-detail { font-size: 12px; color: #777; margin-top: 5px; }
+        .stat-returns { font-size: 12px; margin-top: 8px; border-top: 1px dashed #ddd; padding-top: 5px; }
+        
+        /* 矩阵表专用样式 */
+        .matrix-table { table-layout: fixed; }
+        .matrix-table th { background-color: #ecf0f1; font-size: 12px; color: #555; }
+        .matrix-table td { height: 45px; vertical-align: middle; }
+        .col-strategy { width: 180px; font-weight: bold; text-align: left; padding-left: 15px; background: #fcfcfc; border-right: 2px solid #eee; }
+        .cell-win-rate { font-size: 14px; font-weight: bold; display: block; }
+        .cell-count { font-size: 10px; color: #999; display: block; margin-top: 2px; }
+        .no-data { color: #ddd; font-size: 18px; }
+
+        .market-tag { font-size: 11px; color: #fff; padding: 1px 4px; border-radius: 3px; background-color: #95a5a6; }
+        .market-主板 { background-color: #2980b9; }
+        .market-创业板 { background-color: #16a085; }
+        
+
+        /* 策略标签基础样式 */
+        .strat-tag {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            color: #fff;
+            margin-right: 4px;
+            margin-bottom: 2px;
+            font-weight: normal;
+        }
+        /* 各策略专属颜色 */
+        .tag-s1 { background-color: #e74c3c; } /* 红色 - 激进/突破 */
+        .tag-s2 { background-color: #3498db; } /* 蓝色 - 稳健/反包 */
+        .tag-s3 { background-color: #9b59b6; } /* 紫色 - 潜伏/控盘 */
+        .tag-s4 { background-color: #f39c12; } /* 橙色 - 空中加油 */
+        .tag-s5 { background-color: #1abc9c; } /* 青色 - 放量新高 */
+
+
+        .strategy-title { 
+            font-size: 16px; font-weight: bold; color: #2c3e50; 
+            border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 15px;
+            margin-top: 10px;
+        }
+        .total-win-rate { color: #e74c3c; font-weight: bold; font-size: 16px; margin-left: 5px; }
+        .strategy-stats { font-size: 13px; font-weight: normal; color: #666; float: right; }
+        
+        /* 日期头样式 */
+        .date-header {
+            background-color: #eaf2f8;
+            padding: 8px 15px;
+            border-left: 4px solid #3498db;
+            margin-top: 20px;
+            margin-bottom: 0; /* 紧贴表格 */
+            font-weight: bold;
+            color: #2c3e50;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+        .date-win-rate {
+            float: right;
+            font-size: 13px;
+            color: #d35400;
+        }
+        /* 去掉每个日期表格的上边距，使其紧贴Header */
+        .date-table { margin-top: 0; border-top: none; }
+
+        /* 新增：日期分隔线样式 */
+        tr.date-separator td {
+            border-top: 3px solid #3498db; /* 蓝色粗线 */
+            background-color: #eaf6ff;     /* 浅蓝色背景高亮该行，强调新的一天 */
+        }
+        
+        /* 徽章样式优化 */
+        .count-badge-table {
+            background-color: #95a5a6;
+            color: white;
+            border-radius: 10px;
+            padding: 2px 6px;
+            font-size: 11px;
+        }
+        .count-high { background-color: #e67e22; } /* 次数多显示橙色 */
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 策略历史回测报告 (合并视角)</h1>
+        
+        <!-- 1. 全策略历史汇总 -->
+        <div class="card">
+            <h2>全策略历史总表现 (胜率统计)</h2>
+            <div class="summary-grid">
+                
+                <div class="stat-box">
+                    <div class="stat-name">策略1</div>
+                    <div class="stat-rate" style="color: #27ae60">
+                        30.4%
+                    </div>
+                    <div class="stat-detail">
+                        胜/总: 7/23
+                    </div>
+                    <div class="stat-returns">
+                        次日均: <span class="loss">-1.48%</span>
+                    </div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-name">策略2</div>
+                    <div class="stat-rate" style="color: #27ae60">
+                        50.0%
+                    </div>
+                    <div class="stat-detail">
+                        胜/总: 1/2
+                    </div>
+                    <div class="stat-returns">
+                        次日均: <span class="loss">-0.41%</span>
+                    </div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-name">策略3</div>
+                    <div class="stat-rate" style="color: #27ae60">
+                        33.3%
+                    </div>
+                    <div class="stat-detail">
+                        胜/总: 4/12
+                    </div>
+                    <div class="stat-returns">
+                        次日均: <span class="loss">-1.03%</span>
+                    </div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-name">策略4</div>
+                    <div class="stat-rate" style="color: #e74c3c">
+                        54.5%
+                    </div>
+                    <div class="stat-detail">
+                        胜/总: 12/22
+                    </div>
+                    <div class="stat-returns">
+                        次日均: <span class="win">1.42%</span>
+                    </div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-name">策略5</div>
+                    <div class="stat-rate" style="color: #999">
+                        0%
+                    </div>
+                    <div class="stat-detail">
+                        胜/总: 0/0
+                    </div>
+                    <div class="stat-returns">
+                        次日均: <span class="loss">0%</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- 2. 近5日趋势矩阵 -->
+        <div class="card">
+            <h2>🔥 各策略胜率趋势 (近5日)</h2>
+            <table class="matrix-table">
+                <thead>
+                    <tr>
+                        <th class="col-strategy">策略 \ 日期</th>
+                        
+                        <th>12-26</th>
+                        
+                        <th>12-29</th>
+                        
+                        <th>12-30</th>
+                        
+                        <th>12-31</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="col-strategy">策略1</td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate loss">33%</span>
+                                <span class="cell-count">(1/3)</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate loss">20%</span>
+                                <span class="cell-count">(2/10)</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate loss">50%</span>
+                                <span class="cell-count">(3/6)</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate loss">25%</span>
+                                <span class="cell-count">(1/4)</span>
+                            
+                        </td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="col-strategy">策略2</td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate win">100%</span>
+                                <span class="cell-count">(1/1)</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="no-data">-</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate loss">0%</span>
+                                <span class="cell-count">(0/1)</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="no-data">-</span>
+                            
+                        </td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="col-strategy">策略3</td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate win">67%</span>
+                                <span class="cell-count">(2/3)</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate loss">0%</span>
+                                <span class="cell-count">(0/4)</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate loss">0%</span>
+                                <span class="cell-count">(0/3)</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate win">100%</span>
+                                <span class="cell-count">(2/2)</span>
+                            
+                        </td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="col-strategy">策略4</td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate win">57%</span>
+                                <span class="cell-count">(4/7)</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate loss">50%</span>
+                                <span class="cell-count">(4/8)</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="no-data">-</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="cell-win-rate win">57%</span>
+                                <span class="cell-count">(4/7)</span>
+                            
+                        </td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td class="col-strategy">策略5</td>
+                        
+                        <td>
+                            
+                                <span class="no-data">-</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="no-data">-</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="no-data">-</span>
+                            
+                        </td>
+                        
+                        <td>
+                            
+                                <span class="no-data">-</span>
+                            
+                        </td>
+                        
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 3. 个股入选明细 (合并去重) -->
+        <div class="card">
+            <div class="strategy-title">
+                🏆 历史入选个股追踪 (按最早入库日期排序)
+                <div class="strategy-stats">
+                    共 53 支独立个股
+                </div>
+            </div>
+
+            <table class="date-table">
+                <thead>
+                    <tr>
+                        <th width="8%">代码</th>
+                        <th width="8%">名称</th>
+                        <th width="10%">最早入选日期</th>
+                        <th width="6%">市场</th>
+                        <th width="8%">板块</th>
+                        <th width="12%">入选策略</th>
+                        <th width="5%">次数</th> <!-- 新增 -->
+                        <th width="6%">评分</th>
+                        <th width="8%">市值</th>
+                        <th width="6%">入选价</th>
+                        <th width="6%">最新价</th>
+                        <th width="7%">次日涨幅</th>
+                        <th width="6%">5日涨幅</th>
+                        <th width="6%">10日涨幅</th>
+                        <th width="5%">胜负</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>001299.SZ</td>
+                        <td style="font-weight:bold;">美能能源</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251231</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>供气供热</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>6.5</b></td>
+                        <td>35.69亿</td>
+                        <td>14.71</td>
+                        <td style="font-weight:bold;">13.24</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-9.99%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>603331.SH</td>
+                        <td style="font-weight:bold;">百达精工</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251231</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>专用机械</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>6.5</b></td>
+                        <td>28.81亿</td>
+                        <td>14.25</td>
+                        <td style="font-weight:bold;">13.81</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-3.09%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>603967.SH</td>
+                        <td style="font-weight:bold;">中创物流</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251231</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>仓储物流</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>6.0</b></td>
+                        <td>47.6亿</td>
+                        <td>13.73</td>
+                        <td style="font-weight:bold;">14.12</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">2.84%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>002342.SZ</td>
+                        <td style="font-weight:bold;">巨力索具</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251231</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>机械基件</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>5.7</b></td>
+                        <td>88.32亿</td>
+                        <td>9.2</td>
+                        <td style="font-weight:bold;">8.67</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-5.76%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>605566.SH</td>
+                        <td style="font-weight:bold;">福莱蒽特</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251231</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>染料涂料</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s3">策略3</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table count-high">
+                                2
+                            </span>
+                        </td>
+                        
+                        <td><b>6.0</b></td>
+                        <td>41.99亿</td>
+                        <td>31.49</td>
+                        <td style="font-weight:bold;">32.01</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">1.65%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>001229.SZ</td>
+                        <td style="font-weight:bold;">魅视科技</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251231</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>IT设备</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s3">策略3</span>
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table count-high">
+                                2
+                            </span>
+                        </td>
+                        
+                        <td><b>7.5</b></td>
+                        <td>44.48亿</td>
+                        <td>43.42</td>
+                        <td style="font-weight:bold;">43.43</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">0.02%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>301075.SZ</td>
+                        <td style="font-weight:bold;">多瑞医药</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251231</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>化学制药</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>7.0</b></td>
+                        <td>47.74亿</td>
+                        <td>59.67</td>
+                        <td style="font-weight:bold;">58.47</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-2.01%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>003033.SZ</td>
+                        <td style="font-weight:bold;">征和工业</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251231</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>汽车配件</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>6.5</b></td>
+                        <td>64.26亿</td>
+                        <td>78.61</td>
+                        <td style="font-weight:bold;">77.81</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-1.02%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>600481.SH</td>
+                        <td style="font-weight:bold;">双良节能</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251231</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>电气设备</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>6.0</b></td>
+                        <td>122.54亿</td>
+                        <td>6.54</td>
+                        <td style="font-weight:bold;">6.41</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-1.99%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>301550.SZ</td>
+                        <td style="font-weight:bold;">斯菱智驱</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251231</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>汽车配件</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>5.5</b></td>
+                        <td>320.78亿</td>
+                        <td>138.7</td>
+                        <td style="font-weight:bold;">161.0</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">16.08%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>605168.SH</td>
+                        <td style="font-weight:bold;">三人行</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251231</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>互联网</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>5.5</b></td>
+                        <td>81.33亿</td>
+                        <td>38.58</td>
+                        <td style="font-weight:bold;">39.9</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">3.42%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>301529.SZ</td>
+                        <td style="font-weight:bold;">福赛科技</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251231</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>汽车配件</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>4.0</b></td>
+                        <td>95.95亿</td>
+                        <td>113.1</td>
+                        <td style="font-weight:bold;">115.5</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">2.12%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="date-separator">
+                        <td>600230.SH</td>
+                        <td style="font-weight:bold;">沧州大化</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251230</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>化工原料</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>6.5</b></td>
+                        <td>59.86亿</td>
+                        <td>14.46</td>
+                        <td style="font-weight:bold;">15.13</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">5.53%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>603085.SH</td>
+                        <td style="font-weight:bold;">天成自控</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251230</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>汽车配件</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>6.0</b></td>
+                        <td>47.57亿</td>
+                        <td>11.98</td>
+                        <td style="font-weight:bold;">11.88</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-1.09%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>000039.SZ</td>
+                        <td style="font-weight:bold;">中集集团</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251230</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>运输设备</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>5.5</b></td>
+                        <td>541.41亿</td>
+                        <td>10.04</td>
+                        <td style="font-weight:bold;">10.27</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">0.50%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>002493.SZ</td>
+                        <td style="font-weight:bold;">荣盛石化</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251230</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>化纤</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>5.5</b></td>
+                        <td>1196.74亿</td>
+                        <td>11.98</td>
+                        <td style="font-weight:bold;">11.57</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-2.25%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>603608.SH</td>
+                        <td style="font-weight:bold;">天创时尚</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251230</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>服饰</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>5.3</b></td>
+                        <td>39.29亿</td>
+                        <td>9.36</td>
+                        <td style="font-weight:bold;">10.47</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">10.04%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>002099.SZ</td>
+                        <td style="font-weight:bold;">海翔药业</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251230</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>化学制药</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>5.0</b></td>
+                        <td>105.38亿</td>
+                        <td>6.51</td>
+                        <td style="font-weight:bold;">6.43</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-4.15%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>001317.SZ</td>
+                        <td style="font-weight:bold;">三羊马</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251230</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>铁路</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s2">策略2</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>5.5</b></td>
+                        <td>47.94亿</td>
+                        <td>56.03</td>
+                        <td style="font-weight:bold;">53.38</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-1.64%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="date-separator">
+                        <td>002117.SZ</td>
+                        <td style="font-weight:bold;">东港股份</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>广告包装</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>7.5</b></td>
+                        <td>73.95亿</td>
+                        <td>14.12</td>
+                        <td style="font-weight:bold;">12.43</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">0.85%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>002476.SZ</td>
+                        <td style="font-weight:bold;">宝莫股份</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>化工原料</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>7.5</b></td>
+                        <td>43.51亿</td>
+                        <td>7.11</td>
+                        <td style="font-weight:bold;">7.88</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-0.98%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>000659.SZ</td>
+                        <td style="font-weight:bold;">珠海中富</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>广告包装</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>7.0</b></td>
+                        <td>49.89亿</td>
+                        <td>3.88</td>
+                        <td style="font-weight:bold;">3.94</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">0.52%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>002243.SZ</td>
+                        <td style="font-weight:bold;">力合科创</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>广告包装</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>7.0</b></td>
+                        <td>130.87亿</td>
+                        <td>10.81</td>
+                        <td style="font-weight:bold;">10.75</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-7.86%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>300550.SZ</td>
+                        <td style="font-weight:bold;">和仁科技</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>软件服务</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>7.0</b></td>
+                        <td>38.86亿</td>
+                        <td>14.8</td>
+                        <td style="font-weight:bold;">14.59</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-1.15%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>600178.SH</td>
+                        <td style="font-weight:bold;">东安动力</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>汽车配件</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>6.5</b></td>
+                        <td>61.39亿</td>
+                        <td>13.16</td>
+                        <td style="font-weight:bold;">12.82</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-2.43%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>000987.SZ</td>
+                        <td style="font-weight:bold;">越秀资本</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>多元金融</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>6.0</b></td>
+                        <td>421.44亿</td>
+                        <td>8.4</td>
+                        <td style="font-weight:bold;">8.59</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-3.33%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>600058.SH</td>
+                        <td style="font-weight:bold;">五矿发展</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>商贸代理</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>6.0</b></td>
+                        <td>123.48亿</td>
+                        <td>11.52</td>
+                        <td style="font-weight:bold;">11.52</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>002652.SZ</td>
+                        <td style="font-weight:bold;">扬子新材</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>其他建材</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>5.8</b></td>
+                        <td>24.89亿</td>
+                        <td>4.86</td>
+                        <td style="font-weight:bold;">3.95</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-10.08%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>000420.SZ</td>
+                        <td style="font-weight:bold;">吉林化纤</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>化纤</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>5.5</b></td>
+                        <td>114.34亿</td>
+                        <td>4.65</td>
+                        <td style="font-weight:bold;">4.44</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-0.86%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>601279.SH</td>
+                        <td style="font-weight:bold;">英利汽车</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>汽车配件</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s3">策略3</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>8.0</b></td>
+                        <td>86.11亿</td>
+                        <td>5.43</td>
+                        <td style="font-weight:bold;">5.21</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-2.39%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>002961.SZ</td>
+                        <td style="font-weight:bold;">瑞达期货</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>多元金融</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s3">策略3</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table count-high">
+                                2
+                            </span>
+                        </td>
+                        
+                        <td><b>5.0</b></td>
+                        <td>130.85亿</td>
+                        <td>28.85</td>
+                        <td style="font-weight:bold;">27.3</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-0.62%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>300141.SZ</td>
+                        <td style="font-weight:bold;">和顺电气</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>电气设备</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>7.5</b></td>
+                        <td>33.7亿</td>
+                        <td>13.07</td>
+                        <td style="font-weight:bold;">13.07</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-2.75%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>301043.SZ</td>
+                        <td style="font-weight:bold;">绿岛风</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>机械基件</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>7.0</b></td>
+                        <td>45.99亿</td>
+                        <td>67.63</td>
+                        <td style="font-weight:bold;">60.16</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-4.18%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>300129.SZ</td>
+                        <td style="font-weight:bold;">泰胜风能</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>电气设备</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>6.3</b></td>
+                        <td>100.03亿</td>
+                        <td>10.7</td>
+                        <td style="font-weight:bold;">10.59</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-6.54%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>300668.SZ</td>
+                        <td style="font-weight:bold;">杰恩设计</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>装修装饰</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>6.0</b></td>
+                        <td>33.94亿</td>
+                        <td>28.19</td>
+                        <td style="font-weight:bold;">29.02</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">2.09%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>000559.SZ</td>
+                        <td style="font-weight:bold;">万向钱潮</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>汽车配件</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>5.5</b></td>
+                        <td>472.77亿</td>
+                        <td>14.26</td>
+                        <td style="font-weight:bold;">17.02</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">10.03%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>000593.SZ</td>
+                        <td style="font-weight:bold;">德龙汇能</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>供气供热</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>5.0</b></td>
+                        <td>41.96亿</td>
+                        <td>11.7</td>
+                        <td style="font-weight:bold;">10.97</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-4.19%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>600376.SH</td>
+                        <td style="font-weight:bold;">首开股份</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>区域地产</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>5.0</b></td>
+                        <td>161.48亿</td>
+                        <td>6.26</td>
+                        <td style="font-weight:bold;">6.25</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">10.06%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>603119.SH</td>
+                        <td style="font-weight:bold;">浙江荣泰</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251229</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>汽车配件</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>4.5</b></td>
+                        <td>389.57亿</td>
+                        <td>107.1</td>
+                        <td style="font-weight:bold;">116.24</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">10.00%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="date-separator">
+                        <td>000850.SZ</td>
+                        <td style="font-weight:bold;">华茂股份</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251226</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>纺织</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>6.5</b></td>
+                        <td>53.51亿</td>
+                        <td>5.67</td>
+                        <td style="font-weight:bold;">5.45</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-1.94%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>600736.SH</td>
+                        <td style="font-weight:bold;">苏州高新</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251226</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>园区开发</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table count-high">
+                                2
+                            </span>
+                        </td>
+                        
+                        <td><b>6.5</b></td>
+                        <td>76.1亿</td>
+                        <td>6.61</td>
+                        <td style="font-weight:bold;">6.97</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">9.98%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>002081.SZ</td>
+                        <td style="font-weight:bold;">金螳螂</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251226</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>装修装饰</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>6.0</b></td>
+                        <td>96.12亿</td>
+                        <td>3.62</td>
+                        <td style="font-weight:bold;">3.63</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-2.21%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>600775.SH</td>
+                        <td style="font-weight:bold;">南京熊猫</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251226</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>通信设备</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s1">策略1</span>
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table count-high">
+                                2
+                            </span>
+                        </td>
+                        
+                        <td><b>4.5</b></td>
+                        <td>112.49亿</td>
+                        <td>12.31</td>
+                        <td style="font-weight:bold;">13.44</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">1.87%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>601118.SH</td>
+                        <td style="font-weight:bold;">海南橡胶</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251226</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>橡胶</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s2">策略2</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>6.0</b></td>
+                        <td>259.33亿</td>
+                        <td>6.06</td>
+                        <td style="font-weight:bold;">5.61</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">0.83%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>301217.SZ</td>
+                        <td style="font-weight:bold;">铜冠铜箔</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251226</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>元器件</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s3">策略3</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table count-high">
+                                3
+                            </span>
+                        </td>
+                        
+                        <td><b>6.5</b></td>
+                        <td>309.22亿</td>
+                        <td>37.3</td>
+                        <td style="font-weight:bold;">35.38</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-1.98%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>603256.SH</td>
+                        <td style="font-weight:bold;">宏和科技</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251226</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>玻璃</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s3">策略3</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table count-high">
+                                5
+                            </span>
+                        </td>
+                        
+                        <td><b>6.0</b></td>
+                        <td>330.78亿</td>
+                        <td>37.6</td>
+                        <td style="font-weight:bold;">37.95</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">1.12%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>605167.SH</td>
+                        <td style="font-weight:bold;">利柏特</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251226</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>建筑工程</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s3">策略3</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>5.0</b></td>
+                        <td>61.66亿</td>
+                        <td>13.73</td>
+                        <td style="font-weight:bold;">16.48</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">1.82%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>002324.SZ</td>
+                        <td style="font-weight:bold;">普利特</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251226</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>塑料</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>6.0</b></td>
+                        <td>164.74亿</td>
+                        <td>14.81</td>
+                        <td style="font-weight:bold;">17.59</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">4.12%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>300131.SZ</td>
+                        <td style="font-weight:bold;">英唐智控</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251226</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>元器件</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>6.0</b></td>
+                        <td>170.37亿</td>
+                        <td>15.01</td>
+                        <td style="font-weight:bold;">14.72</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-2.20%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>002829.SZ</td>
+                        <td style="font-weight:bold;">星网宇达</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251226</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>航空</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>5.2</b></td>
+                        <td>64.63亿</td>
+                        <td>31.1</td>
+                        <td style="font-weight:bold;">30.93</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-2.67%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>300123.SZ</td>
+                        <td style="font-weight:bold;">亚光科技</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251226</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>半导体</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>4.5</b></td>
+                        <td>83.38亿</td>
+                        <td>8.16</td>
+                        <td style="font-weight:bold;">8.2</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">1.35%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>300118.SZ</td>
+                        <td style="font-weight:bold;">东方日升</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251226</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>电气设备</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>4.3</b></td>
+                        <td>178.98亿</td>
+                        <td>15.7</td>
+                        <td style="font-weight:bold;">14.46</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="win">0.64%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="win">胜</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <!-- 判断日期是否发生变化，如果是，添加 date-separator 类 -->
+                    <tr class="">
+                        <td>301387.SZ</td>
+                        <td style="font-weight:bold;">光大同创</td>
+                        <td style="font-weight:bold; color:#2980b9;">20251226</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>元器件</td>
+                        <!-- 入选策略列 (彩色标签版) -->
+                        <td style="text-align: center;">
+                            
+                                <!-- 提取策略编号生成 class (例如 '策略1' -> 'tag-s1') -->
+                                <!-- 假设策略名最后一位是数字 -->
+                                <span class="strat-tag tag-s4">策略4</span>
+                            
+                        </td>
+                        
+                        <!-- 入选次数 -->
+                        <td>
+                            <span class="count-badge-table ">
+                                1
+                            </span>
+                        </td>
+                        
+                        <td><b>4.3</b></td>
+                        <td>59.6亿</td>
+                        <td>55.83</td>
+                        <td style="font-weight:bold;">55.14</td>
+                        
+                        <!-- 涨幅数据 -->
+                        <td class="loss">-2.99%</td>
+                        <td class="">-</td>
+                        <td class="">-</td>
+                        
+                        <td>
+                             <span class="loss">负</span>
+                            
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        
+        <div style="text-align:center; font-size:12px; color:#999; margin-top:20px;">Generated at 2026-01-05 16:17:10</div>
+    </div>
+</body>
+</html>
