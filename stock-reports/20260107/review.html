@@ -1,0 +1,2296 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>A股深度复盘 - 20260107</title>
+    <style>
+        body { font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; background-color: #f0f2f5; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        
+        .main-header { 
+            background: #ffffff; color: #2c3e50; padding: 20px; border-radius: 8px; 
+            margin-bottom: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-bottom: 4px solid #34495e; 
+        }
+        .main-header h1 { margin: 0; font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+        .main-header .sub-info { font-size: 12px; color: #7f8c8d; margin-top: 5px; }
+
+        .dashboard-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-bottom: 20px; }
+        .dash-card { 
+            background: white; border-radius: 8px; padding: 15px 0; 
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05); 
+            display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+            height: 120px; 
+        }
+        .dash-label { font-size: 13px; color: #7f8c8d; font-weight: 500; margin-bottom: 5px; }
+        .dash-val { 
+            font-size: 32px; font-weight: 800; color: #2c3e50; 
+            height: 40px; line-height: 40px; 
+            display: flex; align-items: center; justify-content: center;
+        }
+        .score-val { color: #f39c12; font-size: 42px; }
+        .dash-sub { 
+            font-size: 12px; color: #95a5a6; margin-top: 5px; 
+            display: flex; align-items: center; justify-content: center; gap: 5px;
+        }
+
+        .progress-box { width: 80%; margin-top: 5px; }
+        .bar-track { width: 100%; height: 6px; background: #ecf0f1; border-radius: 3px; overflow: hidden; display: flex; margin-bottom: 4px; }
+        .dist-labels { display: flex; justify-content: space-between; font-size: 12px; color: #666; font-weight: 500; line-height: 1; }
+
+        /* 核心卡片样式，所有模块统一使用此结构 */
+        .card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .card-header { font-size: 16px; font-weight: 700; border-left: 4px solid #3498db; padding-left: 10px; margin-bottom: 15px; }
+        
+        .card-header.red-border { border-left-color: #e74c3c; }
+        .card-header.green-border { border-left-color: #27ae60; }
+        .card-header.purple-border { border-left-color: #8e44ad; }
+        
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        th { background: #f8f9fa; padding: 10px; text-align: center; color: #666; font-weight: 600; border-bottom: 2px solid #e9ecef; white-space: nowrap; }
+        td { padding: 8px; text-align: center; border-bottom: 1px solid #f1f1f1; vertical-align: middle; }
+        tr:hover { background: #fcfcfc; }
+        
+        .up { color: #e74c3c; font-weight: bold; }
+        .down { color: #27ae60; font-weight: bold; }
+        .flat { color: #95a5a6; }
+        .bg-red { background-color: #e74c3c; }
+        .bg-green { background-color: #27ae60; }
+        
+        .market-tag { font-size: 12px; color: #fff; padding: 2px 6px; border-radius: 4px; background-color: #95a5a6; }
+        .market-主板 { background-color: #2980b9; }
+        .market-创业板 { background-color: #16a085; }
+        
+        .badge { padding: 2px 6px; border-radius: 4px; font-size: 12px; color: white; display: inline-block; min-width: 30px; }
+        .badge-red { background: #e74c3c; }
+        
+        .trend-table th { background-color: #ecf0f1; }
+        .trend-score { font-weight: bold; font-size: 16px; }
+        .high-score { color: #e74c3c; }
+        .low-score { color: #27ae60; }
+        .sub-text { font-size: 10px; color: #999; font-weight: normal; display: block;}
+
+        .row-flex { display: flex; gap: 20px; }
+        .col-half { flex: 1; }
+        .stock-name { font-weight: bold; color: #333; }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-header">
+            <h1>A股市场深度复盘报告</h1>
+            <div class="sub-info">日期: 20260107 &nbsp;|&nbsp; 报告创建时间: 2026-01-07 20:04</div>
+        </div>
+        
+
+        <!-- 1. 核心指标仪表盘 -->
+        <div class="dashboard-grid">
+            <div class="dash-card"><div class="dash-label">市场情绪综合分</div><div class="dash-val score-val">60</div><div class="dash-sub">满分 100</div></div>
+            <div class="dash-card"><div class="dash-label">上证指数</div><div class="dash-val up">4085.77</div><div class="dash-sub"><span class="up">+0.05%</span></div></div>
+            <div class="dash-card"><div class="dash-label">两市总成交</div><div class="dash-val">28816亿</div><div class="dash-sub"><span class="up">放量 1.7%</span></div></div>
+            <div class="dash-card">
+                <div class="dash-label">涨跌比 (0.66)</div>
+                <div class="dash-val"><span class="up">2,173</span><span style="font-size:20px; color:#ddd; margin:0 5px;">/</span><span class="down">3,287</span></div>
+                <div class="progress-box"><div class="bar-track"><div class="bg-red" style="flex: 2173"></div><div class="bg-green" style="flex: 3287"></div></div></div>
+            </div>
+            <div class="dash-card">
+                <div class="dash-label">高度 / 晋级率</div>
+                <div class="dash-val"><span class="up">14板</span><span style="font-size:20px; color:#ddd; margin:0 5px;">|</span><span class="up">20%</span></div>
+                <div class="progress-box"><div class="bar-track"><div class="bg-red" style="flex: 73"></div><div class="bg-green" style="flex: 8"></div></div><div class="dist-labels"><span class="up">73涨</span><span class="down">8跌</span></div></div>
+            </div>
+        </div>
+
+        <!-- 2. 市场核心趋势 -->
+        <div class="card">
+            <div class="card-header">📉 市场核心指标趋势 (近10日)</div>
+            <table class="trend-table">
+                <thead>
+                    <tr>
+                        <th>日期</th><th>上证指数<span class="sub-text">(点位)</span></th><th>指数涨跌</th><th>成交额</th>
+                        <th style="border-left:2px solid #eee;">上涨<span class="sub-text">(全市场)</span></th>
+                        <th>下跌<span class="sub-text">(全市场)</span></th><th>涨跌比</th>
+                        <th style="border-left:2px solid #eee;">涨停<span class="sub-text">(除ST/科/北)</span></th>
+                        <th>跌停<span class="sub-text">(除ST/科/北)</span></th><th>高度</th><th>晋级率</th>
+                        <th style="border-left:2px solid #eee;">情绪分</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>01-07</td>
+                        <td style="font-weight:bold;">4085.77</td>
+                        <td class="up">+0.05%</td>
+                        <td>28,815亿 <span style="font-size:10px;" class="up">(放 1.74%)</span></td>
+                        <td class="up">2,173</td>
+                        <td class="down">3,287</td>
+                        <td style="font-weight:bold;">0.66</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">73</td>
+                        <td class="down">8</td>
+                        <td>14板</td>
+                        <td>20.0%</td>
+                        <td class="trend-score high-score" style="border-left:2px solid #eee;">60</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>01-06</td>
+                        <td style="font-weight:bold;">4083.67</td>
+                        <td class="up">+1.50%</td>
+                        <td>28,322亿 <span style="font-size:10px;" class="up">(放 10.32%)</span></td>
+                        <td class="up">4,108</td>
+                        <td class="down">1,351</td>
+                        <td style="font-weight:bold;">3.04</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">115</td>
+                        <td class="down">2</td>
+                        <td>13板</td>
+                        <td>40.0%</td>
+                        <td class="trend-score high-score" style="border-left:2px solid #eee;">94</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>01-05</td>
+                        <td style="font-weight:bold;">4023.42</td>
+                        <td class="up">+1.38%</td>
+                        <td>25,672亿 <span style="font-size:10px;" class="up">(放 24.27%)</span></td>
+                        <td class="up">4,185</td>
+                        <td class="down">1,272</td>
+                        <td style="font-weight:bold;">3.29</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">95</td>
+                        <td class="down">14</td>
+                        <td>7板</td>
+                        <td>24.1%</td>
+                        <td class="trend-score high-score" style="border-left:2px solid #eee;">74</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>12-31</td>
+                        <td style="font-weight:bold;">3968.84</td>
+                        <td class="up">+0.09%</td>
+                        <td>20,657亿 <span style="font-size:10px;" class="down">(缩 4.43%)</span></td>
+                        <td class="up">2,474</td>
+                        <td class="down">2,984</td>
+                        <td style="font-weight:bold;">0.83</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">58</td>
+                        <td class="down">13</td>
+                        <td>6板</td>
+                        <td>21.8%</td>
+                        <td class="trend-score low-score" style="border-left:2px solid #eee;">54</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>12-30</td>
+                        <td style="font-weight:bold;">3965.12</td>
+                        <td class="down">-0.00%</td>
+                        <td>21,615亿 <span style="font-size:10px;" class="up">(放 0.18%)</span></td>
+                        <td class="up">1,840</td>
+                        <td class="down">3,617</td>
+                        <td style="font-weight:bold;">0.51</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">55</td>
+                        <td class="down">18</td>
+                        <td>10板</td>
+                        <td>25.4%</td>
+                        <td class="trend-score low-score" style="border-left:2px solid #eee;">53</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>12-29</td>
+                        <td style="font-weight:bold;">3965.28</td>
+                        <td class="up">+0.04%</td>
+                        <td>21,576亿 <span style="font-size:10px;" class="down">(缩 1.07%)</span></td>
+                        <td class="up">1,995</td>
+                        <td class="down">3,460</td>
+                        <td style="font-weight:bold;">0.58</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">71</td>
+                        <td class="down">29</td>
+                        <td>12板</td>
+                        <td>22.2%</td>
+                        <td class="trend-score low-score" style="border-left:2px solid #eee;">45</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>12-26</td>
+                        <td style="font-weight:bold;">3963.68</td>
+                        <td class="up">+0.10%</td>
+                        <td>21,811亿 <span style="font-size:10px;" class="up">(放 12.2%)</span></td>
+                        <td class="up">1,866</td>
+                        <td class="down">3,587</td>
+                        <td style="font-weight:bold;">0.52</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">81</td>
+                        <td class="down">4</td>
+                        <td>11板</td>
+                        <td>25.9%</td>
+                        <td class="trend-score high-score" style="border-left:2px solid #eee;">60</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>12-25</td>
+                        <td style="font-weight:bold;">3959.62</td>
+                        <td class="up">+0.47%</td>
+                        <td>19,439亿 <span style="font-size:10px;" class="up">(放 2.46%)</span></td>
+                        <td class="up">3,773</td>
+                        <td class="down">1,681</td>
+                        <td style="font-weight:bold;">2.24</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">81</td>
+                        <td class="down">0</td>
+                        <td>10板</td>
+                        <td>28.8%</td>
+                        <td class="trend-score high-score" style="border-left:2px solid #eee;">85</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>12-24</td>
+                        <td style="font-weight:bold;">3940.95</td>
+                        <td class="up">+0.53%</td>
+                        <td>18,972亿 <span style="font-size:10px;" class="down">(缩 1.26%)</span></td>
+                        <td class="up">4,128</td>
+                        <td class="down">1,323</td>
+                        <td style="font-weight:bold;">3.12</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">73</td>
+                        <td class="down">9</td>
+                        <td>9板</td>
+                        <td>25.0%</td>
+                        <td class="trend-score high-score" style="border-left:2px solid #eee;">81</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>12-23</td>
+                        <td style="font-weight:bold;">3919.98</td>
+                        <td class="up">+0.07%</td>
+                        <td>19,213亿 <span style="font-size:10px;" class="up">(放 2.08%)</span></td>
+                        <td class="up">1,512</td>
+                        <td class="down">3,937</td>
+                        <td style="font-weight:bold;">0.38</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">56</td>
+                        <td class="down">22</td>
+                        <td>8板</td>
+                        <td>22.5%</td>
+                        <td class="trend-score low-score" style="border-left:2px solid #eee;">45</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row-flex">
+            <!-- 3. 最强板块 -->
+            <div class="col-half">
+                <div class="card">
+                    <div class="card-header red-border">🔥 当日最强板块 TOP10</div>
+                    <table>
+                        <thead><tr><th>板块名称</th><th>今日</th><th>5日</th><th>10日</th><th>涨停数</th></tr></thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td style="text-align:left;">焦炭加工</td>
+                                <td class="up">6.19%</td>
+                                <td class="up">6.38%</td>
+                                <td class="up">4.44%</td>
+                                <td>2</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">煤炭开采</td>
+                                <td class="up">3.84%</td>
+                                <td class="up">4.55%</td>
+                                <td class="up">4.25%</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">渔业</td>
+                                <td class="up">3.62%</td>
+                                <td class="up">5.43%</td>
+                                <td class="up">1.71%</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">酒店餐饮</td>
+                                <td class="up">2.62%</td>
+                                <td class="up">2.16%</td>
+                                <td class="down">-0.86%</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">半导体</td>
+                                <td class="up">2.44%</td>
+                                <td class="up">8.81%</td>
+                                <td class="up">10.75%</td>
+                                <td>14</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">生物制药</td>
+                                <td class="up">1.78%</td>
+                                <td class="up">5.41%</td>
+                                <td class="up">4.20%</td>
+                                <td>4</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">小金属</td>
+                                <td class="up">1.73%</td>
+                                <td class="up">7.30%</td>
+                                <td class="up">9.83%</td>
+                                <td>2</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">旅游景点</td>
+                                <td class="up">1.73%</td>
+                                <td class="up">6.01%</td>
+                                <td class="up">4.01%</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">特种钢</td>
+                                <td class="up">1.47%</td>
+                                <td class="up">5.03%</td>
+                                <td class="up">6.30%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">林业</td>
+                                <td class="up">1.35%</td>
+                                <td class="down">-3.37%</td>
+                                <td class="up">1.97%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- 4. 最弱板块 -->
+            <div class="col-half">
+                <div class="card">
+                    <div class="card-header green-border">🧊 当日最拉垮板块 TOP10</div>
+                    <table>
+                        <thead><tr><th>板块名称</th><th>今日</th><th>5日</th><th>10日</th><th>跌停数</th></tr></thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td style="text-align:left;">其他商业</td>
+                                <td class="down">-1.51%</td>
+                                <td class="up">1.90%</td>
+                                <td class="down">-0.28%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">商品城</td>
+                                <td class="down">-1.35%</td>
+                                <td class="down">-0.95%</td>
+                                <td class="down">-1.50%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">船舶</td>
+                                <td class="down">-1.27%</td>
+                                <td class="up">3.26%</td>
+                                <td class="up">6.99%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">电器连锁</td>
+                                <td class="down">-1.20%</td>
+                                <td class="up">1.08%</td>
+                                <td class="up">1.84%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">证券</td>
+                                <td class="down">-1.16%</td>
+                                <td class="up">3.26%</td>
+                                <td class="up">4.12%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">公共交通</td>
+                                <td class="down">-1.09%</td>
+                                <td class="up">0.55%</td>
+                                <td class="up">0.51%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">铜</td>
+                                <td class="down">-0.95%</td>
+                                <td class="up">3.60%</td>
+                                <td class="up">9.77%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">石油开采</td>
+                                <td class="down">-0.94%</td>
+                                <td class="up">2.20%</td>
+                                <td class="up">3.52%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">摩托车</td>
+                                <td class="down">-0.92%</td>
+                                <td class="up">0.54%</td>
+                                <td class="up">0.23%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">黄金</td>
+                                <td class="down">-0.91%</td>
+                                <td class="up">2.31%</td>
+                                <td class="up">1.05%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 概念板块 (重构后：使用标准Card结构以保持对齐) -->
+        <div class="row-flex">
+            <!-- 左侧：概念涨幅榜 -->
+            <div class="col-half">
+                <div class="card">
+                    <div class="card-header red-border">🔥 概念涨幅 TOP10 (含趋势)</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%">名称</th>
+                                <th style="width: 12%">今日</th>
+                                <th style="width: 12%">5日</th>
+                                <th style="width: 12%">10日</th>
+                                <th style="width: 44%">领涨股</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">第四代半导体</td>
+                                <td class="up">5.36%</td>
+                                <td class="down">-%</td>
+                                <td class="down">-%</td>
+                                <td>
+                                    中国西电
+                                    <span class="up" style="font-size: 0.8em">(9.97%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">光刻机(胶)</td>
+                                <td class="up">4.85%</td>
+                                <td class="down">-4.89%</td>
+                                <td class="down">-1.12%</td>
+                                <td>
+                                    普利特
+                                    <span class="up" style="font-size: 0.8em">(10.03%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">氦气概念</td>
+                                <td class="up">4.1%</td>
+                                <td class="down">-3.41%</td>
+                                <td class="up">1.24%</td>
+                                <td>
+                                    雪人集团
+                                    <span class="up" style="font-size: 0.8em">(10.02%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">高带宽内存</td>
+                                <td class="up">3.96%</td>
+                                <td class="down">-%</td>
+                                <td class="down">-%</td>
+                                <td>
+                                    雅克科技
+                                    <span class="up" style="font-size: 0.8em">(8.05%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">中芯概念</td>
+                                <td class="up">3.94%</td>
+                                <td class="down">-5.24%</td>
+                                <td class="down">-1.96%</td>
+                                <td>
+                                    大唐电信
+                                    <span class="up" style="font-size: 0.8em">(10.04%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">存储芯片</td>
+                                <td class="up">3.44%</td>
+                                <td class="down">-%</td>
+                                <td class="down">-%</td>
+                                <td>
+                                    盈新发展
+                                    <span class="up" style="font-size: 0.8em">(9.9%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">工业气体</td>
+                                <td class="up">3.19%</td>
+                                <td class="down">-2.82%</td>
+                                <td class="down">-0.77%</td>
+                                <td>
+                                    广钢气体
+                                    <span class="up" style="font-size: 0.8em">(20.0%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">可控核聚变</td>
+                                <td class="up">3.08%</td>
+                                <td class="down">-%</td>
+                                <td class="down">-%</td>
+                                <td>
+                                    中国西电
+                                    <span class="up" style="font-size: 0.8em">(9.97%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">CPO概念</td>
+                                <td class="up">2.68%</td>
+                                <td class="down">-%</td>
+                                <td class="down">-%</td>
+                                <td>
+                                    可川科技
+                                    <span class="up" style="font-size: 0.8em">(9.99%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">稀土永磁</td>
+                                <td class="up">2.63%</td>
+                                <td class="down">-2.20%</td>
+                                <td class="down">-1.05%</td>
+                                <td>
+                                    彤程新材
+                                    <span class="up" style="font-size: 0.8em">(10.0%)</span>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 右侧：概念跌幅榜 -->
+            <div class="col-half">
+                <div class="card">
+                    <div class="card-header green-border">❄️ 概念跌幅 TOP10 (含趋势)</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%">名称</th>
+                                <th style="width: 12%">今日</th>
+                                <th style="width: 12%">5日</th>
+                                <th style="width: 12%">10日</th>
+                                <th style="width: 44%">领跌股</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">DRG/DIP</td>
+                                <td class="down">-2.56%</td>
+                                <td class="down">-7.06%</td>
+                                <td class="down">-6.86%</td>
+                                <td>
+                                    东软集团
+                                    <span class="up" style="font-size: 0.8em">(1.71%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">屏下摄像</td>
+                                <td class="down">-1.77%</td>
+                                <td class="down">-4.93%</td>
+                                <td class="down">-3.76%</td>
+                                <td>
+                                    联创电子
+                                    <span class="up" style="font-size: 0.8em">(0.41%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">钛白粉</td>
+                                <td class="down">-1.76%</td>
+                                <td class="down">-3.01%</td>
+                                <td class="down">-0.75%</td>
+                                <td>
+                                    安宁股份
+                                    <span class="up" style="font-size: 0.8em">(1.55%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">数字货币</td>
+                                <td class="down">-1.7%</td>
+                                <td class="down">-6.45%</td>
+                                <td class="down">-3.63%</td>
+                                <td>
+                                    古鳌科技
+                                    <span class="up" style="font-size: 0.8em">(5.17%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">人脑工程</td>
+                                <td class="down">-1.57%</td>
+                                <td class="down">-3.52%</td>
+                                <td class="down">-3.48%</td>
+                                <td>
+                                    创新医疗
+                                    <span class="up" style="font-size: 0.8em">(9.99%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">财税数字化</td>
+                                <td class="down">-1.54%</td>
+                                <td class="down">-%</td>
+                                <td class="down">-%</td>
+                                <td>
+                                    零点有数
+                                    <span class="up" style="font-size: 0.8em">(6.24%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">可燃冰</td>
+                                <td class="down">-1.35%</td>
+                                <td class="up">1.55%</td>
+                                <td class="up">2.28%</td>
+                                <td>
+                                    广州发展
+                                    <span class="up" style="font-size: 0.8em">(0.76%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">空间计算</td>
+                                <td class="down">-1.3%</td>
+                                <td class="down">-%</td>
+                                <td class="down">-%</td>
+                                <td>
+                                    宏景科技
+                                    <span class="up" style="font-size: 0.8em">(0.94%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">电子车牌</td>
+                                <td class="down">-1.28%</td>
+                                <td class="down">-4.96%</td>
+                                <td class="down">-2.09%</td>
+                                <td>
+                                    厦门信达
+                                    <span class="up" style="font-size: 0.8em">(1.07%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">电子纸概念</td>
+                                <td class="down">-1.27%</td>
+                                <td class="down">-5.09%</td>
+                                <td class="down">-4.08%</td>
+                                <td>
+                                    劲拓股份
+                                    <span class="up" style="font-size: 0.8em">(2.61%)</span>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. 强势股 -->
+        <div class="card">
+            <div class="card-header">🐲 近期核心强势股</div>
+            <table>
+                <thead>
+                    <tr><th>代码</th><th>名称</th><th>市场</th><th>板块</th><th>市值</th><th>现价</th><th>今日</th><th>5日</th><th>10日</th><th>换手</th><th>连板</th></tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>301687.SZ</td>
+                        <td>C新广益</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>化工原料</td>
+                        <td>109.53亿</td>
+                        <td>74.58</td>
+                        <td class="up">0.11%</td>
+                        <td class="up">240.08%</td>
+                        <td class="up">240.08%</td>
+                        <td>65.38%</td>
+                        <td>
+                             - 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>301667.SZ</td>
+                        <td>纳百川</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>汽车配件</td>
+                        <td>83.06亿</td>
+                        <td>74.38</td>
+                        <td class="up">0.03%</td>
+                        <td class="down">-18.08%</td>
+                        <td class="up">228.68%</td>
+                        <td>25.41%</td>
+                        <td>
+                             - 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>301449.SZ</td>
+                        <td>天溯计量</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>电器仪表</td>
+                        <td>56.73亿</td>
+                        <td>86.99</td>
+                        <td class="up">6.45%</td>
+                        <td class="down">-16.52%</td>
+                        <td class="up">136.39%</td>
+                        <td>40.94%</td>
+                        <td>
+                             - 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>001369.SZ</td>
+                        <td>C双欣</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>化纤</td>
+                        <td>180.08亿</td>
+                        <td>15.7</td>
+                        <td class="down">-3.38%</td>
+                        <td class="up">129.20%</td>
+                        <td class="up">129.20%</td>
+                        <td>29.62%</td>
+                        <td>
+                             - 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>603248.SH</td>
+                        <td>锡华科技</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>机械基件</td>
+                        <td>102.99亿</td>
+                        <td>22.39</td>
+                        <td class="up">0.40%</td>
+                        <td class="down">-9.90%</td>
+                        <td class="up">121.68%</td>
+                        <td>13.39%</td>
+                        <td>
+                             - 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002931.SZ</td>
+                        <td>锋龙股份</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>机械基件</td>
+                        <td>92.21亿</td>
+                        <td>42.2</td>
+                        <td class="up">10.01%</td>
+                        <td class="up">61.07%</td>
+                        <td class="up">114.43%</td>
+                        <td>0.18%</td>
+                        <td>
+                            
+                            <span class="badge badge-red">9板</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>001331.SZ</td>
+                        <td>胜通能源</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>供气供热</td>
+                        <td>158.14亿</td>
+                        <td>56.03</td>
+                        <td class="up">9.99%</td>
+                        <td class="up">20.99%</td>
+                        <td class="up">94.89%</td>
+                        <td>1.63%</td>
+                        <td>
+                            
+                            <span class="badge badge-red">14板</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>300986.SZ</td>
+                        <td>志特新材</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>建筑工程</td>
+                        <td>79.59亿</td>
+                        <td>19.32</td>
+                        <td class="up">20.00%</td>
+                        <td class="up">88.49%</td>
+                        <td class="up">89.97%</td>
+                        <td>19.90%</td>
+                        <td>
+                            
+                            <span class="badge badge-red">3板</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>301363.SZ</td>
+                        <td>美好医疗</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>医疗保健</td>
+                        <td>236.42亿</td>
+                        <td>41.56</td>
+                        <td class="up">20.01%</td>
+                        <td class="up">65.97%</td>
+                        <td class="up">89.00%</td>
+                        <td>21.44%</td>
+                        <td>
+                            
+                            <span class="badge badge-red">3板</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002413.SZ</td>
+                        <td>雷科防务</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>通信设备</td>
+                        <td>220.07亿</td>
+                        <td>16.71</td>
+                        <td class="up">10.01%</td>
+                        <td class="up">61.14%</td>
+                        <td class="up">82.82%</td>
+                        <td>65.12%</td>
+                        <td>
+                            
+                            <span class="badge badge-red">6板</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>001396.SZ</td>
+                        <td>C誉帆</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>建筑工程</td>
+                        <td>42.96亿</td>
+                        <td>40.19</td>
+                        <td class="down">-3.71%</td>
+                        <td class="up">80.31%</td>
+                        <td class="up">80.31%</td>
+                        <td>33.60%</td>
+                        <td>
+                             - 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>600783.SH</td>
+                        <td>鲁信创投</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>专用机械</td>
+                        <td>200.53亿</td>
+                        <td>26.94</td>
+                        <td class="up">10.00%</td>
+                        <td class="up">16.07%</td>
+                        <td class="up">79.36%</td>
+                        <td>0.67%</td>
+                        <td>
+                            
+                            <span class="badge badge-red">2板</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>603402.SH</td>
+                        <td>C陕旅</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>旅游景点</td>
+                        <td>108.91亿</td>
+                        <td>140.83</td>
+                        <td class="up">6.69%</td>
+                        <td class="up">75.07%</td>
+                        <td class="up">75.07%</td>
+                        <td>62.46%</td>
+                        <td>
+                             - 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>300900.SZ</td>
+                        <td>广联航空</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>航空</td>
+                        <td>123.27亿</td>
+                        <td>41.48</td>
+                        <td class="up">9.79%</td>
+                        <td class="up">13.49%</td>
+                        <td class="up">74.14%</td>
+                        <td>37.68%</td>
+                        <td>
+                             - 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>301232.SZ</td>
+                        <td>飞沃科技</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>机械基件</td>
+                        <td>135.29亿</td>
+                        <td>180.0</td>
+                        <td class="down">-1.64%</td>
+                        <td class="up">23.29%</td>
+                        <td class="up">72.25%</td>
+                        <td>17.07%</td>
+                        <td>
+                             - 
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 6. 跌停股 -->
+        <div class="card">
+            <div class="card-header green-border">🌊 当日跌停/大跌股</div>
+            <table>
+                <thead>
+                    <tr><th>代码</th><th>名称</th><th>市场</th><th>板块</th><th>市值</th><th>现价</th><th>今日</th><th>5日</th><th>10日</th><th>连板状态</th></tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>300290.SZ</td>
+                        <td>荣科科技</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>软件服务</td>
+                        <td>147.14亿</td>
+                        <td>23.0</td>
+                        <td class="down">-20.00%</td>
+                        <td class="down">-16.76%</td>
+                        <td class="down">-24.17%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>301330.SZ</td>
+                        <td>熵基科技</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>IT设备</td>
+                        <td>101.01亿</td>
+                        <td>42.92</td>
+                        <td class="down">-9.81%</td>
+                        <td class="up">44.85%</td>
+                        <td class="up">48.31%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>300430.SZ</td>
+                        <td>诚益通</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>电器仪表</td>
+                        <td>67.03亿</td>
+                        <td>24.55</td>
+                        <td class="down">-11.28%</td>
+                        <td class="up">25.13%</td>
+                        <td class="up">26.94%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>300753.SZ</td>
+                        <td>爱朋医疗</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>医疗保健</td>
+                        <td>44.77亿</td>
+                        <td>35.52</td>
+                        <td class="down">-11.11%</td>
+                        <td class="up">22.95%</td>
+                        <td class="up">32.29%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>600721.SH</td>
+                        <td>百花医药</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>生物制药</td>
+                        <td>42.38亿</td>
+                        <td>11.02</td>
+                        <td class="down">-9.97%</td>
+                        <td class="down">-1.17%</td>
+                        <td class="up">9.87%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>300478.SZ</td>
+                        <td>杭州高新</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>塑料</td>
+                        <td>36.39亿</td>
+                        <td>28.73</td>
+                        <td class="down">-10.36%</td>
+                        <td class="down">-11.35%</td>
+                        <td class="down">-11.84%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>001231.SZ</td>
+                        <td>农心科技</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>农药化肥</td>
+                        <td>27.13亿</td>
+                        <td>27.15</td>
+                        <td class="down">-10.01%</td>
+                        <td class="up">19.50%</td>
+                        <td class="up">25.69%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+
+<!-- 7. 监管异动监控 (三级预警 - 升级版) -->
+        <div class="card">
+            <div class="card-header purple-border">🚨 监管异动风控雷达 (含明日临界点预测)</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="8%">代码</th>
+                        <th width="10%">名称</th>
+                        <th width="8%">现价</th>
+                        <th width="8%">今日涨幅</th> <!-- 新增 -->
+                        <th width="12%">10日累计<br><span style="font-size:10px; color:#999;">(阈值100%)</span></th>
+                        <th width="12%">30日累计<br><span style="font-size:10px; color:#999;">(阈值200%)</span></th>
+                        <th width="15%" style="background:#fff3e0;">明日触发条件</th>
+                        <th width="10%" style="background:#fff3e0;">触发价</th>
+                        <th width="17%">状态评估</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>002931.SZ</td>
+                        <td style="font-weight:bold;">锋龙股份</td>
+                        <td>42.2</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +10.01%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            114.43%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            106.36%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #c0392b; font-weight:bold;">
+                            异动
+                        </td>
+                        <td style="background:#fff9ed;">已超限</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 监管高压</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">10日超限</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>001331.SZ</td>
+                        <td style="font-weight:bold;">胜通能源</td>
+                        <td>56.03</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +9.99%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #d35400">
+                            94.89%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            279.35%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #c0392b; font-weight:bold;">
+                            严重异动
+                        </td>
+                        <td style="background:#fff9ed;">已超限</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 监管高压</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">30日超限</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>301232.SZ</td>
+                        <td style="font-weight:bold;">飞沃科技</td>
+                        <td>180.0</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -1.64%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            72.25%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            273.29%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #c0392b; font-weight:bold;">
+                            严重异动
+                        </td>
+                        <td style="background:#fff9ed;">已超限</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 监管高压</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">30日超限</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>301005.SZ</td>
+                        <td style="font-weight:bold;">超捷股份</td>
+                        <td>160.22</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -3.37%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            72.11%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            216.45%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #c0392b; font-weight:bold;">
+                            严重异动
+                        </td>
+                        <td style="background:#fff9ed;">已超限</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 监管高压</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">30日超限</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>000547.SZ</td>
+                        <td style="font-weight:bold;">航天发展</td>
+                        <td>36.7</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +7.69%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            60.61%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            254.59%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #c0392b; font-weight:bold;">
+                            严重异动
+                        </td>
+                        <td style="background:#fff9ed;">已超限</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 监管高压</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">30日超限</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>301638.SZ</td>
+                        <td style="font-weight:bold;">南网数字</td>
+                        <td>20.22</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +2.38%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            2.12%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            255.36%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #c0392b; font-weight:bold;">
+                            严重异动
+                        </td>
+                        <td style="background:#fff9ed;">已超限</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 监管高压</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">30日超限</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>300986.SZ</td>
+                        <td style="font-weight:bold;">志特新材</td>
+                        <td>19.32</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +20.00%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #d35400">
+                            89.97%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            70.22%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            需涨 +5.28%
+                        </td>
+                        <td style="background:#fff9ed;">20.34</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">临近10日</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>301363.SZ</td>
+                        <td style="font-weight:bold;">美好医疗</td>
+                        <td>41.56</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +20.01%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #d35400">
+                            89.00%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            94.21%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            需涨 +5.82%
+                        </td>
+                        <td style="background:#fff9ed;">43.98</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">临近10日</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>002413.SZ</td>
+                        <td style="font-weight:bold;">雷科防务</td>
+                        <td>16.71</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +10.01%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #d35400">
+                            82.82%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #d35400">
+                            183.70%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            需涨 +5.75%
+                        </td>
+                        <td style="background:#fff9ed;">17.67</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">临近30日</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>300900.SZ</td>
+                        <td style="font-weight:bold;">广联航空</td>
+                        <td>41.48</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +9.79%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            74.14%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            128.16%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            需涨 +14.85%
+                        </td>
+                        <td style="background:#fff9ed;">47.64</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">临近10日</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>300136.SZ</td>
+                        <td style="font-weight:bold;">信维通信</td>
+                        <td>67.01</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +4.51%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            72.00%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            115.67%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            需涨 +16.28%
+                        </td>
+                        <td style="background:#fff9ed;">77.92</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">临近10日</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>301293.SZ</td>
+                        <td style="font-weight:bold;">三博脑科</td>
+                        <td>93.82</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +10.45%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            68.62%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            63.59%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            需涨 +18.61%
+                        </td>
+                        <td style="background:#fff9ed;">111.28</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">临近10日</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>002792.SZ</td>
+                        <td style="font-weight:bold;">通宇通讯</td>
+                        <td>52.1</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +10.01%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            47.38%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #d35400">
+                            177.28%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            需涨 +8.20%
+                        </td>
+                        <td style="background:#fff9ed;">56.37</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">临近30日</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>603216.SH</td>
+                        <td style="font-weight:bold;">梦天家居</td>
+                        <td>44.94</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +3.74%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            28.40%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #d35400">
+                            186.24%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            需涨 +4.81%
+                        </td>
+                        <td style="background:#fff9ed;">47.10</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">临近30日</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>002149.SZ</td>
+                        <td style="font-weight:bold;">西部材料</td>
+                        <td>47.87</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -3.86%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            28.34%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #d35400">
+                            178.80%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            需涨 +7.60%
+                        </td>
+                        <td style="background:#fff9ed;">51.51</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">临近30日</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>600783.SH</td>
+                        <td style="font-weight:bold;">鲁信创投</td>
+                        <td>26.94</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +10.00%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            79.36%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            76.19%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            安全
+                        </td>
+                        <td style="background:#fff9ed;">-</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">暂无风险</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>601698.SH</td>
+                        <td style="font-weight:bold;">中国卫通</td>
+                        <td>43.87</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +1.48%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            69.25%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            103.86%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            安全
+                        </td>
+                        <td style="background:#fff9ed;">-</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">暂无风险</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>002324.SZ</td>
+                        <td style="font-weight:bold;">普利特</td>
+                        <td>21.29</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +10.03%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            67.37%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            52.07%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            安全
+                        </td>
+                        <td style="background:#fff9ed;">-</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">暂无风险</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>300503.SZ</td>
+                        <td style="font-weight:bold;">昊志机电</td>
+                        <td>59.62</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -3.70%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            67.19%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            114.38%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            安全
+                        </td>
+                        <td style="background:#fff9ed;">-</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">暂无风险</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>603278.SH</td>
+                        <td style="font-weight:bold;">大业股份</td>
+                        <td>16.5</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -0.24%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            67.17%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            69.40%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            安全
+                        </td>
+                        <td style="background:#fff9ed;">-</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">暂无风险</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>300058.SZ</td>
+                        <td style="font-weight:bold;">蓝色光标</td>
+                        <td>14.3</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +4.69%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            66.67%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            64.56%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            安全
+                        </td>
+                        <td style="background:#fff9ed;">-</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">暂无风险</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>300887.SZ</td>
+                        <td style="font-weight:bold;">谱尼测试</td>
+                        <td>13.31</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -3.69%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            65.34%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            54.95%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            安全
+                        </td>
+                        <td style="background:#fff9ed;">-</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">暂无风险</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>301550.SZ</td>
+                        <td style="font-weight:bold;">斯菱智驱</td>
+                        <td>174.26</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +4.88%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            63.07%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            98.34%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            安全
+                        </td>
+                        <td style="background:#fff9ed;">-</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">暂无风险</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>002347.SZ</td>
+                        <td style="font-weight:bold;">泰尔股份</td>
+                        <td>12.71</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -5.29%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            62.53%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            75.07%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            安全
+                        </td>
+                        <td style="background:#fff9ed;">-</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">暂无风险</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>002718.SZ</td>
+                        <td style="font-weight:bold;">友邦吊顶</td>
+                        <td>47.83</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +10.00%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            61.04%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            56.97%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            安全
+                        </td>
+                        <td style="background:#fff9ed;">-</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">暂无风险</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>002361.SZ</td>
+                        <td style="font-weight:bold;">神剑股份</td>
+                        <td>14.41</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -0.35%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            60.29%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            112.22%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            安全
+                        </td>
+                        <td style="background:#fff9ed;">-</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">暂无风险</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>600118.SH</td>
+                        <td style="font-weight:bold;">中国卫星</td>
+                        <td>100.23</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -6.34%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            57.94%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            133.85%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            安全
+                        </td>
+                        <td style="background:#fff9ed;">-</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">暂无风险</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>002788.SZ</td>
+                        <td style="font-weight:bold;">鹭燕医药</td>
+                        <td>24.99</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +9.99%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            48.57%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            128.64%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            安全
+                        </td>
+                        <td style="background:#fff9ed;">-</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">暂无风险</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>002565.SZ</td>
+                        <td style="font-weight:bold;">顺灏股份</td>
+                        <td>19.46</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +5.53%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            23.95%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #d35400">
+                            163.33%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            安全
+                        </td>
+                        <td style="background:#fff9ed;">-</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">暂无风险</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>600343.SH</td>
+                        <td style="font-weight:bold;">航天动力</td>
+                        <td>45.3</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -0.11%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            22.00%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #d35400">
+                            167.26%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            安全
+                        </td>
+                        <td style="background:#fff9ed;">-</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">暂无风险</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>301306.SZ</td>
+                        <td style="font-weight:bold;">西测测试</td>
+                        <td>134.66</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +1.98%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            21.70%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            140.51%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            安全
+                        </td>
+                        <td style="background:#fff9ed;">-</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">暂无风险</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>603601.SH</td>
+                        <td style="font-weight:bold;">再升科技</td>
+                        <td>13.11</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -3.10%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            20.28%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #d35400">
+                            164.85%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            安全
+                        </td>
+                        <td style="background:#fff9ed;">-</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">暂无风险</span>
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>603929.SH</td>
+                        <td style="font-weight:bold;">亚翔集成</td>
+                        <td>117.4</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +1.59%
+                        </td>
+                        
+                        <!-- 10日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            19.24%
+                        </td>
+                        
+                        <!-- 30日涨幅 -->
+                        <td style="font-weight:bold; color: #333">
+                            121.97%
+                        </td>
+
+                        <!-- 预测数据 -->
+                        <td style="background:#fff9ed; color: #d35400; font-weight:bold;">
+                            安全
+                        </td>
+                        <td style="background:#fff9ed;">-</td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                            <span style="font-size:11px; color:#666; margin-left:5px;">暂无风险</span>
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        
+        
+        <div style="text-align: center; color: #ccc; font-size: 12px; margin-top: 20px;">
+            Generated by Jackie at 2026-01-07 20:04
+        </div>
+    </div>
+</body>
+</html>
