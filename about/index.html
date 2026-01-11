@@ -19,16 +19,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jackielzq.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="&#x2F;* 局部样式，仅影响本页面 *&#x2F; .about-cover {     display: flex;     flex-direction: column;     align-items: center;     &#x2F;* 调整：减少底部外边距 *&#x2F;     margin-bottom: 1rem; &#x2F;* 从 2rem 减少到 1rem *&#x2F; }  .about-avatar {     wid">
+    <meta name="description" content=":root { --bg-color: #f5f5f7; --card-bg: #ffffff; --text-primary: #1d1d1f; --text-secondary: #86868b; --accent-color: #0071e3; --tag-bg: #f5f5f7; --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.04); --card-">
 <meta property="og:type" content="website">
 <meta property="og:title" content="关于我">
 <meta property="og:url" content="https://jackielzq.github.io/about/index.html">
 <meta property="og:site_name" content="Jackie的博客">
-<meta property="og:description" content="&#x2F;* 局部样式，仅影响本页面 *&#x2F; .about-cover {     display: flex;     flex-direction: column;     align-items: center;     &#x2F;* 调整：减少底部外边距 *&#x2F;     margin-bottom: 1rem; &#x2F;* 从 2rem 减少到 1rem *&#x2F; }  .about-avatar {     wid">
+<meta property="og:description" content=":root { --bg-color: #f5f5f7; --card-bg: #ffffff; --text-primary: #1d1d1f; --text-secondary: #86868b; --accent-color: #0071e3; --tag-bg: #f5f5f7; --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.04); --card-">
 <meta property="og:locale">
 <meta property="og:image" content="https://jackielzq.github.io/images/avatar.png">
 <meta property="article:published_time" content="2023-04-11T15:00:00.000Z">
-<meta property="article:modified_time" content="2026-01-08T14:34:21.669Z">
+<meta property="article:modified_time" content="2026-01-11T17:42:36.560Z">
 <meta property="article:author" content="Jackielzq">
 <meta property="article:tag" content="学习,交流,分享">
 <meta name="twitter:card" content="summary">
@@ -136,7 +136,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">欢迎你, 朋友! 👋</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">欢迎你，朋友！</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -207,215 +207,122 @@
       
       <div class="post-body">
           <style>
-/* 局部样式，仅影响本页面 */
-.about-cover {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* 调整：减少底部外边距 */
-    margin-bottom: 1rem; /* 从 2rem 减少到 1rem */
-}
-
-.about-avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    /* 调整：减少底部外边距 */
-    margin-bottom: 0.5rem; /* 从 1rem 减少到 0.5rem */
-    border: 4px solid #fff;
-}
-
-/* 新增：控制 h2 标题的间距 */
-.about-cover h2 {
-    margin-top: 0.5rem;    /* 减少顶部间距 */
-    margin-bottom: 0.8rem; /* 减少底部间距 */
-    font-size: 1.8em;      /* 保持标题大小 */
-}
-
-
-.about-intro {
-    text-align: center;
-    max-width: 600px;
-    /* 调整：减少底部外边距 */
-    margin: 0 auto 1rem; /* 从 2rem 减少到 1rem */
-    color: #666;
-    line-height: 1.8;
-}
-
-/* 调整：<hr> 分隔线的上下外边距 */
-hr {
-    margin: 1.5rem auto; /* 从默认值减少，让它不那么占空间 */
-    border-top: 1px solid #eee; /* 可选：让线更细更浅 */
-}
-
-
-/* 分类标题样式 */
-.section-title {
-    font-size: 1.1em;
-    font-weight: bold;
-    /* 调整：减少顶部外边距 */
-    margin: 1rem 0 0.8rem; /* 从 1.5rem 0 1rem 调整 */
-    display: flex;
-    align-items: center;
-    color: #333; /* 适配 Next 主题深色模式可能需要调整，Next 通常会自动处理 */
-}
-
-.section-title i {
-    margin-right: 8px;
-    color: #555;
-}
-
-/* 标签容器 */
-.tag-cloud {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    /* 调整：减少底部外边距 */
-    margin-bottom: 1.2rem; /* 从 1.5rem 减少到 1.2rem */
-}
-
-/* 标签通用样式 */
-.my-tag {
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    color: #fff;
-    transition: transform 0.2s;
-    cursor: default;
-}
-
-.my-tag:hover {
-    transform: translateY(-2px);
-}
-
-/* 不同类型的标签颜色 */
-.tag-blue { background-color: #3498db; }
-.tag-green { background-color: #2ecc71; }
-.tag-purple { background-color: #9b59b6; }
-.tag-orange { background-color: #e67e22; }
-.tag-red { background-color: #e74c3c; }
-.tag-gray { background-color: #95a5a6; }
-
-/* 剧集列表样式 */
-.movie-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    /* 调整：减少底部外边距 */
-    margin-bottom: 2rem; /* 让它距离联系盒子稍微远一点 */
-}
-.movie-item {
-    background: #f5f5f5;
-    padding: 8px 15px;
-    border-left: 4px solid #333;
-    border-radius: 0 4px 4px 0;
-    font-size: 0.95rem;
-}
-
-/* 底部联系区域 */
-.contact-box {
-    /* 调整：减少顶部外边距 */
-    margin-top: 2rem; /* 从 3rem 减少到 2rem */
-    padding: 20px;
-    background: #f9f9f9;
-    border-radius: 8px;
-    text-align: center;
-}
-.contact-btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 20px;
-    background: #333;
-    color: #fff !important;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background 0.3s;
-}
-.contact-btn:hover {
-    background: #555;
-}
+:root { --bg-color: #f5f5f7; --card-bg: #ffffff; --text-primary: #1d1d1f; --text-secondary: #86868b; --accent-color: #0071e3; --tag-bg: #f5f5f7; --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.04); --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.08); }
+@media (prefers-color-scheme: dark) { :root { --bg-color: #000000; --card-bg: #1c1c1e; --text-primary: #f5f5f7; --text-secondary: #86868b; --accent-color: #0a84ff; --tag-bg: #2c2c2e; --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); --card-shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.4); } }
+/* 隐藏 Hexo 主题自带标题 */
+.post-title, .article-title, .post-header { display: none !important; }
+.about-container { max-width: 900px; margin: 0 auto 30px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--text-primary); }
+/* 头部居中卡片 */
+.profile-card { display: flex; flex-direction: column; align-items: center; text-align: center; background: var(--card-bg); border-radius: 16px; padding: 30px 24px; box-shadow: var(--card-shadow); margin-bottom: 24px; }
+.profile-avatar { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 16px; border: 1px solid rgba(0,0,0,0.05); flex-shrink: 0; }
+.profile-info h2 { margin: 0 0 8px 0; font-size: 1.6rem; font-weight: 700; color: var(--text-primary); border-bottom: none; }
+.profile-bio { margin: 0; font-size: 1rem; line-height: 1.6; color: var(--text-secondary); max-width: 600px; }
+/* 网格布局 */
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 24px; }
+.info-card { background: var(--card-bg); border-radius: 16px; padding: 24px; box-shadow: var(--card-shadow); display: flex; flex-direction: column; transition: transform 0.2s; }
+.info-card:hover { transform: translateY(-2px); box-shadow: var(--card-shadow-hover); }
+.card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; color: var(--text-primary); }
+.card-title i { margin-right: 10px; color: var(--accent-color); font-size: 1.1rem; }
+/* 标签样式 */
+.tag-container { display: flex; flex-wrap: wrap; gap: 10px; }
+.apple-tag { background: var(--tag-bg); color: var(--text-primary); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; transition: all 0.2s ease; cursor: default; border: 1px solid transparent; }
+.apple-tag:hover { border-color: var(--accent-color); background: var(--card-bg); color: var(--accent-color); }
+/* 底部联系 */
+.contact-card { background: var(--card-bg); border-radius: 16px; padding: 24px; text-align: center; box-shadow: var(--card-shadow); }
+.contact-text { color: var(--text-secondary); margin-bottom: 15px; font-size: 0.95rem; }
+.email-btn { display: inline-flex; align-items: center; padding: 10px 24px; background: var(--accent-color); color: #fff !important; border-radius: 30px; text-decoration: none !important; font-size: 0.95rem; font-weight: 500; transition: opacity 0.2s; }
+.email-btn:hover { opacity: 0.9; }
+.email-btn i { margin-right: 8px; }
+@media (max-width: 600px) { .info-grid { grid-template-columns: 1fr; } }
 </style>
 
-<!-- 个人简介头部 -->
-<div class="about-cover">
-    <img src="/images/avatar.png" class="about-avatar" alt="Avatar">
-    <h2>欢迎你, 朋友! 👋</h2>
+<div class="about-container">
+<!-- 1. 头部 ID Card (居中版) -->
+<div class="profile-card">
+<img src="/images/avatar.png" class="profile-avatar" alt="Avatar">
+<div class="profile-info">
+<h2>欢迎你，朋友！</h2>
+<div class="profile-bio">欢迎来到我的数字花园。这里记录技术、生活与思考。<br>很高兴在互联网的角落与你相遇。</div>
+</div>
 </div>
 
+<!-- 2. 信息网格 -->
+<div class="info-grid">
 
-<div class="about-intro">
-    欢迎来到我的博客！这里是我的数字花园，记录技术、生活与思考。
-    <br>很高兴在这里与你相遇。
+<!-- 卡片：基本坐标 -->
+<div class="info-card">
+<div class="card-title"><i class="fa fa-map-marker-alt"></i> 基本坐标</div>
+<div class="tag-container">
+<span class="apple-tag">湖南人</span>
+<span class="apple-tag">双子座</span>
+<span class="apple-tag">左撇子</span>
 </div>
-
-<hr>
-
-<!-- 标签展示区域 -->
-
-<div class="section-title">
-    <i class="fa fa-user"></i> 基本属性
-</div>
-<div class="tag-cloud">
-    <span class="my-tag tag-blue">📍 湖南人</span>
-    <span class="my-tag tag-blue">♊ 双子座</span>
-    <span class="my-tag tag-blue">🖐 左撇子</span>
 </div>
 
-
-<div class="section-title">
-    <i class="fa fa-fingerprint"></i> 性格画像
+<!-- 卡片：性格画像 -->
+<div class="info-card">
+<div class="card-title"><i class="fa fa-fingerprint"></i> 性格画像</div>
+<div class="tag-container">
+<span class="apple-tag">ISTP</span>
+<span class="apple-tag">慢热</span>
+<span class="apple-tag">内敛</span>
+<span class="apple-tag">固执</span>
 </div>
-<div class="tag-cloud">
-    <span class="my-tag tag-green">🧩 ISTP</span>
-    <span class="my-tag tag-green">🐢 慢热</span>
-    <span class="my-tag tag-green">😶 内敛</span>
-    <span class="my-tag tag-green">🐂 固执</span>
-</div>
-<div class="section-title">
-    <i class="fa fa-briefcase"></i> 职业标签
-</div>
-<div class="tag-cloud">
-    <span class="my-tag tag-purple">🌐 互联网</span>
-    <span class="my-tag tag-purple">👔 产品经理</span>
-    <span class="my-tag tag-purple">🏢 ToB</span>
 </div>
 
-<div class="section-title">
-    <i class="fa fa-tags"></i> 专注领域
+<!-- 卡片：职业标签 -->
+<div class="info-card">
+<div class="card-title"><i class="fa fa-briefcase"></i> 职业生涯</div>
+<div class="tag-container">
+<span class="apple-tag">互联网</span>
+<span class="apple-tag">产品经理</span>
+<span class="apple-tag">ToB</span>
 </div>
-<div class="tag-cloud">
-    <span class="my-tag tag-gray">广告技术</span>
-    <span class="my-tag tag-gray">网站分析</span>
-    <span class="my-tag tag-gray">数据平台</span>
-    <span class="my-tag tag-gray">供应链</span>
-</div>
-
-<div class="section-title">
-    <i class="fa fa-heart"></i> 兴趣爱好
-</div>
-<div class="tag-cloud">
-    <span class="my-tag tag-orange">🎮 玩游戏</span>
-    <span class="my-tag tag-orange">🎸 指弹吉他</span>
-    <span class="my-tag tag-orange">💭 折腾新鲜事物</span>
 </div>
 
-<div class="section-title">
-    <i class="fa fa-film"></i> 喜欢的剧集
+<!-- 卡片：兴趣爱好 -->
+<div class="info-card">
+<div class="card-title"><i class="fa fa-heart"></i> 兴趣爱好</div>
+<div class="tag-container">
+<span class="apple-tag">玩游戏</span>
+<span class="apple-tag">指弹吉他</span>
+<span class="apple-tag">折腾新事物</span>
 </div>
-<div class="movie-list">
-    <div class="movie-item">🐺 权力的游戏</div>
-    <div class="movie-item">🧟 行尸走肉</div>
-    <div class="movie-item">⚗️ 绝命毒师</div>
 </div>
-<!-- 底部联系 -->
 
-<div class="contact-box">
-    <p>有共同话题？欢迎随时与我交流！</p>
-    <a href="mailto:jackielzq@qq.com" class="contact-btn">
-        <i class="fa fa-envelope"></i> jackielzq@qq.com
-    </a>
+<!-- 卡片：领域 (占据一行) -->
+<div class="info-card" style="grid-column: 1 / -1;">
+<div class="card-title"><i class="fa fa-layer-group"></i> 领域</div>
+<div class="tag-container">
+<span class="apple-tag">广告技术</span>
+<span class="apple-tag">网站分析</span>
+<span class="apple-tag">数据平台</span>
+<span class="apple-tag">供应链</span>
+</div>
+</div>
+
+<!-- 卡片：影视偏好 (占据一行) -->
+<div class="info-card" style="grid-column: 1 / -1;">
+<div class="card-title"><i class="fa fa-film"></i> 影视偏好</div>
+<div class="tag-container">
+<span class="apple-tag">权力的游戏</span>
+<span class="apple-tag">行尸走肉</span>
+<span class="apple-tag">绝命毒师</span>
+<span class="apple-tag">肖申克的救赎</span>
+<span class="apple-tag">千与千寻</span>
+<span class="apple-tag">七龙珠</span>
+</div>
+</div>
+
+</div>
+
+<!-- 3. 底部联系 -->
+<div class="contact-card">
+<div class="contact-text">有共同话题？或者只是想打个招呼？欢迎随时邮件联系！</div>
+<a href="mailto:jackielzq@qq.com" class="email-btn">
+<i class="fa fa-envelope"></i> jackielzq@qq.com
+</a>
+</div>
 </div>
       </div>
       
