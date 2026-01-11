@@ -19,27 +19,26 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"jackielzq.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content=".tool-container { margin-top: 1rem; max-width: 100%; } .tool-category { font-size: 1.2rem; font-weight: 700; margin: 2.5rem 0 1rem; padding-left: 10px; border-left: 4px solid #333; line-height: 1.2;">
+    <meta name="description" content="&#x2F;* 样式变量 *&#x2F; :root {      --sidebar-width: 140px;      --bg-color: #f5f5f7;      --card-bg: #ffffff;      --text-primary: #1d1d1f;      --text-secondary: #86868b;      --accent-color: #0071e3;      --c">
 <meta property="og:type" content="website">
 <meta property="og:title" content="利器清单">
 <meta property="og:url" content="https://jackielzq.github.io/tools/index.html">
 <meta property="og:site_name" content="Jackie的博客">
-<meta property="og:description" content=".tool-container { margin-top: 1rem; max-width: 100%; } .tool-category { font-size: 1.2rem; font-weight: 700; margin: 2.5rem 0 1rem; padding-left: 10px; border-left: 4px solid #333; line-height: 1.2;">
+<meta property="og:description" content="&#x2F;* 样式变量 *&#x2F; :root {      --sidebar-width: 140px;      --bg-color: #f5f5f7;      --card-bg: #ffffff;      --text-primary: #1d1d1f;      --text-secondary: #86868b;      --accent-color: #0071e3;      --c">
 <meta property="og:locale">
-<meta property="og:image" content="https://jackielzq.github.io/images/tools/hexo3.svg">
-<meta property="og:image" content="https://jackielzq.github.io/images/tools/github-icon.svg">
-<meta property="article:published_time" content="2024-01-01T04:00:00.000Z">
-<meta property="article:modified_time" content="2026-01-08T16:47:33.242Z">
+<meta property="og:image" content="https://jackielzq.github.io/tools/$%7Btool.icon%7D">
+<meta property="article:published_time" content="2026-01-01T04:00:00.000Z">
+<meta property="article:modified_time" content="2026-01-11T14:23:50.555Z">
 <meta property="article:author" content="Jackielzq">
 <meta property="article:tag" content="学习,交流,分享">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jackielzq.github.io/images/tools/hexo3.svg">
+<meta name="twitter:image" content="https://jackielzq.github.io/tools/$%7Btool.icon%7D">
 
 
 <link rel="canonical" href="https://jackielzq.github.io/tools/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-Hans","comments":"","permalink":"https://jackielzq.github.io/tools/index.html","path":"tools/index.html","title":"利器清单"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-Hans","comments":true,"permalink":"https://jackielzq.github.io/tools/index.html","path":"tools/index.html","title":"利器清单"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>利器清单 | Jackie的博客
@@ -151,7 +150,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">281</span>
+          <span class="site-state-item-count">282</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -222,107 +221,211 @@
       
       <div class="post-body">
           <style>
-.tool-container { margin-top: 1rem; max-width: 100%; }
-.tool-category { font-size: 1.2rem; font-weight: 700; margin: 2.5rem 0 1rem; padding-left: 10px; border-left: 4px solid #333; line-height: 1.2; color: #333; }
-.tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; }
-.tool-card { display: block; background: #fff; border: 1px solid #e1e1e1; border-radius: 8px; padding: 15px; text-decoration: none !important; transition: all 0.3s ease; position: relative; overflow: hidden; color: #333; }
-.tool-card:hover { transform: translateY(-4px); box-shadow: 0 8px 15px rgba(0,0,0,0.08); border-color: #333; }
-.card-header { display: flex; align-items: center; margin-bottom: 10px; height: 32px; /* 强制头部高度，确保对齐 */ }
-
-/* --- 核心修改部分开始 --- */
-.card-icon { width: 32px; height: 32px; margin-right: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; /* 防止图标被压缩 */ }
-.card-icon img { 
-    width: 100% !important; 
-    height: 100% !important; 
-    object-fit: contain !important; 
-    margin: 0 !important; /* 强制去掉主题默认的外边距 */
-    padding: 0 !important; 
-    border: none !important; /* 去掉主题默认边框 */
-    display: block !important; /* 消除行内元素间隙 */
-    background: none !important;
+/* 样式变量 */
+:root { 
+    --sidebar-width: 140px; 
+    --bg-color: #f5f5f7; 
+    --card-bg: #ffffff; 
+    --text-primary: #1d1d1f; 
+    --text-secondary: #86868b; 
+    --accent-color: #0071e3; 
+    --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.04); /* 阴影稍微调淡一点，适应小卡片 */
+    --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12); 
 }
-.card-icon i { font-size: 1.4rem; color: #333; display: block; } /* 修正字体图标的对齐 */
-/* --- 核心修改部分结束 --- */
 
-.card-title { font-size: 1rem; font-weight: bold; color: #222; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 32px; /* 让文字垂直居中 */ }
-.card-desc { font-size: 0.85rem; color: #777; line-height: 1.5; height: 42px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin-top: 5px;}
-.card-tag { position: absolute; top: 10px; right: 10px; font-size: 0.7rem; background: #f0f0f0; padding: 2px 6px; border-radius: 4px; color: #888; }
+@media (prefers-color-scheme: dark) { 
+    :root { 
+        --bg-color: #000000; 
+        --card-bg: #1c1c1e; 
+        --text-primary: #f5f5f7; 
+        --text-secondary: #86868b; 
+        --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.2); 
+        --card-shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.4); 
+        --accent-color: #0a84ff; 
+    } 
+}
+
+.app-container { display: flex; gap: 30px; max-width: 100%; margin-top: 30px; position: relative; align-items: flex-start; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+.app-sidebar { width: var(--sidebar-width); flex-shrink: 0; }
+.sidebar-sticky { position: sticky; top: 20px; padding: 10px 0; }
+
+.nav-item { display: block; padding: 8px 12px; color: var(--text-secondary); text-decoration: none !important; font-size: 0.9rem; cursor: pointer; border-radius: 6px; transition: all 0.2s; font-weight: 500; margin-bottom: 2px; }
+.nav-item:hover { background: rgba(0, 0, 0, 0.05); color: var(--text-primary); }
+.nav-item.active { background: rgba(0, 0, 0, 0.05); color: var(--text-primary); font-weight: 600; }
+
+.app-main { flex-grow: 1; min-width: 0; }
+.category-title { font-size: 1.4rem; font-weight: 600; margin: 0 0 20px 0; padding-top: 5px; color: var(--text-primary); letter-spacing: -0.01em; }
+.category-section { margin-bottom: 40px; scroll-margin-top: 20px; }
+
+/* Grid 布局 */
+.tool-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+    gap: 20px; 
+}
+
+/* --- 卡片核心样式修正 --- */
+.tool-card { 
+    display: flex; 
+    flex-direction: column; 
+    /* 关键属性：让内容两端对齐，确保描述文字永远在底部 */
+    justify-content: space-between; 
+    
+    background: var(--card-bg); 
+    border-radius: 12px; /* 圆角稍微改小一点适配高度 */
+    padding: 14px; /* 内边距减小 */
+    text-decoration: none !important; 
+    transition: all 0.3s ease; 
+    
+    /* 高度调整：极致压缩到 108px */
+    height: 98px; 
+    
+    border: 2px solid transparent; 
+    box-shadow: var(--card-shadow); 
+    position: relative; 
+    overflow: hidden; 
+    box-sizing: border-box; 
+}
+
+.tool-card:hover { 
+    transform: translateY(-3px); 
+    box-shadow: var(--card-shadow-hover); 
+    border-color: var(--accent-color); 
+    z-index: 10; 
+}
+
+/* 头部区域 */
+.card-top { 
+    display: flex; 
+    align-items: center; 
+    /* 去掉底部margin，依靠 justify-content 分隔 */
+    margin-bottom: 0; 
+}
+
+/* 图标缩小适配 */
+.card-icon { width: 28px; height: 28px; margin-right: 10px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 6px; }
+.card-icon img { width: 100% !important; height: 100% !important; object-fit: contain !important; margin: 0 !important; }
+.card-icon i { font-size: 1.3rem; color: var(--text-primary); }
+
+/* 标题 */
+.card-name { font-size: 1rem; font-weight: 600; color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 1.2; }
+
+/* 描述：固定到底部 */
+.card-desc { 
+    font-size: 0.8rem; 
+    color: var(--text-secondary); 
+    line-height: 1.4; 
+    
+    /* 限制2行 */
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden; 
+}
+
+@media (max-width: 768px) { 
+    .app-container { flex-direction: column; gap: 15px; } 
+    .app-sidebar { width: 100%; overflow-x: auto; position: sticky; top: 0; z-index: 99; background: var(--bg-color); border-bottom: 1px solid rgba(0,0,0,0.05); } 
+    .sidebar-sticky { display: flex; position: static; padding: 10px 0; white-space: nowrap; } 
+    .nav-item { margin-right: 8px; background: var(--card-bg); box-shadow: 0 1px 3px rgba(0,0,0,0.05); } 
+    .tool-grid { grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); } 
+    .tool-card { height: auto; min-height: 90px; } /* 手机上高度自适应 */
+}
 </style>
 
-<div class="tool-container">
-
-<!-- 分类：生产力工具 -->
-
-<div class="tool-category">⚡ 生产力 & 效率</div>
-<div class="tool-grid">
-<!-- 卡片 1 -->
-<a href="https://notion.so" target="_blank" class="tool-card">
-
-<div class="card-header">
-<div class="card-icon"><i class="fa fa-book"></i></div> 
-<div class="card-title">Notion</div>
-</div>
-<div class="card-desc">All-in-one 的笔记与知识库管理工具，排版自由度极高。</div>
-</a>
-
-<!-- 卡片 2 -->
-<a href="https://obsidian.md" target="_blank" class="tool-card">
-
-<div class="card-header">
-<div class="card-icon"><i class="fa fa-gem"></i></div>
-<div class="card-title">Obsidian</div>
-</div>
-<div class="card-desc">基于本地 Markdown 文件的双向链接笔记软件，第二大脑。</div>
-</a>
-
-<!-- 卡片 3 -->
-<a href="https://chatgpt.com" target="_blank" class="tool-card">
-<span class="card-tag">AI</span>
-<div class="card-header">
-<div class="card-icon"><i class="fa fa-robot"></i></div>
-<div class="card-title">ChatGPT</div>
-</div>
-<div class="card-desc">日常离不开的 AI 助手，用于编程辅助、头脑风暴。</div>
-</a>
-
+<div class="app-container">
+<aside class="app-sidebar">
+<div class="sidebar-sticky" id="sidebar-nav"></div>
+</aside>
+<main class="app-main">
+<div id="tool-content"></div>
+</main>
 </div>
 
-<!-- 分类：开发 & 博客 -->
-<div class="tool-category">💻 开发 & 建站</div>
-<div class="tool-grid">
+<script>
+// ==========================================
+// 数据配置区域 
+// ==========================================
+const toolsData = [
+{
+category: "AI工具",
+items: [
+{ name: "Google AI Studio", url: "https://aistudio.google.com/", icon: "fab fa-google", desc: "一站式最强AI，别选了，就它" },
+{ name: "NotebookLM", url: "https://notebooklm.google.com/", icon: "fas fa-book-open", desc: "Google出品，文档处理AI" },
+{ name: "Deepseek", url: "https://chat.deepseek.com/", icon: "fas fa-brain", desc: "深度求索，国产之光" },
+{ name: "Coze", url: "https://www.coze.cn/home", icon: "fas fa-cubes", desc: "AI工作流,字节出品" }
+]
+},
+{
+category: "建站工具",
+items: [
+{ name: "Hexo", url: "https://hexo.io", icon: "fas fa-blog", desc: "快速、简洁且高效的博客框架" },
+{ name: "GitHub", url: "https://github.com", icon: "fab fa-github", desc: "全球最大的代码托管与协作平台" },
+{ name: "Next", url: "https://theme-next.iissnan.com/getting-started.html", icon: "fab fa-first-order", desc: "Hexo最经典的Next主题" },
+{ name: "Waline", url: "https://waline.js.org/", icon: "fas fa-comments", desc: "一款简洁、安全的评论系统" },
+{ name: "Zeabur", url: "https://zeabur.com/", icon: "fas fa-server", desc: "一键部署全栈应用，界面极度舒适" },
+{ name: "Leancloud", url: "https://code.visualstudio.com", icon: "fas fa-database", desc: "Waline数据库支持" }
+]
+},
+{
+category: "设计创意",
+items: [
+{ name: "Figma", url: "https://figma.com", icon: "fab fa-figma", desc: "界面设计" },
+{ name: "AntV", url: "https://antv.antgroup.com/", icon: "fas fa-chart-area", desc: "数据可视化" },
+{ name: "Fontawesome", url: "https://fontawesome.com/search#icongrid", icon: "fab fa-font-awesome", desc: "矢量图标库" }
+]
+},
+{
+category: "资源下载",
+items: [
+{ name: "Cobalt", url: "https://cobalt.tools/", icon: "fas fa-download", desc: "无广告、无水印下载全网视频" },
+{ name: "Z-library", url: "https://zh.z-library.sk/", icon: "fas fa-book", desc: "世界上最大的数字图书馆" },
+{ name: "腾讯软件中心", url: "https://pc.qq.com/", icon: "fab fa-qq", desc: "软件下载，别被百度坑了" }
+]
+},
+{
+category: "科学上网",
+items: [
+{ name: "Monocloud", url: "https://mymonocloud.com/", icon: "fas fa-paper-plane", desc: "越过长城，看世界" },
+]
+}
+];
 
-<!-- 卡片 4 -->
-<a href="https://code.visualstudio.com/" target="_blank" class="tool-card">
-<div class="card-header">
-<div class="card-icon"><i class="fa fa-code"></i></div>
-<div class="card-title">VS Code</div>
-</div>
-<div class="card-desc">地表最强轻量级代码编辑器，插件生态极其丰富。</div>
-</a>
-
-<!-- 卡片 5 -->
-<a href="https://hexo.io/zh-cn/" target="_blank" class="tool-card">
-
-<div class="card-header">
-<div class="card-icon"><img src="/images/tools/hexo3.svg"></div>
-<div class="card-title">Hexo</div>
-</div>
-<div class="card-desc">快速、简洁且高效的博客框架，本站即由此驱动。</div>
-
-</a>
-
-<!-- 卡片 6 -->
-<a href="https://github.com" target="_blank" class="tool-card">
-<div class="card-header">
-<div class="card-icon"><img src="/images/tools/github-icon.svg"></div>
-<div class="card-title">GitHub</div>
-</div>
-<div class="card-desc">代码托管平台，也用来存放博客源码和图床。</div>
-
-</a>
-
-</div>
-</div>
+// ==========================================
+// 逻辑代码
+// ==========================================
+document.addEventListener('DOMContentLoaded', function() {
+const navContainer = document.getElementById('sidebar-nav');
+const contentContainer = document.getElementById('tool-content');
+function render() {
+let navHtml = '';
+let contentHtml = '';
+toolsData.forEach((section, index) => {
+const sectionId = `cat-${index}`;
+navHtml += `<a class="nav-item" href="#${sectionId}" onclick="smoothScroll(event, '${sectionId}')">${section.category}</a>`;
+let cardsHtml = '';
+section.items.forEach(tool => {
+let iconHtml = tool.icon.includes('/') || tool.icon.includes('http') ? `<img src="${tool.icon}">` : `<i class="${tool.icon}"></i>`;
+cardsHtml += `<a href="${tool.url}" target="_blank" class="tool-card"><div class="card-top"><div class="card-icon">${iconHtml}</div><div class="card-name">${tool.name}</div></div><div class="card-desc">${tool.desc}</div></a>`;
+});
+contentHtml += `<div id="${sectionId}" class="category-section"><div class="category-title">${section.category}</div><div class="tool-grid">${cardsHtml}</div></div>`;
+});
+navContainer.innerHTML = navHtml;
+contentContainer.innerHTML = contentHtml;
+if(navContainer.firstChild) navContainer.firstChild.classList.add('active');
+}
+window.smoothScroll = function(e, targetId) {
+e.preventDefault();
+const target = document.getElementById(targetId);
+if (target) {
+document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+e.target.classList.add('active');
+window.scrollTo({ top: target.offsetTop - 20, behavior: 'smooth' });
+}
+};
+render();
+});
+</script>
       </div>
       
       
@@ -333,6 +436,7 @@
     
 
 
+    <div class="comments" id="waline"></div>
 </div>
   </main>
 
@@ -358,7 +462,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:40</span>
+    <span title="站点阅读时长">14:41</span>
   </span>
 </div>
 
