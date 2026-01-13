@@ -199,7 +199,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Noto Serif SC, Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 30px 0 15px;
@@ -1111,7 +1111,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ff0b65;
+    background: #a378ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2782,4 +2782,176 @@ header.header {
   .main-inner.index::first-line {
     font-size: 16px;
   }
+}
+body {
+  background: #f5f7f9;
+}
+.main-inner {
+  width: 1100px;
+}
+.post-block {
+  background: #fff;
+  margin-bottom: 24px;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.05), 0 6px 20px 0 rgba(0,0,0,0.05);
+  transition: all 0.3s;
+}
+.sidebar-inner {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.05), 0 6px 20px 0 rgba(0,0,0,0.05);
+  padding: 20px;
+}
+.header-inner {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.05), 0 6px 20px 0 rgba(0,0,0,0.05);
+  padding: 20px 40px;
+}
+.posts-expand .post-title {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.post-body {
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.8;
+}
+blockquote {
+  border-left: 5px solid #3ca5f6;
+  background-color: #f0f7ff;
+  margin: 20px 0;
+  padding: 10px 20px;
+  color: #555;
+  border-radius: 4px;
+}
+.post-body a {
+  color: #3ca5f6;
+  border-bottom: 1px dotted #3ca5f6;
+}
+.post-body a:hover {
+  color: #0056b3;
+  border-bottom: 1px solid #0056b3;
+}
+.footer-inner {
+  text-align: center;
+  color: #999;
+}
+.btn {
+  border: 1px solid #3ca5f6;
+  color: #3ca5f6;
+  border-radius: 20px;
+  background: transparent;
+  transition: all 0.3s;
+}
+.btn:hover {
+  background: #3ca5f6;
+  color: #fff;
+}
+.,
+.post-body {
+  font-size: 17px;
+  line-height: 1.9;
+  color: #2c3e50;
+  text-align: justify;
+}
+.post-body p {
+  margin-bottom: 28px;
+}
+.post-body h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111;
+  margin-top: 60px;
+  margin-bottom: 24px;
+  padding-left: 12px;
+  border-left: 5px solid #3ca5f6;
+  line-height: 1.3;
+}
+.post-body h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  color: #333;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #ddd;
+}
+.post-body ul,
+.post-body ol {
+  margin-bottom: 20px;
+  padding-left: 25px;
+}
+.post-body li {
+  margin-bottom: 10px;
+  color: #444;
+}
+.post-body img {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin: 30px auto;
+  display: block;
+}
+.post-body blockquote {
+  background: #f7f9fa;
+  border-left: none;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 30px 0;
+  color: #555;
+  position: relative;
+  font-style: italic;
+}
+.post-body blockquote::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 15px;
+  bottom: 15px;
+  width: 4px;
+  background: #3ca5f6;
+  border-radius: 0 4px 4px 0;
+}
+.post-body strong {
+  color: #3ca5f6;
+  background: rgba(60,165,246,0.1);
+  padding: 0 4px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.highlight,
+pre {
+  margin: 30px 0 !important;
+  border-radius: 8px;
+}
+.posts-expand .post-title-link {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif !important;
+}
+@media (min-width: 992px) {
+  .post-block {
+    padding: 20px 180px !important;
+  }
+  .posts-expand .post-title {
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
+}
+.wl-editor {
+  font-size: 16px !important;
+  line-height: 1.7 !important;
+}
+.wl-header input {
+  font-size: 15px !important;
+}
+.wl-editor::placeholder,
+.wl-header input::placeholder {
+  font-size: 15px !important;
+  color: #999;
+}
+.wl-btn {
+  font-size: 15px !important;
 }
