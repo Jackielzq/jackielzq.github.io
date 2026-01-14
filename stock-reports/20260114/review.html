@@ -1,0 +1,3327 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>A股深度复盘 - 20260114</title>
+    <style>
+        body { font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; background-color: #f0f2f5; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        
+        .main-header { 
+            background: #ffffff; color: #2c3e50; padding: 20px; border-radius: 8px; 
+            margin-bottom: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-bottom: 4px solid #34495e; 
+        }
+        .main-header h1 { margin: 0; font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+        .main-header .sub-info { font-size: 12px; color: #7f8c8d; margin-top: 5px; }
+
+        .dashboard-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; margin-bottom: 20px; }
+        .dash-card { 
+            background: white; border-radius: 8px; padding: 15px 0; 
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05); 
+            display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+            height: 120px; 
+        }
+        .dash-label { font-size: 13px; color: #7f8c8d; font-weight: 500; margin-bottom: 5px; }
+        .dash-val { 
+            font-size: 32px; font-weight: 800; color: #2c3e50; 
+            height: 40px; line-height: 40px; 
+            display: flex; align-items: center; justify-content: center;
+        }
+        .score-val { color: #f39c12; font-size: 42px; }
+        .dash-sub { 
+            font-size: 12px; color: #95a5a6; margin-top: 5px; 
+            display: flex; align-items: center; justify-content: center; gap: 5px;
+        }
+
+        .progress-box { width: 80%; margin-top: 5px; }
+        .bar-track { width: 100%; height: 6px; background: #ecf0f1; border-radius: 3px; overflow: hidden; display: flex; margin-bottom: 4px; }
+        .dist-labels { display: flex; justify-content: space-between; font-size: 12px; color: #666; font-weight: 500; line-height: 1; }
+
+        /* 核心卡片样式，所有模块统一使用此结构 */
+        .card { background: white; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .card-header { font-size: 16px; font-weight: 700; border-left: 4px solid #3498db; padding-left: 10px; margin-bottom: 15px; }
+        
+        .card-header.red-border { border-left-color: #e74c3c; }
+        .card-header.green-border { border-left-color: #27ae60; }
+        .card-header.purple-border { border-left-color: #8e44ad; }
+        
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        th { background: #f8f9fa; padding: 10px; text-align: center; color: #666; font-weight: 600; border-bottom: 2px solid #e9ecef; white-space: nowrap; }
+        td { padding: 8px; text-align: center; border-bottom: 1px solid #f1f1f1; vertical-align: middle; }
+        tr:hover { background: #fcfcfc; }
+        
+        .up { color: #e74c3c; font-weight: bold; }
+        .down { color: #27ae60; font-weight: bold; }
+        .flat { color: #95a5a6; }
+        .bg-red { background-color: #e74c3c; }
+        .bg-green { background-color: #27ae60; }
+        
+        .market-tag { font-size: 12px; color: #fff; padding: 2px 6px; border-radius: 4px; background-color: #95a5a6; }
+        .market-主板 { background-color: #2980b9; }
+        .market-创业板 { background-color: #16a085; }
+        
+        .badge { padding: 2px 6px; border-radius: 4px; font-size: 12px; color: white; display: inline-block; min-width: 30px; }
+        .badge-red { background: #e74c3c; }
+        
+        .trend-table th { background-color: #ecf0f1; }
+        .trend-score { font-weight: bold; font-size: 16px; }
+        .high-score { color: #e74c3c; }
+        .low-score { color: #27ae60; }
+        .sub-text { font-size: 10px; color: #999; font-weight: normal; display: block;}
+
+        .row-flex { display: flex; gap: 20px; }
+        .col-half { flex: 1; }
+        .stock-name { font-weight: bold; color: #333; }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-header">
+            <h1>A股市场深度复盘报告</h1>
+            <div class="sub-info">日期: 20260114 &nbsp;|&nbsp; 报告创建时间: 2026-01-14 19:42</div>
+        </div>
+        
+
+        <!-- 1. 核心指标仪表盘 -->
+        <div class="dashboard-grid">
+            <div class="dash-card"><div class="dash-label">市场情绪综合分</div><div class="dash-val score-val">63</div><div class="dash-sub">满分 100</div></div>
+            <div class="dash-card"><div class="dash-label">上证指数</div><div class="dash-val down">4126.09</div><div class="dash-sub"><span class="down">-0.31%</span></div></div>
+            <div class="dash-card"><div class="dash-label">两市总成交</div><div class="dash-val">39869亿</div><div class="dash-sub"><span class="up">放量 7.8%</span></div></div>
+            <div class="dash-card">
+                <div class="dash-label">涨跌比 (1.01)</div>
+                <div class="dash-val"><span class="up">2,747</span><span style="font-size:20px; color:#ddd; margin:0 5px;">/</span><span class="down">2,707</span></div>
+                <div class="progress-box"><div class="bar-track"><div class="bg-red" style="flex: 2747"></div><div class="bg-green" style="flex: 2707"></div></div></div>
+            </div>
+            <div class="dash-card">
+                <div class="dash-label">高度 / 晋级率</div>
+                <div class="dash-val"><span class="up">5板</span><span style="font-size:20px; color:#ddd; margin:0 5px;">|</span><span class="up">32%</span></div>
+                <div class="progress-box"><div class="bar-track"><div class="bg-red" style="flex: 99"></div><div class="bg-green" style="flex: 24"></div></div><div class="dist-labels"><span class="up">99涨</span><span class="down">24跌</span></div></div>
+            </div>
+        </div>
+
+        <!-- 2. 市场核心趋势 -->
+        <div class="card">
+            <div class="card-header">📉 市场核心指标趋势 (近10日)</div>
+            <table class="trend-table">
+                <thead>
+                    <tr>
+                        <th>日期</th><th>上证指数<span class="sub-text">(点位)</span></th><th>指数涨跌</th><th>成交额</th>
+                        <th style="border-left:2px solid #eee;">上涨<span class="sub-text">(全市场)</span></th>
+                        <th>下跌<span class="sub-text">(全市场)</span></th><th>涨跌比</th>
+                        <th style="border-left:2px solid #eee;">涨停<span class="sub-text">(除ST/科/北)</span></th>
+                        <th>跌停<span class="sub-text">(除ST/科/北)</span></th><th>高度</th><th>晋级率</th>
+                        <th style="border-left:2px solid #eee;">情绪分</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>01-14</td>
+                        <td style="font-weight:bold;">4126.09</td>
+                        <td class="down">-0.31%</td>
+                        <td>39,868亿 <span style="font-size:10px;" class="up">(放 7.79%)</span></td>
+                        <td class="up">2,747</td>
+                        <td class="down">2,707</td>
+                        <td style="font-weight:bold;">1.01</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">99</td>
+                        <td class="down">24</td>
+                        <td>5板</td>
+                        <td>32.3%</td>
+                        <td class="trend-score high-score" style="border-left:2px solid #eee;">63</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>01-13</td>
+                        <td style="font-weight:bold;">4138.76</td>
+                        <td class="down">-0.64%</td>
+                        <td>36,988亿 <span style="font-size:10px;" class="up">(放 1.49%)</span></td>
+                        <td class="up">1,622</td>
+                        <td class="down">3,830</td>
+                        <td style="font-weight:bold;">0.42</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">65</td>
+                        <td class="down">103</td>
+                        <td>13板</td>
+                        <td>18.1%</td>
+                        <td class="trend-score low-score" style="border-left:2px solid #eee;">55</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>01-12</td>
+                        <td style="font-weight:bold;">4165.29</td>
+                        <td class="up">+1.09%</td>
+                        <td>36,446亿 <span style="font-size:10px;" class="up">(放 15.62%)</span></td>
+                        <td class="up">4,144</td>
+                        <td class="down">1,315</td>
+                        <td style="font-weight:bold;">3.15</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">166</td>
+                        <td class="down">7</td>
+                        <td>12板</td>
+                        <td>43.6%</td>
+                        <td class="trend-score high-score" style="border-left:2px solid #eee;">88</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>01-09</td>
+                        <td style="font-weight:bold;">4120.43</td>
+                        <td class="up">+0.92%</td>
+                        <td>31,523亿 <span style="font-size:10px;" class="up">(放 11.54%)</span></td>
+                        <td class="up">3,920</td>
+                        <td class="down">1,539</td>
+                        <td style="font-weight:bold;">2.55</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">94</td>
+                        <td class="down">4</td>
+                        <td>11板</td>
+                        <td>21.7%</td>
+                        <td class="trend-score high-score" style="border-left:2px solid #eee;">75</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>01-08</td>
+                        <td style="font-weight:bold;">4082.98</td>
+                        <td class="down">-0.07%</td>
+                        <td>28,263亿 <span style="font-size:10px;" class="down">(缩 1.92%)</span></td>
+                        <td class="up">3,731</td>
+                        <td class="down">1,728</td>
+                        <td style="font-weight:bold;">2.16</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">92</td>
+                        <td class="down">5</td>
+                        <td>10板</td>
+                        <td>34.2%</td>
+                        <td class="trend-score high-score" style="border-left:2px solid #eee;">67</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>01-07</td>
+                        <td style="font-weight:bold;">4085.77</td>
+                        <td class="up">+0.05%</td>
+                        <td>28,815亿 <span style="font-size:10px;" class="up">(放 1.74%)</span></td>
+                        <td class="up">2,173</td>
+                        <td class="down">3,287</td>
+                        <td style="font-weight:bold;">0.66</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">73</td>
+                        <td class="down">8</td>
+                        <td>14板</td>
+                        <td>20.0%</td>
+                        <td class="trend-score high-score" style="border-left:2px solid #eee;">61</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>01-06</td>
+                        <td style="font-weight:bold;">4083.67</td>
+                        <td class="up">+1.50%</td>
+                        <td>28,322亿 <span style="font-size:10px;" class="up">(放 10.32%)</span></td>
+                        <td class="up">4,108</td>
+                        <td class="down">1,351</td>
+                        <td style="font-weight:bold;">3.04</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">115</td>
+                        <td class="down">2</td>
+                        <td>13板</td>
+                        <td>40.0%</td>
+                        <td class="trend-score high-score" style="border-left:2px solid #eee;">79</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>01-05</td>
+                        <td style="font-weight:bold;">4023.42</td>
+                        <td class="up">+1.38%</td>
+                        <td>25,672亿 <span style="font-size:10px;" class="up">(放 24.27%)</span></td>
+                        <td class="up">4,185</td>
+                        <td class="down">1,272</td>
+                        <td style="font-weight:bold;">3.29</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">95</td>
+                        <td class="down">14</td>
+                        <td>7板</td>
+                        <td>24.1%</td>
+                        <td class="trend-score high-score" style="border-left:2px solid #eee;">71</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>12-31</td>
+                        <td style="font-weight:bold;">3968.84</td>
+                        <td class="up">+0.09%</td>
+                        <td>20,657亿 <span style="font-size:10px;" class="down">(缩 4.43%)</span></td>
+                        <td class="up">2,474</td>
+                        <td class="down">2,984</td>
+                        <td style="font-weight:bold;">0.83</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">58</td>
+                        <td class="down">13</td>
+                        <td>6板</td>
+                        <td>21.8%</td>
+                        <td class="trend-score low-score" style="border-left:2px solid #eee;">49</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>12-30</td>
+                        <td style="font-weight:bold;">3965.12</td>
+                        <td class="down">-0.00%</td>
+                        <td>21,615亿 <span style="font-size:10px;" class="up">(放 0.18%)</span></td>
+                        <td class="up">1,840</td>
+                        <td class="down">3,617</td>
+                        <td style="font-weight:bold;">0.51</td>
+                        <td class="up" style="border-left:2px solid #eee; font-weight:bold;">55</td>
+                        <td class="down">18</td>
+                        <td>10板</td>
+                        <td>25.4%</td>
+                        <td class="trend-score low-score" style="border-left:2px solid #eee;">53</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row-flex">
+            <!-- 3. 最强板块 -->
+            <div class="col-half">
+                <div class="card">
+                    <div class="card-header red-border">🔥 当日最强板块 TOP10</div>
+                    <table>
+                        <thead><tr><th>板块名称</th><th>今日</th><th>5日</th><th>10日</th><th>涨停数</th></tr></thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td style="text-align:left;">互联网</td>
+                                <td class="up">4.26%</td>
+                                <td class="up">18.77%</td>
+                                <td class="up">25.20%</td>
+                                <td>15</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">软件服务</td>
+                                <td class="up">3.93%</td>
+                                <td class="up">15.57%</td>
+                                <td class="up">20.10%</td>
+                                <td>35</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">石油贸易</td>
+                                <td class="up">3.74%</td>
+                                <td class="up">6.73%</td>
+                                <td class="up">8.18%</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">旅游服务</td>
+                                <td class="up">3.30%</td>
+                                <td class="up">2.71%</td>
+                                <td class="up">2.47%</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">出版业</td>
+                                <td class="up">3.04%</td>
+                                <td class="up">13.15%</td>
+                                <td class="up">15.89%</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">石油开采</td>
+                                <td class="up">2.53%</td>
+                                <td class="up">9.16%</td>
+                                <td class="up">11.35%</td>
+                                <td>2</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">通信设备</td>
+                                <td class="up">2.48%</td>
+                                <td class="up">7.46%</td>
+                                <td class="up">18.06%</td>
+                                <td>12</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">影视音像</td>
+                                <td class="up">1.95%</td>
+                                <td class="up">13.92%</td>
+                                <td class="up">17.62%</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">公路</td>
+                                <td class="up">1.77%</td>
+                                <td class="up">8.63%</td>
+                                <td class="up">9.52%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">文教休闲</td>
+                                <td class="up">1.72%</td>
+                                <td class="up">7.83%</td>
+                                <td class="up">10.39%</td>
+                                <td>1</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- 4. 最弱板块 -->
+            <div class="col-half">
+                <div class="card">
+                    <div class="card-header green-border">🧊 当日最拉垮板块 TOP10</div>
+                    <table>
+                        <thead><tr><th>板块名称</th><th>今日</th><th>5日</th><th>10日</th><th>跌停数</th></tr></thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td style="text-align:left;">电信运营</td>
+                                <td class="down">-2.23%</td>
+                                <td class="up">1.67%</td>
+                                <td class="up">8.68%</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">保险</td>
+                                <td class="down">-2.00%</td>
+                                <td class="down">-3.65%</td>
+                                <td class="up">6.45%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">银行</td>
+                                <td class="down">-1.45%</td>
+                                <td class="down">-1.42%</td>
+                                <td class="down">-1.90%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">机场</td>
+                                <td class="down">-1.29%</td>
+                                <td class="down">-2.88%</td>
+                                <td class="down">-5.26%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">园区开发</td>
+                                <td class="down">-1.24%</td>
+                                <td class="down">-0.60%</td>
+                                <td class="up">1.64%</td>
+                                <td>1</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">港口</td>
+                                <td class="down">-1.11%</td>
+                                <td class="down">-0.12%</td>
+                                <td class="down">-0.08%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">陶瓷</td>
+                                <td class="down">-1.05%</td>
+                                <td class="up">8.29%</td>
+                                <td class="up">11.54%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">航空</td>
+                                <td class="down">-1.05%</td>
+                                <td class="up">5.21%</td>
+                                <td class="up">9.71%</td>
+                                <td>2</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">空运</td>
+                                <td class="down">-1.02%</td>
+                                <td class="down">-3.06%</td>
+                                <td class="down">-0.54%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="text-align:left;">软饮料</td>
+                                <td class="down">-0.97%</td>
+                                <td class="up">2.84%</td>
+                                <td class="up">3.75%</td>
+                                <td>0</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 概念板块 (重构后：使用标准Card结构以保持对齐) -->
+        <div class="row-flex">
+            <!-- 左侧：概念涨幅榜 -->
+            <div class="col-half">
+                <div class="card">
+                    <div class="card-header red-border">🔥 概念涨幅 TOP10 (含趋势)</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%">名称</th>
+                                <th style="width: 12%">今日</th>
+                                <th style="width: 12%">5日</th>
+                                <th style="width: 12%">10日</th>
+                                <th style="width: 44%">领涨股</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">拼多多概念</td>
+                                <td class="up">5.86%</td>
+                                <td class="down">-5.10%</td>
+                                <td class="down">-6.48%</td>
+                                <td>
+                                    光云科技
+                                    <span class="up" style="font-size: 0.8em">(20.0%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">Kimi概念</td>
+                                <td class="up">5.42%</td>
+                                <td class="down">-%</td>
+                                <td class="down">-%</td>
+                                <td>
+                                    人民网
+                                    <span class="up" style="font-size: 0.8em">(10.01%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">快手概念</td>
+                                <td class="up">5.41%</td>
+                                <td class="down">-3.28%</td>
+                                <td class="down">-3.79%</td>
+                                <td>
+                                    三维通信
+                                    <span class="up" style="font-size: 0.8em">(9.99%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">MLOps概念</td>
+                                <td class="up">5.26%</td>
+                                <td class="down">-%</td>
+                                <td class="down">-%</td>
+                                <td>
+                                    科大国创
+                                    <span class="up" style="font-size: 0.8em">(20.01%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">AI语料</td>
+                                <td class="up">4.95%</td>
+                                <td class="down">-%</td>
+                                <td class="down">-%</td>
+                                <td>
+                                    利欧股份
+                                    <span class="up" style="font-size: 0.8em">(9.97%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">腾讯云</td>
+                                <td class="up">4.93%</td>
+                                <td class="down">-%</td>
+                                <td class="down">-%</td>
+                                <td>
+                                    宏景科技
+                                    <span class="up" style="font-size: 0.8em">(20.0%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">国资云概念</td>
+                                <td class="up">4.52%</td>
+                                <td class="down">-4.39%</td>
+                                <td class="up">3.96%</td>
+                                <td>
+                                    数据港
+                                    <span class="up" style="font-size: 0.8em">(9.99%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">ChatGPT概念</td>
+                                <td class="up">4.45%</td>
+                                <td class="down">-%</td>
+                                <td class="down">-%</td>
+                                <td>
+                                    光云科技
+                                    <span class="up" style="font-size: 0.8em">(20.0%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">AI智能体</td>
+                                <td class="up">4.31%</td>
+                                <td class="down">-%</td>
+                                <td class="down">-%</td>
+                                <td>
+                                    利欧股份
+                                    <span class="up" style="font-size: 0.8em">(9.97%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">智谱AI</td>
+                                <td class="up">4.3%</td>
+                                <td class="down">-%</td>
+                                <td class="down">-%</td>
+                                <td>
+                                    值得买
+                                    <span class="up" style="font-size: 0.8em">(20.0%)</span>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 右侧：概念跌幅榜 -->
+            <div class="col-half">
+                <div class="card">
+                    <div class="card-header green-border">❄️ 概念跌幅 TOP10 (含趋势)</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 20%">名称</th>
+                                <th style="width: 12%">今日</th>
+                                <th style="width: 12%">5日</th>
+                                <th style="width: 12%">10日</th>
+                                <th style="width: 44%">领跌股</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">同步磁阻电机</td>
+                                <td class="down">-1.48%</td>
+                                <td class="down">-%</td>
+                                <td class="down">-%</td>
+                                <td>
+                                    英威腾
+                                    <span class="up" style="font-size: 0.8em">(1.2%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">锂矿概念</td>
+                                <td class="down">-1.42%</td>
+                                <td class="down">-%</td>
+                                <td class="down">-%</td>
+                                <td>
+                                    东阳光
+                                    <span class="up" style="font-size: 0.8em">(6.08%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">航母概念</td>
+                                <td class="down">-1.29%</td>
+                                <td class="down">-1.50%</td>
+                                <td class="up">0.36%</td>
+                                <td>
+                                    海格通信
+                                    <span class="up" style="font-size: 0.8em">(10.0%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">机器人执行器</td>
+                                <td class="down">-1.11%</td>
+                                <td class="down">-%</td>
+                                <td class="down">-%</td>
+                                <td>
+                                    奕帆传动
+                                    <span class="up" style="font-size: 0.8em">(6.46%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">碳基材料</td>
+                                <td class="down">-1.08%</td>
+                                <td class="down">-2.61%</td>
+                                <td class="down">-1.19%</td>
+                                <td>
+                                    福达合金
+                                    <span class="up" style="font-size: 0.8em">(1.69%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">单抗概念</td>
+                                <td class="down">-1.06%</td>
+                                <td class="down">-6.28%</td>
+                                <td class="down">-3.55%</td>
+                                <td>
+                                    沃森生物
+                                    <span class="up" style="font-size: 0.8em">(3.74%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">钛白粉</td>
+                                <td class="down">-0.99%</td>
+                                <td class="down">-3.01%</td>
+                                <td class="down">-0.75%</td>
+                                <td>
+                                    振华股份
+                                    <span class="up" style="font-size: 0.8em">(1.44%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">代糖概念</td>
+                                <td class="down">-0.88%</td>
+                                <td class="down">-2.04%</td>
+                                <td class="up">1.87%</td>
+                                <td>
+                                    晨光生物
+                                    <span class="up" style="font-size: 0.8em">(5.67%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">科创板做市商</td>
+                                <td class="down">-0.88%</td>
+                                <td class="down">-0.40%</td>
+                                <td class="down">-1.53%</td>
+                                <td>
+                                    财通证券
+                                    <span class="up" style="font-size: 0.8em">(0.45%)</span>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="stock-name" style="text-align:left;">退税商店</td>
+                                <td class="down">-0.88%</td>
+                                <td class="down">-1.01%</td>
+                                <td class="down">-0.08%</td>
+                                <td>
+                                    翠微股份
+                                    <span class="up" style="font-size: 0.8em">(3.69%)</span>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. 强势股 -->
+        <div class="card">
+            <div class="card-header">🐲 近期核心强势股</div>
+            <table>
+                <thead>
+                    <tr><th>代码</th><th>名称</th><th>市场</th><th>板块</th><th>市值</th><th>现价</th><th>今日</th><th>5日</th><th>10日</th><th>换手</th><th>连板</th></tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>301687.SZ</td>
+                        <td>新广益</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>化工原料</td>
+                        <td>91.42亿</td>
+                        <td>62.25</td>
+                        <td class="up">0.71%</td>
+                        <td class="down">-16.53%</td>
+                        <td class="up">183.86%</td>
+                        <td>20.08%</td>
+                        <td>
+                             - 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>300058.SZ</td>
+                        <td>蓝色光标</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>广告包装</td>
+                        <td>776.56亿</td>
+                        <td>21.63</td>
+                        <td class="up">3.74%</td>
+                        <td class="up">51.26%</td>
+                        <td class="up">141.14%</td>
+                        <td>32.57%</td>
+                        <td>
+                             - 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>301171.SZ</td>
+                        <td>易点天下</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>互联网</td>
+                        <td>383.74亿</td>
+                        <td>81.32</td>
+                        <td class="up">16.15%</td>
+                        <td class="up">96.09%</td>
+                        <td class="up">131.02%</td>
+                        <td>38.97%</td>
+                        <td>
+                             - 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>301230.SZ</td>
+                        <td>泓博医药</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>生物制药</td>
+                        <td>91.79亿</td>
+                        <td>65.76</td>
+                        <td class="up">16.10%</td>
+                        <td class="up">104.40%</td>
+                        <td class="up">122.86%</td>
+                        <td>31.33%</td>
+                        <td>
+                             - 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>001369.SZ</td>
+                        <td>双欣环保</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>化纤</td>
+                        <td>172.74亿</td>
+                        <td>15.06</td>
+                        <td class="up">0.27%</td>
+                        <td class="down">-4.08%</td>
+                        <td class="up">119.85%</td>
+                        <td>12.12%</td>
+                        <td>
+                             - 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>300063.SZ</td>
+                        <td>天龙集团</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>互联网</td>
+                        <td>132.21亿</td>
+                        <td>17.43</td>
+                        <td class="up">11.59%</td>
+                        <td class="up">97.17%</td>
+                        <td class="up">115.98%</td>
+                        <td>61.30%</td>
+                        <td>
+                             - 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>300785.SZ</td>
+                        <td>值得买</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>互联网</td>
+                        <td>166.82亿</td>
+                        <td>83.89</td>
+                        <td class="up">20.00%</td>
+                        <td class="up">86.26%</td>
+                        <td class="up">113.95%</td>
+                        <td>35.71%</td>
+                        <td>
+                            
+                            <span class="badge badge-red">1板</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002718.SZ</td>
+                        <td>友邦吊顶</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>其他建材</td>
+                        <td>88.75亿</td>
+                        <td>68.56</td>
+                        <td class="up">10.00%</td>
+                        <td class="up">43.34%</td>
+                        <td class="up">109.86%</td>
+                        <td>14.04%</td>
+                        <td>
+                            
+                            <span class="badge badge-red">3板</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>603598.SH</td>
+                        <td>引力传媒</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>互联网</td>
+                        <td>87.34亿</td>
+                        <td>32.4</td>
+                        <td class="up">3.28%</td>
+                        <td class="up">43.24%</td>
+                        <td class="up">104.03%</td>
+                        <td>35.10%</td>
+                        <td>
+                             - 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002131.SZ</td>
+                        <td>利欧股份</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>互联网</td>
+                        <td>672.44亿</td>
+                        <td>9.93</td>
+                        <td class="up">9.97%</td>
+                        <td class="up">50.68%</td>
+                        <td class="up">94.71%</td>
+                        <td>10.46%</td>
+                        <td>
+                            
+                            <span class="badge badge-red">4板</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>301378.SZ</td>
+                        <td>通达海</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>软件服务</td>
+                        <td>52.73亿</td>
+                        <td>54.59</td>
+                        <td class="up">20.00%</td>
+                        <td class="up">89.55%</td>
+                        <td class="up">93.72%</td>
+                        <td>34.39%</td>
+                        <td>
+                            
+                            <span class="badge badge-red">3板</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>300244.SZ</td>
+                        <td>迪安诊断</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>医疗保健</td>
+                        <td>184.37亿</td>
+                        <td>29.5</td>
+                        <td class="up">1.17%</td>
+                        <td class="up">72.11%</td>
+                        <td class="up">89.71%</td>
+                        <td>42.71%</td>
+                        <td>
+                             - 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002195.SZ</td>
+                        <td>岩山科技</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>软件服务</td>
+                        <td>747.95亿</td>
+                        <td>13.19</td>
+                        <td class="up">10.01%</td>
+                        <td class="up">39.72%</td>
+                        <td class="up">89.24%</td>
+                        <td>34.47%</td>
+                        <td>
+                            
+                            <span class="badge badge-red">1板</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>300792.SZ</td>
+                        <td>壹网壹创</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>互联网</td>
+                        <td>116.81亿</td>
+                        <td>49.3</td>
+                        <td class="up">20.01%</td>
+                        <td class="up">65.60%</td>
+                        <td class="up">85.13%</td>
+                        <td>24.85%</td>
+                        <td>
+                            
+                            <span class="badge badge-red">1板</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>001396.SZ</td>
+                        <td>誉帆科技</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>建筑工程</td>
+                        <td>43.52亿</td>
+                        <td>40.71</td>
+                        <td class="up">0.64%</td>
+                        <td class="up">1.29%</td>
+                        <td class="up">82.64%</td>
+                        <td>18.29%</td>
+                        <td>
+                             - 
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 6. 跌停股 -->
+        <div class="card">
+            <div class="card-header green-border">🌊 当日跌停/大跌股</div>
+            <table>
+                <thead>
+                    <tr><th>代码</th><th>名称</th><th>市场</th><th>板块</th><th>市值</th><th>现价</th><th>今日</th><th>5日</th><th>10日</th><th>连板状态</th></tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>601698.SH</td>
+                        <td>中国卫通</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>电信运营</td>
+                        <td>1843.52亿</td>
+                        <td>43.64</td>
+                        <td class="down">-10.00%</td>
+                        <td class="down">-0.52%</td>
+                        <td class="up">45.47%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>000547.SZ</td>
+                        <td>航天发展</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>通信设备</td>
+                        <td>519.02亿</td>
+                        <td>32.47</td>
+                        <td class="down">-9.81%</td>
+                        <td class="down">-11.53%</td>
+                        <td class="up">4.81%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002792.SZ</td>
+                        <td>通宇通讯</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>通信设备</td>
+                        <td>329.86亿</td>
+                        <td>62.97</td>
+                        <td class="down">-10.00%</td>
+                        <td class="up">20.86%</td>
+                        <td class="up">48.23%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002151.SZ</td>
+                        <td>北斗星通</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>通信设备</td>
+                        <td>294.42亿</td>
+                        <td>54.23</td>
+                        <td class="down">-9.93%</td>
+                        <td class="down">-6.01%</td>
+                        <td class="up">29.99%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>600783.SH</td>
+                        <td>鲁信创投</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>专用机械</td>
+                        <td>264.25亿</td>
+                        <td>35.5</td>
+                        <td class="down">-9.99%</td>
+                        <td class="up">31.77%</td>
+                        <td class="up">52.95%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002324.SZ</td>
+                        <td>普利特</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>塑料</td>
+                        <td>216.24亿</td>
+                        <td>19.44</td>
+                        <td class="down">-9.62%</td>
+                        <td class="down">-8.69%</td>
+                        <td class="up">26.07%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002413.SZ</td>
+                        <td>雷科防务</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>通信设备</td>
+                        <td>214.8亿</td>
+                        <td>16.31</td>
+                        <td class="down">-9.99%</td>
+                        <td class="down">-2.39%</td>
+                        <td class="up">57.28%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>603698.SH</td>
+                        <td>航天工程</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>专用机械</td>
+                        <td>210.11亿</td>
+                        <td>39.2</td>
+                        <td class="down">-10.01%</td>
+                        <td class="down">-2.46%</td>
+                        <td class="up">5.63%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>002565.SZ</td>
+                        <td>顺灏股份</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>造纸</td>
+                        <td>196.52亿</td>
+                        <td>18.54</td>
+                        <td class="down">-10.00%</td>
+                        <td class="down">-4.73%</td>
+                        <td class="up">14.87%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>600693.SH</td>
+                        <td>东百集团</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>百货</td>
+                        <td>148.05亿</td>
+                        <td>17.02</td>
+                        <td class="down">-9.99%</td>
+                        <td class="down">-4.86%</td>
+                        <td class="down">-14.04%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>600501.SH</td>
+                        <td>航天晨光</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>专用机械</td>
+                        <td>133.95亿</td>
+                        <td>31.31</td>
+                        <td class="down">-9.74%</td>
+                        <td class="up">0.42%</td>
+                        <td class="up">20.15%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>603601.SH</td>
+                        <td>再升科技</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>玻璃</td>
+                        <td>129.04亿</td>
+                        <td>11.86</td>
+                        <td class="down">-10.02%</td>
+                        <td class="down">-9.53%</td>
+                        <td class="down">-6.32%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>301306.SZ</td>
+                        <td>西测测试</td>
+                        <td><span class="market-tag market-创业板">创业板</span></td>
+                        <td>航空</td>
+                        <td>124.31亿</td>
+                        <td>147.29</td>
+                        <td class="down">-10.73%</td>
+                        <td class="up">9.38%</td>
+                        <td class="up">27.83%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>003009.SZ</td>
+                        <td>中天火箭</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>航空</td>
+                        <td>124.26亿</td>
+                        <td>79.96</td>
+                        <td class="down">-9.99%</td>
+                        <td class="down">-7.29%</td>
+                        <td class="up">15.68%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>600855.SH</td>
+                        <td>航天长峰</td>
+                        <td><span class="market-tag market-主板">主板</span></td>
+                        <td>专用机械</td>
+                        <td>111.56亿</td>
+                        <td>23.81</td>
+                        <td class="down">-9.98%</td>
+                        <td class="down">-9.26%</td>
+                        <td class="up">20.92%</td>
+                        <td>
+                             <span class="down">首跌</span> 
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+
+<!-- 7. 监管异动监控 (三级预警 - 偏离值推演版) -->
+        <div class="card">
+            <div class="card-header purple-border">🚨 监管异动风控雷达 (偏离值推演)</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th width="8%">代码</th>
+                        <th width="10%">名称</th>
+                        <th width="8%">现价</th>
+                        <th width="8%">今日涨幅</th>
+                        <th width="12%">10日偏离<br><span style="font-size:10px; color:#999;">(阈值100%)</span></th>
+                        <th width="12%">30日偏离<br><span style="font-size:10px; color:#999;">(阈值200%)</span></th>
+                        <th width="27%" style="background:#fff3e0;">明日推演 / 触发条件</th>
+                        <th width="15%">状态评估</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>920045.BJ</td>
+                        <td style="font-weight:bold;">蘅东光</td>
+                        <td>325.04</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +4.89%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            919.95%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            919.95%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日偏离 919.95%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>688809.SH</td>
+                        <td style="font-weight:bold;">强一股份</td>
+                        <td>368.0</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +1.94%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            321.00%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            321.00%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日偏离 321.00%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>301687.SZ</td>
+                        <td style="font-weight:bold;">新广益</td>
+                        <td>62.25</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +0.71%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            180.58%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #d35400">
+                            180.58%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日偏离 180.58%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>300058.SZ</td>
+                        <td style="font-weight:bold;">蓝色光标</td>
+                        <td>21.63</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +3.74%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            137.21%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            101.91%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日偏离 137.21%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>301171.SZ</td>
+                        <td style="font-weight:bold;">易点天下</td>
+                        <td>81.32</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +16.15%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            127.10%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            92.59%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日偏离 127.10%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>001369.SZ</td>
+                        <td style="font-weight:bold;">双欣环保</td>
+                        <td>15.06</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +0.27%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            119.85%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            119.85%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日偏离 119.85%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>301230.SZ</td>
+                        <td style="font-weight:bold;">泓博医药</td>
+                        <td>65.76</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +16.10%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            118.93%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            101.84%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日偏离 118.93%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>688258.SH</td>
+                        <td style="font-weight:bold;">卓易信息</td>
+                        <td>164.0</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +9.92%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            115.98%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            116.22%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日偏离 115.98%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>300063.SZ</td>
+                        <td style="font-weight:bold;">天龙集团</td>
+                        <td>17.43</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +11.59%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            112.06%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            80.13%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日偏离 112.06%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>300785.SZ</td>
+                        <td style="font-weight:bold;">值得买</td>
+                        <td>83.89</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +20.00%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            110.02%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            82.01%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日偏离 110.02%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>002718.SZ</td>
+                        <td style="font-weight:bold;">友邦吊顶</td>
+                        <td>68.56</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +10.00%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            109.86%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            137.15%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日偏离 109.86%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>688365.SH</td>
+                        <td style="font-weight:bold;">光云科技</td>
+                        <td>34.2</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +20.00%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            107.61%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            70.02%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日偏离 107.61%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>688031.SH</td>
+                        <td style="font-weight:bold;">星环科技-U</td>
+                        <td>214.5</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +11.04%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            103.04%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            214.11%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日偏离 214.11%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>002969.SZ</td>
+                        <td style="font-weight:bold;">嘉美包装</td>
+                        <td>19.31</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +10.03%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            79.29%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            400.26%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日偏离 400.26%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>301005.SZ</td>
+                        <td style="font-weight:bold;">超捷股份</td>
+                        <td>217.81</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +6.25%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            32.72%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            245.29%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日偏离 245.29%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>301232.SZ</td>
+                        <td style="font-weight:bold;">飞沃科技</td>
+                        <td>189.8</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -2.12%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            26.07%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            223.75%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日偏离 223.75%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>001331.SZ</td>
+                        <td style="font-weight:bold;">胜通能源</td>
+                        <td>58.26</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -6.45%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            25.80%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            306.84%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日偏离 306.84%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>920576.BJ</td>
+                        <td style="font-weight:bold;">天力复合</td>
+                        <td>97.25</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -3.23%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            19.60%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            230.21%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日偏离 230.21%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>001280.SZ</td>
+                        <td style="font-weight:bold;">中国铀业</td>
+                        <td>66.73</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -3.58%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            6.65%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            273.00%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日偏离 273.00%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>688795.SH</td>
+                        <td style="font-weight:bold;">摩尔线程-U</td>
+                        <td>648.0</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -0.33%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            -6.12%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            453.85%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日偏离 453.85%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>688807.SH</td>
+                        <td style="font-weight:bold;">优迅股份</td>
+                        <td>197.65</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +6.34%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            -10.12%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            267.67%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日偏离 267.67%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>688802.SH</td>
+                        <td style="font-weight:bold;">沐曦股份-U</td>
+                        <td>613.6</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -1.19%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            -11.73%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            470.23%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日偏离 470.23%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>920035.BJ</td>
+                        <td style="font-weight:bold;">精创电气</td>
+                        <td>40.89</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -1.23%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            -17.17%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            225.72%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日偏离 225.72%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff5f5">
+                        <td>301667.SZ</td>
+                        <td style="font-weight:bold;">纳百川</td>
+                        <td>74.77</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +1.04%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            -21.58%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #e74c3c">
+                            225.48%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                已触发严重异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日偏离 225.48%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#c0392b;">🔴 已触发</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>603598.SH</td>
+                        <td style="font-weight:bold;">引力传媒</td>
+                        <td>32.4</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +3.28%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #d35400">
+                            99.97%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            75.28%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                次日涨幅 > 3.42% 触发10日异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 99.97%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>688375.SH</td>
+                        <td style="font-weight:bold;">国博电子</td>
+                        <td>169.24</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +6.49%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #d35400">
+                            96.25%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            136.42%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                次日涨幅 > 3.30% 触发10日异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 96.25%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>920021.BJ</td>
+                        <td style="font-weight:bold;">流金科技</td>
+                        <td>13.57</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +29.98%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #d35400">
+                            95.83%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            90.02%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                次日涨幅 > 1.33% 触发10日异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 95.83%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>920227.BJ</td>
+                        <td style="font-weight:bold;">美登科技</td>
+                        <td>115.76</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +29.99%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #d35400">
+                            95.48%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            65.80%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                次日涨幅 > 3.06% 触发10日异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 95.48%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>002131.SZ</td>
+                        <td style="font-weight:bold;">利欧股份</td>
+                        <td>9.93</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +9.97%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #d35400">
+                            94.71%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            94.71%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                次日涨幅 > 3.32% 触发10日异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 94.71%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>301378.SZ</td>
+                        <td style="font-weight:bold;">通达海</td>
+                        <td>54.59</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +20.00%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #d35400">
+                            89.79%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            61.39%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                次日涨幅 > 3.56% 触发10日异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 89.79%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>002195.SZ</td>
+                        <td style="font-weight:bold;">岩山科技</td>
+                        <td>13.19</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +10.01%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #d35400">
+                            89.24%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            85.51%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                次日涨幅 > 5.38% 触发10日异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 89.24%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>300244.SZ</td>
+                        <td style="font-weight:bold;">迪安诊断</td>
+                        <td>29.5</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +1.17%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #d35400">
+                            85.78%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            80.08%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                次日涨幅 > 6.25% 触发10日异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 85.78%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>300792.SZ</td>
+                        <td style="font-weight:bold;">壹网壹创</td>
+                        <td>49.3</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +20.01%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #d35400">
+                            81.20%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            52.55%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                次日涨幅 > 12.61% 触发10日异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 81.20%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>300442.SZ</td>
+                        <td style="font-weight:bold;">润泽科技</td>
+                        <td>90.71</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +12.60%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            75.73%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            70.58%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                次日涨幅 > 15.23% 触发10日异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 75.73%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>300170.SZ</td>
+                        <td style="font-weight:bold;">汉得信息</td>
+                        <td>30.23</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +2.30%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            72.96%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            44.38%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                次日涨幅 > 18.62% 触发10日异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 72.96%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>300342.SZ</td>
+                        <td style="font-weight:bold;">天银机电</td>
+                        <td>55.7</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +5.00%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            67.35%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #d35400">
+                            170.62%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                次日涨幅 > 10.58% 触发30日异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日累计偏离 170.62%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>300253.SZ</td>
+                        <td style="font-weight:bold;">卫宁健康</td>
+                        <td>14.73</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +5.36%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            66.36%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            61.21%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                次日涨幅 > 19.10% 触发10日异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 66.36%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>688568.SH</td>
+                        <td style="font-weight:bold;">中科星图</td>
+                        <td>95.98</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +13.92%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            64.92%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            104.43%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                次日涨幅 > 16.43% 触发10日异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 64.92%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>300246.SZ</td>
+                        <td style="font-weight:bold;">宝莱特</td>
+                        <td>13.73</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +4.89%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            64.75%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            48.97%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                次日涨幅 > 19.03% 触发10日异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 64.75%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>688387.SH</td>
+                        <td style="font-weight:bold;">信科移动-U</td>
+                        <td>19.88</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +3.01%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            52.27%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #d35400">
+                            167.72%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                次日涨幅 > 11.87% 触发30日异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日累计偏离 167.72%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>688270.SH</td>
+                        <td style="font-weight:bold;">臻镭科技</td>
+                        <td>185.52</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -1.35%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            33.30%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #d35400">
+                            167.75%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                次日涨幅 > 15.74% 触发30日异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日累计偏离 167.75%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fffdf0">
+                        <td>688796.SH</td>
+                        <td style="font-weight:bold;">百奥赛图</td>
+                        <td>69.91</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +0.14%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            23.35%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #d35400">
+                            150.61%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #c0392b;">
+                                次日涨幅 > 18.85% 触发30日异动
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日累计偏离 150.61%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#e67e22;">🟠 临界预警</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>002519.SZ</td>
+                        <td style="font-weight:bold;">银河电子</td>
+                        <td>11.46</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +9.98%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #d35400">
+                            81.90%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            102.83%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #333;">
+                                安全 (需涨11.5%触发10日异动)
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 81.90%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>301079.SZ</td>
+                        <td style="font-weight:bold;">邵阳液压</td>
+                        <td>54.85</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -9.64%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            75.03%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            115.67%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #333;">
+                                安全 (需涨18.2%触发10日异动)
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 75.03%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>920207.BJ</td>
+                        <td style="font-weight:bold;">众诚科技</td>
+                        <td>39.5</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -6.77%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            74.58%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            67.33%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #333;">
+                                安全 (需涨15.0%触发10日异动)
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 74.58%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>603402.SH</td>
+                        <td style="font-weight:bold;">陕西旅游</td>
+                        <td>141.67</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -2.97%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            73.57%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            73.57%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #333;">
+                                安全 (需涨15.0%触发10日异动)
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 73.57%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>002465.SZ</td>
+                        <td style="font-weight:bold;">海格通信</td>
+                        <td>26.62</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +10.00%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            73.42%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            117.31%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #333;">
+                                安全 (需涨13.6%触发10日异动)
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 73.42%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>301159.SZ</td>
+                        <td style="font-weight:bold;">三维天地</td>
+                        <td>61.79</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +20.00%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            68.24%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            39.42%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #333;">
+                                安全 (需涨16.4%触发10日异动)
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 68.24%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>920116.BJ</td>
+                        <td style="font-weight:bold;">星图测控</td>
+                        <td>146.0</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +5.00%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            62.32%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            73.14%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #333;">
+                                安全 (需涨15.1%触发10日异动)
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 62.32%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>603778.SH</td>
+                        <td style="font-weight:bold;">国晟科技</td>
+                        <td>27.72</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +10.00%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            62.07%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            112.93%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #333;">
+                                安全 (需涨19.6%触发10日异动)
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                10日累计偏离 62.07%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>600879.SH</td>
+                        <td style="font-weight:bold;">航天电子</td>
+                        <td>29.75</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +4.75%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            50.25%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #d35400">
+                            157.86%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #333;">
+                                安全 (需涨19.7%触发30日异动)
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日累计偏离 157.86%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>600118.SH</td>
+                        <td style="font-weight:bold;">中国卫星</td>
+                        <td>118.7</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="down" style="font-weight:bold;">
+                            -2.32%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            30.83%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #d35400">
+                            167.96%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #333;">
+                                安全 (需涨10.0%触发30日异动)
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日累计偏离 167.96%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr style="background-color: #fff">
+                        <td>002361.SZ</td>
+                        <td style="font-weight:bold;">神剑股份</td>
+                        <td>18.12</td>
+                        
+                        <!-- 当日涨幅 -->
+                        <td class="up" style="font-weight:bold;">
+                            +9.95%
+                        </td>
+                        
+                        <!-- 10日偏离值 (新字段 d10_curr) -->
+                        <td style="font-weight:bold; color: #333">
+                            25.05%
+                        </td>
+                        
+                        <!-- 30日偏离值 (新字段 d30_curr) -->
+                        <td style="font-weight:bold; color: #d35400">
+                            182.68%
+                        </td>
+
+                        <!-- 核心推演信息 (新字段 trigger_info) -->
+                        <td style="background:#fff9ed; text-align: left; padding-left: 15px;">
+                            <div style="font-weight:bold; color: #333;">
+                                安全 (需涨12.7%触发30日异动)
+                            </div>
+                            <!-- 辅助信息 (如：10日累计偏离 92%) -->
+                            <div style="font-size:11px; color:#999; margin-top:2px;">
+                                30日累计偏离 182.68%
+                            </div>
+                        </td>
+                        
+                        <!-- 状态标签 -->
+                        <td>
+                            
+                                <span class="badge" style="background:#f39c12;">🟡 趋势监控</span>
+                            
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+        
+        
+        <div style="text-align: center; color: #ccc; font-size: 12px; margin-top: 20px;">
+            Generated by Jackie at 2026-01-14 19:42
+        </div>
+    </div>
+</body>
+</html>
