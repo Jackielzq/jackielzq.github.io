@@ -1111,7 +1111,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #a378ff;
+    background: #30ff03;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1516,6 +1516,12 @@ pre code {
   display: inline-block;
   margin: 0 5px;
 }
+.busuanzi-count #busuanzi_container_site_uv {
+  display: none;
+}
+.busuanzi-count #busuanzi_container_site_pv {
+  display: none;
+}
 @keyframes icon-animate {
   0%, 100% {
     transform: scale(1);
@@ -1572,6 +1578,16 @@ pre code {
 }
 .back-to-top.back-to-top-on {
   bottom: 30px;
+}
+.reading-progress-bar {
+  --progress: 0;
+  background: #37c6c0;
+  height: 3px;
+  position: fixed;
+  z-index: 50;
+  width: var(--progress);
+  left: 0;
+  top: 0;
 }
 .rtl.post-body p,
 .rtl.post-body a,
@@ -1939,6 +1955,9 @@ pre code {
 .post-meta-break {
   flex-basis: 100%;
   height: 0;
+}
+#busuanzi_container_page_pv {
+  display: none;
 }
 .post-nav {
   border-top: 1px solid #eee;
@@ -2580,288 +2599,76 @@ header.header {
   }
 }
 /* =================================================================
-   Next-Gemini 首页：高级目录导引线风格 (Menu Style)
+   Next-Gemini 最终样式：全站视觉统一 + 柔和卡片
    ================================================================= */
-/* -----------------------------------------------------------------
-   1. 净化区域：隐藏不需要的元数据
-   ----------------------------------------------------------------- */
-/* 隐藏分类 (源码中是第2个元素) */
-.main-inner.index .post-meta .post-meta-item:nth-child(2) {
-  display: none !important;
-}
-/* 隐藏字数 & 阅读时长 (通过 title 属性精准打击) */
-.main-inner.index .post-meta-item[title*="字数"],
-.main-inner.index .post-meta-item[title*="时长"] {
-  display: none !important;
-}
-/* 隐藏所有文字标签（如“发表于”、“Waline”等），只留图标和数字 */
-.main-inner.index .post-meta-item-text,
-.main-inner.index .post-meta-divider,
-.main-inner.index .post-meta-break {
-  display: none !important;
-}
-/* -----------------------------------------------------------------
-   2. 核心布局：Flex + 导引线 (解决"中间空旷"问题)
-   ----------------------------------------------------------------- */
-/* 头部容器 */
-.main-inner.index .post-header {
-  display: flex !important;
-  align-items: baseline !important; /* 基线对齐，让文字底部一条线 */
-  justify-content: space-between !important;
-  width: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-/* 标题：左侧，加粗加黑 */
-.main-inner.index .post-title {
-  order: 1; /* 排序：左 */
-  margin: 0 !important;
-  font-size: 16px !important;
-  font-weight: 500 !important; /* 加粗一点，突出主次 */
-  color: #222 !important; /* 颜色加深 */
-  text-align: left !important;
-  white-space: nowrap;
+/* 
+   -----------------------------------------------------------------
+   第一部分：核心组件视觉统一 (解决卡片生硬、侧边栏不一致问题)
+   ----------------------------------------------------------------- 
+*/
+/* 1. 定义一套标准的“柔和卡片”样式，应用到所有主要容器 */
+/* .post-block    -> 文章卡片 */
+/* .sidebar-inner -> 侧边栏(个人信息/目录) */
+/* .header-inner  -> 菜单栏(顶部导航) */
+.post-block,
+.sidebar-inner,
+.header-inner {
+  background: #fff !important;
+/* 统一圆角：16px */
+  border-radius: 16px !important;
+/* 统一阴影：极低透明度，大模糊半径 (柔和感来源) */
+  box-shadow: 0 5px 20px rgba(0,0,0,0.02) !important;
+/* 去掉所有默认边框 */
   border: none !important;
-  padding: 0 !important;
-  position: relative;
-  z-index: 1;
-  background: #fff; /* 遮挡背景线 */
-  padding-right: 10px !important; /* 跟虚线留点距离 */
 }
-/* 神奇的导引线：在标题和右侧数据中间自动填充虚线 */
-.main-inner.index .post-header::after {
-  content: "";
-  order: 2; /* 排序：中 */
-  flex-grow: 1; /* 占据剩余所有空间 */
-  border-bottom: 1px dotted #ccc; /* 虚线样式 */
-  margin: 0 5px; /* 左右留空 */
-  position: relative;
-  top: -5px; /* 稍微往上提一点，对齐文字中线 */
-  opacity: 0.6; /* 稍微淡一点，不要喧宾夺主 */
+/* 2. 强制修复：相邻文章块的样式差异 */
+/* Next主题默认会对 .post-block + .post-block 添加特殊样式，这里强制重置 */
+.post-block + .post-block {
+  border-radius: 16px !important;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.02) !important;
+  margin-top: 0 !important; /* 由 margin-bottom 控制间距，去掉多余的 top */
 }
-/* 右侧数据容器 */
-.main-inner.index .post-meta-container {
-  order: 3; /* 排序：右 */
-  margin: 0 !important;
-  background: #fff; /* 遮挡背景线 */
-  padding-left: 10px !important;
-  z-index: 1;
+/* 3. 侧边栏内部间距统一 */
+.sidebar-inner,
+.header-inner {
+  padding: 20px !important; /* 统一内边距 */
+  margin-bottom: 20px !important; /* 模块间距 */
 }
-.main-inner.index .post-meta {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-end !important;
-}
-/* -----------------------------------------------------------------
-   3. 数据对齐与美化
-   ----------------------------------------------------------------- */
-/* 日期：强制等宽字体，保证所有文章日期绝对对齐 */
-.main-inner.index .post-meta-item:first-child {
-/* 你的源码中日期是第1个 */
-  font-family: Consolas, Monaco, monospace !important; /* 程序员字体 */
-  font-size: 14px !important;
-  color: #999 !important; /* 灰色，弱化显示 */
-  min-width: 95px !important; /* 给定固定宽度 */
-  text-align: right !important; /* 强制内部右对齐 */
-}
-/* 评论数：稍微突出一点 */
-.main-inner.index .post-meta-item:last-child {
-  margin-left: 15px !important;
-  color: #555 !important;
-  font-size: 13px !important;
-}
-/* 图标微调 */
-.main-inner.index .post-meta i {
-  font-size: 12px !important;
-  margin-right: 4px !important;
-  color: #bbb; /* 图标更淡一点 */
-}
-/* 去掉链接动效 */
-.main-inner.index .post-title-link::before {
-  display: none !important;
-}
-/* -----------------------------------------------------------------
-   4. 全局容器与重置 (保持之前的设置)
-   ----------------------------------------------------------------- */
-.main-inner.index .post-body,
-.main-inner.index .post-button,
-.main-inner.index .post-footer,
-.main-inner.index .post-copyright,
-.main-inner.index .post-eof {
-  display: none !important;
-}
-/* 列表行样式 */
-.main-inner.index .post-block {
-  padding: 12px 0 !important;
-  margin: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-/* 有了中间的导引线，底部的分割线可以去掉，也可以保留，看你喜好。这里我先去掉底线，让界面更清爽 */
-  border-bottom: none !important;
-}
-/* 首页外框 */
-.main-inner.index {
-  background: #fff;
-  padding: 25px 40px !important; /* 增加一点内边距，更有呼吸感 */
-  border-radius: 8px;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-}
-/* -----------------------------------------------------------------
-   5. 移动端适配
-   ----------------------------------------------------------------- */
-@media (max-width: 767px) {
-  .main-inner.index .post-header::after {
-    display: none !important;
-  }
-  .main-inner.index .post-header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .main-inner.index .post-title {
-    width: 100%;
-    margin-bottom: 5px !important;
-    padding-right: 0 !important;
-  }
-  .main-inner.index .post-meta-item:first-child {
-    text-align: left !important;
-    min-width: auto !important;
-  }
-  .main-inner.index .post-meta {
-    justify-content: flex-start !important;
-  }
-}
-/* =================================================================
-   Next-Gemini 首页：顶部刊头美化 (Header Area)
-   ================================================================= */
-/* 1. 利用伪元素生成顶部标题区 */
-.main-inner.index::before {
-/* --- 在这里自定义你的文字 --- */
-/* \A 代表换行，注意保留引号 */
-  content: "Jackie的博客 \A 记录、学习、交流与分享";
-/* --- 布局样式 --- */
-  display: block;
-  white-space: pre-wrap; /* 允许换行 */
-  text-align: left; /* 左对齐 (显得更文艺)，也可以改为 center */
-  margin-bottom: 35px; /* 与下方列表的距离 */
-  padding-bottom: 20px; /* 文字与分割线的距离 */
-  border-bottom: 2px solid #f5f5f5; /* 底部的一条浅灰实线 */
-/* --- 字体样式设计 --- */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 12px; /* 第一行英文的小字号 */
-  font-weight: 700; /* 加粗 */
-  letter-spacing: 2px; /* 字间距拉大，增加高级感 */
-  color: #ccc; /* 浅灰色，不要太抢眼 */
-  line-height: 2.5; /* 拉大行高，让两行文字有呼吸感 */
-/* --- 利用首行缩进或伪类技巧给中文加样式 (高级玩法) --- */
-/* 这里主要控制整体，具体的两行差异化通过下面的 ::first-line 实现 */
-}
-/* 2. 专门针对第一行文字 (英文标题) 的样式微调 */
-.main-inner.index::first-line {
-  color: #333; /* 英文标题用深黑色 */
-  font-size: 18px; /* 字号大一点 */
-  font-weight: 400; /* 字体轻一点，显优雅 */
-  font-family: Georgia, serif; /* 换个衬线体，更有书卷气 */
-  letter-spacing: 1px;
-}
-/* 3. 调整容器内边距，给顶部留出更多留白 */
-.main-inner.index {
-/* 覆盖之前的 padding，顶部给 40px，显得大气 */
-  padding: 40px 40px 25px 40px !important;
-}
-/* -----------------------------------------------------------------
-   移动端适配：手机上居中显示，字体稍微改小
-   ----------------------------------------------------------------- */
-@media (max-width: 767px) {
-  .main-inner.index::before {
-    text-align: center; /* 手机上居中好看 */
-    font-size: 12px;
-    margin-bottom: 25px;
-  }
-  .main-inner.index::first-line {
-    font-size: 16px;
-  }
-}
+/* 
+   -----------------------------------------------------------------
+   第二部分：全局基础设置
+   ----------------------------------------------------------------- 
+*/
+/* 全局背景 */
 body {
   background: #f5f7f9;
 }
+/* 主容器宽度 & 顶部呼吸感 */
 .main-inner {
   width: 1100px;
+  margin-top: 24px !important;
 }
+/* 文章详情页内部留白 */
 .post-block {
-  background: #fff;
-  margin-bottom: 24px;
   padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.05), 0 6px 20px 0 rgba(0,0,0,0.05);
-  transition: all 0.3s;
+  margin-bottom: 24px;
 }
-.sidebar-inner {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.05), 0 6px 20px 0 rgba(0,0,0,0.05);
-  padding: 20px;
-}
-.header-inner {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.05), 0 6px 20px 0 rgba(0,0,0,0.05);
-  padding: 20px 40px;
-}
-.posts-expand .post-title {
-  font-size: 26px;
-  font-weight: 600;
-  margin-bottom: 20px;
-  text-align: center;
-}
+/* 
+   -----------------------------------------------------------------
+   第三部分：文章内页排版优化 (字体与阅读体验)
+   ----------------------------------------------------------------- 
+*/
 .post-body {
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
-  color: #333;
-  font-size: 16px;
-  line-height: 1.8;
-}
-blockquote {
-  border-left: 5px solid #3ca5f6;
-  background-color: #f0f7ff;
-  margin: 20px 0;
-  padding: 10px 20px;
-  color: #555;
-  border-radius: 4px;
-}
-.post-body a {
-  color: #3ca5f6;
-  border-bottom: 1px dotted #3ca5f6;
-}
-.post-body a:hover {
-  color: #0056b3;
-  border-bottom: 1px solid #0056b3;
-}
-.footer-inner {
-  text-align: center;
-  color: #999;
-}
-.btn {
-  border: 1px solid #3ca5f6;
-  color: #3ca5f6;
-  border-radius: 20px;
-  background: transparent;
-  transition: all 0.3s;
-}
-.btn:hover {
-  background: #3ca5f6;
-  color: #fff;
-}
-.,
-.post-body {
+  color: #2c3e50;
   font-size: 17px;
   line-height: 1.9;
-  color: #2c3e50;
   text-align: justify;
 }
 .post-body p {
   margin-bottom: 28px;
 }
+/* H2 标题 */
 .post-body h2 {
   font-size: 24px;
   font-weight: 700;
@@ -2872,6 +2679,7 @@ blockquote {
   border-left: 5px solid #3ca5f6;
   line-height: 1.3;
 }
+/* H3 标题 */
 .post-body h3 {
   font-size: 20px;
   font-weight: 600;
@@ -2881,21 +2689,23 @@ blockquote {
   padding-bottom: 8px;
   border-bottom: 1px dashed #ddd;
 }
-.post-body ul,
-.post-body ol {
-  margin-bottom: 20px;
-  padding-left: 25px;
+/* 链接 */
+.post-body a {
+  color: #3ca5f6;
+  border-bottom: 1px dotted #3ca5f6;
 }
-.post-body li {
-  margin-bottom: 10px;
-  color: #444;
+.post-body a:hover {
+  color: #0056b3;
+  border-bottom: 1px solid #0056b3;
 }
+/* 图片 */
 .post-body img {
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
   margin: 30px auto;
   display: block;
 }
+/* 引用块 */
 .post-body blockquote {
   background: #f7f9fa;
   border-left: none;
@@ -2916,6 +2726,7 @@ blockquote {
   background: #3ca5f6;
   border-radius: 0 4px 4px 0;
 }
+/* 强调文字 */
 .post-body strong {
   color: #3ca5f6;
   background: rgba(60,165,246,0.1);
@@ -2923,35 +2734,234 @@ blockquote {
   border-radius: 4px;
   font-weight: 600;
 }
+/* 代码块 */
 .highlight,
 pre {
   margin: 30px 0 !important;
   border-radius: 8px;
 }
-.posts-expand .post-title-link {
-  font-family: "PingFang SC", "Microsoft YaHei", sans-serif !important;
-}
-@media (min-width: 992px) {
-  .post-block {
-    padding: 20px 180px !important;
-  }
-  .posts-expand .post-title {
-    margin-top: 10px;
-    margin-bottom: 30px;
-  }
-}
-.wl-editor {
-  font-size: 16px !important;
-  line-height: 1.7 !important;
-}
-.wl-header input {
+/* Waline 评论区 */
+.wl-editor,
+.wl-header input,
+.wl-btn {
   font-size: 15px !important;
 }
 .wl-editor::placeholder,
 .wl-header input::placeholder {
-  font-size: 15px !important;
-  color: #999;
+  color: #bbb;
 }
-.wl-btn {
-  font-size: 15px !important;
+/* 
+   -----------------------------------------------------------------
+   第四部分：首页专属重构 (列表页)
+   ----------------------------------------------------------------- 
+*/
+/* 1. 首页容器清理 */
+.main-inner.index {
+  background: transparent;
+  padding: 0 !important;
+  box-shadow: none;
+}
+.main-inner.index::before,
+.main-inner.index::after {
+  display: none !important;
+}
+/* 2. 首页卡片特殊设置 (紧凑底栏) */
+.main-inner.index .post-block {
+  margin-bottom: 20px;
+/* 底部留白 48px，配合按钮位置 */
+  padding: 25px 30px 48px 30px !important;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* 悬浮动效 */
+.main-inner.index .post-block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06) !important;
+}
+/* 3. 首页标题 */
+.main-inner.index .post-header {
+  margin-bottom: 8px !important;
+}
+.main-inner.index .post-title {
+  text-align: left !important;
+  font-size: 22px !important;
+  font-weight: 700;
+  margin-bottom: 0 !important;
+  border: none !important;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.4;
+}
+.main-inner.index .post-title-link {
+  border-bottom: none !important;
+  color: #222;
+}
+.main-inner.index .post-title-link:hover {
+  color: #3ca5f6;
+}
+/* 4. 首页元数据 */
+.main-inner.index .post-meta {
+  justify-content: flex-start !important;
+  font-size: 12px !important;
+  color: #999;
+  margin-top: 5px !important;
+}
+.main-inner.index .post-meta-item {
+  display: none !important;
+}
+.main-inner.index .post-meta-item:nth-child(1),
+.main-inner.index .post-meta-item:nth-child(2) {
+  display: inline-flex !important;
+  align-items: center;
+  margin-right: 15px !important;
+}
+.main-inner.index .post-meta i {
+  font-size: 12px;
+  margin-right: 3px;
+}
+/* 5. 首页摘要 (紧凑段落) */
+.main-inner.index .post-body {
+  display: block !important;
+  text-align: justify;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666;
+  margin: 10px 0 0 0 !important;
+  opacity: 0.9;
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+/* 摘要段落间距压缩至 6px */
+.main-inner.index .post-body p {
+  margin-bottom: 6px !important;
+}
+/* 6. 首页“阅读全文”按钮 (位置优化) */
+.main-inner.index .post-button {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  position: absolute;
+/* 紧贴底部 18px */
+  bottom: 18px;
+  right: 35px;
+  z-index: 10;
+  width: auto !important;
+  text-align: right;
+}
+.main-inner.index .btn {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: #3ca5f6 !important;
+  font-size: 13px !important;
+  font-weight: 600;
+  text-decoration: none !important;
+  display: inline-block;
+}
+.main-inner.index .btn::before {
+  content: ">> ";
+  font-family: monospace;
+  margin-right: 2px;
+  transition: margin-right 0.2s;
+}
+.main-inner.index .btn:hover {
+  color: #0056b3 !important;
+}
+.main-inner.index .btn:hover::before {
+  margin-right: 5px;
+}
+/* 
+   -----------------------------------------------------------------
+   第五部分：移动端适配
+   ----------------------------------------------------------------- 
+*/
+@media (max-width: 767px) {
+  .main-inner {
+    width: 100% !important;
+    margin-top: 15px !important;
+  }
+  .main-inner.index::before {
+    display: none !important;
+  }
+  .main-inner.index .post-block {
+    padding: 20px 20px 45px 20px !important;
+    margin-bottom: 15px !important;
+    border-radius: 12px !important; /* 手机端稍小圆角 */
+  }
+  .main-inner.index .post-title {
+    font-size: 19px !important;
+  }
+  .main-inner.index .post-body {
+    font-size: 14px !important;
+    -webkit-line-clamp: 2;
+  }
+  .main-inner.index .post-button {
+    bottom: 15px;
+    right: 20px;
+  }
+  .post-body {
+    text-align: left !important;
+    font-size: 16px !important;
+  }
+  .sidebar {
+    display: none;
+  }
+  .sidebar-inner,
+  .header-inner {
+    padding: 15px !important;
+    width: auto !important;
+    border-radius: 0 !important;
+  }
+}
+/* =================================================================
+   Hexo Calendar 云日历美化 (修复版)
+   ================================================================= */
+/* 针对手动添加的容器 ID */
+#calendar {
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+  margin-top: 0;
+  min-height: 300px; /* 给个最小高度，防止加载慢时看起来塌陷 */
+}
+/* 列表美化 */
+.calendar-post {
+  text-decoration: none !important;
+  display: block;
+  padding: 8px 0;
+  border-bottom: 1px dashed #eee;
+  transition: all 0.2s;
+  font-size: 15px;
+  color: #333;
+}
+.calendar-post:hover {
+  color: #3ca5f6;
+  padding-left: 5px;
+}
+/* 日期文字 */
+.calendar-post .date {
+  font-family: monospace;
+  color: #999;
+  margin-right: 10px;
+  font-size: 0.9em;
+}
+/* 隐藏插件可能自带的丑标题 */
+.calendar-title {
+  display: none !important;
+}
+/* 移动端适配 */
+@media (max-width: 767px) {
+  #calendar {
+    padding: 20px;
+  }
+  #calendar-graph {
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
 }
